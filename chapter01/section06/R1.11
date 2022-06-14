@@ -1,0 +1,9 @@
+review question 11 page 1 Big Java
+
+How do you discover syntax errors? How do you discover logic errors?
+
+You discover syntax errors when you compile your program: 
+the compiler finds the errors in the program you've written according to the rules of the language it's written in and refuses to translate your instructions to machine code.
+If the compiler finds as error it will not simply give up translation. It will try to report as many errors as it can find, so you can fix them all at once.
+
+You discover logic errors when you run your program and find that the behaviour of your program, or the output of your program, is not what you expected. Your program is syntactically correct according to the rules of the language it's written in, so it compiles correctly and runs. But by running your program and testing it you find that something doesn't work as expected or causes your program to break, or fail. This is known as a run-time error because it occurs when the program is running.
