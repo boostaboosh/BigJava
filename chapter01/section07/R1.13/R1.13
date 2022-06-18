@@ -1,0 +1,137 @@
+review question R1.13
+
+Write an algorithm to settle the following question: A bank account starts out with
+$10,000. Interest is compounded monthly at 6 percent per year (0.5 percent per
+month). Every month, $500 is withdrawn to meet college expenses. After how many
+years is the account depleted?
+
+step 1
+determine the inputs and outputs
+
+inputs:
+starting balance
+annual interest
+monthly interest
+monthly expenses
+
+outputs
+After how many years is the account depleted, i.e., when is the balance = 0.
+
+step 2
+break down the problem into smaller tasks
+
+Every month the balance changes. It loses the monthly expenses first of all. Then is gains the monthly interest rate.
+balance = balance - monthly expenses
+balance = balance * monthly interest
+
+The algorithm will return the number of years that pass before the balance equals zero.
+
+step 3
+describe each subtask in pseudocode
+
+	balance = starting balance
+	monthly interest = annual interest / 12
+	month = 0
+
+	while the balance is more than 0
+		add 1 to month
+		remove monthly expenses from the balance
+		set the monthly interest to monthly interest rate * balance
+		add monthly interest to balance
+	yearsPassed = number of months that have passed * 12
+	Report number of years that have passed now that the balance is less than or equal to zero.
+
+step 4
+test your pseudocode by working a problem
+
+sample values of inputs:
+starting balance 10000
+annual interest rate 6%
+monthly interest rate 0.5%
+monthly expenses $500
+
+Here is the calculation for number of months that will pass before the balance equals zero:
+	balance = 10000
+	month = 0
+	
+	while month balance is more than 0
+		month = 1
+		balance = balance - monthly expenses = 10000 - 500 = 9500
+		monthly interest = monthly interest rate * balance = 0.05 * 9500 = 475
+		balance = balance + monthly interest = 9500 + 475 = 9975
+		
+		month = 2
+		balance = 9975 - 500 = 9475
+		monthly interest = 0.05 * 9475 = 473.75
+		balance = 9475 + 473.75 = 9948.75
+		
+		month = 3
+		balance = 9948.75 - 500 = 9448.75
+		monthly interest = 0.05 * 9448.75 = 472.4375
+		balance = 9448.75 + 472.4375 = 9921.1875
+		
+		...
+		
+		After 4 months the balance is 9892.247
+		After 5 months the balance is 9861.859
+		After 6 months the balance is 9829.952
+		After 7 months the balance is 9796.45
+		After 8 months the balance is 9761.272
+		After 9 months the balance is 9724.336
+		After 10 months the balance is 9685.553
+		After 11 months the balance is 9644.83
+		After 12 months the balance is 9602.071
+		After 13 months the balance is 9557.175
+		After 14 months the balance is 9510.033
+		After 15 months the balance is 9460.535
+		After 16 months the balance is 9408.562
+		After 17 months the balance is 9353.989
+		After 18 months the balance is 9296.688
+		After 19 months the balance is 9236.522
+		After 20 months the balance is 9173.349
+		After 21 months the balance is 9107.016
+		After 22 months the balance is 9037.366
+		After 23 months the balance is 8964.234
+		After 24 months the balance is 8887.446
+		After 25 months the balance is 8806.818
+		After 26 months the balance is 8722.159
+		After 27 months the balance is 8633.268
+		After 28 months the balance is 8539.931
+		After 29 months the balance is 8441.927
+		After 30 months the balance is 8339.023
+		After 31 months the balance is 8230.975
+		After 32 months the balance is 8117.5234
+		After 33 months the balance is 7998.3994
+		After 34 months the balance is 7873.3193
+		After 35 months the balance is 7741.9854
+		After 36 months the balance is 7604.0845
+		After 37 months the balance is 7459.2886
+		After 38 months the balance is 7307.253
+		After 39 months the balance is 7147.6157
+		After 40 months the balance is 6979.9966
+		After 41 months the balance is 6803.9966
+		After 42 months the balance is 6619.1963
+		After 43 months the balance is 6425.1562
+		After 44 months the balance is 6221.414
+		After 45 months the balance is 6007.485
+		After 46 months the balance is 5782.859
+		After 47 months the balance is 5547.002
+		After 48 months the balance is 5299.352
+		After 49 months the balance is 5039.32
+		After 50 months the balance is 4766.2856
+		After 51 months the balance is 4479.6
+		After 52 months the balance is 4178.58
+		After 53 months the balance is 3862.509
+		After 54 months the balance is 3530.6345
+		After 55 months the balance is 3182.1663
+		After 56 months the balance is 2816.2747
+		After 57 months the balance is 2432.0884
+		After 58 months the balance is 2028.6927
+		After 59 months the balance is 1605.1274
+		After 60 months the balance is 1160.3838
+		After 61 months the balance is 693.40295
+		After 62 months the balance is 203.0731
+		
+		After 63 months the balance is -311.77322(203.0731 - 500 = -296.9269 before interest)
+		
+		Number of months that passed before balance reached zero: 63
