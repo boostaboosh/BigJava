@@ -1,0 +1,76 @@
+review question R1.14 page 2
+
+
+••• R1.14 
+Consider the question in Exercise •• R1.13:
+
+	Write an algorithm to settle the following question: A bank account starts out with
+	$10,000. Interest is compounded monthly at 6 percent per year (0.5 percent per
+	month). Every month, $500 is withdrawn to meet college expenses. After how many
+	years is the account depleted?
+	
+Suppose the numbers ($10,000, 6 percent, $500) were user selectable. 
+Are there values for which the algorithm you developed would not terminate? 
+If so, change the algorithm to make sure it always terminates.
+
+The algorithm I developed: 
+	set balance to equal starting balance
+	set monthly interest to annual interest / 12
+	set month to 0
+
+	while the balance is more than 0
+		add 1 to month
+		remove monthly expenses from the balance
+		set the monthly interest to monthly interest rate * balance
+		add monthly interest to balance
+	yearsPassed = number of months that have passed * 12
+	Report number of years that have passed now that the balance is less than or equal to zero.
+	
+In question 13 there are 3 inputs:
+1) The starting balance inside the bank account
+2) The monthly interest of the bank account
+3) The monthly expenses
+
+The algorithm returns the number of years that pass before the balance is equal to zero.
+Each month the expenses are removed from the balance.
+Then the interest is calculated by multiplying the remaining balance by the interest rate.
+The interest is then added to the balance.
+
+If the interest is greater or equal to the monthly expenses then then the balance inside the bank account will never equal zero.
+
+In question 13 the provided inputs were such that the expenses were greater than the interest.
+
+If the inputs are user selectable like in question 14 we have to change the algorithm so that it is terminating.
+
+This is because an algorithm is a sequence of steps that solve a problem.
+For a sequence of steps to actually provide a solution to a problem it must meet 3 criteria, it has to be:
+1- unambiguous, 
+2- executable, 
+3- and terminating.
+
+For an algorithm to be unambiguous it must be clear what to do at each of its steps, and it must be clear what step to do next.
+
+For an algorithm to be executable, each of its steps must be able to be carried out in practice.
+I.e., it can't have a step that cannot be done/is impossible to do, for example if I give you directions to the supermarket and say fly up in the sky and use your sense of tesco to smell the closest supermarket that is an unexecutable step because you can't do that.
+
+For an algorithm to be terminating its sequence of steps must eventually come to an end. A program that keeps working without delivering an answer is not useful.
+
+So, to ensure that the algorithm from question 13 works even with user selected inputs we must ensure that the monthly interest is less than the monthly expenses.
+Here is the new algorithm for question 14 that does so:
+	
+	set monthly interest rate to annual interest rate/12
+	set month to zero
+	
+	subtract monthly expenses from starting balance
+	set monthly interest to monthly interest rate times balance
+	if monthly interest > monthly expenses
+	        Report that the balance of the bank account is never depleted
+	otherwise
+	set month to 1
+	while balance is greater than zero
+	        subtract monthly expenses from balance
+	        set monthly interest to monthly interest rate times balance
+	        add monthly interest to balance
+	        add one to the month
+	set years passed to the number of months divided by 12
+	Report the number of years that passed before the balance reached zero
