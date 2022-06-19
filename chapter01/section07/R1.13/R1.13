@@ -29,9 +29,9 @@ The algorithm will return the number of years that pass before the balance equal
 step 3
 describe each subtask in pseudocode
 
-	balance = starting balance
-	monthly interest = annual interest / 12
-	month = 0
+	set balance to equal starting balance
+	set monthly interest to annual interest / 12
+	set month to 0
 
 	while the balance is more than 0
 		add 1 to month
