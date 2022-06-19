@@ -1,0 +1,24 @@
+R1.16
+
+In How To 1.1, you made assumptions about the price of gas and annual usage to
+compare cars. Ideally, you would like to know which car is the better deal without
+making these assumptions. Why can’t a computer program solve that problem?
+
+HOW TO 1.1
+Describing an Algorithm with Pseudocode
+	This is the first of many “How To” sections in this book that give you step-by-step proce-
+	dures for carrying out important tasks in developing computer programs.
+	Before you are ready to write a program in Java, you need to develop an algorithm—a
+	method for arriving at a solution for a particular problem. Describe the algorithm in pseudo-
+	code—a sequence of precise steps formulated in English. To illustrate, we’ll devise an algo-
+	rithm for this problem:
+	Problem Statement 
+		You have the choice of buying one
+		of two cars. One is more fuel efficient than the other, but also
+		more expensive. You know the price and fuel efficiency (in miles
+		per gallon, mpg) of both cars. You plan to keep the car for ten
+		years. Assume a price of $4 per gallon of gas and usage of 15,000
+		miles per year. You will pay cash for the car and not worry about
+		financing costs. Which car is the better deal?
+		
+We can't formulate an algorithm, i.e., a series of steps or instructions to follow in order to accomplish a certain task, without assuming the price of gas and the miles driven in the years to come because these values are unknown to the computer. There is no way for anyone to know the price of gas in the future. Therefore steps or instructions involving these unknown values are unexecutable.
