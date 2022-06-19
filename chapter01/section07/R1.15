@@ -1,0 +1,76 @@
+Review question R1.15
+
+In order to estimate the cost of painting a house, a painter needs to know the surface
+area of the exterior. Develop an algorithm for computing that value. Your inputs are
+the width, length, and height of the house, the number of windows and doors, and
+their dimensions. (Assume the windows and doors have a uniform size.)
+
+step 1 
+	understand the problem
+	
+		A painter needs to know the surface area of a house so he can estimate the cost of painting it.
+	
+step 2 
+	develop and describe an algorithm (a sequence of steps that solve a problem when executed):
+
+		step 1
+			determine the inputs and outputs
+		
+				inputs:
+					width of the house
+					height of the house
+					length of the house
+					number of windows
+					number of doors
+					size of windows
+					size of doors
+
+				outputs:
+					surface area of exterior
+
+		step 2
+			break the problem down into smaller problems
+				
+				We can determine the surface area of the exterior of a house using the house's measurements:
+					The perimeter of the house is equal to the sum of its edges, i.e. the width of the house multiplied by two added to the length of the house multiplied by two
+					The surface area of the exterior is equal to the perimeter of the house times the height of the house
+					
+				We can determine the surface area of the windows and doors using their quantity and measurements:
+					the surface area of the windows is equal to the number of windows multiplied by the size of the windows
+					the surface area of the doors is equal to the number of doors times the size of the doors
+					the surface area of the windows and doors is equal to the surface area of the windows added to the surface area of the doors
+					
+				We can determine the paintable surface area of the house by subtracting the surface area of the windows and doors from the surface area of the exterior of the house
+					the paintable surface area of the house is equal to surface area of the exterior subtracted by the surface area of the windows and doors
+		
+		step 3
+			describe each subtask in pseudocode
+				set perimeter of house to width of house multiplied by two added to the length of the house multiplied by two
+				set surface area of the exterior of the house to the perimeter of the house times the height of the house
+				set surface area of the windows to equal the number of windows multiplied by the size of the windows
+				set the surface area of the doors to equal the number of doors multiplied by the size of the doors
+				set the surface area of the doors and windows to equal the surface area of the windows added to the surface area of the doors
+				set the paintable surface area of the house to equal the surface area of the exterior subtracted by the surface area of the windows and doors
+				
+
+step 3
+	test the algorithm with simple inputs
+	
+		step 4
+			test your pseudocode by working a problem
+			
+			inputs: length 10m, width 10m, height 15m, windows 2, doors 1, window size 1 m**2, door size 2 m**2
+			
+			house perimeter = 10 * 2 + 10 * 2 = 40
+			house exterior surface area = house perimeter * height = 40 * 15 = 600
+			surface area of windows = 2 * 1 = 2
+			surface area of doors = 1 * 2 = 2
+			surface area of windows and doors = 2 + 2 = 4
+			paintable surface area of house exterior = house exterior surface area subtracted by surface area of windows and doors
+			Report paintable surface area of house exterior
+	
+step 5
+	translate the algorithm into Java
+
+step 6
+	compile and test your program
