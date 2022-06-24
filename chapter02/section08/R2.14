@@ -1,0 +1,4 @@
+R2.14 Explain the difference between an object and an object variable.
+
+An object is a complex data item whose behaviour is described in the class it belongs to in the form of methods.
+An object variable is a variable whose type is the name of a class and which stores a reference to an object of that class, i.e., the memory location of an object, but not an actual object.
