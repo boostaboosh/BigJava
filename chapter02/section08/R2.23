@@ -1,0 +1,4 @@
+R2.23 Explain the difference between an object and an object reference.
+
+An object is a complex data item that you can use by callings its methods, i.e. a sequence of instructions that accesses the data of an object. An object belongs to a class which describes a collection of objects with the same behaviour, i.e., methods.
+An object reference is a location in memory where an object is stored. Object references are memory locations. Object references are a type of value which can be stored in object variables.
