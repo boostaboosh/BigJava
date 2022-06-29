@@ -1,0 +1,7 @@
+Graphics R2.29 How do you specify a text color?
+
+
+You specify a text color by changing the color of the of the Graphics2D object you're using to draw shapes and strings.
+After you've specified the color of the Graphics2D object which stores a graphics state (color, font, etc.) that you want to color text with, you can draw a string with the drawString method of the Graphics2D class.
+This is done with the setColor(color) method of the graphics2D class which receives an object of type Color as its argument.
+Objects of type color use the RGB color model, which specifies a color by the amount of primary colors (red, green, blue) that they contain. The amounts given are integers between 0 and 255 (maximum amount present).
