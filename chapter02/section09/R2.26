@@ -1,0 +1,8 @@
+Graphics R2.26 
+Why does the argument of the paintComponent method have type Graphics and not Graphics2D ?
+
+The paintComponent method of the JComponent class receives a Graphics object as its argument.
+The Graphics objects stores the graphics state: the current color, font, and so on.
+When Java application programmers clamored for a more object-oriented approach the Java system programmers created the Graphics2D class, which extends the Graphics class.
+When the Swing toolkit calls the paintComponent method, it actually passes an object of type Graphics2D as the argument.
+Because we want to use the more sophisticated methods to draw two-dimensional graphics objects we need to use the Graphics2D class. This is accomplished by using a cast.
