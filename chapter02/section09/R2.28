@@ -1,0 +1,13 @@
+Graphics R2.28 Why are separate viewer and component classes used for graphical programs?
+
+
+This is because frames: windows with a title bar, are objects that belong to the JFrame class of the javax.swing package in the Java library, and frames cannot be drawn on directly.
+
+Instead drawing happens in a component object which belongs to the JComponent class.
+
+By default the JComponent class represents a blank component. To paint a component a programmer must modify the JComponent class and specify how an object of the component class should be painted.
+
+This means that graphical programs will have a component class that extends the javax.swing package JComponent class and edits the paintComponent method. This is the component class.
+Furthermore graphical programs will have a viewer class that creates a frame object and adds a component object to it.
+
+A seperate viewer and component class are used for graphical programs because displaying drawings inside a window requires a programmer create a window in one class, and to edit the paintComponent method of the JComponent class and add drawing instructions to it that replace the default blank component in another class.
