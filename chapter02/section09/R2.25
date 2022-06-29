@@ -1,0 +1,8 @@
+Graphics R2.25 
+Who calls the paintComponent method of a component? 
+When does the call to the paintComponent method occur?
+
+
+The paintComponent method is not invoked on a component object explicitly using a statement that executes a method call. Instead it is called automatically.
+
+The paintComponent method of a component is called when a component is shown for the first time, when the window is resized, or when the window is made visible after not having been visible.

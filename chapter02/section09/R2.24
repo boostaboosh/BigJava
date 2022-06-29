@@ -1,0 +1,5 @@
+• Graphics R2.24 What is the difference between a console application and a graphical application?
+
+Applications are programs. 
+A graphical applcation displays information and drawings inside of a frame: a window with a title bar.
+A console application does not display information and drawings inside of a window, instead the user interacts with a console application by typing words in the console.
