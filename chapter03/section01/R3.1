@@ -1,0 +1,33 @@
+R3.1 It is possible to replace an old-fashioned thermostat with a device that can be con-
+trolled through a smart phone, without making any other changes to the heating
+system. Explain this by using the terms “interface”, “encapsulation”, and “imple-
+mentation”.
+
+A thermostat is a device that regulates the temperature of a heating system.
+
+An old fashioned manual thermostat can be replaced with a device that is controlled through a smart phone without making any other changes to the heating system regulated by said thermostat.
+
+A thermostat is what engineers call a "black box": a device with hidden internal workings that does something.
+
+Two different thermostats are like two different objects of the thermostat class in Java.
+
+A thermostat's implementation, i.e., inner workings that interact with the heating system and change the temperature, are unknown to the contractor that installs it. It contains electronic parts that can only be serviced at the factory.
+
+But the thermostat's interface, i.e., ways in which the thermostats internal workings are manipulated, is well defined.
+The contractor understands that the thermostat must be connected with the furnace and air conditioner. 
+
+The act of hiding the implementation details, i.e., inner workings, of an object while providing methods for data access, i.e., ways of interacting with the objects internal information, is called encapsulation.
+
+Both the old fashioned thermostat and the new smart phone controlled one use encapsulation to hide their internal workings from the builder. 
+Either can be used with the same heating system because their interfaces for interacting heating systems is well defined and understood by the builder.
+
+The benefit of using prefabricated components such as thermostats and furnaces is that these "black boxes", i.e., devices with hidden internal workings, simplify the work of the contractor.
+Without them builders needed to know how to construct furnaces from brick and mortar, and how to produce rudementary temperature controls.
+Nowadays, a contractor just makes a trip to the hardware store, without needing to know what goes on inside the components.
+
+Similarly a programmer using a class is not burdened by unnecessary detail. They can use strings, streams, and windows without worrying about how these classes are implemented.
+
+Encapsulation also helps with diagnosing errors.
+A program may consist of hundreds of classes and methods, but if there is an error with the internal data of an object, you only need to look at the methods of one class.
+
+Finally encapsulation makes it possible to change the implementation of a class without having to tell the programmers who use the class.
