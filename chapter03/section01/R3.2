@@ -1,0 +1,48 @@
+What is the public interface of the Counter class in Section 3.1? How does it differ
+from the implementation of the class?
+
+	/**
+	This class models a tally counter.
+	*/
+	public class Counter
+	{
+		private int value;
+		
+		/**
+		Gets the current value of this counter.
+		@return the current value
+		*/
+		public int getValue()
+		{
+			return value;
+		}
+		
+		/**
+		Advances the value of this counter by 1.
+		*/
+		public void click()
+		{
+			value = value + 1;
+		}
+		
+		/**
+		Resets the value of this counter to 0.
+		*/
+		public void reset()
+		{
+			value = 0;
+		}
+	}
+
+The public interface of the Counter class in section 3 is the description of what counter objects can do and how to create them, i.e., the public constructors and methods of a class.
+
+In the case of the Counter class, Counter objects can:
+
+ - get their current value with the getValue method which takes no arguments and returns an integer,
+ - advance their value by 1 with the click method which takes no arguments and returns nothing,
+ - reset their value to zero with the reset method which takes no arguments and returns nothing.
+
+The Counter class has no public constructor so programmers can create Counter objects wihtout supplying constructor arguments and the Java Virtual Machine will use a default constructor to construct Counter objects whose instance variables will have default initial values, zero in the case of integer variables.
+
+The public interface differs from the implementation of the class. 
+The implementation of a class is the hidden part of an object's inner workings, i.e., the instructions inside the methods and constructors, and the instance variables that store object information.
