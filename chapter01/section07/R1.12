@@ -29,18 +29,18 @@ To know whether a deal is good or not we need to see if the relativeValueOfFreeM
 		goodDeal = true
 
 Step 3) Describe each subtask in pseudocode
-Here is the algorithm for deciding if the caffeteria offer is a good deal or not:
+Here is the algorithm for deciding if the cafeteria offer is a good deal or not:
 
 costToQualifyForFreeMeal = regularMealCost * numberOfMealsToQualifyForDiscount
 relativeValueOfFreeMeal = freeMealValue / costToQualifyForFreeMeal
 if relativeValueOfGoodDeal <= relativeValueOfFreeMeal
-	Report good caffeteria deal
+	Report good cafeteria deal
 else
-	Report bad caffeteria deal
+	Report bad cafeteria deal
 	
 Step 4) Test your pseudocode by working the problem
 deal: freeMealValue: 10, regularMealCost: 12, numberOfMealsToQualifyForDiscount: 8, relativeValueOfGoodDeal: 0.25
 
 costToQualifyForFreeMeal = regularMealCost * numberOfMealsToQualifyForDiscount = 12 * 8 = 96
 relativeValueOfFreeMeal = freeMealValue / costToQualifyForFreeMeal = 10 / 96 = 0.1
-relativeValueOfFreeMeal is 0.1, which is less than 0.25, so the output of the algorithm is to report a bad caffeteria deal.
+relativeValueOfFreeMeal is 0.1, which is less than 0.25, so the output of the algorithm is to report a bad cafeteria deal.
