@@ -1,0 +1,76 @@
+How to implement a class from a given specification
+
+Given specification, i.e., problem statement:
+	Implement a class that models a self-service cash register.
+	The customer scans the price tags and deposits money in the 
+	machine.
+	The machine dispenses the change.
+
+Step 1 - find out which methods you are asked to supply
+	Make a list of them
+		- process the price of each purchased item
+		- receive payment
+		- calculate the amount of change due to the customer
+
+Step 2 - specify the public interface
+	Turn the list from step 1 into a set of methods, with specific types 
+	for the parameter variables and the return values.
+	This step is often simpler if you write out method calls that are
+	applied to a sample object, like this:
+		CashRegister register = new CashRegister();
+		register.recordPurchase(29.95);
+		register.recordPurchase(9.95);
+		register.receivePayment(50);
+		double change = register.giveChange();
+	Now we have a specific list of methods:
+		public void recordPurchase(double amount)
+		public void receivePayment(double amount)
+		public double giveChange()
+
+	To complete the public interface, you need to specify the 
+	constructors. 
+	Ask yourself what information you need in order to 
+	construct an object of your class.
+	Sometimes you will want two constructors: one that sets all instance 
+	variables to a default value and one that sets them to user supplied 	
+	values.
+		In the case of the cash register example, we can get by with
+		a single cash register that creates an empty register.
+		A more realistic cash register might start out with some 
+		coins and bills so that we can give exact change, but that 
+		is beyond the scope of this assignment.
+			Thus, we add a single constructor:
+				public CashRegister()
+
+... move onto Java source file for the CashRegister class...
+
+Step 3 - Document the public interface
+	Use documentation comments.
+
+Step 4 - Determine instance variables
+	Ask yourself what information an object needs to do its job.
+	Remember, methods can be called in any order.
+	An object needs to have enough internal memory to process every
+	method using just its instance variables and parameter variables.
+	Go through each method, ask yourself what you need to carry out the
+	method's task.
+	Make instance variables to store the information that the method
+	needs.
+	Importantly, don't introduce unnecessary instance variables. If a 
+	value can be computed from other instance variables, it is generally 
+	better to compute it on demand that to store it.
+		In the cash register example you need to keep track of the	
+		total purchase amount and the payment. 
+		You can compute the change due from these two amounts.
+
+Step 5 - Implement constructors and methods
+	Implement the constructors and methods of your class one at a time 
+	starting with the easiest ones.
+	If you find that you have trouble with your implementation, you may
+	need to rethink your choice of instance variables.
+	Don't hesitate to go back and add or modify instance variables.
+
+Step 6 - Test your class
+	Write a short tester program and execute it.
+	The program should carry out the method calls that you found in step
+	2.
