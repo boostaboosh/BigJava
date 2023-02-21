@@ -1,0 +1,14 @@
+Suppose the implementor of the Time class of Exercise •• R3.6 changes from one
+implementation strategy to another, keeping the public interface unchanged. What
+do the programmers who use the Time class need to do?
+
+The application programmers who use the Time class do not need to do anything if 
+the system programmers of the Time class change the implementation of the Time 
+class and keep the public interface unchanged.
+This is because the behaviour of Time objects remains the same if the public 
+interface of the class remains the same.
+This is one of the benefits of encapsulation, i.e., information hiding. 
+In Java the class construct provides encapsulation.
+System programmers can modify how an object works under the hood without users 
+of the object having to know or make changes to their program that uses said 
+object if the interface of the object remains the same.

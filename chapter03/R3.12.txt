@@ -1,0 +1,16 @@
+What is the this reference? Why would you use it?
+
+In Java the this reference refers to the implicit parameter of a method, i.e., the object
+on which a method was invoked.
+
+One way I would use it is inside a constructor or method body where one of the parameters has 
+the same name as one of the classes instance variables. 
+This way I can specify that the variable I am referring to is the instance variable of the 
+object on which the method is being invoked (known as the implicit parameter). Otherwise
+A parameter variable will shadow an object's instance variable and impede me from referring to
+it.
+Additionally, the this reference makes program instructions more readable and removes the 
+ambiguity from using a name which belongs to both a parameter variable and an instance variable.
+The this reference also makes a program more readable if I'm invoking a method from inside a 
+method because it makes it clear that I am invoking the method on this, i.e., the object that 
+invoked the outer method (the implicit parameter).
