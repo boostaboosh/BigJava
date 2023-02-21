@@ -1,0 +1,6 @@
+Which of the methods in the CashRegister class of How To 3.1 are accessor methods?
+Which are mutator methods?
+
+All three of the methods of the CashRegister class of How To 3.1 are mutator methods because
+they all modify the internal data of the CashRegister object on which they are invoked. An 
+accessor method does not change the internal data of an object on which it is invoked.

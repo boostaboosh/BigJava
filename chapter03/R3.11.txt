@@ -1,0 +1,15 @@
+What happens in our implementation of the BankAccount class when more money is
+withdrawn from the account than the current balance?
+
+35 /**
+36 Withdraws money from the bank account.
+37 @param amount the amount to withdraw
+38 */
+39 public void withdraw(double amount)
+40 {
+41 balance = balance - amount;
+42 }
+43
+
+In our implementation of the BankAccount class when more money is withdrawn from the account 
+than the current balance of the bank account, the balance instance variable of the implicit parameter (the bank account object on which the withdraw method is invoked) becomes negative.

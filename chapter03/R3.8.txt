@@ -1,0 +1,10 @@
+You can read the value instance variable of the Counter class with the getValue accessor
+method. Should there be a setValue mutator method to change it? Explain why or
+why not.
+
+There should not be a SetValue mutator method to change the value of counter objects
+because there is already a mutator method which increases the value of counter objects 
+by one. Therefore, I do not want to provide an additional method for changing a counter object's 
+value instance variable because it is not necessary, and it adds functionality to counter
+objects which counters should not have, i.e., being able to set their value to any number with
+one action.
