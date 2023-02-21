@@ -1,0 +1,25 @@
+What does the following method do? Give an example of how you can call the
+method.
+public class BankAccount
+{
+ public void mystery(BankAccount that, double amount)
+ {
+ this.balance = this.balance - amount;
+ that.balance = that.balance + amount;
+ }
+ . . . // Other bank account methods
+}
+
+The mystery method takes two arguments: a BankAccount object and a value of type double.
+The mystery method executes two instructions.
+The mystery method has three parameters: the implicit parameter which is the BankAccount object
+on which it is invoked and the that and amount parameters.
+First, it sets the balance instance variable of the object on which it was invoked to the 
+value of the balance instance variable minus the amount passed to the amount parameter.
+Second, it sets the balance instance variable of the implicit parameter to the value of the 
+balance instance variable plus the value of the amount parameter.
+In other words, the mystery method subtracts and then adds the same amount from and to the bank
+account object on which it is invoked, thereby not changing the value of the balance instance
+variable of the implicit parameter after the method is executed compared to before it was 
+executed.
+Basically, it has no meaningful effect on the bank account object on which it is invoked. 

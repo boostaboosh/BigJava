@@ -1,0 +1,13 @@
+Consider a class Time that represents a point in time, such as 9 a.m. or 3:30 p.m.
+Give two different sets of instance variables that can be used for implementing the
+Time class.
+
+1st set of instance variables:
+	public int hours;
+	public int minutes;
+
+2nd set of instance variables:
+	public double time;
+
+3rd set of instance variables:
+	public String time;

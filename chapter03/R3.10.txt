@@ -1,0 +1,5 @@
+Why does the BankAccount class not have a reset method?
+
+Because the purpose of the BankAccount class is to describe a bank account that has a balance
+which can be changed by deposits and withdrawals. It does not require bank accounts to be able
+to have their balance reset to zero.
