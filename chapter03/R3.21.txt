@@ -1,0 +1,18 @@
+Using the object tracing technique described in Section 3.5, trace the program in
+How To 3.1.
+
+Object tracing card for CashRegister object
+
+Front:
+CashRegister register
+recordPurchase
+receivePayment
+giveChange
+
+Back:
+purchase	payment
+0		0
+29.50		0
+38.75		0
+38.75		50
+0		0

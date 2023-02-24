@@ -1,0 +1,46 @@
+Consider the following implementation of a class Square:
+public class Square
+{
+ private int sideLength;
+ private int area; // Not a good idea
+ public Square(int length)
+ {
+ sideLength = length;
+ }
+ public int getArea()
+ {
+ area = sideLength * sideLength;
+ return area;
+ }
+}
+Why is it not a good idea to introduce an instance variable for the area? Rewrite the
+class so that area is a local variable.
+
+It is not a good idea to introduce an instance variable for the area because its value can be
+computed from the other instance variables of the Square class, noticeably, the sideLength 
+variable.
+Variable whose value does not need to be remembered when a method has completed execution should
+be local variables and not instance variables.
+Therefore, the area instance variable is an unnecessary instance variable.
+This is a problem because it can lead to confusion seeing as methods other than getArea() can 
+read and write to the area instance variable even though they do not need to.
+A common beginner's mistake is to use instance variables when local variables would be more appropriate. 
+A programmer should use instance variables for values that an object needs to remember between method calls.
+Variables whose value does not need to be remembered when a method has completed should be local
+variables to the methods that need them.
+
+Rewritten square class so that area is a local variable:
+
+public class Square
+{
+ private int sideLength;
+ public Square(int length)
+ {
+ sideLength = length;
+ }
+ public int getArea()
+ {
+ int area = sideLength * sideLength;
+ return area;
+ }
+}
