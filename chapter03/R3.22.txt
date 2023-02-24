@@ -1,0 +1,29 @@
+Using the object tracing technique described in Section 3.5, trace the program in
+Worked Example 3.1.
+
+1  public class MenuDemo
+2  {
+3   public static void main(String[] args)
+4   {
+5    Menu mainMenu = new Menu();
+6    mainMenu.addOption("Open new account");
+7    mainMenu.addOption("Log into existing account");
+8    mainMenu.addOption("Help");
+9    mainMenu.addOption("Quit");
+10   mainMenu.display();
+11  }
+12 }
+
+Object tracing for Menu object
+
+Front (public interface):
+addOption
+display
+
+Back (hidden instance variables):
+optionCount		menuText		
+0			""
+1			"1) Open new account\n"
+2			"1) Open new account\n2) Log into existing account\n"
+3			"1) Open new account\n2) Log into existing account\n3) Help\n"
+4			"1) Open new account\n2) Log into existing account\n3) Help\n4) Quit\n"
