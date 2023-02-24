@@ -1,0 +1,35 @@
+Consider the following implementation of a class Square:
+public class Square
+{
+ private int sideLength;
+ private int area;
+ public Square(int initialLength)
+ {
+ sideLength = initialLength;
+ area = sideLength * sideLength;
+ }
+ public int getArea() { return area; }
+ public void grow() { sideLength = 2 * sideLength; }
+}
+What error does this class have? How would you fix it?
+
+The error this class has is the declaration of the instance variable area which should have been
+a local variable to the getArea() method of the Square class.
+This is an error because the value of the area of a square can be computed using the 
+sideLength instance variable and the area is not a value that square objects need to store in
+between method calls. Instead it can be computed by the getArea() method when said method is 
+Invoked on a square object.
+This leads to another error in this Square class: when a square object grows by having the 
+grow() method invoked on it, the square object's sideLength is increased, but the area of the 
+square is not updated. So, if the getArea method is called after the grow method is called the 
+returned area value will be incorrect.
+
+There are two options for fixing this. We could add a line of code to the grow method which 
+computes the new value of a square's area after its side length has changed. Or, we could 
+change the area variable from an instance variable to a local variable of the getArea method.
+This way the area of a square is computed every time the getArea method is called and we don't
+have to keep track of its value every time we update the value of a square's sideLength, 
+and vice versa, we don't have to update a square's side length every time we update its area.
+The latter option is the preferred option because it deals with the root cause of the issue, 
+i.e., the mistaken instance variable area which should be a local variable, and therefore fixes
+other issues that may arise from this root error.

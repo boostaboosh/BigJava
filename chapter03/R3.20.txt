@@ -1,0 +1,16 @@
+Using the object tracing technique described in Section 3.5, trace the program at the
+end of Section 3.4.
+
+Card for the BankAccount object:
+
+Front (public interface):
+BankAccount harrysChecking
+deposit
+withdraw
+getBalance
+
+Back (hidden instance variables):
+balance
+0
+2000
+1500
