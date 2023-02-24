@@ -1,0 +1,67 @@
+Practice exercise 13 from chapter 3 notes from the step by 
+step process on how to implement a class from a given 
+specification.
+
+Step 1) find out which methods you are asked to supply
+
+- Drive a car for a certain distance using up fuel in the tank.
+- Return the current amount of gasoline in the fuel tank.
+- Add gasoline to the fuel tank.
+
+Assume that the drive method is never called with a
+distance that consumes more than the available gas.
+
+Step 2) Specify the public interface
+
+Turn the list from step 1 into a set of methods with 
+specific types for the parameter variables and the return
+values.
+This is easier if you write out method calls applied to a
+sample object.
+
+Car ferrariEnzo = new Car(0.34);
+ferrariEnzo.addGas(50);
+ferrariEnzo.drive(100);
+ferrariEnzo.addGas(55);
+ferrariEnzo.drive(25);
+double gasLeft = ferrariEnzo.getGasInTank();
+
+From the sample method calls you can deduct the specific
+list of methods and their Java headers;
+
+public void drive(double distance)
+public double getGasInTank()
+public void addGas(double litresOfGas)
+
+Specify the constructors by asking yourself what
+information you need in order to construct an object of 
+your class.
+Sometimes you will want two constructors: one that sets
+all instance variables to user defined values and one that
+sets all instance variables to default values.
+
+public Car (double fuelEfficiencyInLitresPerKm)
+
+Step 3) Document the public interface
+
+Do this inside the Java program using documentation
+comments.
+
+Step 4) Determine instance variables
+
+Go through each method and ask yourself what you need to carry out the method's task.
+Ask yourself what information an object needs to do its 
+job. Don't introduce unnecessary instance variables. If a
+value can be computed from other instance variables it is
+generally better to compute it on demand.
+Declare the instance variables you need at the start of 
+your objects class's body.
+
+Step 5) Implement constructors and methods
+
+Implement the constructors and methods in your class one
+at a time starting with the easiest ones.
+
+Step 6) Test your class
+
+Write a short tester program and execute it.
