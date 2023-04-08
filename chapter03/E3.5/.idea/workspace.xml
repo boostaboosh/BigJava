@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="df71e8e5-e9eb-48a3-a01f-41ce675dbd64" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Circuit.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/CircuitTester.java" afterDir="false" />
-    </list>
+    <list default="true" id="df71e8e5-e9eb-48a3-a01f-41ce675dbd64" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -54,6 +51,7 @@
       <updated>1680893176942</updated>
       <workItem from="1680893178173" duration="6000" />
       <workItem from="1680893200066" duration="62000" />
+      <workItem from="1680894819462" duration="13000" />
     </task>
     <servers />
   </component>
@@ -70,5 +68,6 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>
