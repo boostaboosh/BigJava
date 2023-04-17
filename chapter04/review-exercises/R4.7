@@ -1,0 +1,23 @@
+Suppose direction is an integer angle between 0 and 359 degrees. You turn by a given
+angle and update the direction as
+direction = (direction + turn) % 360;
+In which situation do you get the wrong result? How can you fix that without using
+the Math.floorMod method described in Special Topic 4.2?
+
+You get the wrong result when the current value of direction + turn is negative because
+the modulus operator returns a value with the same sign as the value to the left of it 
+mod the value to the right of the modulus operator.
+To fix this problem without using the floorMod method of the Math class, which returns a
+value with the same sign as the value to the right of the modulus operator mod the value
+to the right of the modulus operator, we need to make the value returned by the mod 
+operator positive and equal to itself mod the value to the right of the mod operator. We
+can do this by adding the mod value to the value returned by the mod operation enough 
+times for the result of the mod operation to be positive.
+So:
+	direction = (direction + turn) % 360 + 360;
+Now if turn + direction is negative we will still obtain a value which is positive mod 360,
+just like with floorMod.
+This will still work if the absolute value of direction + turn is greater than 360.
+Because the modulus operator and floorMod both always returns values greater than 
+the negative value of the divisor, i.e., the value to the right of the operator.
+So, -715 % 360 will return -45 and not -405.
