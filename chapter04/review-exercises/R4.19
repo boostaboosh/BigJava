@@ -1,0 +1,26 @@
+Write pseudocode for a program that computes the first and last digit of a number.
+For example, if the input is 23456, the program should print 2 and 6. Hint: Use % and
+Math.log10.
+
+Step 1: understand the problem. What are the inputs and outputs?
+
+There is one input: a number which is an integer
+
+There are two outputs:
+1 - the first digit of the input number
+2 - the second digit of the input number
+
+Step 2: work out examples by hand
+
+Example input: 23455
+Output: 2 5
+
+Step 3: write pseudocode for computing the answers
+
+numberOfDigits = round down ( logarithm base 10 of number ) + 1 )
+
+firstDigit = number / (10 ^ (number of digits - 1)) // 10 ^ (numDigits - 1) is the value of the first digit's column because it's a base 10 number
+
+Last digit = number % 10 // the remainder of a number mod 10 is the value of the first last digit, i.e., first column, of a number
+
+Print firstDigit and lastDigit
