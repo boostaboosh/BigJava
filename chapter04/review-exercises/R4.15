@@ -1,0 +1,24 @@
+Explain the differences between 2, 2.0, '2', "2", and "2.0".
+
+In Java every value is either a reference to an object or is one of the 8 primitive types.
+
+2 is a number literal. A number literal is a number which occurs in a Java program as is. 
+It is "literally" a number. 2 has no fractional part and can be of primitive type int, 
+byte, short, or long. 
+
+2.0 is a number literal. It is a floating point number because it has a decimal point. It 
+can be represented by a float or double value of the float and double primitive types.
+
+'2' is a character because it is enclosed in single quotes. A character is a primitive
+type of value of type char which stores values of 2 bytes in size that represent code 
+units in the unicode encoding scheme.
+
+"2" is a String literal value because it is enclosed in double quotes. A String is an 
+object which describes a sequence of characters. For example, words and sentences or any
+other sequence of characters. A String literal is a value which can be stored in a String 
+variable. 
+
+"2.0" is also a String literal value because it is a sequence of characters enclosed by
+double quotes. It can be stored in a String variable.
+
+
