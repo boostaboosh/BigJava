@@ -1,0 +1,32 @@
+Write pseudocode for a program that reads a name (such as Harold James Morgan) and
+then prints a monogram consisting of the initial letters of the first, middle, and last
+name (such as HJM). 
+
+Step 1: understand the problem. What are the inputs and outputs?
+
+There are three inputs:
+1 - the word representing the first name
+2 - the word representing the middle name
+3 - the word representing the last name
+
+The is one output:
+1 - The string consisting of the initial letters of the first, middle, and last names.
+
+Step 2: work out examples by hand
+
+Input: "Jessie James West"
+
+Output: "JJW"
+
+Step 3: write pseudocode for computing the answers
+
+output "Enter a first, middle, and last name"
+firstName = next input word
+middleName = next input word
+lastName = next input word
+
+firstNameInitial = firstName.substring(0,1)
+MiddleNameInitial = middleName.substring(0,1)
+LastNameInitial = lastName.substring(0,1)
+
+Print output = firstInitial + secondInitial + thirdInitial

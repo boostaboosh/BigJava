@@ -1,0 +1,24 @@
+Write pseudocode for a program that reads a word and then prints the first character,
+the last character, and the characters in the middle. For example, if the input is Harry,
+the program prints H y arr.
+
+Step 1 - understand the problem. What are the inputs and outputs?
+
+In this problem there is one input: the word
+And there are 3 outputs:
+1- the first character of the word
+2- the last character of the word
+3- the middle characters of the word
+
+Step 2 - work out examples by hand
+
+For example the input word "Harry" would output "H y arr".
+
+Step 3 - write pseudocode for computing the answers
+
+Given a word = "aRandomWord"
+firstLetter = word.charAt(0)
+lastLetter = word.charAt(wordLength-1)
+middleLetters = word.substring(1, wordLength - 1)
+Output = firstLetter + lastLetter + middleLetters
+Print the output
