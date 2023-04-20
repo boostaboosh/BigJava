@@ -1,0 +1,12 @@
+Explain what each of the following program segments computes.
+
+a. x = 2;
+y = x + x;
+
+b. s = "2";
+t = s + s;
+
+A. Computes the sum of 2 plus 2 and assigns the result, i.e., 4, to the variable y.
+
+B. Computes the concatenation of the String "2" and "2" and assigns the resulting
+String, i.e., "22", to be stored in the variable t.
