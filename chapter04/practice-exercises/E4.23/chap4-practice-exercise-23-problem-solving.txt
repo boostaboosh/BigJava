@@ -1,0 +1,84 @@
+Implement a class Balloon that models a spherical balloon that is being filled with air.
+The constructor constructs an empty balloon. Supply these methods:
+• void addAir(double amount) adds the given amount of air
+• double getVolume() gets the current volume
+• double getSurfaceArea() gets the current surface area
+• double getRadius() gets the current radius
+Supply a BalloonTester class that constructs a balloon, adds 100 cm3 of air, tests the
+three accessor methods, adds another 100 cm3 of air, and tests the accessor methods again.
+
+steps to take to implement a class:
+
+step 1: find out which methods you are asked to supply
+1 - add air to the balloon and inflate it
+2 - get current volume of the balloon
+3 - get current surface area of the balloon
+4 - get current radius of the balloon
+
+step 2: specify the public interface of the class by turning the list of methods into method declarations
+This step is easier if you write out method calls applied to a sample object:
+Balloon balloon = new Balloon();
+balloon.addAir(54.5);
+double vol = balloon.getVolume();
+double surfaceArea = balloon.getSurfaceArea();
+double radius = balloon.getRadius();
+
+public interface
+methods:
+1 - public void addAir(double amount)
+2 - public double getVolume()
+3 - public double getSurfaceArea()
+4 - public double getRadius()
+constructors:
+1 - public Balloon()
+
+step 3: document the public interface with documentation comments that describe the class and its methods
+
+step 4: determine instance variables of the class without introducing unnecessary ones.
+
+step 5: implement constructors and methods
+use problem-solving steps to get from problem statement to pseudocode algorithm for solving the problem
+
+addAir(double amount)
+step 1: understand the problem: what are the inputs and outputs?
+inputs:
+volume of air to add to the spherical balloon
+outputs:
+update the radius of the sphere
+step 2: work out examples by hand
+sphere with r = 5, V = 523.6, S = 314
+add 100 cubic centimetres of volume to the sphere
+new volume = 523.6 + 100 = 623.6 cubic units
+new radius = cube root of ((3 * new volume) / (4 * PI)) // derived from sphere volume formula: V = 4/3 * PI * r^3
+step 3: write pseudocode for computing general instances of the problem based on the method used in the hand worked examples
+oldVolume = (4/3.0) * PI * radius^3
+newVolume = oldVolume + amountToAdd
+newRadius = cubeRoot((3 * newVolume) / (4 * PI))
+
+getVolume
+step 1: understand the problem: what are the inputs and outputs?
+inputs:
+radius
+outputs:
+the volume of the sphere
+step 2: work out examples by hand
+sphere with r = 5:
+volume = (4/3) * PI * radius^3 = 523.6
+step 3: write pseudocode for computing the answer to general instances of the problem based on the method used in the hand worded examples
+volume = (4/3) * PI * radius^3
+
+getSurfaceArea
+step 1: understand the problem: what are the inputs and outputs?
+inputs:
+radius
+outputs:
+the surface area of the sphere
+step 2: work out examples by hand
+sphere with radius = 5
+surface area = 4 * PI * radius^2
+step 3: write pseudocode for computing the answer to general instances of the problem using the method used in the hand worked examples
+surfaceArea = 4 * PI * radius^2
+
+step 6: test your class
+Write a short tester program and execute it.
+Test all the methods and constructors in the public interface specified in step 2.

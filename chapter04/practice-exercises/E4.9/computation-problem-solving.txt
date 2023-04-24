@@ -1,0 +1,50 @@
+problem statement:
+Write a program that asks the user to input
+• The number of gallons of gas in the tank
+• The fuel efficiency in miles per gallon
+• The price of gas per gallon
+Then print the cost per 100 miles and how far the car can go with the gas in the tank.
+
+step 1: understand the problem - what are the inputs and outputs?
+
+inputs:
+1 - the number of gallons of fuel in the car fuel tank
+2 - the fuel efficiency of the car in miles per gallon
+3 - the price of gas per gallon
+
+outputs:
+1 - the cost of driving the car per 100 miles
+2 - how far the car can go with the gas it currently has in its tank
+
+step 2: work out examples by hand
+
+the number of gallons in the car fuel tank: 34
+the fuel efficiency of the car in miles per gallon: 14.2
+the price of gas per gallon: 6.89
+
+the cost of driving the car per 100 miles?
+100 miles / fuel efficiency in miles per gallon = gallons of gas required to drive 100 miles
+gallons of gas for 100 miles * price of gas per gallon = the cost of driving the car per 100 miles
+100 / 14.2 = 7.04 gallons of gas required to drive 100 miles
+7.04 * 6.89 = 48.52 cost in CAD of driving the car 100 miles
+
+how far the car can go with the gas it currently has in its tank?
+gallons of gas in tank * car mpg = miles the car can drive with the fuel currently in its tank
+34 * 14.2 = 482.8
+
+step 3: write pseudocode for computing the answers
+
+input = keyboardInput
+output "Enter gallons of gas currently in tank: "
+gallonsInTank = nextDoubleInInput
+output "Enter car fuel efficiency in MPG: "
+fuelEfficiencyMPG = nextDoubleInput
+output "Enter price of fuel per gallon: "
+pricePerGallon = nextDoubleInput
+
+gallonsPerHundredMiles = 100 / fuelEfficiencyMPG
+costPerHundredMiles = gallonsPerHundredMiles * pricePerGallon
+distanceRemaining = gallonsInTank * fuelEfficiencyMPG
+
+output costPerHundredMiles
+output distanceRemaining
