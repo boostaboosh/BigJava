@@ -1,0 +1,31 @@
+Write a program that reads in an integer and breaks it into a sequence of individual
+digits. For example, the input 16384 is displayed as
+1 6 3 8 4
+You may assume that the input has no more than five digits and is not negative.
+
+step 1: understand the problem - what are the inputs and outputs?
+inputs:
+1 - an integer greater than zero with no more than 5 digits
+outputs:
+1 - the first digit of the input integer
+2 - the other digits of the input integer one at a time
+
+step 2: work out examples by hand
+input: 54739
+output: 5 4 7 3 9
+
+input: 123
+output: 0 0 1 2 3
+
+input: 0
+output: 0 0 0 0 0
+
+step 3: write pseudocode that solves general instances of the problem
+output message telling user to input number between 0 and 99999
+number = keyboard input
+first digit = number / 10000
+second digit = (number / 1000) % 10
+third digit = (number / 100) % 10
+fourth digit = (number / 10) % 10
+fifth digit = number % 10
+output first digit + " " + second digit + " " + third digit + " " + fourth digit + " " + fifth digit
