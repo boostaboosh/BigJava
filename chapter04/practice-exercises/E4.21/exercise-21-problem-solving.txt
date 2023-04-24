@@ -1,0 +1,68 @@
+Implement a class IceCreamCone with methods getSurfaceArea() and getVolume(). In the
+constructor, supply the height and radius of the cone. Be careful when looking up
+the formula for the surface area—you should only include the outside area along the
+side of the cone because the cone has an opening on the top to hold the ice cream.
+
+implementing a class for a given specification
+step 1: find out which methods you are asked to supply
+1 - get surface area
+2 - get volume
+
+step 2: specify the public interface - turn the list from step 1 into method declarations
+This step is simpler if you write out method calls applied to a sample object:
+IceCreamCone cornetto = new IceCreamCone(15, 5.5);
+double cornettoConeSurfaceArea = cornetto.getSurfaceArea();
+double cornettoConeVolume = cornetto.getVolume();
+
+public interface:
+methods:
+public double getSurfaceArea()
+public double getVolume()
+constructor:
+public IceCreamCone(double coneHeight, double coneRadius)
+
+step 3: document the public interface
+Write documentation comments that describe the class and its methods.
+
+step 4: determine instance variables
+Do not introduce unnecessary instance variables.
+If a value can be computed on demand it is best to do so.
+
+step 5: implement constructors and methods
+
+getSurfaceArea method:
+step 1: understand the problem - what are the inputs and outputs
+inputs:
+1 - height
+2 - radius
+outputs:
+1 - curved surface area
+step 2: work out examples by hand
+example 1:
+inputs: height = 15, radius = 2.75
+lateral side length = square root of radius squared + height squared = 15.25
+curved surface area = pi * radius * lateral side length = 3.14 * 2.75 * 15.25 = 131.68375
+step 3: write pseudocode for computing the answers using the method you used for the hand-written examples
+lateral side length = square root of radius squared + height squared
+curved surface area = pi * radius * lateral side length
+return curved surface area
+
+getVolume method:
+step 1: understand the problem - what are the inputs and outputs
+inputs:
+1 - height
+2 - radius
+outputs:
+1 - cone volume
+step 2: work out examples by hand
+example 1:
+inputs: height = 15, radius = 2.75
+step 2: work out examples by hand
+cone volume = (pi * radius squared * height) / 3.0 = 118.73125
+step 3: write pseudocode for computing the answers using the method used for the hand-written examples
+cone volume = (pi * radius squared * height) / 3.0
+return cone volume
+
+step 7: test your class
+Write a short tester program and execute it.
+The program should carry out the method calls that you found in step 2.
