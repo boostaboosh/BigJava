@@ -1,0 +1,48 @@
+Write a program that helps a person decide whether to buy a hybrid car. Your
+pro gram’s inputs should be:
+• The cost of a new car
+• The estimated miles driven per year
+• The estimated gas price
+• The efficiency in miles per gallon
+• The estimated resale value after 5 years
+Compute the total cost of owning the car for
+five years. (For simplicity, we will not take the
+cost of financing into account.) Obtain
+realistic prices for a new and used hybrid
+and a comparable car from the Web. Run your
+program twice, using today’s gas price and
+15,000 miles per year. Include pseudocode
+and the program runs with your assignment.
+
+step 1: understand the problem - what are the inputs and outputs?
+inputs:
+1 - the cost of a new car
+2 - the estimated miles driven per year
+3 - the estimated gas price
+4 - the efficiency in miles per gallon
+5 - the estimated resale value after 5 years
+outputs:
+1 - cost of owning the car for 5 years
+
+step 2: work out examples by hand
+hybrid car: Toyota Prius 2022, cost: 25000, MPG: 50.3, depreciation after 5 years 17% so resale value 20750
+gallons of fuel used in 1 year = estimated miles driven per year / car MPG = 12785 (median miles driven us 2022) / 50.3 = 254.175
+cost of fuel for 1 year = gallons of fuel used in 1 year * the estimated gas price = 254.175 * 3.5 = 889.612
+cost of fuel for 5 years = cost of fuel for one year * 5 = 889.612 * 5 = 4448.062
+cost of owning car for 5 years = cost of new car + cost of fuel for 5 years - resale value after 5 years = 25000 + 4448.062 - 20750 = 8698.062
+
+gas car: Chevrolet Spark 2022, cost: 14595 usd, MPG: 35.7, depreciation after 5 years 31% so resale value 10070.55
+cost of owning car for 5 years as computed by the computer executing the program: 10791.607 (greater then the prius 8698.062)
+
+step 3: write pseudocode for solving general instances of the problem using the method used in the hand worked examples
+cost = input cost
+milesPerGallon = input mpg
+milesPerYear = input milesPerYear
+gasPrice = input estimated gasPrice
+estimatedResaleValueAfter 5 years = input estimated resale value after 5 years
+
+gallons of fuel used in 1 year = milesPerYear / milesPerGallon
+cost of fuel for 1 year = gallons of fuel used in 1 year * gasPrice
+cost of fuel for 5 years = cost of fuel for 1 year * 5
+cost of owning car for 5 years = cost of new car + cost of fuel for 5 years - estimated resale value
+output cost of owning a car for 5 years
