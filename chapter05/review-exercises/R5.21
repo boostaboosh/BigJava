@@ -1,0 +1,13 @@
+Explain how the lexicographic ordering of strings in Java differs from the ordering
+of words in a dictionary or telephone book. Hint: Consider strings such as IBM, wiley.
+com, Century 21, and While-U-Wait.
+
+Lexicographic ordering of Strings in Java orders strings, i.e., sequences of characters, based on the position of each character in the Unicode character/symbol encoding which assigns numbers to characters.
+Lexicographic ordering of strings in Java orders strings by comparing the Unicode position of characters at equivalent indexes in the compared strings, starting with the first character on the left.
+So first Java compares the first letter of two words, then the second letter, then the third, and so on.
+In the Unicode character encoding the space character comes before all printable characters, most but not all common punctuation marks come before letters and some come before and after numbers,
+numbers are in order and come before letters of the English alphabet, capitalised letters come before uncapitalised letters, and letters are in order.
+
+Lexicographic ordering of string differs from the ordering of words in a dictionary because it doesn't follow alphabetical order. Instead it follows the order of characters in their Unicode encoding.
+This means that "Century 21" comes before "wiley.com" in lexicographic ordering.
+
