@@ -1,0 +1,23 @@
+Give a set of four test cases for the algorithm of Exercise •• R5.11 that covers all branches.
+
+algorithm from exercise R5.11:
+
+If the letter is an a, c, e, or g
+   If the number is odd
+      color = "black"
+   Else
+      color = "white"
+Else
+   If the number is even
+      color = "black"
+   Else
+      color = "white"
+
+There are two possibilities for the file of a chess board square, either the file letter is a, c, e, or g, or the letter is b, d, f, or h.
+And there are two possibilities for row of a chess board square, either the row number is even or it is odd.
+These possibilities yield 4 test cases if we want to test every branch of out algorithm, i.e., every series of instructions that the computer might follow.
+We must choose two squares with file letters a, c, e, or g. One with an odd row number and one with an even row number. And we must choose two squares with
+file letters b, d, f, or h. One with an odd row number and one with an even row number.
+Four example test cases could be:
+a8, b4, e1, and h3.
+
