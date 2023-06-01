@@ -1,0 +1,21 @@
+Write pseudocode for a program that assigns letter grades for a quiz, according to the
+following table:
+Score Grade
+90-100 A
+80-89 B
+70-79 C
+60-69 D
+< 60 F
+
+
+if marks > 89
+   grade = A
+else if marks > 79
+   grade = B
+else if marks > 69
+   grade = C
+else if marks > 59
+   grade = D
+else
+   grade = F
+
