@@ -1,0 +1,35 @@
+algoritm R5.13:
+
+If start1 > start2
+   s = start1
+Else
+   s = start2
+If end1 < end2
+   e = endl
+Else
+   e = end2
+If s < e
+   The appointments overlap.
+Else
+   The appointments don’t overlap.
+
+
+Testing R5.17:
+Develop a set of test cases for the algorithm in Exercise •• R5.13.
+
+There are two possibilites for the start time of medical appointments.
+Either appointment 1 starts after appointment 2 or it does not.
+There are two possibilities for the end time of medical appointments.
+Either appointment 1 ends before appointment 2 or it does not.
+There are for possible combinations of these possiblities which yield 4 test cases if we want to test every branch of the algorithm.
+There are also boundary conditions like appointments that start and end at the same time.
+
+Four possible test cases are:
+1) appointment 1 starts after appointment 2 and ends before app 2: app1 20-22, app2 19-23
+2) appointment 1 starts before appointment 2 and ends before app 2: app1 10-11, app2 13-14
+3) appointment 1 starts after appointment 2 and ends after app2: app1 8-9, app2 4-7
+4) appointment 1 starts before appointment 2 and ends after app 2: app1 7-13, app2 9-11
+
+A boundary condition could be two appointments where one ends when the next begins:
+b) app 1 starts at 13 and finishes at 14, and app 2 starts at 14 and ends at 15: app1 13-14, app2 14-15
+
