@@ -1,0 +1,23 @@
+Write pseudocode for a program that prompts the user for a month and day and
+prints out whether it is one of the following four holidays:
+• New Year’s Day (January 1)
+• Independence Day (July 4)
+• Veterans Day (November 11)
+• Christmas Day (December 25)
+
+assign variable month a user inputted value
+assign variable day a user inputter value
+
+if month is equal to 1
+   if day is equal to 1
+      print "new year's day"
+else if month is equal to 7
+   if day is equal to 4
+      print "independence day"
+else if month is equal to 11
+   if day is equal 11
+      print "veterans day"
+else if month is equal to 12
+   if day is equal to 25
+      print "christmas day"
+
