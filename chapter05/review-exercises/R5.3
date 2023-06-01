@@ -1,0 +1,14 @@
+Explain the difference between
+	s = 0;
+	if (x > 0) { s++; }
+	if (y > 0) { s++; }
+and
+	s = 0;
+	if (x > 0) { s++; }
+	else if (y > 0) { s++; }
+
+In the first example the variable s is incremented by one if x is greater than zero or if y is greater than zero.
+In the second example s is incremented by one if x is greater than zero or if x is not greater than zero and y is greater than zero.
+Practically speaking in the first example s could be incremented by one twice if both condtions are true, whereas in the second example 
+s can only be incremented once. If the first condition is true, or if the first condition is false and the second condition is true.
+
