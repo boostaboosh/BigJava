@@ -1,0 +1,23 @@
+R5.34 What is wrong with the following program?
+
+System.out.print("Enter the number of quarters: ");
+int quarters = in.nextInt();
+if (in.hasNextInt())
+{
+   total = total + quarters * 0.25;
+   System.out.println("Total: " + total);
+}
+else
+{
+   System.out.println("Input error.");
+}
+
+The program makes the mistake of reading the next token in the input stream as an integer using the Scanner class's nextInt method and assigning said value to the variable "quarters",
+before having checked if the next token in the input stream is in fact an integer with the hasNextInt method. This can lead to a run time error because the nextInt method may not be
+able to parse the next token in the input stream as an integer if it is a different type of value. For example, if the user entered a string instead.
+Additionally, the hasNextInt method check if the next value in the input stream is an integer which is nonsensical because the nextInt method used beforehand already read the next value
+in the input stream which would likely by the number of quarters that the user of the program inputted.
+The declaration and assignment statement of the quarters variable should have been inside the body of the first if statement. The quarters variable doesn't need global scope anyway 
+because it is only used inside the first if statement. This change would make the program follow better programming practice and solve the issue of using the nextInt method before the
+hasNextInt method.
+
