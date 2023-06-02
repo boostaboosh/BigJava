@@ -1,0 +1,28 @@
+Simplify the following statements. Here, b is a variable of type boolean and n is a vari-
+able of type int.
+
+boolean b;
+int n;
+
+a. if (n == 0) { b = true; } else { b = false; }
+(Hint: What is the value of n == 0?)
+
+b = (n == 0);
+
+
+b. if (n == 0) { b = false; } else { b = true; }
+
+b = !(n == 0);
+
+
+c. b = false; if (n > 1) { if (n < 2) { b = true; } }
+
+b = (n > 1 && n < 2);
+actually... n is an integer so it can never be greater than 1 and less than 2. So the simplified statement is:
+b = false;
+
+
+d. if (n < 1) { b = true; } else { b = n > 2; }
+
+b = (n < 1 || n > 2);
+
