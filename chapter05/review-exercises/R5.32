@@ -1,0 +1,6 @@
+R5.32 Simplify the following expressions. Here, b is a variable of type boolean.
+a. b == true --> b
+b. b == false --> !b
+c. b != true --> b == false --> !b
+d. b != false --> b == true --> b
+
