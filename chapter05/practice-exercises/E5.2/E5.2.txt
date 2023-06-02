@@ -1,0 +1,118 @@
+Write a program that reads a floating-point number and prints “zero” if the number
+is zero. Otherwise, print “positive” or “negative”. Add “small” if the absolute value
+of the number is less than 1, or “large” if it exceeds 1,000,000.
+
+Computation problem-solving method (Big Java: Early Objects, chapter 4: How To 4.1 - Carrying out computations)
+
+step 1 - understand the problem. What are the inputs to this problem and what are the desired outputs?
+In this problem there is one input.
+inputs:
+1 - a floating point number
+In this problem there are two outputs.
+outputs:
+1 - "zero", "positive", or "negative"
+2 - "large" or "small"
+
+step 2 - work out examples by hand
+1)
+input: 1'000'001.2343
+output: positive large
+2)
+input: 0
+output: zero small
+3)
+input: 0.00000002123
+output: positive small
+4)
+input: -0.213
+output: negative small
+5)
+input: -1232
+output: negative
+
+step 3 - write an algorithm in pseudocode that works for solving general instances of the problem based on the specific
+instances of the problem solved in step 2.
+
+ask user to input a floating point number
+
+if input is not a floating point number
+   tell user input was not a floating point number and therefore invalid
+else
+   if input > 0
+      output = "positive"
+   else if output < 0
+      output = "negative"
+   else
+      output = "zero"
+
+   if absolute value of input < 1
+      output = output + small
+   else if absolute value of input > 1_000_000
+      output = output + large
+
+   print output
+
+step 4 - declare the variables and constants you need and specify their types
+final double SMALL_NUMBER = 1;
+final double LARGE_NUMBER = 1_000_000;
+double input;
+String output;
+
+step 5 - Turn the pseudocode into Java statements
+
+import java.util.Scanner;
+
+/**
+ * A class which contains a program which reads a floating-point number and prints “zero” if the number
+ * is zero. Otherwise, print “positive” or “negative”. Adds “small” if the absolute value of the number is
+ * less than 1, or “large” if it exceeds 1,000,000.
+ */
+public class Main
+{
+   public static void main(String[] args)
+   {
+      final double SMALL_NUMBER = 1;
+      final double LARGE_NUMBER = 1_000_000;
+      double number;
+      String output;
+
+      Scanner input = new Scanner(System.in);
+      System.out.print("Input a floating point number: ");
+      if (!input.hasNextDouble())
+      {
+         System.out.print("Input was not a floating point number, and therefore input was invalid.");
+      }
+      else
+      {
+         // input is a floating point number
+         number = input.nextDouble();
+         if (number > 0)
+         {
+            output = "positive";
+         }
+         else if (number < 0)
+         {
+            output = "negative";
+         }
+         else
+         {
+            output = "zero";
+         }
+
+         if (Math.abs(number) < SMALL_NUMBER)
+         {
+            output = output + " small";
+         }
+         else if (Math.abs(number) > LARGE_NUMBER)
+         {
+            output = output + " large";
+         }
+
+         System.out.println(output);
+      }
+   }
+}
+
+step 6 - provide input and output
+
+step 7 - provide a class with a main method
