@@ -1,0 +1,52 @@
+Write a program that reads a word, compares the first and second half of the word,
+and prints “first and second half same” or “first and second half different”. If the
+length of the word is odd, ignore the middle letter.
+
+problem solving method (p.118 Big Java)
+
+step 1 - understand the problem: what are the inputs? what are the desired outputs?
+inputs:
+1) a string
+outputs:
+1) a print statement that tells the user whether the first and second half of the word are the same.
+
+step 2 - work out examples by hand
+1)
+in: anana
+output: "first and second half different"
+2)
+in: quackquack
+out: "first and second half same"
+3)
+in: mamma
+out: "first and second half same"
+4)
+in: penelope
+out: "first and second half different"
+
+step 3 - write pseudocode for computing the answers to general instances of the problem based on the method you used to
+solve specific instances of the problem in step 2.
+
+even = ((wordLength % 2) == 0);
+if (even)
+   firstHalf = substring from character at position zero to character at position wordLength/2;
+   secondHalf = substring from character at position wordLength/2 to end of string
+else // word length is odd
+   firstHalf = substring from character at position zero to character at position wordLength/2;
+   secondHalf = substring from character at position wordLength/2 + 1 to end of string;
+if (firstHalf equal secondHalf)
+   print "first and second half same"
+else
+   print "first and second half different"
+
+step 4 - declare the variables and constants that you need, and specify their types
+String word
+boolean even
+String firstHalf
+String secondHalf
+
+step 5 - Turn the pseudocode into Java statements
+
+step 6 - provide input and output
+
+step 7 - provide a class with a main method // I do this at step 5 usually
