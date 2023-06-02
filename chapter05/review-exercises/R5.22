@@ -1,0 +1,11 @@
+Of the following pairs of strings, which comes first in lexicographic order?
+a. "Tom", "Jerry": Jerry comes first in lexicographic ordering because J comes before T so T is larger, i.e., has a bigger number and is positioned later in Unicode encoding.
+b. "Tom", "Tomato": Tom comes first in lexicographic order because in ends first and longer string are considered larger ones.
+c. "church", "Churchill": Churchill comes first in lexicographic order because C comes before c in the Unicode character encoding.
+d. "car manufacturer", "carburetor": car manufacturer comes before carburator in lexicographic order because spaces come before all character symbols in Unicode encoding.
+e. "Harry", "hairy": Harry comes before hairy because capitalised letters come before uncapitalised letters in the Unicode character encoding.
+f. "Java", " Car": Car comes before Java because C comes before J in the Unicode character encoding. Capital letters are in alphabetic order in Unicode.
+g. "Tom", "Tom": Tom and Tom are ordered the same in lexicographic order because they are the same exact sequence of characters.
+h. "Car", "Carl": Car comes before Carl in lexicographic order because Carl is a larger word even though their first three letters are the same and Car only has 3 letters.
+i. "car", "bar": bar comes before car in lexicographic ordering because b comes before c in the Unicode character encoding.
+
