@@ -1,0 +1,147 @@
+Write a program that takes user input describing a playing card in the following
+shorthand notation:
+A Ace
+2 ... 10 Card values
+J Jack
+Q Queen
+K King
+D Diamonds
+H Hearts
+S Spades
+C Clubs
+
+Your program should print the full description of the card. For example,
+Enter the card notation: QS
+Queen of Spades
+Implement a class Card whose constructor takes the card notation string and whose
+getDescription method returns a description of the card. If the notation string is not
+in the correct format, the getDescription method should return the string "Unknown".
+
+implementing a class from a given specification method applied to the Card class:
+
+step 1 - find out which methods you are asked to supply
+- a method which returns a description of a card given its notation
+
+step 2 - specify the public interface for using objects of the class
+It can be helpful to construct a sample object and call the methods you are asked to supply on the sample object:
+Card tenOfHearts = new Card(10H);
+String tenOfHeartsDesc = tenOfHearts.getDescription();
+
+Now we can deduce the public interface of the methods of the card class
+public String getDescription()
+
+To complete the public interface of the class I need to specify the constructors of object of the Card class.
+I need to ask myself how many constructors I need and what information I need in order to create an object of the card
+class:
+public Card(String cardNotation)
+
+step 3 - document the public interface of your class
+See Card class Java file.
+
+step 4 - Determine instance variables for objects of your class.
+Ask myself what information objects of the Card class need in order to do everything they need to do.
+Importantly, do not introduce unnecessary instance variables. As a rule of thumb, if a value can be computed on demand,
+it is best to do so.
+String shorthandNotation;
+
+step 5 - Implement the hidden implementation of constructors and methods of the class
+See Card class java file.
+    computation problem-solving method applied to getDescription method:
+    step 1 - understand the problem: what are the inputs and the desired outputs?
+       inputs:
+       1) shorthandNotation
+       outputs:
+       1) longhandDescription
+    step 2 - work out examples by hand
+    1)
+    in: QS
+    out: queen of spades
+    2)
+    in: 10H
+    out: ten of hearts
+    3)
+    in: AD
+    out: ace of diamonds
+    4)
+    in: 3C
+    out: three of clubs
+    step 3 - write a pseudocode algorithm for solving general instances of the problem using the technique you used to
+       solve specific instances of the problem in step 2.
+    rank = substring from first to penultimate character of shorthandNotation
+    suit = last character of shorthandNotation
+    switch(rank)
+       case A:
+          longhandNotation = Ace;
+          break;
+       case K:
+          longhandNotation = King;
+          break;
+       case Q:
+          longhandNotation = Queen;
+          break;
+       case J:
+          longhandNotation = Jack;
+          break;
+       case 10:
+          longhandNotation = Ten;
+          break;
+       case 9:
+          longhandNotation = Nine;
+          break;
+       case 8:
+          longhandNotation = Eight;
+          break;
+       case 7:
+          longhandNotation = Seven;
+          break;
+       case 6:
+          longhandNotation = Six;
+          break;
+       case 5:
+          longhandNotation = Five;
+          break;
+       case 4:
+          longhandNotation = Four;
+          break;
+       case 3:
+          longhandNotation = Three;
+          break;
+       case 2:
+          longhandNotation = Two;
+          break;
+       default:
+          longhandNotation = Unknown;
+          break;
+
+    switch(suit)
+       case D:
+          longhandNotation = longhandNotation + of Diamonds
+          break;
+       case H
+          longhandNotation = longhandNotation + of Hearts
+          break;
+       case S
+          longhandNotation = longhandNotation + of Spades
+          break;
+       case C
+          longhandNotation = longhandNotation + of Clubs
+          break;
+       default:
+          break;
+
+    return longhandNotation
+
+    step 4 - declare the variables and constants you need and specify their types
+    String shorthandNotation
+    String rank
+    String suit
+    String longhandNotation
+
+    step 5 - turn the pseudocode into Java statements
+    See Card Java class file.
+
+    step 6 - provide input and output
+    See card Java class file
+
+step 6 - test your class
+Provide a tester class and test the constructors and methods of your class.
