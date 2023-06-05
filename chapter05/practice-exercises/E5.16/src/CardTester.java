@@ -18,5 +18,8 @@ public class CardTester
 
       Card threeOfClubs = new Card("3C");
       Logger.getGlobal().info(threeOfClubs.getDescription() + "\nExpected: Three of Clubs");
+
+      Card unknown = new Card("random43S");
+      Logger.getGlobal().info(unknown.getDescription() + "\nExpected: Unknown");
    }
 }

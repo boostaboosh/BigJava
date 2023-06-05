@@ -79,6 +79,11 @@ public class Card
             break;
       }
 
+      if (longhandNotation.equals("Unknown"))
+      {
+         return "Unknown";
+      }
+
       switch(suit)
       {
          case "D":
