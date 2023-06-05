@@ -1,0 +1,111 @@
+The original U.S. income tax of 1913 was quite simple. The tax was
+• 1 percent on the first $50,000.
+• 2 percent on the amount over $50,000 up to $75,000.
+• 3 percent on the amount over $75,000 up to $100,000.
+• 4 percent on the amount over $100,000 up to $250,000.
+• 5 percent on the amount over $250,000 up to $500,000.
+• 6 percent on the amount over $500,000.
+There was no separate schedule for single or married taxpayers.
+Write a program that computes the income tax according to this schedule.
+
+implementing a class from a given specification:
+
+step 1 - Find out which methods you are asked to supply
+- calculate the amount of tax someone who makes a certain income needs to pay.
+
+step 2 - Specify the public interface of the class
+Turn the list from step 1 into a list of methods with specific types for parameter variables and return values.
+This is easier done by constructing a sample object of your class and writing out method calls applied to your sample
+object. Like so:
+NineteenThirteenIncomeTaxCalculator taxCalculator = new NineteenThirteenIncomeTaxCalculator(double income);
+double incomeTax = taxCalculator.getIncomeTax();
+System.out.println("Your 1913 income tax is" + String.valueOf(incomeTax));
+
+Now I have a specific list of methods from which I can reverse-engineer the public interface of the methods of my class:
+public double getIncomeTax()
+
+To complete the public interface of my class I need to specify the interface of the constructors of my class. I must ask
+myself what information I need to construct an object of my class and how many constructors I want to supply:
+public NineteenThirteenIncomeTaxCalculator(double income)
+
+step 3 - Document the public interface
+See NineteenThirteenIncomeTaxCalculator Java class file
+
+step 4 - Determine instance variables
+Ask myself what instance variables objects of this class need in order to do their job. Go through each method and ask
+myself what information an object needs in order to do its job.
+Importantly, do not introduce unnecessary instance variables. If a value can be computed on demand from other instance
+variables it is best to do so.
+
+private double annualIncome
+
+step 5 - Implement constructors and methods
+Implement constructors and methods of your class one at a time starting with the easiest one.
+
+    getIncomeTax method tax computation problem-solving:
+
+    step 1 - understand the problem: what are the inputs and desired outputs?
+    inputs:
+    1) income
+    outputs:
+    1) taxed amount of income
+
+    step 2 - work out examples by hand
+    1)
+    in: 50'000
+    out: 500
+    2)
+    in: 175'000
+    out: 500 + 500 + 750 + (4 * 750) --> 4750
+
+    step 3 - write pseudocode for computing the answers to general instances of the problem using the method you
+        employed when working out examples by hand.
+
+    tax = 0;
+
+    if income > bracketOneLowerLimit // bracket 1
+       bracketOneUpperLimit = bracketTwoLowerLimit
+       bracketOneIncome = the smaller value between bracketOneUpperLimit and income
+       tax = tax + bracketOneIncome * bracketOneTaxRate
+    if income > bracketTwoLowerLimit // bracket 2
+       bracketTwoIncome = (the smaller value between bracketTwoUpperLimit and income) - bracketOneUpperLimit
+       tax = tax + bracketTwoIncome * bracketTwoTaxRate;
+    if income > bracketThreeLowerLimit // bracket 3
+       bracketThreeIncome = (the smaller value between bracketThreeUpperLimit and income) - bracketTwoUpperLimit
+       tax = tax + bracketThreeIncome * bracketThreeTaxRate;
+    if income > bracketFourLowerLimit // bracket 4
+       bracketFourIncome = (the smaller value between bracketFourUpperLimit and income) - bracketThreeUpperLimit
+       tax = tax + bracketFourIncome * bracketFourTaxRate;
+    if income > bracketFiveLowerLimit // bracket 5
+       bracketFiveIncome = (the smaller value between bracketFiveUpperLimit and income) - bracketFourUpperLimit
+       tax = tax + bracketFiveIncome * bracketFiveTaxRate;
+    if income > bracketSixLowerLimit // bracket 6
+       bracketSixIncome = income - bracketFiveUpperLimit
+       tax = tax + bracketSixIncome * bracketSixTaxRate;
+
+    step 4 - declare the variables and constants that you need and specify their types
+    BRACKET_ONE_LOWER_LIMIT = 0
+    BRACKET_ONE_UPPER_AND_TWO_LOWER_LIMIT = 50_000
+    BRACKET_TWO_UPPER_AND_THREE_LOWER_LIMIT = 75_000
+    BRACKET_THREE_UPPER_AND_FOUR_LOWER_LIMIT = 100_000
+    BRACKET_FOUR_UPPER_AND_FIVE_LOWER_LIMIT = 250_000
+    BRACKET_FIVE_UPPER_AND_SIX_LOWER_LIMIT = 500_000
+
+    BRACKET_ONE_TAX_RATE = 0.01
+    BRACKET_TWO_TAX_RATE = 0.02
+    BRACKET_THREE_TAX_RATE = 0.03
+    BRACKET_FOUR_TAX_RATE = 0.04
+    BRACKET_FIVE_TAX_RATE = 0.05
+    BRACKET_SIX_TAX_RATE = 0.06
+
+    double annualIncome
+
+    step 5 - translate pseudocode to Java language
+    See NineteenThirteenIncomeTaxCalculator Java class file getIncomeTax method
+
+    step 6 - provide input and output
+    See NineteenThirteenIncomeTacCalculator Java class file getIncomeTax method
+
+step 6 - test your class
+Write a short tester program and execute it.
+See 1913 tax calculator tester class.
