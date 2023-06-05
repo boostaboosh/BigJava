@@ -1,0 +1,80 @@
+Write a program that reads in three strings and sorts them lexicographically.
+Enter three strings: Charlie Able Baker
+Able
+Baker
+Charlie
+
+computation problem-solving method:
+step 1 - understand the problem: what are your inputs and desired outputs?
+inputs:
+1) string1
+2) string2
+3) string3
+outputs:
+1) lexicographic ordering of 3 strings
+
+step 2 - work out examples by hand
+1)
+inputs
+1: Charlie
+2: Able
+3: Baker
+outputs
+1: Able Baker Charlie
+2)
+inputs
+1: IBM
+2: airpods
+3: Intel
+outputs
+1: IBM Intel airpods
+3)
+inputs
+1: 123
+2: 1 2 3
+3: a123
+outputs
+1: 1 2 3 123 a123
+
+step 3 - write a pseudocode algorithm for solving general instances of the problem using the method you use to solve
+   specific instances of the problem in step 2.
+if input1 lexicographic comparison to input2 < 0 // input 1 comes before input 2 in lexicographic ordering
+   if input1 lexicographic comparison to input3 < 0 // input 1 comes before input 3 in lexicographic ordering
+      firstOutput = input1
+      if input2 lexicographic comparison to input3 < 0 // input 2 comes before input 3 in lexicographic ordering
+         secondOutput = input2
+         thirdOutput = input3
+      else // input 2 comes after input 3, or they are the same
+         secondOutput = input3
+         thirdOutput = input2
+   else // input 3 comes before input 1 or they are the same
+      firstOutput = input3
+      secondOutput = input1
+      thirdOutput = input2
+else // input1 comes after input2, or they are the same
+   if input2 lexicographic comparison to input3 < 0 // input 2 comes before input 3
+      firstOutput = input 2
+      if input1 lexicographic comparison to input3 < 0 // input 1 comes before input 3
+         secondOutput = input 1
+         thirdOutput = input 3
+      else // input 1 comes after input 3 or they are the same
+         secondOutput = input 3
+         thirdOutput = input 1
+   else // input 2 comes after input 3 or they are the same
+      firstOutput = input 3
+      secondOutput = input 2
+      thirdOutput = input 1
+
+step 4 - declare the variables and constants you need
+String firstInput
+String secondInput
+String thirdInput
+String firstOutput
+String secondOutput
+String thirdOutput
+
+step 5 - Turn the pseudocode into Java statements
+See Main java class file
+
+step 6 - Provide input and output
+See Main Java class file
