@@ -1,0 +1,170 @@
+Unit conversion. Write a unit conversion program that asks the users from which
+unit they want to convert (fl. oz, gal, oz, lb, in, ft, mi) and to which unit they want to
+convert (ml, l, g, kg, mm, cm, m, km). Reject incompatible conversions (such as gal →
+km). Ask for the value to be converted, then display the result:
+Convert from? gal
+Convert to? ml
+Value? 2.5
+2.5 gal = 9462.5 ml // 11365.22 ml because I use British Imperial gallons.
+        The gallon is a unit of volume in imperial units and United States customary units.
+        Three different versions are in current use:
+        the imperial gallon (imp gal), defined as 4.54609 litres,
+        which is or was used in the United Kingdom, Ireland, Canada, Australia, New Zealand, and some Caribbean
+        countries;
+        the US gallon (US gal), defined as 3.785411784 L,[1] (231 cubic inches)
+        which is used in the US and some Latin American and Caribbean countries;
+
+creating the BritishImperialMeasurement class
+step 1 - find out what methods you are asked to supply
+- a method which converts a measurement in British Imperial units to Metric units
+step 2 - specify the public interface of the methods and constructors, specify the types of values stored in parameter
+      variables and returned by methods. It is helpful to call methods on a sample object to do this.
+BritishImperialMeasurement feetMeasurement = new BritishImperialMeasurement(20.34, ft);
+double kilometreMeasurement = feetMeasurement.getMetricConversion(km);
+Now I can deduce the public interface of the methods of the class:
+    public double getMetricConversion(String metricUnitOfMeasurement)
+I must also specify the public interface of the constructor/s of objects of my class. Ask myself what I need to make an
+object of my class
+    public BritishImperialMeasurement(double amount, String imperialUnitOfMeasurement)
+
+step 3 - document the public interface of the class
+
+step 4 - determine instance variables: ask yourself what objects of the class need in order to do what they need to do.
+      Importantly, do not introduce any unnecessary instance variables. Rule of thumb: if a value can be computed on
+      demand it is best to do so.
+
+step 5 - fill in the bodies, i.e., hidden implementation, of constructors and methods of your class
+computation problem-solving for the getMetricConversion method:
+    step 1 - understand the problem: what are the inputs and outputs?
+    inputs:
+    1) a unit to convert from
+    2) a unit of measurement to convert to
+    3) a value to convert from the first unit of measurement to the second
+    outputs:
+    1) the value of the measurement to be converted in the unit to be converted to
+
+    step 2 - work out examples by hand
+    1)
+    in: 1) mi 2) mm 3) 1
+    out: 1 mi = 1609344 mm
+    2) in: 1) fl. oz 2) kg 3) 3.5 // fl. oz is a fluid ounce which is a unit of volume
+    out: Incompatible conversion
+    3) in: 1) oz 2) kg 3) 3.5
+    out: 3.5 oz = 0.09922333 kg
+
+    step 3 - write a pseudocode algorithm for solving general instances of the problem using the method you used to solve
+    specific instances of the problem
+
+    LITRES_IN_ONE_FLUID_OUNCE
+    LITRES_IN_ONE_GALLON
+    GRAMS_IN_ONE_OUNCE
+    GRAMS_IN_ONE_POUND
+    METRES_IN_ONE_INCH
+    METRES_IN_ONE_FOOT
+    METRES_IN_ONE_MILE
+
+    MILLILITRES_IN_ONE_LITRE = 1000.0
+    GRAMS_IN_ONE_KILOGRAM = 1000.0
+    MILLIMETRES_IN_ONE_METRE = 1000.0
+    CENTIMETRES_IN_ONE_METRE = 100.0
+    METRES_IN_ONE_KILOMETRE = 1000.0
+
+    britishImperialUnitOfMeasurementToConvertFrom
+    metricSystemUnitOfMeasurementToConvertTo
+    amountToConvert
+
+    metricConversionMultiplier
+
+    if (measurement type of unitOfMeasurementToConvertFrom = measurement type of unitOfMeasurementToConvertTo)
+       // conversion is valid
+       if (measurementType is volume)
+          imperialUnitOfVolume = unitOfMeasurementToConvertFrom
+          switch (imperialUnitOfVolume)
+             case fl. oz: metricConversionMultiplier = LITRES_IN_ONE_FLUID_OUNCE
+             case gal: metricConversionMultiplier = LITRES_IN_ONE_GALLON
+
+          if (metricUnitOfMeasurementToConvertTo = ml)
+             convertedAmountOfMetricUnits = amountOfUnitsOfMeasurementToConvertFrom * metricConversionMultiplier
+                   * MILLILITRES_IN_ONE_LITRE
+          else // converting to litres
+             convertedAmountOfMetricUnits = amountOfUnitsOfMeasurementToConvertFrom * metricConversionMultiplier
+
+       else if (measurementType is weight)
+          imperialUnitOfWeight = unitOfMeasurementToConvertFrom
+          if (imperialUnitOfWeight == oz)
+          {
+             conversionMultiplier = GRAMS_IN_ONE_OUNCE
+          }
+          else if (imperialUnitOfWeight == lb)
+          {
+             conversionMultiplier = GRAMS_IN_ONE_POUND
+          }
+
+          if (metricUnitOfMeasurementToConvertTo = kg)
+             convertedAmountOfMetricUnits = amountOfImperialUnitsToConvertFrom * metricConversionMultiplier
+                   / GRAMS_IN_ONE_KILOGRAM
+          else // converting to grams
+             convertedAmountOfMetricUnits = amountOfImperialUnitsToConvertFrom * metricConversionMultiplier
+
+       else if (measurementType is distance)
+          imperialUnitOfDistance = unitOfMeasurementToConvertFrom
+          if (imperialUnitOfDistance == in)
+             conversionMultiplier = METERS_IN_ONE_INCH
+          else if (imperialUnitOfDistance == ft)
+             conversionMultiplier = METERS_IN_ONE_FOOT
+          else if (imperialUnitOfDistance == mi)
+             conversionMultiplier = METERS_IN_ONE_MILE
+
+          if (metricUnitOfMeasurementToConvertTo = mm)
+             convertedAmountOfMetricUnits = amountOfImperialUnitsToConvertFrom * metricConversionMultiplier
+                   * MILLIMETRES_IN_ONE_METRE
+          else if (metricUnitOfMeasurementToConvertTo = cm)
+             convertedAmountOfMetricUnits = amountOfImperialUnitsToConvertFrom * metricConversionMultiplier
+                   * CENTIMETRES_IN_ONE_METRE
+          else if (metricUnitOfMeasurementToConvertTo = km)
+             convertedAmountOfMetricUnits = amountOfImperialUnitsToConvertFrom * metricConversionMultiplier
+                   / METRES_IN_ONE_KILOMETRE
+          else // converting to metres
+             convertedAmountOfMetricUnits = amountOfImperialUnitsToConvertFrom * metricConversionMultiplier
+
+       output amount to convert + britishImperialUnitOfMeasurementToConvertFrom + = + convertedAmountOfMetricUnits
+             + unitOfMeasurementToConvertTo
+
+    else
+       output measurement types of units to convert are incompatible
+
+    step 4 - declare the variables and constants that you need and specify their types
+
+    final double LITRES_IN_ONE_FLUID_OUNCE = 0.02841306
+    final double LITRES_IN_ONE_GALLON = 4.54609
+    final double GRAMS_IN_ONE_OUNCE = 28.34952
+    final double GRAMS_IN_ONE_POUND = 453.5924
+    final double METRES_IN_ONE_INCH = 0.0254
+    final double METRES_IN_ONE_FOOT = 0.3048
+    final double METRES_IN_ONE_MILE = 1609.344
+
+    final double MILLILITRES_IN_ONE_LITRE = 1000.0
+    final double GRAMS_IN_ONE_KILOGRAM = 1000.0
+    final double MILLIMETRES_IN_ONE_METRE = 1000.0
+    final double CENTIMETRES_IN_ONE_METRE = 100.0
+    final double METRES_IN_ONE_KILOMETRE = 1000.0
+
+    public enum BritishImperialUnitsOfMeasurement { FL_OZ, GAL, OZ, LB, IN, FT, MI }
+    public enum MetricUnitsOfMeasurement { ML, L, G, KG, MM, CM, M, KM }
+    public enum MeasurementType { VOLUME, WEIGHT, DISTANCE }
+
+    BritishImperialUnitsOfMeasurement britishImperialUnitOfMeasurementToConvertFrom
+    MetricUnitsOfMeasurement metricSystemUnitOfMeasurementToConvertTo
+    double amountToConvert
+
+    MeasurementType imperialMeasurementType;
+    MeasurementType metricMeasurementType;
+    double conversionMultiplier
+
+    String output
+
+    step 5 - translate the pseudocode to Java language
+
+    step 6 - provide input and output
+
+step 6 - test your class
