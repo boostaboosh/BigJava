@@ -1,0 +1,34 @@
+Write a program that asks the user to enter a month (1 for January, 2 for February,
+etc.) and then prints the number of days in the month. For February, print “28
+days”.
+Enter a month: 5
+30 days
+Use a class Month with a method
+public int getLength()
+Do not use a separate if/else branch for each month. Use Boolean operators.
+
+creating a class from a given specification:
+step 1 - Find out which methods you are asked to supply
+- a method which returns the number of days in a given month
+
+step 2 - Specify the public interface of your class
+This is easier if I create and call methods on a sample object and then reverse engineer the public interface of said
+methods:
+Month jan = new Month(1);
+int days = jan.getLength();
+Now I can deduce the public interface of the methods of my class with specific types for return values and parameter
+variables:
+public int getLength()
+I must also provide the users of my class with at least one constructor. I must ask myself how many constructors I want
+and what information I need in order to construct an object of my class.
+public Month(int monthNumber)
+
+step 3 - comment the public interface of your class
+
+step 4 - determine instance variables
+Ask yourself what information instances of month objects need in order to do what they need to do.
+Importantly, do not introduce unnecessary instance variables. If a value can be computed on demand it is best to do so.
+
+step 5 - implement the hidden implementation of constructors and methods of the Month class
+
+step 6 - test the month class
