@@ -1,0 +1,47 @@
+Write a program that reads in two floating-point numbers and tests whether they are
+the same up to two decimal places. Here are two sample runs.
+Enter two floating-point numbers: 2.0 1.99998
+They are the same up to two decimal places.
+Enter two floating-point numbers: 2.0 1.98999
+They are different.
+
+step 1 - understand the problem: What are the inputs and desired outputs?
+inputs
+1) first floating point number
+2) second floating point number
+outputs:
+1) whether the two inputs are the same up to two decimal places
+
+step 2 - work out examples by hand
+1)
+in: 1.999 2.0
+out: They are the same up to two decimal places
+2)
+in: 1.989 2.0
+out: They are different
+3)
+in: 1.9998 1.9992
+out: They are the same up to two decimal places
+4)
+in: 2.0 1.99
+out: They are different
+
+step 3 - write a pseudocode algorithm for solving general instances of the problem
+      using the method you used when solving specific instances of the problem by hand
+
+if the absolute value of the difference between the two rounded inputs is less than
+      epsilon (epsilon = 0.01, i.e., 1E-2) then the inputs are the same up to two
+      decimal digits
+   // then the floating point numbers are the same
+   output "They are the same up to decimal places"
+else
+   output "They are different"
+
+step 4 - declare the variables and constants that you need, and specify their type
+double firstNumber
+double secondNumber
+final double EPSILON = 1E-14
+
+step 5 - translate your pseudocode into Java language
+
+step 6 - provide input and output
