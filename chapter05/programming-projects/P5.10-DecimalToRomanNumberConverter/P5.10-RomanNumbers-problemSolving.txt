@@ -1,0 +1,148 @@
+Roman numbers. Write a program that converts a positive integer into the Roman
+number system. The Roman number system has digits
+
+I   1
+V   5
+X   10
+L   50
+C   100
+D   500
+M   1,000
+
+Numbers are formed according to the following rules:
+
+a. Only numbers up to 3,999 are represented.
+
+b. As in the decimal system, the thousands, hundreds, tens, and ones are ex-
+pressed separately.
+
+c. The numbers 1 to 9 are expressed as
+I       1
+II      2
+III     3
+IV      4
+V       5
+VI      6
+VII     7
+VIII    8
+IX      9
+
+As you can see, an I preceding a V or X is subtracted from the value, and you
+can never have more than three I’s in a row.
+
+d. Tens and hundreds are done the same way, except that the letters X, L, C and C,
+D, M are used instead of I, V, X, respectively.
+Your program should take an input, such as 1978, and convert it to Roman numerals,
+MCMLXXVIII.
+
+implementing a Number class from a given specification
+step 1 - find out which methods you are asked to supply
+a method which converts a decimal number to a roman number (numeral).
+
+step 2 - specify the public interface of the class I am implementing
+This is easier calling methods on a sample object.
+DecimalNumber number = new DecimalNumber(2023);
+String romanNumber = number.getRomanNumber();
+Now I can deduce the public interface of the methods of my class:
+public String getRomanNumber(int decimalNumber)
+
+I must also provide users of my class with a constructor with which to set initial properties of objects of my class
+that they wish to construct. I must ask myself what information I need in order to construct objects of my class.
+public DecimalNumber(int quantity)
+
+step 3 - document the public interface of my class by writing documentation comments which briefly explain the purpose
+of each method and constructor of my class, and my class itself. I must not forget to provide brief explanations of
+method and constructor parameter variables and method return values.
+
+step 4 - determine the instance variables objects of your class need.
+I need to ask myself what information objects of my class need to execute the instructions in their method. Importantly,
+do not introduce unnecessary instance variables. As a rule of thumb, if a value can be computed on demand it is best to
+do so.
+
+private int quantity;
+
+step 5 - implement the bodies of constructors and methods of your class.
+getRomanNumber method computation problem-solving
+
+    step 1 - understand the problem: what are the inputs and outputs?
+    inputs: 1 - a decimal number
+    outputs: 1 - a roman numeral representation of the decimal number input
+
+    step 2 - work out examples by hand
+    1)
+    in: 3999
+    out: MMMCMXCIX
+    2)
+    in: 0
+    out:
+    3)
+    in: 456
+    out: CDLVI
+    4)
+    in: 150
+    out: CL
+
+    step 3 - Write a pseudocode algorithm for solving general instances of the problem using the method you used to solve
+    specific instances of the problem.
+
+        thousands = decimalNumber integer division by VALUE_OF_THOUSANDS_COLUMN
+        decimalNumberWithoutThousands = decimalNumber modulus VALUE_OF_THOUSANDS_COLUMN
+        hundreds = decimalNumberWithoutThousands integer division by VALUE_OF_HUNDREDS_COLUMN
+        decimalNumberWithoutThousandsAndHundreds = decimalNumberWithoutThousands modulus VALUE_OF_HUNDREDS_COLUMN
+        tens = decimalNumberWithoutThousandsAndHundreds integer division by VALUE_OF_TENS_COLUMN
+        ones = decimalNumberWithoutThousandsAndHundreds modulus VALUE_OF_TENS_COLUMN
+
+        switch (thousands)
+           case 0: romanNumeral = ""
+           case 1: romanNumeral = M
+           case 2: romanNumeral = MM
+           case 3: romanNumeral = MMM
+           default: break;
+
+        switch (hundreds)
+           case 1: romanNumeral = romanNumeral concatenation with C
+           case 2: romanNumeral = romanNumeral concatenation with CC
+           case 3: romanNumeral = romanNumeral concatenation with CCC
+           case 4: romanNumeral = romanNumeral concatenation with CD
+           case 5: romanNumeral = romanNumeral concatenation with D
+           case 6: romanNumeral = romanNumeral concatenation with DC
+           case 7: romanNumeral = romanNumeral concatenation with DCC
+           case 8: romanNumeral = romanNumeral concatenation with DCCC
+           case 9: romanNumeral = romanNumeral concatenation with CM
+           default: break;
+
+        if (tens == 0) { romanNumeral = romanNumeral + "" }
+        else if (tens == 1) { romanNumeral = romanNumeral + X }
+        else if (tens == 2) { romanNumeral = romanNumeral + XX }
+        else if (tens == 3) { romanNumeral = romanNumeral + XXX }
+        else if (tens == 4) { romanNumeral = romanNumeral + XL }
+        else if (tens == 5) { romanNumeral = romanNumeral + L }
+        else if (tens == 6) { romanNumeral = romanNumeral + LX }
+        else if (tens == 7) { romanNumeral = romanNumeral + LXX }
+        else if (tens == 8) { romanNumeral = romanNumeral + LXXX }
+        else if (tens == 9) { romanNumeral = romanNumeral + XC }
+
+        if (ones == 0) { }
+        else if (ones == 1) { romanNumeral = romanNumeral + I }
+        else if (ones == 2) { romanNumeral = romanNumeral + II }
+        else if (ones == 3) { romanNumeral = romanNumeral + III }
+        else if (ones == 4) { romanNumeral = romanNumeral + IV }
+        else if (ones == 5) { romanNumeral = romanNumeral + V }
+        else if (ones == 6) { romanNumeral = romanNumeral + VI }
+        else if (ones == 7) { romanNumeral = romanNumeral + VII }
+        else if (ones == 8) { romanNumeral = romanNumeral + VIII }
+        else if (ones == 9) { romanNumeral = romanNumeral + IX }
+
+    step 4 - Determine the variables and constants that you need to carry out your computation and specify their types.
+
+    final int VALUE_OF_THOUSANDS_COLUMN = 1E3;
+    final int VALUE_OF_HUNDREDS_COLUMN = 1E2;
+    final int VALUE_OF_TENS_COLUMN = 1E1;
+
+    String romanNumeral;
+
+    step 5 - turn your pseudocode to Java code: translate your natural language pseudocode to the Java language
+
+    step 6 - provide input and output
+
+step 6 - test your class
