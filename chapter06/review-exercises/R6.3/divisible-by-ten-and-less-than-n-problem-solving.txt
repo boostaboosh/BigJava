@@ -1,0 +1,111 @@
+b. Write a while loop that prints all positive numbers that are divisible by 10 and less than n. For example, if n is
+100, print 10 20 30 40 50 60 70 80 90.
+
+How to write a loop step by step:
+
+
+step 1: determine what goes inside the loop body, i.e., what instructions need to be repeated
+
+If you can't figure this out: write out the steps you would take if you were solving the problem by hand:
+
+set first number to ten
+if ten is less than n
+    print ten
+set second number to twenty
+if twenty is less than n
+    print twenty
+if thirty is less than n
+    print thirty
+if forty is less than n
+    print forty
+etc.
+
+Now, look at these steps and reduce them to a set of uniform, i.e., always the same / unvarying, actions.
+
+increase next multiple by ten
+if next multiple < n
+    print next multiple
+
+altogether our loop is:
+
+while *some condition*
+    next multiple = this multiple + 10
+    this multiple = next multiple
+    if this multiple < n
+       print this multiple
+
+
+step 2: specify the loop condition
+
+What goal do you want to reach in your loop?
+Has a counter reached its final value?
+Have you read the last input value?
+Has the next multiple of ten reached a given threshold?
+We want the next multiple of ten to reach a given threshold n.
+
+
+step 3: determine the loop type
+
+We distinguish between two major loop types: event controlled loops and count controlled loops, also known as indefinite
+and definite loops respectively.
+
+An event controlled loop executes an unknown, or indefinite, number of times until an event takes place which renders
+the looping condition false.
+
+A count controlled loop is controlled by a counter variable which is incremented or decremented by a constant amount
+every time the loop is executed. The counter variable is incremented or decremented until it reaches a target value
+thereby rendering the looping condition false.
+Therefore, you know from the outset that count controlled loops execute a clearly defined, or definite, number of times.
+
+In summary:
+If we know how many times the loop is repeated use a for loop: if we can control a loop using a counter which we
+increment or decrement by a constant amount every iteration of the loop, until the counter reaches a target value, use a
+for loop.
+If we need to execute the loop body at least once before we can know whether to terminate the loop use a do while loop.
+Otherwise, use a while loop
+
+We will use a count controlled loop because we want to increase a counter variable by a constant amount (10) until it
+reaches a target value (n).
+Count controlled loops are implemented using a for loop in Java.
+
+
+step 4: set up variables for entering the loop for the first time
+
+List all variables that are used and updates inside the loop and determine how to initialise them.
+
+next multiple : initialised inside the for loop header
+this multiple : initialised inside the loop with the value of next multiple
+n : initialised before the loop execution with a positive integer
+
+
+step 5: process the result after the loop has finished, and write out the pseudocode for our complete loop
+
+In many cases the result is a variable which was updated in the loop body. Sometimes the final result can be computed
+using a variable which was updated inside the loop body. In this case you need to compute the result after the loop has
+finished executing.
+
+In our example we don't need to process the result after the loop has finished because we are interested in the value of
+the next multiple variable during the execution of the loop iterations and do not need it afterward.
+
+complete loop:
+n = some positive integer value
+for (next multiple = 10; next multiple < n; next multiple = next multiple + 10)
+   this multiple = next multiple
+   output this multiple
+
+
+step 6: trace the loop with typical examples
+
+Hand trace you loop code with a simple example. Execute the loop body 3 to 5 times to check for the most common errors.
+Pay attention when entering the loop for the first and last time. Sometimes you will have to make changes to variables
+and starting values to make hand tracing feasible and the loop iterate a smaller number of times.
+
+n   |   next multiple   |   this multiple   |   output
+30  |   10              |   10              |   10
+    |   20              |   20              |   20
+    |   30              |
+
+
+step 7: implement the loop in java
+
+See DivisibleByTenLessThanN java source file

@@ -1,0 +1,109 @@
+Write a while loop that prints
+
+a. All squares less than n. For example, if n is 100, print 0 1 4 9 16 25 36 49 64 81.
+writing a loop how-to-6.1 applied to R6.3a
+
+step 1: Decide work that must be done inside the loop, i.e., what instructions need to be
+repeated.
+If you can't figure it out write down the steps you would take if you solved
+the problem by hand:
+
+get number 0
+if zero is less than n
+   square of zero = zero * zero
+   output square of zero
+get next number: 0 + 1
+if 1 is less than n
+   square = 1 * 1
+   output square
+get next number
+if next number is less than n
+   square = next number * next number
+   output square
+next number = next number + 1
+repeat
+
+Now look at these step and reduce them to a set of uniform actions that can be placed
+into the loop body:
+
+next number = next number + 1
+if next number < n
+   this number = next number
+   square = this number * this number
+   output square
+
+step 2: specify the loop condition
+What goal to you want to reach inside your loop?
+I want the next number to reach the value of n
+
+step 3: determine the loop type
+We distinguish between two major loop types: count controlled loop and event controlled
+loops.
+A count controlled loop is executed a definite number of times.
+An event controlled loop is executed an unknown number of times. In an event controlled
+loop the number of iterations is not known in advance: the loop is executed until some
+event happens.
+Count controlled loops can be implemented as for statements. For other loops, consider
+the loop condition: do you need to complete one iteration of the loop body before you
+can tell when to terminate the loop? In that case, choose a do loop. Otherwise, use a
+while loop.
+Sometimes, the condition for terminating a loop changes in the middle of the loop body.
+In that case, you can use a Boolean variable that specifies when you are ready to leave
+the loop.
+In summary:
+ - if you know in advance how many times a loop is repeated, use a for loop
+ - if the loop body must be executed at least once, use a do loop
+ - otherwise, use a while loop
+Our loop is going to be executed until the next number is n and the starting value of
+the next number is zero. So we know the number of times we want the loop to execute:
+n times including the first time when next number is zero.
+Therefore, it makes sense for us to use a count controlled loop.
+
+step 4: set up variables for entering the loop for the first time
+List all variables that are used and updated in the loop, and determine how to
+initialise them. Commonly, counters are initialised with 0 or 1, totals with 0.
+int n = 100;
+int startingNumber = 0;
+int nextNumber = startingNumber
+int thisNumber = nextNumber
+int square = thisNumber * thisNumber
+
+step 5: process the result after the loop has finished
+In many cases the desired result is simply a variable that was updated in the loop
+body. Sometimes, the loop computers values that contribute to the final result.
+
+In this loop there is no result to be processed after loop has finished executing
+because the results we care about are computer each iteration of the loop.
+
+Here is our complete loop:
+
+int n = 100;
+int startingNumber = 0;
+for nextNumber from startingNumber to n - 1
+   int thisNumber = nextNumber
+   int square = thisNumber * thisNumber
+   output square
+
+step 6:
+Trace the loop with typical examples. Use the hand tracing technique from section 6.2.
+Choose examples that aren't too complex. Executing the loop 3 to 5 times is enough to
+check for the most common errors.
+Pay special attention when entering the loop for the first time.
+Sometimes you want to make a slight modification to make tracing feasible. For example,
+using smaller numbers, fewer numbers, and values which make hand computation easier and
+fewer.
+n = 5;
+startingNumber = 0;
+n   |   startingNumber  |   nextNumber  |   thisNumber  |   square
+5   |   0               |   0           |   0           |   0
+    |                   |   1           |   1           |   1
+    |                   |   2           |   2           |   4
+    |                   |   3           |   3           |   9
+    |                   |   4           |   4           |   16
+
+implement the loop in java
+See SquaresLessThanN java source file.
+
+
+
+
