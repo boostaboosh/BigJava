@@ -1,0 +1,109 @@
+c. Write a while loop that prints all powers of two less than n. For example, if n is 100, print 1 2 4 8 16 32 64.
+
+how to write a loop step by step problem-solving:
+
+
+step 1: determine what goes inside the loop body, i.e., which set of statements needs to be repeated
+
+If you're having trouble figuring this out it helps to write down the steps you would take if you were solving the
+problem by hand:
+
+we have some positive integer value n, for example 20
+first power of two is two to the power of zero, i.e., 1
+if first power of two is less than n = 20
+   print first power of two
+second power of two is two to the power of one, i.e., 2
+if second power of two is less than n = 20
+   print second power of two
+third power of two is two to the power of 2, i.e., 4
+if third power of two < n
+   print third power of two
+...
+
+Now, reduce the steps you would take if you were solving the problem by hand to a set of actions which are always the
+same.
+
+power of two = 2 to the power of exponent 0
+if power of two < n
+   print power of two
+increment exponent by 1
+
+
+step 2: specify the looping condition
+
+What goal do you want to reach in your loop?
+I want power of two to reach the value n - 1
+
+our looping condition is:
+
+powerOfTwo < n
+
+
+step 3: determine the loop type
+
+We distinguish between two major loop types: count controlled loops and event controlled loops
+A count controlled loop uses a counter variable which is incremented or decremented by a constant amount until a target
+value is reached to control the execution of the loop body via its looping condition.
+A count controlled loop is called definite because you know from the outset that the loop will be executed a definite,
+i.e., clearly defined and unambiguous, number of times.
+An event controlled loop uses executes until an event occurs. An event controlled loop is called indefinite because you
+do not know from the outset how many times the loop will execute.
+
+For our purposes an event controlled loop is the right choice because we do not know how many times we will have to
+increase the value of the exponent until two elevated to the power of said exponent is greater than or equal to n.
+Even though the exponent will be incremented by a constant amount for each iteration of the loop, the looping condition
+will not involve a counter, i.e., the exponent, reaching a target value. Instead, our loop will execute until the value
+of two raised to the power of some exponent is greater than or equal to n.
+
+our loop becomes:
+while (powerOfTwo < n)
+   print powerOfTwo
+   exponent = exponent + 1
+   powerOfTwo = 2 raised to the power of exponent
+
+
+step 4: set up variables for entering the loop for the first time
+
+int n = 100;
+int powerOfTwo = 1;
+int exponent = 0;
+
+
+step 5: process the result after the loop has finished
+
+Sometimes the desired result is a variable that was updated in the loop body. Other times the desired result can be
+computed using a variable which was updated inside the loop body.
+
+In our case we do not need to compute any value after the execution of the loop using variables that were update in the
+loop. In fact, we don't even need to use variables that were updated in the loop body after the loop has been executed
+because we are interested in the value of the powerOfTwo variable while the loop is being executed.
+
+our loop is:
+int n = 100;
+int powerOfTwo = 1
+int exponent = 0
+while (powerOfTwo < n)
+   print powerOfTwo
+   exponent = exponent + 1
+   powerOfTwo = 2 raised to the power of exponent
+
+
+step 6: trace the loop with typical examples
+
+To trace the loop you will often need to simplify variable starting values in order for the loop to terminate quicker
+so that hand tracing is feasible. You only need to iterate through the loop 3 to 5 times by hand to check for the most
+common errors.
+Pay special attention to variables values when entering the loop for the first and last time.
+
+n   |   powerOfTwo  |   exponent    |   output  | loop iteration
+15  |   1           |   0           |           |
+    |   2           |   1           |   1       |   1
+    |   4           |   2           |   2       |   2
+    |   8           |   3           |   4       |   3
+    |   16          |   4           |   8       |   4
+    |
+
+
+step 7: implement the loop in Java
+
+See PowerOfTwoLessThanN java source file
