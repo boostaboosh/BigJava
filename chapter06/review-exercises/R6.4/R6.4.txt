@@ -1,0 +1,292 @@
+Write a loop that computes
+a. The sum of all even numbers between 2 and 100 (inclusive).
+
+// steps i would i take if working out the problem by hand
+
+add number to sum
+increase number by 2
+
+// determine the looping condition. what goal do you want to reach?
+I want number to reach 100
+so the looping condition is
+ number <= 100
+
+// determine the loop type: count controlled or event controlled
+This is a count controlled loop because there is a counter (number) which is increased or
+decreased by a constant amount for each iteration of the loop and the looping condition is
+true until the counter reaches a target value, i.e., 100.
+
+count controlled loops in Java are for loops
+our loop looks like this for now:
+for (number; number <= 100; update number)
+{
+    add number to sum
+}
+
+// list the variables that are used in your loop and determine when to initialise them and with
+what value
+int evenNumber = 2; // initialise in the for look header
+int lastNumber = 100
+int sum = 0;
+
+// process the result after the loop has finished
+Why did you execute the loop? Do you need a variable that was updated in the loop body?
+Yes, we need to output the sum which was updates in the loop body.
+our loop looks like this now:
+
+int sum = 0;
+int lastNumber = 100;
+for (int evenNumber = 2; evenNumber <= lastNumber; evenNumber = evenNumber + 2)
+    sum = sum + evenNumber
+output sum
+
+// trace the loop with typical examples
+lastNumber  |   sum |   evenNumber  |   loop iteration  |   output
+7           |   0   |   2           |                   |
+            |   2   |   4           |   1               |
+            |   6   |   6           |   2               |
+            |   12  |   8           |   3               |
+            |       |               |                   |   12
+
+// translate the loop pseudocode to Java
+see SumEvenNumbersBetweenTwoAndOneHundred source file
+
+Write a loop that computes
+b. The sum of all squares between 1 and 100 (inclusive).
+
+step 1 - determine what goes inside the loop body, i.e., what instructions need to be repeated
+If you can't figure this out write down the steps you would take if solving the problem by
+hand:
+set number to 1
+set square to 1 * 1
+add square to sum
+increment number by 1
+set square to number * number
+add square to sum
+increment number by 1
+set square to number * number
+add square to sum
+increment number by 1
+set square to number * number
+add square to sum
+
+Reduce the steps you wrote out for solving the problem by hand to a sequence of steps that are
+always the same for each step so that this uniform sequence of steps can be placed into the
+loop body
+set square to number * number
+add square to sum
+increment number by 1
+
+step 2 - determine the looping condition, i.e., what goal are you trying to reach?
+I want number to its final value of 100
+So the looping condition will be: number < 100
+
+step 3 - determine the loop type
+We distinguish two major loop types: count controlled loops and event controlled loops
+An event controlled loops repeats execution until an event occurs which falsifies the looping
+condition.
+A count controlled loops uses a counter variable which is incremented or decremented by a
+constant amount until a target value is reached to repeat execution until the looping condition
+is falsified because the counter variable has reached its target value.
+
+This loop is a count controlled loop because we have a counter variable, i.e., number, which
+is incremented by a constant amount (1) for each iteration of the loop and reaches a target
+value of 100, and the loop exits when after the counter has reached its target value of 100.
+
+step 4 - list all variables used in the loop and decide when to initialise them and with what
+value to do so.
+sum = 0 the sum to be initialised with zero before the loop executes and before the header so
+that it is in scope and therefore referencable in the program after the loop body.
+number = 1 is the counter to be initialised in the loop header before the loop body executes
+square to be initialised in the loop body with a value of number * number
+
+step 5 - process the result after the loop has finished
+Sometimes you need to use a variable which was updated in the loop body to computer your
+desired final result. Other times you just the desired result is said variable itself.
+In this case we just want to output the variable sum which was updated in the loop body as our
+final result.
+Our loop looks like this:
+sum = 0
+final number = 100
+for (number = 1; number <= final number; number++)
+   square = number * number
+   sum = sum + square
+output sum
+
+step 6 - hand trace the loop with typical example.
+Reduce the number of iterations of the loop by simplifying variable values so that hand
+tracing is feasible.
+sum |   number  |   square  |   final number    |   loop iterations |   output
+0   |   1       |   1       |   4               |   1               |
+1   |   2       |   4       |                   |   2               |
+5   |   3       |   9       |                   |   3               |
+14  |   4       |   16      |                   |   4               |
+30  |   5       |           |                   |                   |   30
+
+step 7 - translate the loop pseudocode into Java
+See SumOfSquaresBetweenOneAndOneHundred source file
+
+Write a loop that computes
+c. The sum of all odd numbers between a and b (inclusive).
+writing a loop step by step
+step 1
+determine what goes inside the loop body, i.e., what steps need to repeated over and over
+If you've having trouble figuring this out write down the steps you would take to solve the problem by hand:
+set first number to a
+if first number < b && first number is odd
+   sum = sum + first number
+set second number to first number + 1
+if second number < b && second number is odd
+   sum = sum + second number
+etc.
+
+Now we can reduce the set of steps we would take if solving the problem by hand to a set of steps which is always the
+same for each step:
+
+if number <= b && number % 2 == 0
+   sum = sum + number
+number = number + 1
+
+all together our loop is:
+while *some condition is true*
+    if number <= b && number % == 0
+        sum = sum * number
+    number = number + 1
+
+step 2
+determine the looping condition - what is the goal you want to reach with your loop?
+I want number to reach its final value b.
+So the looping condition is:
+number <= b
+
+step 3
+determine the loop type
+We distinguish between count controlled loops and event controlled loops.
+Count controlled loops use a counter variable which is incremented or decremented by a constant amount every iteration
+of the loop to decide when to execute an iteration of the loop. The counter reaches a target value and this falsified
+the looping condition of a count controlled loop.
+An event controlled loops executes until an event occurs which falsified its looping condition.
+
+Our loop is a count controlled loop because a counter variable number is incremented by a constant amount (1) until it
+reach a target value (b).
+
+all together our loop is:
+for number = ?; number <= b; number = number + 1
+   if number is even
+      sum = sum + number
+
+step 4
+list all the variables you need when entering the loop for the first time. Decide what value to initialise them with.
+first number = a
+number = first number
+last number = b
+sum = 0
+
+step 5
+process the result after the loop has finished
+we want to output the value of a variable which was updated in the loop body, i.e., the sum
+
+our loop is:
+first number = a
+last number = b
+sum = 0
+for (number = first number; number <= last number; number = number + 1)
+   if number % 2 == 1
+      sum = sum + number
+output sum
+
+step 6
+trace the loop by hand for 3 to 5 iterations to see if variables assume expected values.
+Pay particular attention to the values of variables the first time and the last time the loop iterates.
+a = 3 b = 6
+first number    |   last number     |   sum |   number  |   loop iterations |   output
+    3           |   6               |   0   |           |                   |
+                |                   |       |   3       |                   |
+                |                   |   3   |   4       |   1               |
+                |                   |       |   5       |   2               |
+                |                   |   8   |   6       |   3               |
+                |                   |       |   7       |   4               |
+                |                   |       |           |                   |   8
+
+step 7
+translate the loop pseudocode to Java
+
+
+Write a loop that computes
+d. The sum of all odd digits of n. (For example, if n is 32677, the sum would
+   be 3 + 7 + 7 = 17.)
+how to write a loop step by step:
+step 1 - determine what goes inside the loop body, i.e., what instructions need to be repeated
+To help with this write out the steps you would take if solving the problem by hand and then reduce the instructions
+from each step to a set of instructions which is the same for each step you solved by hand:
+n = 32677
+last digit = n % 10
+if last digit is odd
+   odd Digit Sum = odd Digit Sum + last digit
+number without last digit = n / 10
+second last digit = n % 10
+if last digit is odd
+   odd Digit Sum = odd Digit Sum + last digit
+number without last two digits = number without last digit / 10
+...repeat
+
+instructions which are the same for each step:
+lastDigit = number % 10;
+if last digit is odd
+   odd Digit Sum = odd Digit Sum + last digit
+number = number / 10
+
+step 2 - determine the looping condition: what goal do you want to reach with your loop?
+I want every digit of the number to be added to the sum.
+So, I want to keep executing the loop until the remaining digits, or remaining part of the number, is equal to zero:
+remaining digits != 0
+
+step 3 - determine the loop type: count controlled or event controlled loop
+We distinguish two major loop types: count controlled or event controlled.
+A count controlled loops controls how many iterations to execute based on the value of a counter variable which is
+incremented or decremented by a constant amount each iteration until it reaches a target value thereby falsifying the
+looping condition.
+An event controlled loop executes until an event occurs which falsifies the looping condition.
+
+This is an event controlled loop because it does not suit the idiom of a count controlled loop. Even though the variable
+number or remaining digits could be considered a counter because it undergoes the same update operation for each
+iteration of the loop until it reach a target value, the update operation on the remainingDigits variable is not an
+increment or decrement of a constant amount. Instead it is an integer division operation by a constant amount which ends
+up decrementing the remainingDigits variable by different amount each iteration of the loop. For this reason it is best
+to use an event controlled loop and execute the loop body while the remaining digits describe a quantity greater than 0.
+
+Our loop pseudocode looks like this now:
+while remaining digits != 0
+   last digit = remaining digits % 10
+   if last digit is odd
+      odd digit sum = odd digit sum + last digit
+   remaining digits = remaining digits / 10
+
+step 4 - list all the variables you need when entering the loop body for the first time and decide what value to
+initialise them with
+remaining digits = n
+odd digit sum = 0
+
+step 5 - process the result after the loop has executed
+output odd digit sum
+
+our loop looks like this now:
+
+remaining digits = n
+odd digit sum = 0
+while remaining digits != 0
+   last digit = remaining digits % 10
+   if last digit is odd
+      odd digit sum = odd digit sum + last digit
+   remaining digits = remaining digits / 10
+output odd digit sum
+
+step 6 - hand trace the loop for a few iterations with values that make the loop stop iterating after 3 to 5 iterations.
+n   remaining digits    odd digit sum   last digit  output
+323      323                  3              3
+         32                                  2
+         3                    6              3
+         0                                             6
+
+step 7 - translate the loop pseudocode to Java
+see SumOfOddDigits Java source code
