@@ -1,0 +1,54 @@
+How many iterations do the following loops carry out? Assume that i is not
+changed in the loop body.
+
+a. for (int i = 1; i <= 10; i++) . . .
+
+symmetric bounds because 1 <= 1 <= 10
+counter incremented by one every iteration 
+so total iterations = upper bound - lower bound + 1 = 10 - 1 + 1 = 10
+
+b. for (int i = 0; i < 10; i++) . . .
+
+asymmetric bounds because 0 <= i < 10
+counter update statement increments counter by one every iteration
+so totalIterations = upper bound - lower bound = 10 - 0 = 10
+
+c. for (int i = 10; i > 0; i--) . . .
+
+asymmetric loop bounds because 10 > i >= 0
+counter update decrements counter by one
+totalIterations = upper bound - lower bound = 10 
+
+d. for (int i = -10; i <= 10; i++) . . .
+
+symmetric loop bounds because -10 <= i <= 10 
+update statment increments counter by one
+total iterations = upper bound - lower bound + 1 = 10 -(-10) + 1 = 21
+
+e. for (int i = 10; i >= 0; i++) . . .
+
+symmetric loop bounds
+totalIterations = infinite loop because counter is incremented instead of decremented thereby getting
+bigger and bigger compared to the target value.
+In reality it is not an infinite loop because the integer i will reach the largest value that can be
+represented with the amount of bits used to represent integers in Java and the next time it is 
+incremented it will overflow and "wrap around" and become the smallest integer which can be represented with the amount of bits used to represent integers in Java.
+
+f. for (int i = -10; i <= 10; i = i + 2) . . .
+
+symmetric loop bounds
+counter moved in right direction
+totalIterations = counter range / counter increment = 
+(upper bouond - lower boound + 1 ) / size of increment = (10 -(-10) + 1) / 2 = 21 / 2 = 10.5 = 11
+Round up total iterations result because the decimal part represents the the last increment of the 
+counter which will push its value past the upper counter bound after the last iteration of the loop is 
+executed and the final counter update is executed.
+loop bound.
+
+g. for (int i = -10; i <= 10; i = i + 3) . . .
+
+symmetric loop bounds
+counter moves in the right direction
+totalIterations = counter range / counter increment = 
+(upper bound - lower bound + 1) / sizeOfIncrement = (10 -(-10) + 1) / 3 = 21 / 3 = 7
+
