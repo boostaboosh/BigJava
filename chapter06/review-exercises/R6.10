@@ -1,0 +1,18 @@
+What is a sentinel value? Give a simple rule when it is appropriate to use a numeric
+sentinel value.
+
+A sentinel value is a value that denotes the end of a series of a data but is not part of the data 
+itself.
+For example, if you are reading input from a user you may tell the user to input the value zero to 
+denote that they are finished with data input. In this example zero is a sentinel value. 
+Just like a real life sentinel who acts as a guard for people passing by some passage or border, in a 
+programming a sentinel value acts as a guard for data input by letting in values that preceed it and 
+not letting following values "pass".
+
+It is appropriate to use a numeric sentinel value when not all numeric values are accepted.
+For example, if you are reading in positive integers greater than zero from the user it is appropriate 
+to use zero or minus one as a sentinel value. 
+However, if you are reading in numeric values that can be positive or negative or zero then you may not
+use any numeric integer value as a sentenel value to denote the end of data entry on behalf of the user
+because the user may want to input the senetel value as part of the data set.
+
