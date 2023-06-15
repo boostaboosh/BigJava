@@ -1,0 +1,22 @@
+What is an “off-by-one” error? Give an example from your own programming
+experience.
+
+An off-by-one error is a programming error which involves the programmer telling the computer to 
+execute a loop one more or one less time than they had intended.
+It usually involves choosing lower and upper bounds of a counter variable in a countrolled loop. 
+It is easy to be off by one when setting the starting value of a counter variable in a count controlled 
+loop or determining the final value of a counter variable in a count controlled loop by setting the 
+upper bound of the counter variable and deciding which relational operator to use in the looping 
+condition.
+
+In my own experience I have tried to loop through every single character position in a String str of 
+length str.length() by setting a counter called position to an initial value of 0, which was my lower
+loop bound, and incrementing the counter by one after each iteration of the loop where I would access 
+character at the value of position in the string. However, I made the mistake of setting the upper 
+bound of the loop to the value of str.length() by using a less than or equal to relational operator
+in my looping condition, i.e., position <= str.length(). This was a mistake because it meant that for 
+the last iteration of the loop position assumed a value equal to the length of the string which was one
+more than the number of character positions in the string because the final position in a string is the
+position str.length() - 1. So, I was off by one and had to change the upper loop bound to str.length()
+- 1 by using the less than operator instead of the less than or equal to operator.
+
