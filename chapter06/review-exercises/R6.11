@@ -1,0 +1,50 @@
+Which loop statements does Java support? Give simple rules for when to use each
+loop type.
+
+Java supports three different loop statements:
+the for loop
+the while loop
+and the do loop
+
+We distinguish between two major loop types: count controlled loops and event controlled loops.
+Count controlled loops control the execution of the statements to be repeated using a counter variable
+which is incremented or decremented by a constant amount until it reach a target value thereby 
+falsifying the looping condition.
+Event controlled loops control the execution of the loop using a condition which is falsified when some
+event occurs. 
+A count controlled loop is a specific type of event controlled loop where the event is a counter 
+variable reaching a target value.
+
+The for loop in Java is a count controlled loop.
+We use it for implementing count controlled loops. 
+I.e., we use a for loop when we want to implement a loop where a value is incremented or decremented by 
+a constant amount until it reaches a target value. 
+This value is known as a counter and is stored in a counter variable. 
+This is usually the case when we know how many times we want a loop to execute in advance.
+For example, ten times, or once for every number between 0 and the length of a string.
+Because we can use a counter variable to count loop iterations until it reaches a target, for example
+ten or the length of a string.
+
+A while loop in Java is an event controlled loop. 
+We use it for implementing event controlled loops.
+I.e., we use when we want to implement a loop which will execute until some event occurs.
+If we don't have a value which is incremented or decremented by a constant amount until it reaches a 
+target value we use a while loop.
+This is usually the case when we don't know how many times we want the loop to execute in advance.
+For example, if we want to execute some instructions repeatedly until a user enters a certain value or
+if we want to execute some instructions repeatedly until some variable reaches some value withouot
+being incremented or decremented by a constant amount each time.
+
+A do loop in Java is a special type of event controlled loop which executes the loop body, i.e., 
+the instructions to be repeated over and over again by the loop, once before testing if the looping 
+condition is true. A do loop is also known as a post-test loop because the condition is tested after 
+executing the loop body in contrast to pre-test loops which test the condition before executing the 
+loop body.
+We use a do loop when we need to execute the loop body at least once before being able to check 
+if the looping condition is true.
+For example, if you want the user to input a certain type of value you can use a do loop to ask the 
+user for input before testing if the input value is valid via the looping condition. 
+If the input is not valid the do loop will ask the user for input again and again until it is. 
+So, the do loop can be user to read an input value once before testing if the value is of the type you
+wanted.
+
