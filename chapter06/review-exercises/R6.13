@@ -1,0 +1,92 @@
+Write pseudocode for a program that prints a calendar such as the following.
+
+Su  M  T  W Th  F Sa
+          1  2  3  4
+ 5  6  7  8  9 10 11
+12 13 14 15 16 17 18
+19 20 21 22 23 24 25
+26 27 28 29 30 31
+
+how to write a loop step by step 
+step 1 - decide what actions need to be repeated over and over again
+if you're having trouble figuring this out, write out the steps you would take if you were solving the
+problem by hand.
+
+on the first row write the column headers su m t w th f sa
+
+on the second row leave three spaces and then write 1 2 3 4
+on the third row write 5 6 7 8 9 10 11
+on the fourth row write 12 13 14 15 16 17 18
+...
+
+then, reduce the steps you wrote down to a set of instructions that doesn't change for each step
+of the hand solved problem.
+
+output su m t w t f sa
+output "     "
+
+print date
+if date % 7 == 4
+   print new line
+increment date by 1
+
+step 2 - determine the looping condition.
+What is the goal of the loop?
+I want the date to reach 31
+
+step 3 - determine the loop type
+We distinguish between two types of loops: count controlled loops and event controlled loops.
+A count controlled loop is controlled by a variable called a counter which is increased by a constant 
+amount each time the loop is executed until it reach a target value, thereby falsifying the looping
+condition. 
+An event controlled loop is controlled by an event which occurs and falsifies the looping condition.
+
+If we know how many times a loop will execute in advance we should use a counter controlled loop, i.e.,
+a for loop in Java.
+
+the loop is a count controlled loop because we want it to execute 31 times and the date variable acts
+as a counter which is incremented by the constant amount of one for each iteration of the loop.
+
+step 4 - list all variables you need for entering the loop for the first time and decide what values to 
+initialise these variables with
+
+I need the date variable and that's it.
+I will initialise the date with a value of 1
+
+step 5 - process results after the loop is done executing all of its iterations
+I don't need to process any results with any variables updates during the execution of the loop because
+I am interested in the output during the execution of the loop.
+
+our loop looks like this:
+
+
+for date from 1 to 31
+   print date
+   if date % 7 == 4
+      print new line
+
+step 6 - hand trace your loop for 3 to 5 iterations to make sure variables hold expected values and the
+loop works as expected. pay attention when entering the loop for the first time and when entering the 
+loop for the last time.
+date output iteration
+1	1	1
+2	2	2
+3	3	3
+4	4\n	4
+5	5	5
+...		
+31	31	31
+
+step 7 - translate pseudocode to java
+Not necessary for this exercise
+
+the final pseudocode for a program that prints a calendar such as the one shown is:
+
+print  Su  M  T  W Th  F Sa
+print "         "
+
+for date from 1 to 31
+   print format string ("%2d ", date)
+   if date % 7 == 4
+      print new line
+
