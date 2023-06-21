@@ -1,0 +1,131 @@
+Write pseudocode for a program that prints a Celsius/Fahrenheit conversion table
+such as the following.
+Celsius | Fahrenheit
+--------+-----------
+      0 |         32
+     10 |         50
+     20 |         68
+  . . .        . . .
+    100 |        212
+
+computation problem-solving
+
+step 1) understand the problem: what are the inputs and outputs?
+inputs:
+Celsius temperature values from 0 to 100 in increments of 10: 0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100
+outputs:
+the Fahrenheit temperature conversions of the Celsius values in the requested format.
+
+step 2) work out examples by hand
+C       F
+0       0 * 1.8 + 32 = 0 + 32 + 32
+10      18 + 32 = 50
+20      20 * 1.8 + 32 = 2 * 10 * 1.8 + 32 = 36 + 32 = 68
+
+step 3) write an algorithm for computing the answers to general instances of the problem using the method you used when
+solving the problem by hand
+
+print Celsius
+print space
+print bar
+print space
+print fahreneheit
+print
+
+print 8 dashes
+print +
+print 11 dashes
+print new line
+
+print 0 in format string with field width of 7
+print space + bar
+print 32 in format string with field width of 11
+print new line
+print 10 in format string with field width of 7
+print space + bar
+print 50 in format string with field width of 11
+print new line
+...
+
+how to implement a loop problem-solving
+step 1) determine which instructions you want to repeat
+If you're unsure about write down the steps you would take to solve the problem by hand.
+I did this in the previous step when writing an algorithm for computing answers to general instances of the problem:
+
+celsiusTemperature = 0
+fahrenheitScalingFactor = 1.8
+fahrenheitTranslationFactor = 32
+fahrenheitTemperature = celsiusTemperature * fahrenheitScalingFactor * fahrenheitTranslationFactor
+print celsiusTemperature in format string with field width 7
+print space concatenated with the bar symbol
+print fahrenheitTemperature in format string with field width of 11
+print new line
+increase celsiusTemperature temperature by 10
+...
+
+Then, reduce the steps you took when working the problem out by hand to a uniform set of instructions, i.e, a set of
+instructions that doesn't change for each step.
+
+celsiusTemperature = 0
+fahrenheitScalingFactor = 1.8
+fahrenheitTranslationFactor = 32
+fahrenheitTemperature = celsiusTemperature * fahrenheitScalingFactor * fahrenheitTranslationFactor
+print celsiusTemperature in format string with field width 7
+print space concatenated with the bar symbol
+print fahrenheitTemperature in format string with field width of 11
+print new line
+increase celsiusTemperature temperature by 10
+
+so our loop looks like this now:
+while *some condition* is true repeat the following steps:
+    fahrenheitScalingFactor = 1.8
+    fahrenheitTranslationFactor = 32
+    fahrenheitTemperature = celsiusTemperature * fahrenheitScalingFactor * fahrenheitTranslationFactor
+    print celsiusTemperature in format string with field width 7
+    print space concatenated with the bar symbol
+    print fahrenheitTemperature in format string with field width of 11
+    print new line
+    increase celsiusTemperature temperature by 10
+
+step 2 - determine the looping condition
+What goal do you want to reach in your loop to reach?
+I want the Celsius temperature to reach 100.
+So our loop looks like this now:
+while celsiusTemperature <= 100
+    fahrenheitScalingFactor = 1.8
+    fahrenheitTranslationFactor = 32
+    fahrenheitTemperature = celsiusTemperature * fahrenheitScalingFactor * fahrenheitTranslationFactor
+    print celsiusTemperature in format string with field width 7
+    print space concatenated with the bar symbol
+    print fahrenheitTemperature in format string with field width of 11
+    print new line
+    increase celsiusTemperature temperature by 10
+
+step 3 - determine the loop type: count controlled or event controlled?
+This is a count controlled loop because there is a counter variable (celsiusTemperature) which is incremented by a
+constant amount once per loop iteration loop until it reaches a target value (100).
+We can also determine that this is a count controlled loop because we know how many times we want it to execute: once
+for each multiple of 10 from 0 to 100.
+in Java count controlled loops are implemented using for loops.
+so, our loop looks like this now
+while celsiusTemperature <= 100 do the following and then increase celsiusTemperature by 10 after each loop iteration
+    fahrenheitScalingFactor = 1.8
+    fahrenheitTranslationFactor = 32
+    fahrenheitTemperature = celsiusTemperature * fahrenheitScalingFactor * fahrenheitTranslationFactor
+    print celsiusTemperature in format string with field width 7
+    print space concatenated with the bar symbol
+    print fahrenheitTemperature in format string with field width of 11
+    print new line
+
+step 4 - set up variables for entering the loop for the first time: decide what value to initialise them with
+celsiusTemperature = 0
+
+step 4 of computation problem-solving - declare the variables and constants you need and specify their types
+constant double FAHRENHEIT_SCALING_FACTOR = 1.8
+constant int FAHRENHEIT_TRANSLATION_FACTOR = 32
+constant int LAST_VALUE = 100
+int celsiusTemperature
+int fahrenheitTemperature
+
+step 5 - translate the pseudocode to the Java language
+see CelsiusFahrenheitConversionTable java source file
