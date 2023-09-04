@@ -1,0 +1,154 @@
+Write pseudocode for a program that reads a student record, consisting of the student’s first and last name, 
+followed by a sequence of test scores and a sentinel of –1.
+The program should print the student’s average score. Then provide a trace table for
+this sample input:
+Harry Morgan 94 71 86 95 -1
+
+Computation problem solving (how to 4.1 - Big Java page 118 ch04)
+
+Step 1
+Determine the inputs and outputs
+
+Inputs
+firstName
+secondName
+testScore1
+testScore2
+testScoreN
+sentinelValue
+
+Output
+averageTestScore
+
+Step 2
+Work out examples by hand (if you can't compute the solution yourself, it's unlikely you'll be able to write 
+an algorithm that can)
+
+Example
+James Butler 40 42 70 70 70 70 -1
+40 + 42 + 70 + 70 + 70 + 70 = 362
+362 / 6 = 60.33333333333333333 recurring
+
+Step 3
+Write a pseudocode algorithm for computing answers to general instances of the problem by using the method
+you used when solving the problem by hand. So reduce the steps from your hand worked example to a series of 
+steps that are the same no matter the instance of the problem being solved.
+
+Pseudocode algorithm:
+
+Output "Enter student record on one line: first and last name followed by test scores. Enter -1 to indicate the end of test score entries."
+Create a scanner object with the computer keyboard as the input stream
+Scan the next token in the input stream which is the second name of the student
+Scan the next token in the input stream which is the last name of the student
+Assign numberOfScores a starting value of zero
+Assign sumOfScores a starting value of zero
+Scan the next value in the scanner's input as an integer and assign this value to testScore
+If testScore is equal to -1
+   Output "no tests scores inputted"
+Otherwise
+   Add testScore to sumOfScores
+   Add 1 to numberOfScores
+Scan the next value in the scanner's input as an integer and assign this value to testScore   
+If testScore is equal to -1
+   Assign averageTestScore a value of sumOfScores / numberOfScores
+   Output averageTestScore
+Otherwise
+   Add testScore to sumOfTerms
+   Add 1 to numberOfTerms
+... repeat until -1 entry is found (what is no -1 entry is found? It becomes an infinite loop.)
+
+How to implement a loop problem solving (how to 6.1 - Big Java page 203 ch06)
+
+Step 1
+Decide which instructions you want to repeat. If you can't figure it out write down the steps you would take when solving
+The problem by hand.
+
+Scan the next value in the scanner's input as an integer and assign this value to testScore
+If testScore is equal to -1
+   Output "no tests scores inputted"
+Otherwise
+   Add testScore to sumOfScores
+   Add 1 to numberOfScores
+Scan the next value in the scanner's input as an integer and assign this value to testScore   
+If testScore is equal to -1
+   Assign averageTestScore a value of sumOfScores / numberOfScores
+   Output averageTestScore
+Otherwise
+   Add testScore to sumOfTerms
+   Add 1 to numberOfTerms
+... repeat until -1 entry is found (what is no -1 entry is found? It becomes an infinite loop.)
+
+Then look at the steps you took when working out the problem by hand and reduce them to a uniform set of instructions, i.e., 
+a set of instructions that does not change for each step.
+
+Scan the next token in the scanner's input stream as an integer and assign this value to testScore
+If testScore equals sentinelValue
+   Assign averageTestScore a value of sumOfScores / numberOfScores
+   Output averageTestScore
+Otherwise
+   Add testScore to sumOfTerms
+   Add 1 to numberOfTerms
+
+Step 2
+Specify the loop condition.
+
+We want number values to be treated as test scores and added to the sum of scores until the sentinel value is inputted.
+
+Step 3
+Determine the loop type. Count controlled loop or event controlled loops are the two types of loop.
+Count controlled loops are controlled by a counter variable which is incremented by a constant amount once per loop iteration
+until it reaches a target value.
+
+This is not a count controlled loop, which is a specific type of loop, because it doesn't meet all the requirements of a count
+Controlled loop. So, this is an event controlled loop.
+This is an event controlled loop because we want to repeat the loop instructions until an event takes place, i.e., until the 
+Sentinel value is reached in the scanner's input stream.
+
+While inputNumber != sentinelValue
+   Assign inputNumber to testScore
+   Add testScore to sumOfScores
+   Add 1 to numberOfScores
+   Scan the next value in the scanner's input as an integer and assign this value to inputNumber
+
+Step 4
+Set up loop variables for entering the loop for the first time. 
+List all the variables that are used and updated in the loop and determine how to initialise them.
+
+inputNumber = value of next integer token in the scanner's input stream
+sentinelValue = -1
+sumOfScores = 0
+numberOfScores = 0
+
+Our loop looks like this:
+inputNumber = value of next integer token in the scanner's input stream
+sentinelValue = -1
+sumOfScores = 0
+numberOfScores = 0
+While inputNumber != sentinelValue
+   Assign inputNumber to testScore
+   Add testScore to sumOfScores
+   Add 1 to numberOfScores
+   Scan the next value in the scanner's input as an integer and assign this value to inputNumber
+
+Continuation of step 3 of computation problem solving using the loop we have implemented
+
+Pseudocode algorithm:
+
+Output "Enter student record on one line: first and last name followed by test scores, followed by -1 to indicate the end of test score entries."
+Create a scanner object with the computer keyboard as the input stream
+Scan the next token in the input stream which is the first name of the student
+Scan the next token in the input stream which is the last name of the student
+inputNumber = value of next integer token in the scanner's input stream
+sentinelValue = -1
+sumOfScores = 0
+numberOfScores = 0
+While inputNumber != sentinelValue
+   Assign inputNumber to testScore
+   Add testScore to sumOfScores
+   Add 1 to numberOfScores
+   Scan the next value in the scanner's input as an integer and assign this value to inputNumber
+averageTestScore = sumOfScores / numberOfScores
+Output averageTestScore
+
+sample input:
+Harry Morgan 94 71 86 95 -1
