@@ -1,0 +1,315 @@
+Write pseudocode for a program that reads a sequence of student records and prints
+the total score for each student. Each record has the student’s first and last name,
+followed by a sequence of test scores and a sentinel of –1. The sequence is terminated
+by the word END. Here is a sample sequence:
+Harry Morgan 94 71 86 95 -1
+Sally Lin 99 98 100 95 90 -1
+END
+Provide a trace table for this sample input. 
+
+How to carry out computations page 118 how to 4.1
+
+Step 1) Understand the problem: what are the inputs and outputs?
+Inputs:
+1 - A sequence of student records (first and last name, followed by a sequence of test scores, followed by a sentinel value of -1)
+2 - The END terminating word to mark the end of the sequence of records
+Outputs:
+1 - The total score for each student
+
+Step 2) Work out examples by hand.
+Harry Morgan 94 71 86 95 -1
+Sally Lin 99 98 100 95 90 -1
+END
+
+94 + 71 + 86 + 95 = 346
+99 + 98 + 100 + 95 + 90 = 482
+
+Harry Morgan's total score is 346
+Sally Lin's total score is 482
+
+Step 3) Write the steps a computer needs to take to solve general instances of the problem I solved a specific instance of when working out an example by hand.
+Pseudocode algorithm:
+Create a scanner object and set the input as the computer keyboard's input stream.
+Output "Enter student records on each line. Enter END to terminate the sequence of records. Student record format: firstName lastName numericalTestScores -1"
+Read the first token parsed by the scanner and assign its value to inputString
+If inputString != "END"
+   Assign inputString's memory address to firstName
+   Read the second token parsed by the scanner and assign its address to secondName
+   Read the third token parsed by the scanner and assign its value to inputNumber
+   If inputNumber != -1
+      Add testScore to totalScore
+   Otherwise 
+      Output "firstName secondName's total score is totalScore"
+   Read the fourth token parsed by the scanner and assign its value to inputNumber
+   If inputNumber != -1
+      Add testScore to totalScore
+   Otherwise 
+      Output "firstName secondName's total score is totalScore"
+   Read the fifth token parsed by the scanner and assign its value to inputNumber
+   If inputNumber != -1
+      Add testScore to totalScore
+   Otherwise 
+      Output "firstName secondName's total score is totalScore"
+   Read the sixth token parsed by the scanner and assign its value to inputNumber
+   If inputNumber != -1
+      Add testScore to totalScore
+   Otherwise 
+      Output "firstName secondName's total score is totalScore"
+Otherwise 
+   do nothing
+Read the first token parsed by the scanner and assign its value to inputString
+If inputString != "END"
+   Assign inputString's memory address to firstName
+   Read the second token parsed by the scanner and assign its address to secondName
+   Read the third token parsed by the scanner and assign its value to inputNumber
+   If inputNumber != -1
+      Add testScore to totalScore
+   Otherwise 
+      Output "firstName secondName's total score is totalScore"
+   Read the fourth token parsed by the scanner and assign its value to inputNumber
+   If inputNumber != -1
+      Add testScore to totalScore
+   Otherwise 
+      Output "firstName secondName's total score is totalScore"
+   Read the fifth token parsed by the scanner and assign its value to inputNumber
+   If inputNumber != -1
+      Add testScore to totalScore
+   Otherwise 
+      Output "firstName secondName's total score is totalScore"
+   Read the sixth token parsed by the scanner and assign its value to inputNumber
+   If inputNumber != -1
+      Add testScore to totalScore
+   Otherwise 
+      Output "firstName secondName's total score is totalScore"
+Otherwise 
+   do nothing
+Read the first token parsed by the scanner and assign its value to inputString
+If inputString != "END"
+   Assign inputString's memory address to firstName
+   Read the second token parsed by the scanner and assign its address to secondName
+   Read the third token parsed by the scanner and assign its value to inputNumber
+   If inputNumber != -1
+      Add testScore to totalScore
+   Otherwise 
+      Output "firstName secondName's total score is totalScore"
+   Read the fourth token parsed by the scanner and assign its value to inputNumber
+   If inputNumber != -1
+      Add testScore to totalScore
+   Otherwise 
+      Output "firstName secondName's total score is totalScore"
+   Read the fifth token parsed by the scanner and assign its value to inputNumber
+   If inputNumber != -1
+      Add testScore to totalScore
+   Otherwise 
+      Output "firstName secondName's total score is totalScore"
+   Read the sixth token parsed by the scanner and assign its value to inputNumber
+   If inputNumber != -1
+      Add testScore to totalScore
+   Otherwise 
+      Output "firstName secondName's total score is totalScore"
+Otherwise 
+   do nothing
+
+How to write a loop - how to 6.1 p203 (pdf p311)
+
+Step 1)
+Decide which instructions the computer needs to repeat the execution of:
+
+   Read the third token parsed by the scanner and assign its value to inputNumber
+   If inputNumber != -1
+      Add testScore to totalScore
+   Otherwise 
+      Output "firstName secondName's total score is totalScore"
+   Read the fourth token parsed by the scanner and assign its value to inputNumber
+   If inputNumber != -1
+      Add testScore to totalScore
+   Otherwise 
+      Output "firstName secondName's total score is totalScore"
+   Read the fifth token parsed by the scanner and assign its value to inputNumber
+   If inputNumber != -1
+      Add testScore to totalScore
+   Otherwise 
+      Output "firstName secondName's total score is totalScore"
+   Read the sixth token parsed by the scanner and assign its value to inputNumber
+   If inputNumber != -1
+      Add testScore to totalScore
+   Otherwise 
+      Output "firstName secondName's total score is totalScore"
+
+Reduce these steps you took when working out the problem by hand to a single step or set of instructions that are the same for each step.
+
+Read the next whole number token parsed by the scanner and assign its value to inputNumber
+If inputNumber != -1
+   assign inputNumber to testScore
+   Add testScore to totalScore
+Otherwise
+   Output "firstName secondName's total score is totalScore
+
+Step 2) specify the loop condition
+What goal do you want to reach in your loop
+Has inputNumber reached its final value -1?
+
+Step 3) determine the loop type.
+We distinguish between event controlled loops and count controlled loops.
+Count controlled loops are controlled by a counter variable which is incremented once per loop iteration until it reaches a target value.
+Since this is not a count controlled loop, this is an event controlled loop. The loop instruction keep being executed until an event takes place:
+The inputNumber is -1.
+
+While inputNumber != -1
+   assign inputNumber to testScore
+   Add testScore to totalScore
+   Read the next whole number token parsed by the scanner and assign its value to inputNumber
+
+Step 4) set up variables for entering the loop for the first time. List all variables that are updated in the loop and determine how to initialise them
+
+inputNumber = next token parsed by the scanner
+totalScore = 0
+While inputNumber != -1
+   assign inputNumber to testScore
+   Add testScore to totalScore
+   Read the next whole number token parsed by the scanner and assign its value to inputNumber
+Otherwise
+   Output "firstName secondName's total score is totalScore
+
+Continuation of step 3 - writing a pseudocode algorithm for the computer
+
+Now that we've implemented a loop our algorithm looks like this:
+
+Create a scanner object and set the input as the computer keyboard's input stream.
+Output "Enter student records on each line. Enter END to terminate the sequence of records. Student record format: firstName lastName numericalTestScores -1"
+Read the first token parsed by the scanner and assign its value to inputString
+If inputString != "END"
+   Assign inputString's memory address to firstName
+   Read the second token parsed by the scanner and assign its address to secondName
+   inputNumber = next token parsed by the scanner
+   totalScore = 0
+   While inputNumber != -1
+      assign inputNumber to testScore
+      Add testScore to totalScore
+      inputNumber = next token parsed by the scanner
+   Output "firstName secondName's total score is totalScore"
+Otherwise 
+   do nothing
+Read the first token parsed by the scanner and assign its value to inputString
+If inputString != "END"
+   Assign inputString's memory address to firstName
+   Read the second token parsed by the scanner and assign its address to secondName
+   inputNumber = next token parsed by the scanner
+   totalScore = 0
+   While inputNumber != -1
+      assign inputNumber to testScore
+      Add testScore to totalScore
+      inputNumber = next token parsed by the scanner
+   Output "firstName secondName's total score is totalScore"
+Otherwise 
+   do nothing
+Read the first token parsed by the scanner and assign its value to inputString
+If inputString != "END"
+   Assign inputString's memory address to firstName
+   Read the second token parsed by the scanner and assign its address to secondName
+   inputNumber = next token parsed by the scanner
+   totalScore = 0
+   While inputNumber != -1
+      assign inputNumber to testScore
+      Add testScore to totalScore
+      inputNumber = next token parsed by the scanner
+   Output "firstName secondName's total score is totalScore"
+Otherwise 
+   do nothing
+
+Let's add another loop for the other repeated instructions
+
+How to write a loop - how to 6.1 p203 (pdf p.311)
+
+Step 1) Decide which instructions need to be repeated. If you're having trouble figuring this out 
+write the steps you would take if solving the problem by hand. (The steps above). Now reduce these
+steps to a single series of instructions which is the same for each step.
+
+Read the first token parsed by the scanner and assign its value to inputString
+If inputString != "END"
+   Assign inputString's memory address to firstName
+   Read the second token parsed by the scanner and assign its address to secondName
+   inputNumber = next token parsed by the scanner
+   totalScore = 0
+   While inputNumber != -1
+      assign inputNumber to testScore
+      Add testScore to totalScore
+      inputNumber = next token parsed by the scanner
+   Output "firstName secondName's total score is totalScore"
+Otherwise 
+   do nothing
+
+Step 2) Decide what the looping condition is. What is the goal of the loop?
+Has the last input value been read? We want the first token parsed by the scanner to be END.
+
+Step 3) Decide what kind of loop this is. We distinguish between two types of loop: count controlled and event controlled loops.
+Count controlled loops are controlled by a counter variable which is incremented by a constant amount once per loop iteration until
+it reaches a target value.
+An event controlled loop tells the computer to repeat the instructions it contains in its body until an event takes place: the 
+First token in the line is "END".
+Our loop looks like this now in pseudocode:
+
+inputString = read next token parsed by the scanner
+While inputString != "END"
+   // process students records
+   firstName = inputString
+   secondName = read next token parsed by the scanner
+   inputNumber = read next token parsed by the scanner
+   totalScore = 0
+   While inputNumber != -1
+      testScore = inputNumber
+      totalScore = totalScore + testScore
+      inputNumber = read next token parsed by the scanner
+   Output "firstName secondName 's total score is totalScore"
+   inputString = read next token parsed by the scanner
+
+Step 4) list all variables updated in the loop in decide what value to initialise them with
+
+inputString. = read next token parsed by the scanner
+
+Our loop looks like this now:
+
+inputString = read next token parsed by the scanner
+While inputString != "END"
+   // process students records
+   firstName = inputString
+   secondName = read next token parsed by the scanner
+   inputNumber = read next token parsed by the scanner
+   totalScore = 0
+   While inputNumber != -1
+      testScore = inputNumber
+      totalScore = totalScore + testScore
+      inputNumber = read next token parsed by the scanner
+   Output "firstName secondName 's total score is totalScore"
+   inputString = read next token parsed by the scanner
+
+Continuation of step 3 - writing a pseudocode algorithm for the computer:
+
+Pseudocode algorithm:
+
+Create a scanner object and set the input as the computer keyboard's input stream.
+Output "Enter student records on each line. Enter END to terminate the sequence of records. Student record format: firstName lastName numericalTestScores -1"
+inputString = read next token parsed by the scanner
+While inputString != "END"
+   // process students records
+   firstName = inputString
+   secondName = read next token parsed by the scanner
+   inputNumber = read next token parsed by the scanner
+   totalScore = 0
+   While inputNumber != -1
+      testScore = inputNumber
+      totalScore = totalScore + testScore
+      inputNumber = read next token parsed by the scanner
+   Output on new line "firstName secondName 's total score is totalScore"
+   inputString = read next token parsed by the scanner
+
+
+Write pseudocode for a program that reads a sequence of student records and prints
+the total score for each student. Each record has the student’s first and last name,
+followed by a sequence of test scores and a sentinel of –1. The sequence is terminated
+by the word END. Here is a sample sequence:
+
+Harry Morgan 94 71 86 95 -1
+Sally Lin 99 98 100 95 90 -1
+END
+Provide a trace table for this sample input.
