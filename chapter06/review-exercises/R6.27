@@ -1,0 +1,33 @@
+In Section 6.7.5, the code for finding the largest and smallest input initializes the
+largest and smallest variables with an input value. Why can’t you initialize them
+with zero? 
+
+The code for finding the largest input:
+
+double largest = in.nextDouble();
+while (in.hasNextDouble())
+{
+ double input = in.nextDouble();
+ if (input > largest)
+ {
+ largest = input;
+ }
+}
+
+The code for finding the smallest input:
+
+double smallest = in.nextDouble();
+while (in.hasNextDouble())
+{
+ double input = in.nextDouble();
+ if (input < smallest)
+ {
+ smallest = input;
+ }
+
+
+You can't initialise the variable that contains the largest value among input values with zero because this would result in an inaccurate finding of the largest number among inputs if the largest input value is smaller than zero. For example, if the inputs are -100, -243, and -3. The program would determine the largest input value to be zero even though the it isn't because the largest value is actually -3.
+This is because we compare each input value to the value contained in the largest variable. So, in the comparison -3 > 0, the condition is false and the largest variable remains set to zero.
+
+The same things apply to finding the smallest input value. We cannot initialise the smallest variable with a value of zero.
+Because if we set the smallest variable to zero and the inputs are all greater than zero the program will determine the smallest value to be zero even if it isn't. For example, if the input values are 2, 8, and 100 the correct smallest input value is 2. But if we assign smallest a value of zero from the get go the result will be zero instead of two.
