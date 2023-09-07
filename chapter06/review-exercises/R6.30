@@ -1,0 +1,7 @@
+Suppose you design an educational game to teach children how to read a clock. How
+do you generate random values for the hours and minutes? 
+
+To generate random values between 1 and 12 for the hours on the clock and to generate random values between 1 and 60 for the minutes on the clock I can use the Random class in Java which implements a random number generator.
+I can generate an object of the Random class and then invoke the nextInt(n) method to generate a random positive integer between 0 (inclusive) and n (exclusive). Because I want by minimum value to be at least 1, I can add one to my result and set n to the maximum value I want -1, i.e., 11 and 59.
+So, I can generate random values between 1 and 12 by calling the randomNumberGenerator.nextInt(11) method and adding 1 to the result so that all possible results will be between 1 and 12.
+And I can generate random values between 1 and 60 by calling the randomNumberGenerator.nextInt(59) method and adding 1 to the result so that all possible results will be between 1 and 60.
