@@ -1,0 +1,8 @@
+What are nested loops? Give an example where a nested loop is typically used.
+
+Nest loops are loops inside the body of other loops.
+Loops are used when you want to tell the computer to repeat the execution of some instructions.
+So, a loop inside of another loop, i.e., a nested loop, is used when you want to tell the computer to repeat something repeatedly.
+For example, if you want to print a table made up of rows and columns it is common to tell the computer to print rows using an outer loop, and to print column values for each row using a nested loop internal to the outer loop. 
+This is because printing a row requires printing a value for each column value. 
+For example, if you are printing a table which contains the 10 x table for numbers 1 through 9 then for each row representing a number (outer loop) you will need to print the value of said number first by 1, then by 2, then by 3, etc. (inner or nested loop).
