@@ -12,5 +12,8 @@ public class MethodDemonstration
      */
     public static void main(String[] args)
     {
+        double y = 1;
+        double n = y / 2;
+        System.out.print(n);
     }
 }
