@@ -1,0 +1,69 @@
+The nested loops
+for (int i = 1; i <= height; i++)
+{
+ for (int j = 1; j <= width; j++) { System.out.print("*"); }
+ System.out.println();
+}
+display a rectangle of a given width and height, such as
+****
+****
+****
+Write a single for loop that displays the same rectangle.
+
+computation problem-solving
+
+step 1) understand the problem
+what are the inputs?
+height: an integer value which I can decide
+width: an integer value which I can decide
+what is the desired output?
+A rectangle made up of asterisks of the given height and width.
+
+step 2) work out example by hand
+height: 3
+width: 4
+****
+****
+****
+
+step 3) write a pseudocode algorithm for solving the general instances of the problem using
+the method you used when solving the problem by hand.
+pseudocode algorithm:
+print ****
+print ****
+print ****
+
+implementing a for loop
+step 1 - decide what instructions you want the computer to repeat. if you don't know, solve the problem
+by hand and the turn the steps you took into a single set of instructions which is the same for each step
+you took when solving the problem by hand.
+print ****
+step 2 - Decide what the looping condition is.
+What is the goal of your loop?
+To print a number of rows equal to the height of the rectangle.
+step 3 - determine the loop type: count controlled or event controlled loop
+the iterations of count controlled loops are controlled by a counter variable which is incremented once
+per loop iteration until it reaches a target value.
+this loop is a count controlled loop because it is controlled by a counter variable (rows) which is
+incremented once per loop iteration until it reaches a target value (height).
+for (rows = 1; rows <= height; rows++)
+{
+   print number of asterisks equal to width WITHOUT USING A NESTED LOOP.
+}
+step 4 - set up variables for entering the loop for the first time
+list all the variables updated or used in the loop
+rows
+width
+height
+set rows to 1 in loop header.
+set height to a positive integer before the loop
+set width to a positive integer before the loop
+
+our loop in pseudocode:
+height = positive integer
+width = positive integer
+for rows from 0 to height
+   print number of asterisks equal to width WITHOUT USING A NESTED LOOP
+
+I can use the repeat method of the string class to return a string equal to the concatenation of a string
+repeated X times.
