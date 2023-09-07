@@ -1,0 +1,28 @@
+Give an example of a for loop where symmetric bounds are more natural. 
+Give an example of a for loop where asymmetric bounds are more natural.
+
+
+For loop example where symmetric bounds are more natural:
+A loop which sums numbers from 1 to 10. 
+Because the counter variable will correspond to the number being added to the sum and therefore will not require arithmetic manipulation before being added to the sum.
+So, by using symmetric loop bounds, i.e., one where the values of the counter variable are bounded by the same relational operator on both sides of the relation: 1 <= counter <= 10, the instructions given by the loop are easier to understand because there is less computation involved in the loop instructions.
+
+int sum = 0
+for (int counter = 1; counter <= 10; counter++)
+{
+   int currentNumber = counter;
+   int sum = sum + currentNumber;
+}
+
+
+For loop example where asymmetric bounds are more natural:
+A loop which prints individual letters in a string by traversing all of the characters inside a string. 
+Because the length() method of the String class will be equal to the index of the last character in the string + 1.
+So, by using asymmetric loop bounds, i.e., one where the values of the counter variable are bounded by different relational operators on both sides of the relation: 0 <= counter < word.length(), the value of the counter variable will correspond to the indexes of each character in the string without having to  make any changes to the value of the counter variable. This makes the instructions given by the loop using asymmetric loop bounds easier to understand because there is less computation involved in the loop instructions because we don't need to change the value of the index to traverse all of the characters in a string.
+
+String word = "pea"
+for (int counter = 0; counter < word.length(); counter++)
+{
+   int characterIndex = counter;
+   System.out.println(word.charAt(characterIndex));
+}
