@@ -1,0 +1,14 @@
+Explain the differences between these debugger operations:
+• Stepping into a method
+• Stepping over a method 
+
+When using a debugger program to understand why your code is behaving unexpectedly your debugger will execute your program one line of code at a time.
+When the debugger is on a line of code that line of code is yet to be executed.
+If the line of code the debugger is on contains a method call there are two single-step options for executing your program one line at a time: you can step into a method, or you can step over a method.
+
+The "step into" debugger operation steps into the body of the method invoked on the line of code, thereby taking you to the first line of said method's body, which is the next line of code that the computer will execute when the method call is made.
+
+The "step over" debugger operation on the other hand will execute the method call, i.e., the instructions in the method's body, and immediately take you to the next line of code, thereby stepping over the body of the method on the line of code.
+
+You should step into a method to check whether it does its job correctly.
+You should step over a method if you already know that it does its job correctly.
