@@ -1,0 +1,5 @@
+Explain in detail how to inspect the information stored in a Rectangle object in your
+debugger.
+
+In my IntelliJ IDEA debugger I can inspect the information stored in a rectangle object by putting a breakpoint on a line of code where a variable containing a reference to my rectangle object is in scope.
+When paused on a line of code, which therefore hasn't yet executed, where a variable which contains a reference to a rectangle object is in scope I can see the name of this variable and the values of the rectangle instance variables in the debugger pain of debug window in the bottom half of the IntelliJ window. Here I can press the arrow to the left of the variable name to expand the instance variables into a list where each instance variable is on their own line, making them easier to read the values of.
