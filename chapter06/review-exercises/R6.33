@@ -1,0 +1,9 @@
+Explain in detail how to inspect the string stored in a String object in your debugger.
+
+In my debugger in my IDE IntelliJ IDEA I can inspect the string stored in a String object in my debugger by placing a breakpoint to the left of a line of code where a String object is created and its memory location, or object reference, is assigned to a variable or where a String object is used.
+Then, I can press the bug icon on the top left of the IntelliJ window on the right hand side of the menu bar to run the debugger program.
+This will run my debugger program which will execute the lines of code in my program up to and not including the line of code my breakpoint is on.
+Once it has gotten to this point the debugger will show me in a window on the bottom half of the IntelliJ window a Debugger tab.
+In the right hand side of the debugger tab are a list of the variables which can be accessed on this line of the program, i.e., the variables that are in scope.
+The list of variables names will also contain the values each variable contains to their right hand side.
+If the String object I want to inspect the contents of is in scope on the line I have paused on, i.e., can be accessed by the line which the debugger is about to execute, then the String object contents at that point in the program will appear to the right hand side of the variable name which contains a reference to that String object.
