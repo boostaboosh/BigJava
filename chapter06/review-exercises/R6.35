@@ -1,0 +1,6 @@
+Explain in detail how to use your debugger to inspect the balance stored in a BankAccount object.
+
+Place a breakpoint on a line where a variable containing a reference to a BankAccount object is in scope.
+Run the debugger by pressing the bug icon in IntelliJ at the top right hand side of the window.
+In the debugger pain press the arrow next to the name of the variable which contains a reference to the BankAccount object.
+A list of instance variables belonging to that instance of the BankAccount object will appear, including balance and its value.
