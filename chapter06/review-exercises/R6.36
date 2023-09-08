@@ -1,0 +1,18 @@
+Explain the divide-and-conquer strategy to get close to a bug in a debugger.
+
+Once you have identified a particular error in your program which you are able to reproduce and you have simplified the input which causes your error you can use the divide-and-conquer strategy to identify the line of code that cause the error in your code.
+
+Start by running the debugger and pausing your program before the first line of code in main.
+
+Then, take single-steps through all of the instructions in the main method of your program, stepping over all of the method calls one at a time.
+
+At some point, the error will reproduce after you step over a method call or execute a line of code.
+
+Now, you know which line of code or method contains the bug. Because the bug took place after a single line of code was executed.
+
+Restart the debugger, but this time, step into the body of the method which causes the bug and repeat the process of stepping over method calls until the bug is reproduced, and then stepping into said method.
+
+By repeating this process you will eventually end up using the debugger to execute the line of code which causes the bug or error in your program.
+Once you have pinpointed the erroneous line of code in your program you can fix the bug by changing the instruction that line of code contains.
+
+This is the divide and conquer strategy of getting close to a bug in using a debugger.
