@@ -1,3 +1,5 @@
+import java.util.Random;
+
 /**
  * A class for experimenting with methods I learn about so that I can learn about it.
  * Then I can see with my own eyes what a method does and run experiments with it.
@@ -12,8 +14,11 @@ public class MethodDemonstration
      */
     public static void main(String[] args)
     {
-        double y = 1;
-        double n = y / 2;
-        System.out.print(n);
+        int a = 5;
+        int b = 9;
+        int bigger = Math.;
+        Random randomGenerator = new Random();
+        int random = randomGenerator.nextInt(59);
+        System.out.println(random);
     }
 }
