@@ -16,7 +16,7 @@ public class MethodDemonstration
     {
         int a = 5;
         int b = 9;
-        int bigger = Math.;
+        int bigger = Math.max(a, b);
         Random randomGenerator = new Random();
         int random = randomGenerator.nextInt(59);
         System.out.println(random);
