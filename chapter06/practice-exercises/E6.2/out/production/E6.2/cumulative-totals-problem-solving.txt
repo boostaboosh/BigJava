@@ -1,0 +1,68 @@
+computation problem-solving
+step 1 - understand the problem
+What are the inputs?
+is a sequence of integers
+What is the output?
+A series of sums:
+    The sum of zero with the first integer.
+    The sum of the first sum with the second integer.
+    The sum of the second sum with the third integer.
+    etc.
+
+step 2 - solve an example by hand
+input:
+1 9 9 8
+output
+1 10 19 27
+
+step 3 - write a pseudocode algorithm, i.e., step-by-step instructions for solving a problem in human language.
+Describe the steps you took when solving the problem by hand.
+When solving the problem by hand I came up with a solution to a single instance of the problem. Now, I need to come up
+with a solution to solve general instances of the problem.
+
+ask the user for input
+make a scanner object
+scan for user input
+assign number a value of token in the scanned input
+assign cumulativeTotal a value of zero
+assign cumulativeTotal a value of cumulativeTotal + number
+output cumulative Total
+assign number value of next token in the scanned input
+assign cumulativeTotal a value of cumulativeTotal + number
+output cumulative Total
+number = next token
+cumulativeTotal = cumulativeTotal + number
+output cumulativeTotal
+
+implementing a loop
+s1 - decide which steps to repeat
+number = next token in scanned input
+cumulativeTotal = cumulativeTotal + number
+output cumulativeTotal
+
+s2 - decide what the looping condition is by asking: what goal do I want to reach?
+I want the digits to finish.
+But the scanner cannot scan white space characters.
+So, I must make the user enter a sentinel value to signal the end, or finishing, of digits.
+while nextToken != "done"
+
+s3 - determine the loop type: count-controlled or event-controlled.
+This is an event controlled loop, i.e., a while loop, because there is no counter variable incremented by a constant
+amount once per loop iteration until it reaches a target value.
+
+s4 - setup variables for entering the loop for the first time
+ask the user for input
+make a scanner object
+nextInputToken = next non-whitespace token in input
+cumulativeTotal = 0
+while (nextInputToken != "done")
+   number = nextInputToken
+   cumulativeTotal = cumulativeTotal + number
+   output cumulativeTotal
+   nextInputToken = next non-whitespace token in input
+
+step 4 - declare the variables and constants you need and specify their type
+Already done that when implementing the loop
+
+step 5 - turn the pseudocode into Java statements
+See CumulativeTotals.java
