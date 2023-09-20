@@ -1,4 +1,6 @@
 import java.util.Random;
+import java.util.Scanner;
+import java.util.logging.Logger;
 
 /**
  * A class for experimenting with methods I learn about so that I can learn about it.
@@ -14,11 +16,9 @@ public class MethodDemonstration
      */
     public static void main(String[] args)
     {
-        int a = 5;
-        int b = 9;
-        int bigger = Math.;
-        Random randomGenerator = new Random();
-        int random = randomGenerator.nextInt(59);
-        System.out.println(random);
+        Scanner inputScanner = new Scanner(System.in);
+        boolean hasNext = inputScanner.hasNext();
+        boolean hasNextInt = inputScanner.hasNextInt();
+        System.out.printf("has next %b\nhas next int %b", hasNext, hasNextInt);
     }
 }
