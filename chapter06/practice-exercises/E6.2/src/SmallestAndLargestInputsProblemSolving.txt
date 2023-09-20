@@ -1,0 +1,47 @@
+pseudocode algorithm:
+ask user to input number
+assign smallest the input number
+assign biggest the input number
+ask user to input number
+if number is smaller than smallest
+   assign smallest number
+else if number is bigger than biggest
+   assign biggest number
+ask user to input number or something that isn't a number
+if number is smaller than smallest
+   assign smallest number
+if number is bigger than biggest
+   assign biggest number
+... if user enters something that isn't a number
+output smallest and biggest
+
+loop implementation
+steps to repeat:
+if !done
+   ask user to input number
+   if number is smaller than smallest
+      assign smallest number
+   else if number is bigger than biggest
+      assign biggest number
+   ask user if they are done
+      if done
+         assign done true
+
+loop condition
+What goal do you want to reach?
+I want the user to be done
+
+loop type:
+event controlled loop: keep repeating until event occurs, i.e., until user says they are done
+
+the loop:
+while !done
+   ask user to input an integer
+   if integer < smallest
+      smallest = integer
+   else if integer > biggest
+      biggest = integer
+   ask user if they are done y/n
+      if y
+         done = true
+output biggest and smallest
