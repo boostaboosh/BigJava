@@ -19,11 +19,13 @@ public class AdjacentDuplicates
 
       boolean duplicateNumber = false;
       boolean noAdjacentDuplicates = true;
+      int iterationsCounter = 0;
 
       while (!(nextInput.equals("finished")))
       {
+         iterationsCounter = iterationsCounter + 1;
          int rightNumber = Integer.valueOf(nextInput);
-         if (leftNumber == rightNumber)
+         if (leftNumber == rightNumber && iterationsCounter != 1)
          {
             duplicateNumber = true;
             noAdjacentDuplicates = false;
