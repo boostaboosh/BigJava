@@ -1,0 +1,120 @@
+computation problem solving
+
+step 1 - understand the problem
+what are the inputs?
+a series of integers
+what is the desired output?
+the numbers in the input series of integers which have adjacent integers of the same value, i.e., adjacent duplicates
+
+step 2 - solve an example of the problem by hand
+example input:
+1 3 3 4 5 5 6 6 6 2
+output:
+3 5 6
+
+step 3 - write a pseudocode algorithm for solving the problem
+I solved a specific instance of the problem by hand. Now I need to come up with a problem-solving method for general
+instances of the problem
+ask the user to input a sequence of integers terminated by the word "finished"
+nextInput = next token in the input
+if nextInput != "finished"
+   leftNumber = nextInput
+else
+   output no duplicates
+nextInput = next token in the input
+if nextInput != "finished" // > 2 inputs
+  rightNumber = nextInput
+  if leftNumber == rightNumber
+     duplicateNumber = true
+  else
+     if duplicateNumber == true
+        output leftNumber
+     duplicateNumber = false
+  leftNumber = rightNumber
+... repeat block until nextInput == "finished"
+
+step 4 - decide work which must be done inside the loop
+if nextInput != "finished" // > 2 inputs
+  rightNumber = nextInput
+  if leftNumber == rightNumber
+     duplicateNumber = true
+  else
+     if duplicateNumber == true
+        output leftNumber
+     duplicateNumber = false
+  leftNumber = rightNumber
+  nextInput = next token in input stream
+... repeat block until nextInput == "finished"
+
+step 5 - specify the looping condition
+What goal do you want to reach in your loop?
+I want the next Input to be a value of "finished"
+
+step 6 - determine the loop type
+There are two types of loops. Count controlled and event controlled.
+This is event controlled because there is no counter variable which is incremented by a constant amount
+once per loop iteration until it reaches a specified value.
+
+while nextInput != "finished"
+   rightNumber = next integer
+   if leftNumber == rightNumber
+      duplicateNumber = true
+      noDuplicates = false
+   else
+      if duplicateNumber == true
+         output leftNumber
+      duplicateNumber = false
+   leftNumber = rightNumber
+   nextInput = next token in input stream
+
+step 7 - setup variables for entering the loop for the first time
+list all the variables that are updated in the loop and determine how to initialise them
+nextInput = next token in the user's input
+leftNumber = nextInput
+duplicateNumber = false
+
+step 8 - process the result after the loop has finished
+The desired output is the loop output.
+We do need to print the last value assigned to leftNumber if duplicateNumber == true
+because otherwise that last duplicate number does not get printed.
+And if there were no duplicated we can print that too.
+
+if duplicateNumber == true
+   output leftNumber
+if noAdjacentDuplicates == true
+   output "no adjacent duplicates"
+
+step 9 - trace the loop with typical examples
+1 3 3
+output: 3
+
+step 10 - implement loop in Java
+see AdjacentDuplicates java source file
+
+loop pseudocode:
+
+ask the user to input a sequence of integers terminated by the word "finished"
+nextInput = next token in the input
+if nextInput != "finished"
+   leftNumber = nextInput
+
+nextInput = next token in the user's input
+duplicateNumber = false
+noAdjacentDuplicates = true
+
+while nextInput != "finished"
+   rightNumber = next integer
+   if leftNumber == rightNumber
+      duplicateNumber = true
+      noAdjacentDuplicates = false
+   else
+      if duplicateNumber == true
+         output leftNumber
+      duplicateNumber = false
+   leftNumber = rightNumber
+   nextInput = next token in input stream
+
+if duplicateNumber == true
+   output leftNumber
+if noAdjacentDuplicates == true
+   output "no adjacent duplicates"
