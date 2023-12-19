@@ -1,0 +1,35 @@
+computation problem-solving
+
+Write a program that reads a line of input as a string
+and print only the uppercase letters in the string.
+
+pt 1 - understand the problem
+what are the inputs?
+
+A string
+
+What are the outputs?
+
+The uppercase letters in the string
+
+pt 2 - solve an example by hand
+input: The Mona Lisa
+output: TML
+
+pt 3 - write pseudocode to solve the problem
+read the first letter in the string
+if the letter is uppercase
+    print the letter
+read the next character
+if the character is uppercase
+    print the character
+...
+
+while characterIndex < stringLength
+    if character at characterIndex is uppercase
+        print character
+    characterIndex = characterIndex + 1
+
+for character in string
+    if character is uppercase
+        print character
