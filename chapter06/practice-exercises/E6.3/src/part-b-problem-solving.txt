@@ -1,0 +1,106 @@
+Write a program that reads a line of input as a string
+and prints every second letter of the string.
+
+problem-solving method
+pt 1 - understand the problem
+what are the inputs? a string
+what are the outputs? every second letter in the input string
+
+pt 2 - work out an example by hand
+input: "Hello World!"
+output: "elWrd"
+
+pt 3 - write pseudocode to solve general instances of the problem using the method you used to solve
+a specific instance of the problem by hand
+
+inputLine = ask user for input
+nextWord = next token in inputLine
+print 2nd character from next word
+print 4th character from next word
+... print every 2nd character from next word until next word has no more characters
+nextWord = next token in inputLine
+...print every other character from next word, starting with first character if we didn't print the last character from the previous word
+...keep reading tokens in inputLine until there are no more token in input line
+
+how to implement a loop how-to
+step 1 - decide what work must be done inside the loop
+read the next token in inputLine
+print every other character from the next token, starting with the first character if we didn't print the last character from the previous word
+step 2 - specify the loop condition
+what goal do you want to reach in our loop? I want to keep reading tokens until we read the last one.
+step 3 - determine the loop type: count-controlled or event controlled
+Count controlled loops are controlled by a counter variable which is incremented by a constant amount
+once per loop iteration.
+Event controlled loop repeat execution until an event takes place.
+This is an event controlled loop because there is no counter variable controlling the loop.
+while(!done)
+    nextToken = read the nextToken in the inputLine
+    if (previousTokenLength is odd)
+        startingIndex = 0
+    else
+        startingIndex = 1
+    print every second character of nextToken starting at index startingIndex
+    previousTokenLength = nextToken length
+    if there are no more tokens in the inputLine
+        done = true
+step 4 - setup variables for entering the loop for the first time.
+done = false
+inputLine = user input
+previousTokenLength = 1
+step 5 - process the result after the loop has finished executing
+no result to be processed after the loop is finished executing
+
+step 6 - trace the loop with typical examples
+done on paper
+
+how to implement a loop how-to
+step 1 - decide what work must be done inside the loop
+while... (our loop)
+    print every second character of nextToken starting at index startingIndex
+
+step 2 - specify the loop condition
+what goal do you want to reach in your loop?
+I want indexOfCharacterToPrint to reach nextToken length
+
+step 3 - determine the loop type: count controlled or event controlled
+a count controlled loop is controlled by a counter variable which is varied by a constant amount
+once per loop iteration until it reaches a target value.
+This is a count controlled loop because it is controlled by a counter variable (indexOfCharacterToPrint)
+which is incremented by a constant amount (2) until it reaches a target value (tokenLength)
+the loop so far:
+for (indexOfCharacterToPrint = startingIndex; indexOfCharacterToPrint < tokenLength; indexOfCharacterToPrint = indexOfCharacterToPrint + 2)
+    output character at index indexOfCharacterToPrint of token
+
+step 4 - setup variable for entering the loop for the first time
+indexOfCharacterToPrint = startingIndex
+tokenLength = length of token from input line
+
+step 5 - process the result after the loop has executed
+No result to be processed after loop execution
+
+step 6 - trace the loop with typical examples
+done on paper
+
+pseudocode for solving the problem:
+inputLine = ask user for input
+while(!done)
+    nextToken = read the nextToken in the inputLine
+    if (previousTokenLength is odd)
+        startingIndex = 0
+    else
+        startingIndex = 1
+    for (indexOfCharacterToPrint = startingIndex; indexOfCharacterToPrint < tokenLength; indexOfCharacterToPrint = indexOfCharacterToPrint + 2)
+        output character at index indexOfCharacterToPrint of token
+    previousTokenLength = nextToken length
+    if there are no more tokens in the inputLine
+        done = true
+
+pt 4 - declare the variables and constants I need and specify their types
+String inputLine
+String nextToken
+int characterIndex
+int tokenLength
+boolean done
+
+pt 5 - turn the pseudocode into Java statements
+see PartB.java
