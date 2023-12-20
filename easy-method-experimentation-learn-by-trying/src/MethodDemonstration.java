@@ -16,9 +16,7 @@ public class MethodDemonstration
      */
     public static void main(String[] args)
     {
-        Scanner inputScanner = new Scanner(System.in);
-        boolean hasNext = inputScanner.hasNext();
-        boolean hasNextInt = inputScanner.hasNextInt();
-        System.out.printf("has next %b\nhas next int %b", hasNext, hasNextInt);
+        int result = 0 % 5;
+        System.out.print(result);
     }
 }
