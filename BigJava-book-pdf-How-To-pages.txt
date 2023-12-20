@@ -1,0 +1,11 @@
+how to 3.1 - implementing a class
+pdf p.134, book p.78
+
+how to 4.1 - carrying out computations
+pdf p.188, book p.118
+
+how to 5.1 - implementing an if statement
+pdf p.233, book p.143
+
+how to 6.1 writing a loop
+pdf p.311, book p.203
