@@ -1,0 +1,76 @@
+Write a program that reads a line of input as a string and prints the string,
+with all vowels replaced by an underscore.
+
+computation problem-solving method
+step 1 - understand the problem
+What are the inputs? an input string
+What are the outputs? the input string with vowels replaced by underscores
+step 2 - work out examples by hand
+input: this is an example
+output: th_s _s _n _x_mpl_
+step 3 - write pseudocode for solving general instances of the problem using the method you used for solving
+a specific instance of the problem by hand.
+if the first letter is an 'e' or 'a' or 'i' or 'u' or 'o'
+    underscoreString = '_'
+else
+    underscoreString = 'firstLetter'
+if the next letter in an 'e' or 'a' or 'i' or 'u' or 'o'
+    concatenationString = ('_')
+else
+    concatenationString = (nextLetter)
+underscoreString = underscoreString.concat(concatenationString)
+repeat until there is no next letter
+how to implement a loop how to
+decide the actions that need to be repeated - s1
+reduce the steps you would take when solving the problem by hand to
+a set of uniform (the same for each step) instructions
+while...
+    if nextLetter equals a, e, u, i, or o
+        concatenationString = "_"
+    else
+        concatenationString = nextLetter
+    underscoreString = underscoreString.concat(concatenationString)
+specify the loop condition - s2
+What goal do you want to reach in your loop?
+Has the input stream of characters finished?
+determine the loop type (count-controlled or event-controlled) - s3
+a count controlled loop is controlled by a counter variable which is varied by a constant amount
+once per loop iteration until it reaches a target value.
+There is not a count controlled loop. Instead, this loop iterates until there are no more characters
+in the input stream
+while (!done)
+    if nextLetter equals a, e, u, i, or o or A E I O U
+        concatenationString = "_"
+    else
+        concatenationString = nextLetter
+    underscoreString = underscoreString.concat(concatenationString)
+    if there are no more character in the input stream
+        done = true
+output underscoreString
+setup variables for entering the loop for the first time - s4
+input stream = user keyboard input
+done = false
+underscoreString = ""
+while (!done)
+    nextCharacter = next character or blank space in input stream
+    concatenationString = ""
+    if nextCharacter equals a, e, u, i, or o or A E I O U
+        concatenationString = "_"
+    else
+        concatenationString = nextCharacter
+    underscoreString = underscoreString.concat(concatenationString)
+    if there are no more characters in the input stream
+        done = true
+output underscoreString
+process the result after the loop has finished - s5
+output underscoreString
+trace the loop with typical examples - s6
+on paper
+step 4 - declare the variables and constants you need and specify their types
+Scanner keyboardInput
+boolean done
+String underscoreString
+String nextCharacter
+String concatenationString
+step 5 - turn the pseudocode into Java statements
+see PartC
