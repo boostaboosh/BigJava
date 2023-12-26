@@ -1,0 +1,68 @@
+Write a program that reads a set of floating-point values. Ask the user to enter the
+values (prompting only a single time for the values), then print
+• the average of the values.
+• the smallest of the values.
+• the largest of the values.
+• the range, that is the difference between the smallest and largest.
+Your program should use a class DataSet. That class should have a method
+public void add(double value)
+and methods getAverage, getSmallest, getLargest, and getRange.
+
+Use a DataSet class to model a DataSet object
+
+how to implement a class how-to
+
+step 1 - find out which methods you are asked to supply
+behaviour of DataSet objects:
+add floating point numbers to the DataSet
+compute the average of the floating-point values
+return the smallest of the values
+return the largest value
+compute the range, i.e. the difference between the smallest and largest floating point values
+
+step 2 - specify the public interface of the class
+Turn the list of methods from step 1 into a set of methods with specific types for parameter variables
+and return values
+This is easier if I write out method calls applied to sample object:
+
+DataSet numberSet = new DataSet();
+numberSet.add(3.23);
+numberSet.add(10);
+double average = numberSet.getAverage();
+double smallest = numberSet.getSmallest();
+double largest = numberSet.getLargest();
+double range = numberSet.getRange();
+System.out.printf("Data set average %5.3f, smallest %5.3f, largest %5.3f, range %5.3f");
+
+Now, we can deduce the specific list of methods for objects of the DataSet class:
+
+public void add(double value)
+public double getAverage()
+public double getSmallest()
+public double getLargest()
+public double getRange()
+
+To complete the public interface of a class I need to specify the constructors of object of said class.
+I need to ask myself: what information do I need to create an object of my class?
+public DataSet();
+
+step 3 - document the public interface
+See DataSet.java
+
+step 4 - Determine instance variables
+Ask myself what information an object needs to do its job.
+Importantly, I must not introduce unnecessary instance variables. If a value can be computed from other
+instance variables, it is generally better to compute it on demand than to store it.
+I need the largest value, the smallest value, the average, and the number of items.
+See DataSet.java
+
+step 5 - implement constructors and methods
+See DataSet.java
+
+step 6 - test your class
+Write a short tester program and execute it.
+Crucially, predict what the output will be before running the tester program
+and compare predicted value to actual values.
+The tester program should use carry out all the method calls
+from when we specified the public interface of the class.
+See DataSetTester.java
