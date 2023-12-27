@@ -1,0 +1,130 @@
+•• E6.18
+Write a program that reads an integer and displays, using asterisks, a filled diamond
+of the given side length.
+For example, if the side length is 4, the program should display
+    *
+   ***
+  *****
+ *******
+  *****
+   ***
+    *
+
+computation problem solving
+
+step 1
+Understand the problem
+
+What are the inputs? None
+What is the desired output?
+    *
+   ***
+  *****
+ *******
+  *****
+   ***
+    *
+
+step 2
+solve the problem by hand
+   *
+  ***
+ *****
+*******
+ *****
+  ***
+   *
+
+step 3
+write instructions for solving the problem
+
+write 3 spaces 1 stars
+write 2 spaces 3 stars
+write 1 spaces 5 stars
+write 0 spaces 7 stars
+write 1 spaces 5 stars
+write 2 spaces 3 stars
+write 3 spaces 1 stars
+
+it seems to me like the number of spaces decreases then increments by one.
+The number of stars in the middle row is the same number of rows.
+the number of stars on each row is odd.
+
+implementing a loop
+
+step 1
+decide the steps that need to be repeated:
+
+print spaces and stars
+decrement spaces and increment stars by 2
+print spaces and stars
+decrement spaces and increment stars by 2
+print spaces and stars
+decrement spaces and increment stars by 2
+print spaces and stars
+increment spaces and decrement stars by 2
+print spaces and stars
+increment spaces and decrement stars by 2
+print spaces and stars
+increment spaces and decrement stars by 2
+print spaces and stars
+
+while...
+    print spaces and stars
+    if row < 4
+        decrement spaces by 1
+        increment stars by 2
+    else if row >= 4
+        increment spaces by 1
+        decrement stars by 2
+    increment rowCounter
+
+step 2
+specify the looping condition. what goal do I want to reach in my loop?
+I want the number of rows to equal 7
+
+step 3
+determine the type of loop: count or event controlled
+Count controlled loop because controlled by a counter variable (rowCounter)
+which is varied once per loop iteration (+1)
+until it reaches a target value (7)
+the loop:
+for row from 1 to 7
+    print spaces times space and stars times star
+    if row <= 4
+        decrement spaces by 1
+        increment stars by 2
+    else if row > 4
+        increment spaces by 1
+        decrement spaces by 2
+
+step 4
+setup variables for entering the loop for the first time
+spaces = 3
+stars = 1
+
+step 5
+process the results after the loop has finished
+Not applicable to this problem
+
+step 6
+trace the loop with typical examples
+don't have paper at hand so will skip this time
+
+step 7
+implement the loop in java
+See DiamondPrinter.java source code
+
+continuation of computation problem-solving
+
+step 4
+declare the variables and constants that you need and specify they type
+String star
+String space
+int spaces
+int stars
+int row
+
+step 5
+turn the pseudocode into Java statements
+See DiamondPrinter.java source code
