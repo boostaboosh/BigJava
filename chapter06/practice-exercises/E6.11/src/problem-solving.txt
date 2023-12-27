@@ -1,0 +1,122 @@
+••• E6.11
+Write a program that reads a word and prints all substrings, sorted by length. For
+example, if the user provides the input "rum", the program prints
+r
+u
+m
+ru
+um
+rum
+
+computation problem-solving how-to
+
+step 1 - understand the problem
+What are the inputs? A word
+What are the desired outputs? All input word substrings sorted by length
+
+step 2 - work out examples by hand
+input: ciao
+output:
+c
+i
+a
+o
+ci
+ia
+ao
+cia
+iao
+ciao
+
+step 3 - write pseudocode for solving the problem
+ask user to input a word
+word = next token in keyboard input stream
+print first char in word
+print second char in word
+... print every single char in word until no more chars in word
+print first and second char in word
+print second and third char in word
+... print every single pair of chars in word until no more chars in word
+print a sequence of 3 characters in word starting with the first character
+print a sequence of 3 characters in word starting with the second character
+...print sequences of 3 characters in word until the last letter in the sequence is the final letter in word
+...print sequences 4 chars long starting with the first letter in word until final letter in word in included
+...print sequences X chars long starting with the first letter in word until word's final letter in sequence
+...repeat until sequence length is equal to word length
+
+    implementing a loop how-to
+    determine the actions to be repeated:
+    while...
+        ...print sequences X chars long starting with the first letter in word until word's final letter in sequence
+
+    determine the looping condition. What goal do you want to reach in your loop?
+    I want sequence length to reach word length
+
+    determine the loop type. count or event controlled.
+    Count controlled loop have a counter which is varied once per iteration until it reaches a target value
+    This is a count controlled loop because the sequence length is varied once per iteration until it
+    reaches a target value of word length
+
+    for lengths from 1 to wordLength:
+        print sequences lengths long starting with first letter in word until word's final letter is in sequence
+
+    step up variables for entering the loop for the first time
+    lengths = 1
+    word = next token in keyboard input stream
+
+    process the result after the loop has finished
+    No result to process
+
+    trace the loop with typical examples
+    on paper
+
+    implement the loop in java
+    but first I need to write pseudocode for the inner loop
+
+    implementing a loop for the inner loop following how-to tutorial
+    determine actions to be repeated:
+    print sequences lengths long starting with first letter in word until word's final letter is in sequence
+    which as a series of instructions is:
+    print sequence in word from index 0 to index 0 + sequence length - 1
+    print sequence in word from index 1 to index 1 + sequence length - 1
+    ... repeat until index X + sequence length - 1 > wordLength - 1
+
+    specify the looping condition
+    I want the loop to print sequences until the final letter in word is in the sequence.
+    sequenceIndexIncrement = sequenceLength - 1
+    lastIndexInWord = wordLength - 1
+    lastSequenceStartIndex = lastIndexInWord - sequenceIndexIncrement
+    repeat until index X + sequenceIndexIncrement > lastIndexInWord
+
+    determine the loop type: count or event controlled.
+    count controlled loops have a counter variable which is varied once per iteration until it reaches a
+    target value.
+    This is a count controlled loop because index is varied once per loop iteration (index + 1)
+    until it reaches a target value (index + sequence length - 1 < wordLength - 1).
+
+    for index from 0 to lastIndexInWord - sequenceIndexIncrement:
+        print sequence from index to index + sequenceIndexIncrement
+
+    setup variables for entering the loop for the first time
+    index = 0
+    lastIndexInWord = wordLength - 1
+    sequenceIndexIncrement = sequenceLength - 1
+
+    process the results after the loop has finished
+    No results to be processed after the loop is finished because the printing is the desired output
+
+    trace the loop by hand with examples
+    on paper
+
+    implement the loop in java
+    See SubstringsPrinter.java
+
+    all pseudocode for solving the problem:
+
+    ask user to input a word
+    word = next token in keyboard input stream
+    for sequenceLengths from 1 to wordLength:
+        sequenceIndexIncrement = sequenceLength - 1
+        lastIndexInWord = wordLength - 1
+        for index from 0 to lastIndexInWord - sequenceIndexIncrement:
+            print sequence from index to index + sequenceIndexIncrement
