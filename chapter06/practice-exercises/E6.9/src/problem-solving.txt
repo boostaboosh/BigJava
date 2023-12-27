@@ -1,0 +1,19 @@
+• E6.9
+Write a program that reads a word and prints the word in reverse.
+For example, if the user provides the input "Harry", the program prints
+yrraH
+
+computational problem soling how-to
+
+step 1 - understand the problem
+what are the inputs? a string
+what are the desired outputs? The input string with characters in reverse order.
+
+step 2 - solve an example by hand
+input: hello
+output: olleh
+
+step 3 - write pseudocode for solving the problem
+word = read input word
+for position = last character position; position >= first character position; position--
+    print character at position in word
