@@ -1,0 +1,98 @@
+•• E6.17
+Write a program that reads an integer and displays, using asterisks, a filled and hollow square,
+placed next to each other. For example, if the side length is 5, the pro-gram should display:
+
+***** *****
+***** *   *
+***** *   *
+***** *   *
+***** *****
+
+computation problem-solving
+
+step 1 - understand the problem
+
+what are the inputs? None
+What are the desired outputs?
+***** *****
+***** *   *
+***** *   *
+***** *   *
+***** *****
+
+step 2 - solve the problem by hand
+***** *****
+***** *   *
+***** *   *
+***** *   *
+***** *****
+
+step 3 - write pseudocode for solving the problem
+print 5 asterisks
+print 1 space
+print 5 asterisks
+print 5 asterisks
+print 1 space
+print 1 asterisk
+print 3 spaces
+print 1 print 1 asterisk
+...repeat 2 more times
+print 5 asterisks
+print 1 space
+print 5 asterisks
+
+implementing a loop
+step 1 - decide which steps need to be repeated
+while...
+    print asterisks
+    print space
+    print asterisk
+    print spaces
+    print asterisks
+
+step 2 - specify the looping condition. What goal do you want to reach in your loop?
+I want the number of rows to equal 5
+
+step 3 - determine the type of loop: count or event controlled?
+This is a count controlled loop because there is a counter variable (row) which is varied by
+a constant amount (1) once per loop iteration until it reaches a target value (5).
+loop pseudocode:
+for row from 1 to 5
+    print 5 asterisks
+    print 1 space
+    print 1 asterisk
+    if row == 1 || row == 5
+        secondSquareSymbol = "*"
+    else
+        secondSquareSymbol = " "
+    print 3 secondSquareSymbol
+    print 1 asterisk
+
+step 4 - setup variables for entering the loop for the first time.
+List all variables that are used and updated in the loop, and determine how to initialise them.
+int row = 1
+String secondSquareSymbol = ""
+
+step 5 - process the result after the loop has finished
+Not applicable
+
+step 6 - trace the loop with typical examples
+row |   secondSquareSymbol  |   output
+----+-----------------------+---------------
+1   |   *                   |   ***** *****
+2   |   " "                 |   ***** *   *
+3   |   " "                 |   ***** *   *
+4   |   " "                 |   ***** *   *
+5   |   " "                 |   ***** *****
+--------------------------------------------
+
+step 7 - implement the loop in Java
+See SquareDrawer.java
+
+continuation of computation problem-solving
+step 4 - declare the variables and constants that you need, and specify their types
+int row = 1
+String secondSquareSymbol = ""
+
+step 5 - turn the pseudocode into Java statements
+See SquareDrawer.java
