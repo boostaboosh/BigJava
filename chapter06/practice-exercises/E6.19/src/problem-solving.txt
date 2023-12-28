@@ -1,0 +1,132 @@
+E6.19
+Print a diamond shape, as in the preceding exercise, with the asterisks in the middle
+row and column omitted, like this:
+  * *
+ ** **
+*** ***
+
+*** ***
+ ** **
+  * *
+
+Your program should read the side length of each part (3 in the example above).
+
+computation problem-solving
+
+step 1: Understand the problem.
+What are the inputs? The side length.
+What are the desired outputs? The diamond shape with without central middle row and column,
+and a triangle side length of 3.
+  * *
+ ** **
+*** ***
+
+*** ***
+ ** **
+  * *
+
+step 2: solve the problem by hand.
+If you can't solve the problem by hand it's unlikely you'll be able to tell someone else (the computer)
+how to solve it.
+  * *
+ ** **
+*** ***
+
+*** ***
+ ** **
+  * *
+
+step 3: write a pseudocode program for solving the problem.
+Pseudocode is code written in natural, i.e., human, language. And code is instructions for the computer.
+So pseudocode is instructions written so that humans understand them.
+And a program is a series of instructions, like a recipe, which give an output given an input.
+pseudocode:
+print 2 spaces.
+print 1 star
+print 1 space
+print 1 star
+print new line
+print 1 space
+print 2 stars
+print 1 space
+print 2 stars
+print new line
+print 3 stars
+print 1 space
+print 3 stars
+print new line
+print lew line
+print 3 stars
+print 1 space
+print 3 stars
+print new line
+... repeat first two rows in revers order
+
+implementing a loop
+
+step 1: decide the steps that need to be repeated in the loop
+while...
+    print spaces
+    print stars
+    print space
+    print stars
+    print new line
+
+step 2: specify the looping condition. What goal do you want to reach in your loop?
+I want the loop to execute for each row. and there are (sideLength * 2) + 1 rows
+in the triangle-diamond shape.
+So, I want the rows to reach (sideLength * 2) + 1
+
+step 3: determine the loop type: count controlled or event controlled
+A count controlled loop is executed depending on the value of a counter variable
+which is varied by a constant amount once per loop iteration.
+pseudocode:
+starsNumber = 1
+spacesNumber = sideLength - 1
+for rowNumber from 1 to (sideLength * 2) + 1
+    spaces = spacesNumber of spaces
+    stars = starsNumber of stars
+    row = spaces + stars + space + stars
+    print row
+    if rowNumber < sideLength
+        starsNumber = starsNumber + 1
+        spacesNumber = spacesNumber - 1
+    else if rowNumber > sideLength + 1
+        starsNumber = starsNumber - 1
+        spacesNumber = spacesNumber + 1
+
+step 4: list all variables used in the loop and decide how to initialise them.
+int starsNumber = 1
+int spacesNumber = sideLength - 1
+int rowNumber = 1
+int sideLength = 3 or any other int
+String spaces = ""
+String stars = ""
+String row = ""
+
+step 5: Process the result after the loop has finished
+Not applicable
+
+step 6: Trace the loop by hand with typical examples.
+starsNumber |   spacesNumber    |   rowNumber   |   sideLength  |   spaces  |   stars   |   row     |   output
+------------+-------------------+---------------+---------------+-----------+-----------+-----------+----------+
+1           |   2               |   1           |   3           |   "  "    |   "*"     |"  * *"    |  * *
+2           |   1               |   2           |               |   " "     |   "**"    |" ** **"   | ** **
+...
+
+step 7: implement the pseudocode loop in Java
+See TriangleDiamondPrinter.java source code
+
+computation problem solving continuation:
+
+step 4: declare the variables and constants that you need and specify their types
+int starsNumber = 1
+int spacesNumber = sideLength - 1
+int rowNumber = 1
+int sideLength = user input integer
+String spaces = ""
+String stars = ""
+String row = ""
+
+step 5: turn the pseudocode into Java statements
+See TriangleDiamondPrint.java source code file.
