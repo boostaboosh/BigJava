@@ -16,7 +16,6 @@ public class MethodDemonstration
      */
     public static void main(String[] args)
     {
-        int result = 0 % 5;
-        System.out.print(result);
+
     }
 }

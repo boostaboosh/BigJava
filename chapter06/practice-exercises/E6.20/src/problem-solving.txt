@@ -1,0 +1,203 @@
+•• E6.20
+Print an X shape in a box of a given side length, like this:
+********
+**    **
+* *  * *
+*  **  *
+*  **  *
+* *  * *
+**    **
+********
+
+how to solve a problem
+
+step 1 - understand the problem
+What are the inputs? A given square side length.
+What are the outputs? A box of the given sideLength with an X in side that looks like the following:
+********
+**    **
+* *  * *
+*  **  *
+*  **  *
+* *  * *
+**    **
+********
+
+step 2 - solve the problem by hand
+input: side length = 5
+*****
+** **
+* * *
+** **
+*****
+
+step 3 - write pseudocode (algorithm steps in English) for solving the problem
+pseudocode:
+print 5 stars
+print new line
+print 2 stars
+print 1 space
+print 2 stars
+print new line
+print star
+print space
+print star
+print space
+print star
+print new line
+print 2 stars
+print space
+print 2 stars
+print new line
+print 5 stars
+
+how to implement a loop
+
+step 1 - decide which steps need to be repeated inside the loop
+Reduce the steps of instructions that I would take if solving the problem by hand to a single set of steps that
+is the same for each step
+while...
+    print 1 star
+    print startingSpaces
+    print startingStars
+    print middleSpaces
+    print endingStars
+    print endingSpaces
+    print 1 star
+
+step 2 - specify the looping condition
+What goal do you want to reach in your loop?
+I want the current row to reach sideLength - 1
+
+step 3 - determine the loop type: count controlled or event controlled
+Count controlled loops are controlled by a counter variable which is varied by a constant amount once per loop iteration
+This is a count controlled loop where the current row is the counter variable which controls the loop.
+
+for xRow from 1 to sideLength - 1
+    startAndEndSpaces = startAndEndSpaces *
+    print stars number of *
+    print spaces number of " "
+    print stars number of *
+    print spaces number of " "
+    print stars number of *
+    print new line
+
+for rowNumber from 1 to sideLength
+    row = ""
+    if rowNumber = 1 && rowNumber = sideLength
+        row = sideLength * stars
+    else
+        rowStart = row + 1 star
+
+        xRowNumber = rowNumber - 1
+        xWidthAndHeight = sideLength - 2
+
+        firstMiddleRowNumber = round up (xWidthAndHeight / 2.0)
+        oddNumberOfXRows = (xWidthAndHeight % 2) != 0
+        if oddNumberOfXRows
+            secondMiddleRowNumber = firstMiddleRowNumber
+        else
+            secondMiddleRowNumber = firstMiddleRowNumber + 1
+
+        if xRowNumber < firstMiddleRowNumber
+            numberOfXRowStartAndEndSpaces = xRowNumber - 1
+            numberOfXRowStartAndEndStars = 1
+            numberOfXRowMiddleSpaces = xWidth - (numberOfXRowStartAndEndSpaces * 2 + numberOfXRowStartAndEndStars * 2)
+            xRow = numberOfXRowStartAndEndSpaces * spaces + numberOfXRowStartAndEndStars + numberOfXRowMiddleSpaces + numberOfXRowStartAndEndStars + numberOfXRowStartAndEndSpaces
+        else if xRowNumber == firstMiddleRowNumber || xRowNumber == secondMiddleRowNumber
+            numberOfXRowStartAndEndSpaces = xRowNumber
+            numberOfMiddleStars = xWidth - numberOfXRowStartAndEndSpaces
+            xRow = numberOfXRowStartAndEndSpaces * spaces + numberOfMiddleStars * stars + numberOfXRowStartAndEndSpaces * spaces
+        else if xRowNumber > secondMiddleRowNumber
+            numberOfXRowStartAndEndSpaces = xRowNumber + 1
+            numberOfXRowStartAndEndStars = 1
+            numberOfXRowMiddleSpaces = xWidth - (numberOfXRowStartAndEndSpaces * 2 + numberOfXRowStartAndEndStars * 2)
+            xRow = numberOfXRowStartAndEndSpaces * spaces + numberOfXRowStartAndEndStars + numberOfXRowMiddleSpaces + numberOfXRowStartAndEndStars + numberOfXRowStartAndEndSpaces
+        rowEnd = row + 1 star
+    row = rowStart + xRow + rowEnd
+    print row
+
+... I think this would work, but I realise it's more work than necessary.
+I think I can just change the number of spaces and stars each iteration.
+
+squareSideLength = user input
+numberOfRows = squareSideLength
+numberOfXRows = squareSideLength - 2
+
+firstMiddleRow = round up (numberOfXRows / 2.0)
+oddNumberOfXRows = (numberOfXRows % 2) != 0
+if oddNumberOfXRows
+    secondMiddleRow = firstMiddleRow
+    numberOfMiddleStars = 1
+else
+    secondMiddleRow = firstMiddleRow + 1
+    numberOfMiddleStars = 2
+
+for rowNumber from 1 to numberOfRows
+    xRow = rowNumber != 1 && rowNumber != sideLength
+    if !xRow
+        row = sideLength * star symbols
+    else if xRow
+        xRowNumber = rowNumber - 1
+        middleRow = xRowNumber == firstMiddleRow || xRowNumber == secondMiddleRow
+        if !middleRow
+            row = 1 * star + numberOfStartAndEndSpaces * " " + star + numberOfMiddleSpaces * " "
+                  + star + numberOfStartAndEndSpaces * " " + 1 * star
+        else if middleRow
+            row = 1 * star + numberOfStartAndEndSpaces * " " + numberOfMiddleStars * star
+                  + numberOfStartAndEndSpaces * " " + 1 * star
+
+        if xRowNumber < firstMiddleRow
+            numberOfStartAndEndSpaces = numberOfStartAndEndSpaces + 1
+            numberOfMiddleSpaces = numberOfMiddleSpaces - 2
+        else if xRowNumber >= secondMiddleRow
+            numberOfStartAndEndSpaces = numberOfStartAndEndSpaces - 1
+            numberOfMiddleSpaces = numberOfMiddleSpaces + 2
+    print(row)
+
+step 4 - list variables used in your loop and decide how to initialise them: what value and type
+int squareSideLength = user input value
+int numberOfXRows = squareSideLength - 2
+int firstMiddleRow = round up (numberOfRows / 2.0)
+boolean oddNumberOfXRows = (numberOfXRows % 2) != 0
+int secondMiddleRow
+int numberOfMiddleStars
+int rowNumber = 1
+boolean xRow = rowNumber != 1 || rowNumber != sideLength
+int xRowNumber = rowNumber - 1
+boolean middleRow = xRowNumber == firstMiddleRow || xRowNumber == secondMiddleRow
+String row
+int numberOfStartAndEndSpaces = 0
+int xRowWidth = squareSideLength - 2
+int numberOfMiddleSpaces = xRowWidth - 2
+
+
+step 5 - Process the result after the loop has finished
+Not applicable because the result (output) we want is the series of row prints from each loop iteration
+
+step 6 - trace the loop variables with typical examples
+On paper. There were a lot of variables so I didn't finish the tracing of variables by hand.
+
+step 7 - implement the loop in java
+See SquareWithXPrinter.java
+
+...continuation of how to solve a problem
+
+step 4 - declare the variables and constants that you need and specify their types and how to initialise them
+int squareSideLength = user input value
+int numberOfXRows = squareSideLength - 2
+int firstMiddleRow = round up (numberOfRows / 2.0)
+boolean oddNumberOfXRows = (numberOfXRows % 2) != 0
+int secondMiddleRow
+int numberOfMiddleStars
+int rowNumber = 1
+boolean xRow = rowNumber != 1 || rowNumber != sideLength
+int xRowNumber = rowNumber - 1
+boolean middleRow = xRowNumber == firstMiddleRow || xRowNumber == secondMiddleRow
+String row
+int numberOfStartAndEndSpaces = 0
+int xRowWidth = squareSideLength - 2
+int numberOfMiddleSpaces = xRowWidth - 2
+
+step 5 - turn the pseudocode into Java statements
+See SquareWithXPrinter.java
