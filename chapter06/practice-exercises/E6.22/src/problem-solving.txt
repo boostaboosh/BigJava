@@ -1,0 +1,131 @@
+•• Business E6.22
+Write a program that first asks the user to type
+in today’s price of one dollar in Japanese yen,
+then reads U.S. dollar values and converts each
+to Japanese yen. Use 0 as the sentinel value
+to denote the end of dollar inputs. Then the
+program reads a sequence of yen amounts and converts them to dollars. The second
+sequence is terminated by another zero value.
+
+how to solve a computation problem
+
+step 1 - understand the problem
+What are the inputs?
+1: the price of one dollar in Japanese yen
+2: US dollar values
+3: Japanese yen values
+
+What are the desired outputs?
+1: The Japanese yen values of the inputted dollar values
+2: The dollar values of the inputted yen values
+
+step 2 - solve the problem by hand
+inputs:
+1: 141.02
+2: 1 100 4.32 0.1 100000 0
+output 1: 141.02 14102.00 609.23 14.10 14102500.00
+input 3: 1 100 500 2345.98 0
+output 2: 0.0071 0.71 3.55 16.64
+
+step 3 - write pseudocode for solving the problem
+ask the user to type the price of one dollar in Japanese yen
+ONE_USD_COST_IN_YEN = user input value
+print "Enter US dollar values to convert to Yen (0 to end): "
+dollarValue = next number in userInput
+yenValue = dollarValue * ONE_USD_COST_IN_YEN
+print $ dollarValue costs yenValue JPN yen
+...repeat last 3 steps until next number in userInput = 0
+print "Enter JPN yen amounts to convert to USD (0 to end): "
+yenValue = next number in userInput
+dollarValue = yenValue / ONE_USD_COST_IN_YEN
+print JPN yenValue yen costs $ dollarValue
+...repeat last 3 steps until next number in userInput = 0
+
+how to implement a loop
+
+step 1 - decide which actions need to be repeated
+while...
+    dollarValue = next number in userInput
+    yenValue = dollarValue * ONE_USD_COST_IN_YEN
+    print $ dollarValue costs yenValue JPN yen
+
+step 2 - specify the looping condition?
+What goal do I want to achieve in my loop?
+I want to keep iterating the loop instructions until the user input is zero
+
+step 3 - determine the loop type: count or event controlled
+A count controlled loop is controlled by a counter variable which is incremented by a constant amount until it reaches a
+target value. This is an event controlled loop because there is no counter variable.
+while !done
+    nextInput = nextValue in userInput
+    if nextInput == 0
+        done = true
+    else
+        dollarValue = nextInput
+        yenValue = dollarValue * ONE_USD_COST_IN_YEN
+        print $ dollarValue costs yenValue JPN yen
+
+step 4 - list all the variables used and updated in the loop and decide how to initialise them
+boolean done = false
+double nextInput = nextValue in user input
+double dollarValue = nextInput
+double yenValue = dollarValue * ONE_USD_COST_IN_YEN
+
+step 5 - process the result after the loop has finished
+not applicable
+
+step 6 - trace the loop variables with typical example values
+cba
+
+pseudocode now:
+
+ask the user to type the price of one dollar in Japanese yen
+ONE_USD_COST_IN_YEN = user input value
+
+print "Enter US dollar values to convert to Yen (0 to end): "
+
+while !done
+    nextInput = nextValue in userInput
+    if nextInput == 0
+        done = true
+    else
+        dollarValue = nextInput
+        yenValue = dollarValue * ONE_USD_COST_IN_YEN
+        print $ dollarValue costs yenValue JPN yen
+
+print "Enter JPN yen amounts to convert to USD (0 to end): "
+
+yenValue = next number in userInput
+dollarValue = yenValue / ONE_USD_COST_IN_YEN
+print JPN yenValue yen costs $ dollarValue
+...repeat last 3 steps until next number in userInput = 0
+
+implement the second loop a la first loop
+
+ask the user to type the price of one dollar in Japanese yen
+ONE_USD_COST_IN_YEN = user input value
+
+print "Enter US dollar values to convert to Yen (0 to end): "
+
+while !done
+    nextInput = nextValue in userInput
+    if nextInput == 0
+        done = true
+    else
+        dollarValue = nextInput
+        yenValue = dollarValue * ONE_USD_COST_IN_YEN
+        print $ dollarValue costs yenValue JPN yen
+
+print "Enter JPN yen amounts to convert to USD (0 to end): "
+
+while !done
+    nextInput = nextValue in userInput
+    if nextInput == 0
+        done = true
+    else
+        yenValue = nextInput
+        dollarValue = yenValue / ONE_USD_COST_IN_YEN
+        print JPN yenValue yen costs $ dollarValue
+
+step 4 - turn the pseudocode instructions into Java instructions
+See CurrencyConverter.java source code file
