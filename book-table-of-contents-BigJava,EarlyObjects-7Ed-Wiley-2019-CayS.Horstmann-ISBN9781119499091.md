@@ -1,6 +1,7 @@
-HT means How-To
-WE means Worked Example
-ST means Special Topic
+TOC legend:
+- HT means How-To
+- WE means Worked Example
+- ST means Special Topic
 
 # TABLE OF CONTENTS
 
