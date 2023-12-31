@@ -1,0 +1,80 @@
+•• E6.23
+The Monty Hall Paradox.
+Marilyn vos Savant described the following problem
+(loosely based on a game show hosted by Monty Hall) in a popular magazine:
+“Suppose you’re on a game show, and you’re given the choice of three doors: Behind
+one door is a car; behind the others, goats. You pick a door, say No. 1, and the host,
+who knows what’s behind the doors, opens another door, say No. 3, which has a
+goat. He then says to you, “Do you want to pick door No. 2?” Is it to your advantage
+to switch your choice?”
+Ms. vos Savant proved that it is to your advantage, but many of her readers, including
+some mathematics professors, disagreed, arguing that the probability would not
+change because another door was opened.
+Your task is to simulate this game show. In each iteration, randomly pick a door
+number between 1 and 3 for placing the car. Randomly have the player pick a door.
+Randomly have the game show host pick a door having a goat (but not the door that
+the player picked). Increment a counter for strategy 1 if the player wins by switching
+to the third door, and increment a counter for strategy 2 if the player wins by
+sticking with the original choice. Run 1,000 iterations and print both counters.
+
+steps to be repeated
+while...
+    carDoor = random door between 1 and 3
+
+    playerDoorPick = random between 1 and 3
+    hostDoorPick = random between 1 and 3 excluding carDoor and playerDoorPick
+
+    playerDoorSwitchPick = otherDoor excluding hostDoorPick and playerDoorPick
+
+    if playerDoorSwitchPick = carDoor
+    switchStategy = switchStrategy + 1
+    else if playerDoorPick = carDoor
+    stickStrategy = stickStrategy + 1
+
+looping condition
+    repeat until the loop has executed 1000 times
+
+loop type
+    count controlled
+
+    for simulationCounter from 1 to 1000
+        carDoor = random door between 1 and 3
+
+        playerDoorPick = random between 1 and 3
+        hostGoatDoorPick = random between 1 and 3
+        while (hostGoatDoorPick == carDoor || hostGoatDoorPick == playerDoorPick)
+            hostGoatDoorPick = random between 1 and 3
+
+        playerDoorSwitchPick = 1
+        if (hostDoorGoatPick == 1 || playerDoorPick == 1)
+           playerDoorSwitchPick = 2
+        if (hostDoorGoatPick == 2 || playerDoorPick == 2)
+           playerDoorSwitchPick = 3
+
+        if playerDoorSwitchPick = carDoor
+         switchStrategy = switchStrategy + 1
+        else if playerDoorPick = carDoor
+         stickStrategy = stickStrategy + 1
+
+loop variables initialisation
+int simulationCounter = 1
+int carDoor = random integer between 1 and 3
+int playerDoorPick = random integer between 1 and 3
+int hostDoorPick = random integer between 1 and 3
+int playerDoorSwitchPick = 1;
+int switchStrategyVictoryCounter = 0;
+int stickStrategyVictoryCounter = 0;
+int simulationNumber = 1000;
+
+process the result after the loop is done
+print "switch strategy victories out of simulationNumber: " switchStrategyVictoryCounter
+print "stick strategy victories out of simulationNumber: " stickStrategyVictoryCounter
+
+trace with typical examples
+simulationCounter   |   carDoor |   playerDoorPick  |   hostGoatDoorPick    |   playerDoorSwitchPick    |   switchStrategyVictoryCounter    |   stickStrategyVictoryCounter
+--------------------+-----------+-------------------+-----------------------+---------------------------+-----------------------------------+--------------------------------|
+    1               |   1       |   2               |       3               |           1               |       0                           |           0                    |
+    1               |   1       |   2               |       3               |           1               |       1                           |           0                    |\
+
+turn pseudocode statements into java statements
+See MontyHallParadoxSimulator.java source code file
