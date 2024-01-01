@@ -1,0 +1,50 @@
+•• P6.1
+Enhance Worked Example 6.1 to check that the credit card number is valid.
+A valid credit card number will yield a result divisible by 10 when you:
+Form the sum of all digits.
+Add to that sum every second digit, starting with the second digit from the right.
+Then add (to the previous sum) the number of digits in the second step that are greater than four.
+The result should be divisible by 10. (if it is the card number is valid)
+For example, consider the number 4012 8888 8888 1881. The sum of all digits is 89.
+The sum of the colored* digits is 46.
+*BOOK MISTAKE NOTE: in the book the first second digit from the right is not coloured in, but it should be.
+There are five colored* digits larger than four, so the result is 140.
+140 is divisible by 10 so the card number is valid.
+
+computation problem-solving
+
+part 1: understand the problem
+what are the inputs? A credit card number of 16 digits in String format.
+What are the desired outputs? Whether the credit card number is valid or not.
+
+part 2: solve examples of the problem by hand, i.e., solve the problem by hand
+input: 4123-5678-9012-3450
+CCDigitsSum = 60
+CCSumOfEverySecondDigitStartingWithSecondSecondDigitFromRightSide = 3 + 1 + 9 + 7 + 5 + 2 + 4 + 5 = 36
+CCDigitsAndSecondDigitsSum = 96
+NumberOfSecondDigitsStartingWithSecondDigitFromRightSideLargerThan4 = 4
+CCDigitsAndSecondDigitSum + LargerThan4SecondDigits = 100
+validitySum = 100 which is divisible by 10
+so the credit card number (from worked example 6.1) is valid.
+output: 4123-5678-9012-3450 is a valid credit card number.
+
+part 3: write pseudocode for solving the problem.
+
+cleanCCNumber = 16 character string
+for each character from 1 to 16 in cleanCCNumber
+    add digit to CCDigitSum
+    if digit position is odd
+        add digit at digit position to EverySecondDigitFromRightSum
+        if digit is > 4
+            numberOfSecondDigitsFromRightLargerThan4 = numberOfSecondDigitsFromRightLargerThan4 + 1
+validitySum = CCDigitSum + EverySecondDigitFromRightSum + numberOfSecondDigitsFromRightLargerThan4
+valid = false
+if validity sum % 10 == 0
+    valid = true
+if valid
+    print cleanCCNumber is a valid credit card number
+else if !valid
+    print cleanCCNumber is an INvalid credit card number
+
+part 4: turn pseudocode statements into Java statements
+See CCNumberValidityChecker
