@@ -3,6 +3,8 @@ TOC legend:
 - WE means Worked Example
 - ST means Special Topic
 
+![Big Java Early Objects 7th edition book cover image](book-cover-image-BigJava,EarlyObjects-7Ed-Wiley-2019-CayS.Horstmann-ISBN9781119499091.jpeg)
+
 # TABLE OF CONTENTS
 
 - **Preface** - iii
