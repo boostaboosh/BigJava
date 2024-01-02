@@ -1,0 +1,156 @@
+•• P6.2
+Fibonacci numbers describe the growth of a rabbit population.
+
+Fibonacci sequence, the sequence of numbers 1, 1, 2, 3, 5, 8, 13, 21, …,
+each of which, after the second, is the sum of the two previous numbers;
+that is, the nth Fibonacci number Fn = Fn − 1 + Fn − 2.
+
+Medieval Italian mathematician Leonardo Pisano (of Pisa), better known as Fibonacci,
+introduced the sequence that bears his name in his 1202 book "Liber Abaci". (1202; “Book of the Abacus”)
+which also popularized Hindu-Arabic numerals and the decimal number system in Europe.
+
+Fibonacci introduced the sequence in the context of the problem
+of how many pairs of rabbits there would be in an enclosed area
+if every month a pair produced a new pair and rabbit pairs
+could produce another pair beginning in their second month.
+Starting with 1 pair of newborn rabbits.
+
+The problem goes as follows:
+Start with a single pair of rabbits. This pair becomes mature in one month
+and then produces a new pair of offspring each month thereafter.
+Each new pair of rabbits, in turn, matures in a month and starts to produce
+its own offspring at the rate of one pair per month beginning the month after they mature.
+(rabbit pairs start to have kids 2 months after they are born)
+The question was how many pairs of rabbits would be there after a certain number of months.
+
+In this scenario, the Fibonacci sequence (starting with 1 and 1) is used to model the growth
+of the rabbit population each month. The first 1 represents the initial pair of rabbits,
+and the second 1 represents the population after the first month
+(still one pair, as they were not yet matured).
+As the sequence progresses, each number represents the total number of rabbit pairs in the population
+at the end of each subsequent month.
+
+This model is idealized and does not account for many realistic factors like mortality,
+but it was a powerful demonstration of the concept of exponential growth
+and remains a classic example in mathematical studies of growth patterns and sequences.
+
+The numbers of the sequence occur throughout nature,
+such as in the spirals of sunflower heads and snail shells.
+The ratios between successive terms of the sequence tend to
+the golden ratio φ = (1 + Square root of√5)/2 or 1.6180….
+
+The context in which he presented the Fibonacci sequence was a problem about rabbit breeding,
+which was intended to provide an example of how to calculate growth based on a specific set of rules.
+
+The Fibonacci numbers are defined by the sequence
+
+f1 = 1
+f2 = 1
+fn = fn–1 + fn–2
+
+Reformulate that as
+
+fold1 = 1;
+fold2 = 1;
+fnew = fold1 + fold2;
+
+After that, discard fold2, which is no longer needed, and set fold2 to fold1 and fold1 to fnew.
+Repeat an appropriate number of times.
+
+Implement a program that prompts the user for an integer n and prints the nth Fibonacci number,
+using the above algorithm.
+
+# computation problem solving
+
+part 1: understand the problem
+What are the inputs? An integer n.
+What are the desired outputs? The n-th Fibonacci number.
+
+part 2: solve an example of the problem by hand
+input: 4
+output: ?
+What is the fourth number in the fibonacci sequence, where the 4th number in the sequence
+represents the number of pairs of rabbits in an enclosure after 4 months have passed since
+the first pair of rabbits were babies at month zero?
+month 0 (start) = 1 pair of rabbits (not yet mature)
+month 1 = 1 pair or rabbits (now mature and therefore ready to start breeding 1 pair of rabbits per month)
+month 2 = 2 pairs of rabbits (the mature pair and the newborn pair)
+month 3 = 3 pairs of rabbits (the old pair, the newly matured pair, and a new newbord pair from the old pair)
+output: the fourth number in the sequence is 3. Sequence 1, 1, 2, 3.
+
+part 3: write pseudocode for solving the problem
+inputNth = ask user for input number which represents nth fibonacci number
+month = 0
+fibonacciNumberOne = 1
+month = month + 1 = 1
+fibonacciNumberTwo = 1
+month = month + 1 = 2
+fibonacciNumberThree = fibonacciNumberTwo + fibonacciNumberOne = 1 + 1 = 2
+month = month + 1 = 3
+fibonacciNumberFour = fibonacciNumberThree + fibonacciNumberTwo = 2 + 1 = 3
+month = month + 1 = 4
+fibonacciNumberFive = fibonacciNumberFour + fibonacciNumberThree = 3 + 2 = 5
+(I don't even need the month counter)
+fibonacciNumberSix = fibonacciNumberFive + fibonacciNumberFour = 5 + 3 = 8
+...repeat until you reach fibonacciNumberNth
+output fibonacciNumberNth
+
+## how to implement a loop
+step 1: determine which steps need to be repeated
+turn the series of repetitive steps into one series of steps which is the same for each repetitive step:
+while...
+    fibonacciNumberMonthN = fibonacciNumberMonthN-1 + fibonacciNumberMonthN-2
+    if N != inputNth - 1
+        fibonacciNumberMonthN-1 = fibonacciMonthN
+        fibonacciNumberMonthN-2 = fibonacciMonthN-1
+
+step 2: specify the looping condition
+What goal do I want to reach in my loop? I want monthN to reach Nth - 1
+(because first fibonacci number is pairs or rabbits at month zero)
+
+step 3: determine the loop type (count controlled or event controlled?)
+Count controlled loops are controlled by a counter variable which is varied
+by a constant amount once per loop iteration.
+This is a count controlled loop because monthN is increased
+by a constant amount (1), once per loop iteration.
+
+for monthNumber from 0 to inputNthFibonacciNumber - 1
+    fibonacciSequencePosition = monthNumber + 1
+    if fibonacciSequencePosition <= 2
+        fibonacciNumber = 1
+    else if fibonacciSequencePosition > 2
+        fibonacciSequencePosition-2fibonacciNumber = fibonacciSequencePosition-1fibonacciNumber
+        fibonacciSequencePosition-1fibonacciNumber = fibonacciNumber
+        fibonacciNumber = fibonacciSequencePosition-1fibonacciNumber
+                          + fibonacciSequencePosition-2fibonacciNumber
+
+step 4: list all variables used in the loop and determine their types and what value to initialise them with
+int monthNumber = 0
+fibonacciSequencePosition = monthNumber + 1
+int fibonacciNumber = 1
+int inputNthFibonacciNumber = user integer input
+int fibonacciSequencePosition-1fibonacciNumber = 1
+int fibonacciSequencePosition-2fibonacciNumber = 1
+
+step 5: process the result after the loop is finished
+inputNth = ask user for input number which represents nth fibonacci number
+for monthNumber from 0 to inputNthFibonacciNumber - 1
+    fibonacciSequencePosition = monthNumber + 1
+    if fibonacciSequencePosition <= 2
+        fibonacciNumber = 1
+    else if fibonacciSequencePosition > 2
+        fibonacciSequencePosition-2fibonacciNumber = fibonacciSequencePosition-1fibonacciNumber
+        fibonacciSequencePosition-1fibonacciNumber = fibonacciNumber
+        fibonacciNumber = fibonacciSequencePosition-1fibonacciNumber
+                          + fibonacciSequencePosition-2fibonacciNumber
+print The inputNthFibonacciNumber nth fibonacci number is fibonacciNumber
+
+step 6: trace the loop by hand with typical examples
+Done on paper. Led to significant changes.
+
+step 7: translate my pseudocode into Java code
+See NthFibonacciNumberPrinter.java source code.
+
+# continuation of computation problem-solving
+step 4: turn my pseudocode statements into Java statements
+See NthFibonacciNumberPrinter.java source code.
