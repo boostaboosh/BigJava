@@ -1,0 +1,225 @@
+••• P6.3
+Factoring of integers. Write a program that asks the user for an integer and then
+prints out all its factors. For example, when the user enters 150, the program should
+print
+2
+3
+5
+5
+Use a class FactorGenerator with a constructor FactorGenerator(int numberToFactor) and
+methods nextFactor and hasMoreFactors. Supply a class FactorPrinter whose main
+method reads a user input, constructs a FactorGenerator object, and prints the factors.
+
+UNCLEAR PROJECT REQUIREMENTS NOTE:
+The example outputs are the prime factorisation of 150: 2 * 3 * 5 * 5 = 150,
+and not all of 150's factors. Based on this example, the problem is actually
+asking me to implement a program which generated prime factors of a number and
+print the next number in the prime factorisation sequence of a given number.
+Instead of calling the classes FactorGenerator and FactorPrinter, I will call
+them PrimeFactorisationFactorGenerator and PrimeFactorisationFactorPrinter.
+I learnt about prime factorisation from the website "math is fun" at the
+following link: https://www.mathsisfun.com/prime-factorization.html
+
+how to implement a class (PrimeFactorisationFactorGenerator) from a given specification
+
+step 1: list the methods I must supply
+- a method which returns the next prime factor in the prime factorisation
+        sequence of an integer starting from the smallest prime factor
+- a method which tells me if there are more prime integers in the prime
+        factorisation sequence of an integer
+
+step 2: specify the public interface of the class by simulating method
+        calls on a sample object
+int integerToFactorise = 150;
+PrimeFactorisationFactorGenerator primeFactorisationFactorGenerator =
+        new PrimeFactorisationFactorGenerator(integerToFactorise);
+while (primeFactorisationFactorGenerator.hasNextFactor())
+    int nextFactorInPrimeFactorisation = primeFactorisationFactorGenerator.nextFactor();
+    System.out.print(nextFactorInPrimeFactorisation);
+
+public interface:
+constructor:
+- public PrimeFactorisationFactorGenerator (int integerToFactories)
+methods:
+- public boolean hasNextFactor ()
+- public int nextFactor ()
+
+I added the public interface to the PrimeFactorisationFactorGenerator class
+
+step 3: document the public interface
+See PrimeFactorisationFactorGenerator.java
+
+step 4: determine instance variables
+Go through each method ask myself what this object needs to perform its task.
+Importantly, I must not introduce unnecessary instance variables. If a value
+can be computed on demand from other instance variables it is best to do so.
+
+step 5: implement constructors and methods
+See PrimeFactorisationFactorGenerator.java source code
+
+computation problem-solving how-to
+
+step 1 - understand the problem
+What are the inputs? an integer to factorise
+What are the desired outputs? the next prime factor in the prime factorisation
+        sequence of the input integer
+
+step 2 - solve an example of the problem by hand
+integerToPrimeFactorise = 120
+120 / 2 = 60
+prime factorisation sequence = 2
+60 / 2 = 30
+prime factorisation sequence = 2 * 2
+30 / 2 = 15
+prime factorisation sequence = 2 * 2 * 2
+15 / 2 = 7.5
+15 / 3 = 5
+prime factorisation sequence = 2 * 2 * 2 * 5
+5 / 2 = 2.5
+5 / 3 = 1.6... something
+5 / 5 = 1
+prime factorisation sequence done
+
+step 3 - write pseudocode for solving the problem (getting the nextFactor in
+         the prime factorisation sequence).
+
+divisionDividend = lastDivisionQuotient
+primeDivisor = 2
+quotient = divisionDividend / primeDivisor
+if quotient is a whole number
+    nextFactorInPrimeFactorisation = primeDivisor
+    lastDivisionQuotient = quotient
+else if quotient !wholeNumber
+    primeDivisor = next larger prime integer after prime divisor
+    ...repeat last 6 steps
+
+implementing a loop
+1) decide which steps need to be repeated
+quotient = divisionDividend / primeDivisor
+if quotient is a whole number
+    nextFactorInPrimeFactorisation = primeDivisor
+    lastDivisionQuotient = quotient
+else if quotient !wholeNumber
+    primeDivisor = next larger prime integer after prime divisor
+
+2) determine the looping condition. What goal do you want to achieve in your
+   loop?
+I want quotient to be a whole number
+
+3) determine the loop type (count or event controlled)
+count controlled loops are controlled by a counter variable which is varied by
+a constant amount once per loop iteration, until it reaches a target value.
+Prime divisor is varied by a constant amount until it reaches the value of
+lastDivisionQuotient, at which point the quotient will definitely by a whole
+number because we are dividing the divisor by itself. But lastDivisionQuotient
+is not the target value of prime divisor. Importantly, we don't want to
+execute the loop that many times if quotient is a whole number beforehand,
+in fact that could lead to logic (run time) errors because the dividend
+could have more than one prime factor. So, this is an Event controlled loop
+which is executed until the quotient is a whole number
+loop:
+while quotient is not whole number
+    quotient = divisionDividend / primeDivisor
+    if quotient is a whole number
+        nextFactorInPrimeFactorisation = primeDivisor
+        lastDivisionQuotient = quotient
+    else if quotient is not a whole number
+        primeDivisor = next larger prime integer after prime divisor
+
+this could even be a do while loop because we do this at least once.
+loop:
+do
+    quotient = divisionDividend / primeDivisor
+    if quotient is a whole number
+        nextFactorInPrimeFactorisation = primeDivisor
+        lastDivisionQuotient = quotient
+    else if quotient is not a whole number
+        primeDivisor = next larger prime integer after prime divisor
+while quotient is not whole number
+
+4) determine how to initialise variables used in the loop
+divisionDividend = lastDivisionQuotient
+primeDivisor = 2
+quotient = divisionDividend / primeDivisor
+
+5) process the result after the loop has terminated
+loop:
+divisionDividend = lastDivisionQuotient
+primeDivisor = 2
+do
+    quotientRemainder = divisionDividend % primeDivisor
+    if quotientRemainder == 0
+        nextFactorInPrimeFactorisation = primeDivisor
+        lastDivisionQuotient = divisionDividend / primeDivisor
+    else if quotientRemainder != 0
+        primeDivisor = next larger prime integer after prime divisor
+while quotientRemainder != 0
+return nextFactorInPrimeFactorisation
+
+6) trace the loop variables by hand with typical examples
+Done, led to some changes
+
+7) implement the loop in Java
+
+step 4 - turn the pseudocode statements into Java code
+
+... another problem:
+primeDivisor = next larger prime integer after prime divisor
+how do I get the next larger prime integer after prime divisor?
+1) understand the problem
+what are the inputs? a prime number
+what is the desired output? the next prime number which is larger than the input prime number
+2) solve an example by hand
+input: 5
+output: 7
+3) write pseudocode for solving the problem
+input prime = a prime number
+nextNumber = prime + 1
+if (nextNumber % any number from 2 to itself - 1) == 0
+    nextNumber is not prime
+else
+    nextNumber is prime
+if nextNumber is not prime
+    nextNumber = nextNumber + 1
+    if (nextNumber % any number from 2 to itself - 1) == 0
+        nextNumber is not prime
+    else
+        nextNumber is prime
+    ... repeat last 5 steps until nextNumber is prime
+how to implement a loop
+1) decide the steps to be repeated
+    nextNumber = nextNumber + 1
+    if (nextNumber % any number from 2 to itself - 1) == 0
+        nextNumber is not prime
+    else
+        nextNumber is prime
+2) determine the looping condition
+What goal do you want to reach in your loop?
+I want nextNumber to be prime
+3) determine the loop type (count or event controlled)
+event controlled loop
+while !numberIsPrime
+    potentialPrimeNumber = potentialPrimeNumber + 1
+    for (int numberIterator = 2; numberIterator < potentialPrimeNumber; numberIterator++)
+        if potentialPrimeNumber % numberIterator == 0
+            numberIsPrime = false
+        else
+            numberIsPrime = true
+4) initialise loop variables
+int potentialPrimeNumber = primeDivisor + 1
+boolean numberIsPrime = false
+while !numberIsPrime
+    potentialPrimeNumber = potentialPrimeNumber + 1
+    numberIsPrime = true
+    for (int numberIterator = 2; numberIterator < potentialPrimeNumber; numberIterator++)
+        if potentialPrimeNumber % numberIterator == 0
+            numberIsPrime = false
+
+5) process the result after the loop terminates
+primeDivisor = potentialPrimeNumber
+
+6) trace the loop by hand with typical examples
+done, led to a significant change
+
+7) implement the loop in Java
+See PrimeFactorisationFactorGenerator.java source code file
