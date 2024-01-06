@@ -5,8 +5,8 @@ The following variant has an interesting winning strategy.
 
 Two players alternately take marbles from a pile.
 In each move, a player chooses how many marbles to take.
-
 The player must take at least one but at most half of the marbles.
+(round down if odd number of marbles left)
 Then the other player takes a turn. The player who takes the last marble loses.
 
 Write a program in which the computer plays against a human opponent.
@@ -46,3 +46,50 @@ if they say yes
     while !nimGame.isOver
         nimGame.nextTurn()
 
+okay, I've implemented most of this but the smart computer turn is difficult
+to implement. It requires some thought.
+How do I figure out if the number of marbles left in the pile is one less than
+a power of two?
+
+computation problem-solving
+step 1
+understand the problem
+what are the inputs? a pile size as an integer value between 1 and 100
+what are the desired outputs? true if pile size is one less than a power of 2, otherwise false
+step 2
+work out examples of the problem by hand
+input: 63
+output: true
+input: 10
+output: false
+step 3
+step 3
+write pseudocode for solving the problem
+pileSize = some random integer between 1 and 100
+if pileSize == 1
+... I wasn't sure how to write this in pseudocode, but I managed to write
+a for loop in Java that solved the problem.
+
+second computation problem-solving
+1) understand the problem
+what are the inputs?
+the current size of the pile which is not one less than a power of 2
+what are the desired outputs?
+the number of marbles to remove from the pile between 1 and n/2 in order
+to leave a number of marbles equal to a power of 2 minus 1
+2) work out examples by hand
+input: 23
+output: leave 15 so take 8
+input: 100
+output: leave 63 so take 37
+3) write pseudocode for solving the problem
+basically, figure out the largest power of two
+        less than current number of marbles
+then currentNumberOfMarbles - (largestPowerOfTwoLessThanCurrentNumberOfMarbles -1) = marbles to take
+so code becomes:
+largestPowerOfTwoLessThanPileSize = 1
+exponentOfTwo = 0
+while (2 ** exponentOfTwo) < pileSize
+    largestPowerOfTwoLessThanPileSize = 2 ** exponentOfTwo
+    exponentOfTwo = exponentOfTwo + 1
+marblesToTake = pileSize - largestPowerOfTwoLessThanPileSize
