@@ -1,0 +1,77 @@
+•• P6.9
+In the 17th century, the discipline of probability theory got its start when a gambler
+asked a mathematician friend to explain some observations about dice games. Why
+did he, on average, win a bet that at least one six would appear when rolling a die
+four times? And why did he seem to lose a similar bet, getting at least one double-six
+when rolling a pair of dice 24 times?
+Nowadays, it seems astounding that any person would roll a pair of dice 24 times in
+a row, and then repeat that many times over. Let’s do that experiment on a computer
+instead. Simulate each game a million times and print out the wins and losses,
+assuming each bet was for $1.
+
+computation problem-solving
+1 - understand the problem
+What are the inputs?
+1) a bet that at least one 6 would appear when rolling a die four times
+2) a bet that at least one double 6 (12) would appear when rolling a pair of
+   dice 24 times
+What are the outputs?
+1) The number of wins and losses when simulating the first bet 1'000'000 times
+2) The number of wins and losses when simulating the second bet 1'000'000 times
+
+2 - solve typical examples of the problem by hand
+Hard to do this many times. That's the point of using a computer.
+But I can imagine a few dice rolls.
+bet 1 sim 1
+roll die. 5
+roll die. 2
+roll die. 2
+roll die. 6
+bet 1
+sumOfWinsAndLosses + 1
+bet 1 sim 2
+roll die. 4 roll die. 2
+roll die. 1 roll die. 3
+etc. 24 times.
+bet2SumOfWinsAndLosses - 1 (because probably a loss)
+
+3 - write pseudocode for solving the problem
+numberOfBetsToSimulate = 1_000_000
+numberOfBets = 0
+
+oneDieBetSumOfWinsAndLosses = 0
+twoDiceBetSumOfWinsAndLosses = 0
+
+for numberOfBets from 1 to 1_000_000
+    // one die bet simulation
+    oneDieBetVictory = false
+    for numberOfDieRolls from 1 to 4
+        dieResult = random number between 1 and 6
+        if dieResult == 6
+            oneDieBetVictory = true
+    if oneDieBetVictory == true
+        oneDieBetSumOfWinsAndLosses = oneDieBetSumOfWinsAndLosses + 1
+    else
+        oneDieBetSumOfWinsAndLosses--
+
+    // two die bet simulation
+    twoDieBetVictory = false
+    for numberOfDieRolls from 1 to 24
+        dieOneResult = random number from 1 to 6
+        dieTwoResult = random number from 1 to 6
+        if dieOneResult == dieTwoResult && dieTwoResult == 6
+            twoDieBetVictory = true
+    if twoDieBetVictory == true
+        twoDieBetSumOfWinsAndLosses++
+    else
+        twoDieBetSumOfWinsAndLosses--
+
+The wins and losses after placing 1 million bets that at least one 6 would
+appear when rolling a die 4 times are oneDieBetSumOfWinsAndLosses
+
+The wins and losses after placing 1 million bets that
+at least one double 6 (12) would appear when rolling a pair
+of dice 24 times are twoDieBetSumOfWinsAndLosses
+
+4 - turn the pseudocode into Java statements
+See DiceRollBets Java code file
