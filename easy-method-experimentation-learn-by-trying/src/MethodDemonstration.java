@@ -16,6 +16,7 @@ public class MethodDemonstration
      */
     public static void main(String[] args)
     {
-
+        int floorMod = Math.floorMod(-13, 10);
+        int mod = -13 % 10;
     }
 }
