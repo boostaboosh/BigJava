@@ -1,0 +1,202 @@
+••• P6.11
+A bicycle combination lock has four rings with numbers 0 through 9. Given the
+actual numbers and the combination to unlock, print instructions to unlock the lock
+using the minimum number of twists. A “twist up” increases the number value of
+a ring, and a “twist down” decreases it. For example, if the actual number shown is
+1729 and the desired combination is 5714, write your instructions like this:
+Ring 1: Twist up 4 times
+Ring 3: Twist down once
+Ring 4: Twist up or down 5 times
+
+comb: 2378
+unlockComb: 3871
+ring 1: twist up once
+ring 2: twist up 5 times
+ring 3: do not twist
+ring 4: twist up 3 times
+
+1) understand the problem
+What are the inputs? A 4 digit lock combination
+What are the desired outputs? The minimum number of twists
+        for each ring (digit) to reach the lock's unlock
+        combination
+2) work out an example of the problem by hand
+comb: 2378
+unlockComb: 3871
+ring 1: twist up once
+ring 2: twist up 5 times
+ring 3: do not twist
+ring 4: twist up 3 times
+3) write pseudocode to solve the problem:
+current4digitCombination = 4 digit integer (like 1235)
+1st digit = currentCombination / 1000
+last 3 digits = currentCombination % 1000
+2nd digit = last 3 digits / 100
+last 2 digits = last 3 digits % 100
+3rd digit = (currentCombination % 100) / 10
+last (4th) digit = last 2 digits % 10
+
+unlockCombination = 4 digit integer (like 9238)
+1stUnlockDigit = unlockCombination / 1000
+last 3 digits = unlockCombination % 1000
+2ndUnlockDigit = last 3 digits / 100
+last 2 digits = last 3 digits / 100
+3rdUnlockDigit = last 2 digits / 10
+4thUnlockDigit = last 2 digits % 10
+
+for each position 1 to 4 I'm going to have 2 numbers.
+for example 3 (current) and 8 (desired)
+now, I want to know the number of twists and the direction.
+the difference between the numbers is the number of twists to reach the other.
+But if you roll up the difference is less: 8 - 3 = 5 up twists.
+But 5 down twists also gets you to 8.
+What if I have to get to 2. 3 - 2 = 1. down twist.
+what if I am at 9 and need to get to 2. 9 - 2 = 7 but 3 up twists would
+get me there too quicker!
+What's the rule?
+The distance between the numbers should be base 10. because it's like the distance
+between numbers on a clock (or combination ring) with 10 digits (0 to 9).
+9 and 2 are closer going clockwise (up) from 9.
+So, I need to compute the addition of the two numbers base 10 ((9 + 2) % 10) = 1
+That doesn't work for 3 and 8 though: ((3 + 8) % 10)) = 1 which is wrong.
+Having drawn the wheel on paper I realise that it only makes sense to move up
+if the difference between the numbers is > than 5. If it's 5 up or down is the same.
+And if it's less than 5 it makes sense to go down from the first number. For example,
+5 and 3, you should do 2 twists down from 5. But 6 and 1 you can do 5 twists up or down.
+And 7 and 1 you should do 4 twists up, because 7 - 1 = 6, but 10 - 6 = 4.
+I feel like there's a better way of doing this. Like, a rule for all number pairs
+instead of having to check if their difference is > or < than 5.
+I found a different way of doing it. 7 - 1 = 6 down twists.
+Which is more than 7 - (1 + 10) = 4 up twists.
+So, to find the number of twists you can compare the difference and the difference + 10.
+But for 2 and 6, 2 - 6 = -4. And 2 - (6 + 10) = -14. But you can % 10 to get the same as
+before.
+If the difference + 10 is < the difference you should twist up.
+Wait, I also just realised that if the difference is negative you twist up, and
+if it is positive you twist down. So 5 - 4 positive, so twist down the difference of 1.
+But 4 - 5 is -1, so you should twist up 1. the amount of twist will always be the
+absolute (positive) value of the difference.
+Okay, I got it. For every two numbers the formula is (firstNumber - (secondNumber + 10)) % 10 = + or - numberOfTwists
+This will always be the shortest distance (number of twists) between the two numbers.
+If numberOfTwists is < 0 twist up, if numberOfTwists is > 0 twist down.
+For example 1 and 9:
+(1 - (9 + 10)) % 10 = (1 - 19) % 10 = -18 floor mod 10 = 2; but floor mod always returns positive numbers
+even if you should twist down.
+For example 4 and 1:
+(4 - (1 + 10)) % 10 = (4 - 13) % 10 = -9 floor mod 10 = + 1. Which is WRONG.
+I guess you need to do smaller number - bigger number.
+(1 - (4 + 10)) % 10 = (1 - 14) % 10 = - 13 % 10 = -3 or +7 with floor mod.
+I guess you get the positive value of both and then whichever is smaller is the minimum number of twists
+and the direction is the symbol of the result: -3 means down and +7 would have meant up.
+Okay, I've got two solutions here.
+
+option 1:
+Having drawn the wheel on paper I realise that it only makes sense to move up
+if the difference between the numbers is > than 5. If it's 5 up or down is the same.
+And if it's less than 5 it makes sense to go down from the first number. For example,
+5 and 3, you should do 2 twists down from 5. But 6 and 1 you can do 5 twists up or down.
+And 7 and 1 you should do 4 twists up, because 7 - 1 = 6, but 10 - 6 = 4.
+pseudocode:
+aDistance = absolute value of (digit - unlockDigit)
+direction = up or down
+if (aDistance < 5 && > 0)
+    shortestDistance = aDistance
+    direction = down
+else if (aDistance > 5)
+    longDistance = aDistance
+    shortestDistance = 10 - longDistance
+    direction = up
+output: twist ring $ringNumber in $direction direction $shortestDistance times.
+print output
+
+option 2:
+smallerDigit = minimum (digit, unlockDigit)
+biggerDigit = maximum (digit, unlockDigit)
+differencePlusTen = (smallerDigit - (biggerDigit + 10))
+firstTwistDirectionAndDistance = differencePlusTen % 10
+secondTwistDirectionAndDistance = differencePlusTen floorMod 10
+if absolute value of firstTwistDirectionAndDistance < absolute value of secondTwistDirectionAndDistance
+    shortestTwist = firstTwistDirectionAndDistance
+else
+    shortestTwist = secondTwistDirectionAndDistance
+direction = up or down
+if shortestTwist < 0
+    direction = down
+else if shortestTwist > 0
+    direction = up
+output twist ring $ringNumber in $direction direction $shortestDistance times.
+print output
+
+Well will you look at that. My first easier solution, which is much easier to read, write, and understand,
+is also fewer lines of code long compared to the complicated and difficult to understand "mathematical"
+solution I came up with afterward.
+My takeaway lesson is: The solution which is easier to understand is probably the best solution. If I find
+a solution to something and feel like there is another one but don't know what it is, I should probably
+stick to the first solution I found because it's probably the easiest to understand and implement.
+I can always think of alternative solutions if my first solution is too difficult or complicated for me to
+implement.
+
+continuing with the problem-solving using option 1:
+current4digitCombination = 4 digit integer (like 1235)
+1st digit = currentCombination / 1000
+last 3 digits = currentCombination % 1000
+2nd digit = last 3 digits / 100
+last 2 digits = last 3 digits % 100
+3rd digit = (currentCombination % 100) / 10
+last (4th) digit = last 2 digits % 10
+
+unlockCombination = 4 digit integer (like 9238)
+1stUnlockDigit = unlockCombination / 1000
+last 3 digits = unlockCombination % 1000
+2ndUnlockDigit = last 3 digits / 100
+last 2 digits = last 3 digits / 100
+3rdUnlockDigit = last 2 digits / 10
+4thUnlockDigit = last 2 digits % 10
+
+aDistance = absolute value of (digit - unlockDigit)
+direction = up or down
+if (aDistance < 5 && > 0)
+    shortestDistance = aDistance
+    direction = down
+else if (aDistance > 5)
+    longDistance = aDistance
+    shortestDistance = 10 - longDistance
+    direction = up
+output: twist ring $ringNumber in $direction direction $shortestDistance times.
+print output
+
+I need to repeat the previous lines of code for all four rings of the combination lock, i.e., for each digit.
+These are the actions to be repeated in the loop.
+I realise that I don't know how to cycle through each digit for each loop iteration, but I can go through
+the starting lock combination each iteration of my loop. and this way I can unify the first two blocks two which are
+basically the same. So this will be one big loop from 1st to 4th digit.
+Now, I must specify the looping condition. What goal do I want to reach in my loop?
+I want to increase ringNumber from 1 to 4 including both extremities. So, my goal if for ringNumber to reach 4.
+I need to determine the loop type now. This is a count controlled loop because ringNumber is varied by a
+constant amount (+1) once per loop iteration until it reaches a target value (+4).
+ringNumber can also be called combinationDigitNumber
+loop pseudocode:
+
+leftMostDigitTenMultiplier = 1000
+for ringNumber from 1 to 4:
+    currentDigit = currentCombination / leftMostDigitMultiplier
+    unlockDigit = unlockCombination / leftMostDigitMultiplier
+    remainingCurrentCombinationDigits = currentCombination % leftMostDigitMultiplier
+    remainingUnlockCombinationDigits = unlockCombination % leftMostDigitMultiplier
+    leftMostDigitMultiplier = leftMostDigitMultiplier / 10
+
+    aDistance = absolute value of (currentDigit - unlockDigit)
+    shortestDistance = aDistance
+    direction = up or down
+    if (aDistance < 5 && > 0)
+        shortestDistance = aDistance
+        direction = down
+    else if (aDistance > 5)
+        longDistance = aDistance
+        shortestDistance = 10 - longDistance
+        direction = up
+    output: twist ring $ringNumber in $direction direction $shortestDistance times.
+    print output
+
+4) turn the pseudocode statements into Java code
+See MinimumTwistsCombinationLockPrinter java source code file.
