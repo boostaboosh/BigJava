@@ -5,18 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="28792535-6df8-4f2d-b213-1c7c89aa9135" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/A.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/B.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/C.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/D.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/E.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/problem-solving.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/F.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/G.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/R7.3/A.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/R7.3/A.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/R7.3/B.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/R7.3/B.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/R7.3/C.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/R7.3/C.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/R7.3/D.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/R7.3/D.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/R7.3/E.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/R7.3/E.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/R7.3/problem-solving.txt" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/R7.3/problem-solving.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/problem-solving.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/problem-solving.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,7 +52,7 @@
       <recent name="$PROJECT_DIR$/src" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.E">
+  <component name="RunManager" selected="Application.G">
     <configuration name="A" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="A" />
       <module name="R7.3" />
@@ -74,20 +67,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="C" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="C" />
-      <module name="R7.3" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="D" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="D" />
-      <module name="R7.3" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="E" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="E" />
       <module name="R7.3" />
@@ -95,13 +74,27 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="F" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="F" />
+      <module name="R7.3" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="G" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="G" />
+      <module name="R7.3" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.G" />
+        <item itemvalue="Application.F" />
         <item itemvalue="Application.E" />
         <item itemvalue="Application.A" />
         <item itemvalue="Application.B" />
-        <item itemvalue="Application.C" />
-        <item itemvalue="Application.D" />
       </list>
     </recent_temporary>
   </component>
@@ -114,6 +107,7 @@
       <option name="presentableId" value="Default" />
       <updated>1706000930904</updated>
       <workItem from="1706000932134" duration="853000" />
+      <workItem from="1706089350435" duration="1387000" />
     </task>
     <servers />
   </component>
