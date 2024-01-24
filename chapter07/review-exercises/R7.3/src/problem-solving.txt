@@ -45,3 +45,65 @@ loop type: count controlled (counter)
 loop:
 for (int counter = 1; counter <= 4; counter++)
     array[counter - 1] = counter * counter
+
+part g problem-solving:
+fill an array with: 0 1 2 3 4 0 1 2 3 4
+
+input: none
+output: array of integers: 0 1 2 3 4 0 1 2 3 4
+
+idea: I could do two loops, or just signal a reset of the value being assigned
+      halfway through the loop. Not sure how what last thing would work.
+
+solve by hand
+0 1 2 3 4 0 1 2 3 4
+
+pseudocode for solving the problem
+assign counter value of 0
+assign index a value of 0
+assign array element at index 0 a value of counter
+increment index by one
+increment counter by one
+assign array element at index a value of counter
+increment index by one
+increment counter by one
+assign array element at index a value of counter
+increment index
+increment counter
+assign array element at index a value of counter
+increment index
+increment counter
+assign array element at index a value of counter
+// 6th element
+increment index
+assign counter a value of 0
+assign array element at index a value of counter
+
+loop implementation
+instructions to repeat:
+if counter > 4
+    counter = 0
+assign array element at index a value of counter
+increment counter
+increment index
+
+looping condition
+What goal do I want to reach?
+I want the index to reach the index of the last element in the array.
+So, I want index to reach a value of array length - 1.
+
+loop type
+count controlled because there is a counter variable (index),
+which is incremented by a constant amount (+1) until it reaches a
+target value (array length - 1).
+what does it look like so far:
+counter = 0
+for (int index = 0; index < array.length; index++)
+{
+    if (counter > 4)
+    {
+        counter = 0;
+    }
+    array[index] = counter;
+    counter = counter + 1;
+}
