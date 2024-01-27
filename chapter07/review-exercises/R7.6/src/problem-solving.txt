@@ -1,0 +1,135 @@
+••• R7.6
+Write a loop that fills an array values with ten random numbers
+between 1 and 100.
+Write code for two nested loops that fill values with ten different
+random numbers between 1 and 100.
+
+step 1 - understand the problem
+inputs: none. Just use a loop for the first array, and a nested loop for
+        the second one.
+outputs: 2 outputs:
+ - output 1: an array of 10 random numbers between 1 and 100
+ - output 2: an array of 10 different random numbers between 1 and 100
+
+step 2 - solving instances of the problem by hand
+output 1:
+        8, 2, 0, 67, 23, 58, 58, 10, 98, 73
+output 2:
+        23, 19, 93, 57, 83, 92, 2, 99, 37, 92
+
+step 3 - write pseudocode for solving the problem
+pseudocode algorithm "hey computer, follow these orders":
+create an array of length 10
+create a random number generator
+get the next random number from the generator between 1 and 100
+input the random number into the array
+get the next random number from the generator between 1 and 100
+input the random number into the array
+... basically repeat this 10 times, so we want a loop.
+the first output seems relatively simple.
+decide the steps to repeat:
+get the next random number from the generator between 1 and 100
+put the random number into the array
+looping condition? When to repeat?
+until the array is full, i.e., all its elements have been used
+while index < array.size
+determine loop type
+count controlled because we repeat increment index until it
+reaches a value equal to array size - 1
+create an array of length 10
+create a random number generator
+for (int index = 0; index < array.size; index++)
+    get next random number from generator
+    array[index] = next random number from generator
+
+what about the other loop? Well the other 3 loops: the 2 nested loops?
+output 2?
+Okay, for output 2 we want to put random numbers into the array,
+but this time we want to check if the number already exists in the
+array before we add it, if it does, we need to get a different
+random number and try again until the array of length 10 is full.
+so, let's begin:
+pseudocode for two nested loops that fill an array with 10 different
+random values. "Hey computer, follow these orders":
+create an array of length 10
+get a random number between 1 and 100
+if that number is already in the array
+    get a different number
+if that number is already in the array
+    get a different random number
+... this is a loop
+repeat:
+    if that number is already in the array
+        get a different random number
+loop condition
+    if the random number is already in the array
+loop type
+    event controlled
+    while random number is already in the array
+        get a different random number
+...back to our pseudocode
+create an array of length 10
+get a random number between 1 and 100
+while random number is already in the array
+    get a different random number
+put random number in the array
+get a random number between 1 and 100
+while random number is already in the array
+    get a different random number
+put random number in the array
+...repeat until array is full: that do be a loop
+repeat:
+    get a random number between 1 and 100
+    while random number is already in the array
+        get a different random number
+    put random number in the array
+looping condition:
+    repeat the loop until the array is full
+loop type
+    count controlled because array element index is incremented by one
+    until it reaches array length - 1
+    pseudocode loop:
+    for array element from index 0 to length - 1
+        get a random number between 1 and 100
+        while random number is already in the array
+            get a different random number
+        put random number in the array
+
+Alright this seems relatively simple buuuut, how do we figure out
+if a number is already in the array?
+Ah, we use the basic looping algorithm for searching an array
+for a value: the linear search! amen
+get a random number between 1 and 100
+while random number is already in the array
+    get a different random number
+becomes:
+get a random number between 1 and 100
+alreadyInArray = true
+while alreadyInArray == true
+    searchedValue = random number
+    alreadyInArray = false
+    for each element in the array
+        if element == searchedValue
+            alreadyInArray = true
+    if alreadyInArray == true
+        random number = get a different random number
+    else
+        put random number in the array
+
+so our pseudocode for obtaining output 2 actually becomes:
+create an array of length 10
+for array element from index 0 to length - 1
+    get a random number between 1 and 100
+    alreadyInArray = true
+    while alreadyInArray == true
+        searchedValue = random number
+        alreadyInArray = false
+        for each element in the array
+            if element == searchedValue
+                alreadyInArray = true
+        if alreadyInArray == true
+            random number = get a different random number
+        else
+            put random number in the array
+
+alrighty, step 4: let's translate all this pseudocode to java code!
