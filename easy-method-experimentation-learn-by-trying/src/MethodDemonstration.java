@@ -18,5 +18,10 @@ public class MethodDemonstration
     {
         int floorMod = Math.floorMod(-13, 10);
         int mod = -13 % 10;
+        int[] values;
+        for (int i = 0; i < values.length; i++)
+        {
+            values[i] = i * i;
+        }
     }
 }
