@@ -7,5 +7,9 @@ pdf p.188, book p.118
 how to 5.1 - implementing an if statement
 pdf p.233, book p.143
 
-how to 6.1 writing a loop
+how to 6.1 - writing a loop
 pdf p.311, book p.203
+
+how to 7.1 - working with arrays
+pdf p.378, book p.242
+
