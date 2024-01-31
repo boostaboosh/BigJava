@@ -1,0 +1,51 @@
+Write a class DataSet that stores a number of values of type double.
+Provide a constructor
+public DataSet(int maximumNumberOfValues)
+and a method
+public void add(double value)
+that adds a value, provided there is still room.
+Provide methods to compute the sum, average, maximum, and minimum value.
+
+problem-solving
+
+how to implement a class from a given specification
+
+step 1
+find out which methods you are asked to supply,
+i.e., list the behaviours of an object you want to model
+ - adding a number to the data set
+ - compute the sum of elements in the data set
+ - compute the average of elements in the data set
+ - compute the maximum of elements in the data set
+ - compute the minimum of elements in the data set
+
+step 2
+write the public interface of the class
+(I should not decide instance variables yet)
+Using a sample object and applying sample method calls to it
+lets you figure out what methods should be named,
+what type of return values they have,
+and what arguments they take.
+I like using a sample object in a tester class for the class I'm implementing.
+When writing the public interface for my class I should start with writing
+the interface of methods first, and then write the interface of constructors.
+I must ask myself
+
+step 3
+document the public interface of your class with documentation comments
+that describe the class and its methods, and its constructor.
+
+step 4
+determine instance variables by asking myself what information an object
+needs to do its job, i.e., call its methods in any order.
+Importantly, I should not introduce unnecessary instance variables. As a
+rule of thumb: if a value can be computer on demand from other instance
+variables, it is best to do so.
+
+step 5
+implement constructors and methods
+
+step 6
+test my class
+I can use the tester class I made when writing the public interface of my
+class. I used it to create a sample object and call methods on it.
