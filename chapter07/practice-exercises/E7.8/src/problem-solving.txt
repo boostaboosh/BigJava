@@ -1,0 +1,79 @@
+••• E7.8
+Write a program that produces ten random permutations of the numbers 1 to 10. To
+generate a random permutation, you need to fill an array with the numbers 1 to 10
+so that no two entries of the array have the same contents. You could do it by brute
+force, generating random values until you have a value that is not yet in the array.
+But that is inefficient. Instead, follow this algorithm:
+
+Make a second array and fill it with the numbers 1 to 10.
+Repeat 10 times
+    Pick a random position in the second array.
+    Remove the element at the position from the second array.
+    Append the removed element to the permutation array.
+
+problem-solving:
+
+set 1 to 10 = 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+permutation of set = empty set of length 10
+random element index from original set = random integer from 1 to 10
+index of element to remove = random element index from original set
+element to remove = element in original set at index of element to remove
+element at index of element to remove = element at index of element to remove
+        + 1
+element at index of element to remove + 1 = element at index of element to remove + 2
+repeat until element at index of element to remove + indexDifference ==
+        length of permutation set - 1
+
+steps to repeat
+    element at index of element to remove + 1 = element at index of element to remove + 2
+    repeat until element at index of element to remove + indexDifference ==
+            length of permutation set - 1
+
+pseudocode:
+
+original set = 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+permutations = empty two-dimensional array of length 10
+previous set = copy of original set
+for permutation from 1 to 10
+    permutationOfPreviousSet = empty set of length 10
+    current size of previous set = length of previous set
+    repeat 10 times
+        random index of element to remove = random integer between 0 and original set size - 1
+        element to remove from original set = element at random index of element to remove
+        for index from random index of element to remove + 1 to current size of original set - 1
+            element at index - 1 = element at index
+        current size of original set = current size of original set - 1
+        append element to remove from original set to permutation set
+    append permutationOfPreviousSet to permutations
+    for each element in permutationOfPreviousSet
+        print element
+    print new line
+    previousSet = permutation of previousSet
+
+translate pseudocode to java code
+
+
+update note:
+
+I misunderstood the assignment. The use of the word second array confused me because I was unsure what first array was. i assume it was just the sequence 1 through 10 which is the same as second array in this case so I'm not sure. At first I thought the arrays produced by the program had to be different permutations and I struggled to see how the provided algorithm ensured the array permutations were different. I just thought that it relied on the unlikelihood of 10 random numbers being the same. Later on, in the evening I realised that it says we should generate 10 random permutations of the given sequence, but there is no requirement that the permutations cannot be the same if randomness produces such an outcome. I spent a long time on this exercise and ended up still working on it in the evening as I upload this video. I still haven't solved it. But I think I understand what the pseudocode and the problem assignment want me to do now. I realised that I don't have to use the previous permutation each time I make the next permutation, something I tried to do in my implementation, and instead I can just start with the original sequence from 1 to 10. I will attempt to re-do this exercise tomorrow and get it working. Before trying the suggested implementation which I think I finally understand I want to figure out why my implementation doesn't work. I feel like it should and it frustrates me that I don't know why it doesn't.
+
+midnight update: I found my mistake and now my original algorithm now works.
+In my loop which moved elements back by one index, starting from the element following the element to be removed onwards, I used the wrong upper bound in my looping condition: cureentSizeOfPreviousSet - 1, instead of currentSizeOfPrevoiusSet.  This meant that the last element in the previousSet wasn't moved back an index and so that after one iteration of the loop the last two used elements in the previousSet were the same becuase I moved back the penultimate element, effectively duplicating it, but never replaced the penultimate element in the previousSet with the last element. How silly of me!
+
+corrected loop:
+
+for (int index = randomIndex + 1;
+        index less than currentSizeOfPreviousSet; index ++)
+{
+    previousSet[index - 1] = previousSet[index];
+}
+currentSizeOfPreviousSet = currentSizeOfPreviousSet - 1;
+
+instead of incorrect loop:
+
+for (int index = randomIndex + 1;
+        index less than currentSizeOfPreviousSet - 1; index ++)
+{
+    previousSet[index - 1] = previousSet[index];
+}
+currentSizeOfPreviousSet = currentSizeOfPreviousSet - 1;
