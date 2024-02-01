@@ -20,6 +20,6 @@ public class DataSetTester
       double maximum = dataset.getMaximum();
       System.out.println("Expected max is 3.5, actual is " + maximum);
       double minimum = dataset.getMinimum();
-      System.out.println("Expected min is -10.510, actual is " + minimum);
+      System.out.println("Expected min is -10.501, actual is " + minimum);
    }
 }
