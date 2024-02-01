@@ -29,7 +29,8 @@ and what arguments they take.
 I like using a sample object in a tester class for the class I'm implementing.
 When writing the public interface for my class I should start with writing
 the interface of methods first, and then write the interface of constructors.
-I must ask myself
+I don't need to determine instance variables or the final constructor
+arguments yet.
 
 step 3
 document the public interface of your class with documentation comments
@@ -39,7 +40,7 @@ step 4
 determine instance variables by asking myself what information an object
 needs to do its job, i.e., call its methods in any order.
 Importantly, I should not introduce unnecessary instance variables. As a
-rule of thumb: if a value can be computer on demand from other instance
+rule of thumb: if a value can be computed on demand from other instance
 variables, it is best to do so.
 
 step 5
