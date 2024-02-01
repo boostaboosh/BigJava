@@ -5,61 +5,85 @@ import java.util.ArrayList;
  */
 public class DataSet
 {
+   private ArrayList<Double> values;
+   private int maximumNumberOfValues;
 
    /**
     * Constructs a new DataSet object with no values.
     */
    public DataSet(int maximumNumberOfValues)
    {
-      // TODO: implementation filled in later
+      this.values = new ArrayList<Double>();
+      this.maximumNumberOfValues = maximumNumberOfValues;
    }
 
    /**
-    * Adds a value to the data set.
+    * Adds a value to the data set, provided there is still room.
     * @param valueToAdd the value to add to the data set
     */
-   public void add(int valueToAdd)
+   public void add(double valueToAdd)
    {
-      // TODO: implementation filled in later
+      if (this.values.size() < this.maximumNumberOfValues)
+      {
+         values.add(valueToAdd);
+      }
    }
 
    /**
     * Computes the sum of all elements in the data set.
     * @return the sum of all elements in the data set
     */
-   public int getSum()
+   public double getSum()
    {
-      // TODO: implementation filled in later
-      return 0;
+      double sum = 0;
+      for (double value : values)
+      {
+         sum = sum + value;
+      }
+      return sum;
    }
 
    /**
     * Computer the average of all elements in the data set.
     * @return the average of all elements in the data set
     */
-   public int getAverage()
+   public double getAverage()
    {
-      // TODO: implementation filled in later
-      return 0;
+      double average = this.getSum() / this.values.size();
+      return average;
    }
 
    /**
     * Gets the highest value in the data set.
     * @return the highest value in the data set.
     */
-   public int getMaximum()
+   public double getMaximum()
    {
-      // TODO: implementation filled in later
-      return 0;
+      double maximum = this.values.get(0);
+      for (double value : values)
+      {
+         if (value > maximum)
+         {
+            maximum = value;
+         }
+      }
+      return maximum;
    }
 
    /**
     * Gets the lowest value in the data set.
     * @return the lowest value in the data set
     */
-   public int getMinimum()
+   public double getMinimum()
    {
-      // TODO: implementation filled in later
-      return 0;
+      double minimum = this.values.get(0);
+      for (double value : values)
+      {
+         if (value < minimum)
+         {
+            minimum = value;
+         }
+      }
+      return minimum;
    }
 }
