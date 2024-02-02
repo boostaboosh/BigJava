@@ -1,0 +1,128 @@
+/**
+ * ArrayMethods objects complete tasks on an array of integers.
+ */
+public class ArrayMethods
+{
+   private int[] values;
+
+   /**
+    * Constructs and ArrayMethods object.
+    * @param initialValues the initial array of integers on which array methods
+    *                      are performed
+    */
+   public ArrayMethods(int[] initialValues)
+   {
+      this.values = initialValues;
+   }
+
+   /**
+    * Prints the values in the array.
+    */
+   public void print()
+   {
+      for (int value : this.values)
+      {
+         System.out.print(value + " ");
+      }
+      System.out.println();
+   }
+
+   /**
+    * Swaps the first and last elements in the array.
+    */
+   public void swapFirstAndLast()
+   {
+      // TODO: implementation filled in later
+   }
+
+   /**
+    * Shift all elements to the right by one position, and move the last
+    * element into the first position. For example, 1 4 9 16 25 would be
+    * transformed into 25 1 4 9 16.
+    */
+   public void shiftRight()
+   {
+      // TODO: implementation filled in later
+   }
+
+   /**
+    * Replaces all even elements with zero.
+    */
+   public void replaceAllEvenWithZero()
+   {
+      // TODO: implementation filled in later
+   }
+
+   /**
+    * Replace each element except the first and last by the larger of its two
+    * neighbours.
+    */
+   public void replaceMiddleWithLargestNeighbour()
+   {
+      // TODO: implementation filled in later
+   }
+
+   /**
+    * Remove the middle element if the number of elements in the array is odd,
+    * or remover the middle two elements if the number of elements in the array
+    * is even.
+    */
+   public void removeMiddle()
+   {
+      // TODO: implementation filled in later
+   }
+
+   /**
+    * Moves all even elements to the front, otherwise preserving the order of
+    * the elements.
+    */
+   public void moveEvenToFront()
+   {
+      // TODO: implementation filled in later
+   }
+
+   /**
+    * Returns the second-largest element in the array.
+    * @return the second-largest element in the array
+    */
+   public int getSecondLargest()
+   {
+      int secondLargest = 0;
+      // TODO: implementation filled in later
+      return secondLargest;
+   }
+
+   /**
+    * Returns true if the array is currently sorted in increasing order.
+    * @return true if the array is currently sorted in increasing order
+    */
+   public boolean isSortedIncreasingOrder()
+   {
+      boolean isSortedIncreasingOrder = false;
+      // TODO: implementation filled in later
+      return isSortedIncreasingOrder;
+   }
+
+   /**
+    * Returns true if the array contains two adjacent duplicate elements.
+    * @return true if the array contains two adjacent duplicate elements
+    */
+   public boolean hasAdjacentDuplicates()
+   {
+      boolean hasAdjacentDuplciates = false;
+      // TODO: implementation filled in later
+      return hasAdjacentDuplciates;
+   }
+
+   /**
+    * Returns true if the array contains duplicate elements (which need not be
+    * adjacent).
+    * @return true if the array contains duplicate elements
+    */
+   public boolean hasDuplicates()
+   {
+      boolean hasDuplicates = false;
+      // TODO: implementation filled in later
+      return hasDuplicates;
+   }
+}
