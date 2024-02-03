@@ -32,7 +32,10 @@ public class ArrayMethods
     */
    public void swapFirstAndLast()
    {
-      // TODO: implementation filled in later
+      int first = this.values[0];
+      int last = this.values[this.values.length - 1];
+      this.values[0] = last;
+      this.values[this.values.length - 1] = first;
    }
 
    /**
@@ -42,7 +45,12 @@ public class ArrayMethods
     */
    public void shiftRight()
    {
-      // TODO: implementation filled in later
+      int last = this.values[this.values.length - 1];
+      for (int index = this.values.length - 1; index > 0; index--)
+      {
+         this.values[index] = this.values[index - 1];
+      }
+      this.values[0] = last;
    }
 
    /**
@@ -50,7 +58,13 @@ public class ArrayMethods
     */
    public void replaceAllEvenWithZero()
    {
-      // TODO: implementation filled in later
+      for (int index = 0; index < this.values.length; index++)
+      {
+         if (this.values[index] % 2 == 0)
+         {
+            this.values[index] = 0;
+         }
+      }
    }
 
    /**
