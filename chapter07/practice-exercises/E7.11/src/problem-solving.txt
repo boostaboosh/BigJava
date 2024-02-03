@@ -25,3 +25,9 @@ g. Return the second-largest element in the array.
 h. Return true if the array is currently sorted in increasing order.
 i. Return true if the array contains two adjacent duplicate elements.
 j. Return true if the array contains duplicate elements (which need not be adjacent).
+
+problem-solving:
+
+d. Replace each element except the first and last by the larger of its two neighbors.
+step 1 understand the problem
+inputs: an array like {2, 3, 3, 0, 1}
