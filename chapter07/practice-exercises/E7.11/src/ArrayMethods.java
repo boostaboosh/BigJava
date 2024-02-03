@@ -73,7 +73,22 @@ public class ArrayMethods
     */
    public void replaceMiddleWithLargestNeighbour()
    {
-      // TODO: implementation filled in later
+      int[] newArray = new int[this.values.length];
+      for (int index = 0; index < this.values.length; index++)
+      {
+         if (index == 0 || index == this.values.length - 1)
+         {
+            newArray[index] = this.values[index];
+         }
+         else
+         {
+            int leftNeighbour = this.values[index - 1];
+            int rightNeighbour = this.values[index + 1];
+            int largestNeighbour = Math.max(leftNeighbour, rightNeighbour);
+            newArray[index] = largestNeighbour;
+         }
+      }
+      this.values = newArray;
    }
 
    /**
@@ -83,6 +98,7 @@ public class ArrayMethods
     */
    public void removeMiddle()
    {
+      boolean isEven = this.values.length % 2 == 0;
       // TODO: implementation filled in later
    }
 
