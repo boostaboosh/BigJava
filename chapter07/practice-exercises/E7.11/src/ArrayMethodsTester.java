@@ -46,6 +46,11 @@ public class ArrayMethodsTester
       array.removeMiddle();
       array.print();
       System.out.println("E Expected: 1, 1, 3, 0, 7, 0, 9, 9");
+      int[] oddLengthArray = {1, 2, 3, 4, 5};
+      ArrayMethods oddLengthArrayMethods = new ArrayMethods(oddLengthArray);
+      oddLengthArrayMethods.removeMiddle();
+      oddLengthArrayMethods.print();
+      System.out.println("E Expected: 1, 2, 4, 5");
 
       // f
       array.moveEvenToFront();

@@ -27,7 +27,18 @@ i. Return true if the array contains two adjacent duplicate elements.
 j. Return true if the array contains duplicate elements (which need not be adjacent).
 
 problem-solving:
-
-d. Replace each element except the first and last by the larger of its two neighbors.
+e. Remove the middle element if the array length is odd, or the middle two elements
+if the length is even
+problem-solving:
 step 1 understand the problem
-inputs: an array like {2, 3, 3, 0, 1}
+inputs: 1 2 3 4  or  3 4 5
+output: 1 4
+step 2 solve the problem by hand
+1234 even so middle two 23 removed. result: 14
+step 3 write pseudocode for solving the problem
+isEven = array length % 2 == 0
+if isEven
+    remove left middle element (length / 2 - 1)
+    remove right middle element (length / 2)
+else
+    remove middle element (rounded up length / 2)
