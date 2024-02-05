@@ -102,27 +102,27 @@ public class ArrayMethods
    public void removeMiddle()
    {
       boolean arrayLengthIsEven = this.currentSize % 2 == 0;
-      int indexOfElementToRemove;
+      int numberOfElementsToRemove = 1;
+      int indexOfNextElementToRemove = this.currentSize / 2;
       if (arrayLengthIsEven)
       {
-         indexOfElementToRemove = (this.currentSize / 2) - 1;
-         for (int index = indexOfElementToRemove; index < currentSize - 1; index++)
+         numberOfElementsToRemove = 2;
+         indexOfNextElementToRemove = indexOfNextElementToRemove - 1;
+      }
+      for (int removedElements = 0; removedElements < numberOfElementsToRemove; removedElements++)
+      {
+         for (int index = indexOfNextElementToRemove + 1; index < this.currentSize; index++)
          {
-            this.values[index] = this.values[index + 1];
+            this.values[index - 1] = this.values[index];
          }
+         // indexOfNextElementToRemove = indexOfNextElementToRemove + 1; This is an error because when we remove an
+                                                                      // element from an array, the indexes of the other
+                                                                      // elements move back by one. So, the index of
+                                                                      // the next elements we want to remove is the
+                                                                      // same as the index of the element we removed
+                                                                      // previously.
          this.currentSize = this.currentSize - 1;
-         indexOfElementToRemove = indexOfElementToRemove + 1;
       }
-      else
-      {
-         indexOfElementToRemove = (this.currentSize / 2);
-      }
-
-      for (int index = indexOfElementToRemove; index < this.currentSize - 1; index++)
-      {
-         this.values[index] = this.values[index + 1];
-      }
-      this.currentSize = this.currentSize - 1;
    }
 
    /**
