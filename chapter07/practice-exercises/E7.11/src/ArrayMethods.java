@@ -4,6 +4,7 @@
 public class ArrayMethods
 {
    private int[] values;
+   private int currentSize;
 
    /**
     * Constructs and ArrayMethods object.
@@ -13,6 +14,7 @@ public class ArrayMethods
    public ArrayMethods(int[] initialValues)
    {
       this.values = initialValues;
+      this.currentSize = initialValues.length;
    }
 
    /**
@@ -20,8 +22,9 @@ public class ArrayMethods
     */
    public void print()
    {
-      for (int value : this.values)
+      for (int index = 0; index < this.currentSize; index++)
       {
+         int value = this.values[index];
          System.out.print(value + " ");
       }
       System.out.println();
@@ -33,9 +36,9 @@ public class ArrayMethods
    public void swapFirstAndLast()
    {
       int first = this.values[0];
-      int last = this.values[this.values.length - 1];
+      int last = this.values[this.currentSize - 1];
       this.values[0] = last;
-      this.values[this.values.length - 1] = first;
+      this.values[this.currentSize - 1] = first;
    }
 
    /**
@@ -45,8 +48,8 @@ public class ArrayMethods
     */
    public void shiftRight()
    {
-      int last = this.values[this.values.length - 1];
-      for (int index = this.values.length - 1; index > 0; index--)
+      int last = this.values[this.currentSize - 1];
+      for (int index = this.currentSize - 1; index > 0; index--)
       {
          this.values[index] = this.values[index - 1];
       }
@@ -58,7 +61,7 @@ public class ArrayMethods
     */
    public void replaceAllEvenWithZero()
    {
-      for (int index = 0; index < this.values.length; index++)
+      for (int index = 0; index < this.currentSize; index++)
       {
          if (this.values[index] % 2 == 0)
          {
@@ -73,10 +76,10 @@ public class ArrayMethods
     */
    public void replaceMiddleWithLargestNeighbour()
    {
-      int[] newArray = new int[this.values.length];
-      for (int index = 0; index < this.values.length; index++)
+      int[] newArray = new int[this.currentSize];
+      for (int index = 0; index < this.currentSize; index++)
       {
-         if (index == 0 || index == this.values.length - 1)
+         if (index == 0 || index == this.currentSize - 1)
          {
             newArray[index] = this.values[index];
          }
@@ -93,13 +96,33 @@ public class ArrayMethods
 
    /**
     * Remove the middle element if the number of elements in the array is odd,
-    * or remover the middle two elements if the number of elements in the array
+    * or remove the middle two elements if the number of elements in the array
     * is even.
     */
    public void removeMiddle()
    {
-      boolean isEven = this.values.length % 2 == 0;
-      // TODO: implementation filled in later
+      boolean arrayLengthIsEven = this.currentSize % 2 == 0;
+      int indexOfElementToRemove;
+      if (arrayLengthIsEven)
+      {
+         indexOfElementToRemove = (this.currentSize / 2) - 1;
+         for (int index = indexOfElementToRemove; index < currentSize - 1; index++)
+         {
+            this.values[index] = this.values[index + 1];
+         }
+         this.currentSize = this.currentSize - 1;
+         indexOfElementToRemove = indexOfElementToRemove + 1;
+      }
+      else
+      {
+         indexOfElementToRemove = (this.currentSize / 2);
+      }
+
+      for (int index = indexOfElementToRemove; index < this.currentSize - 1; index++)
+      {
+         this.values[index] = this.values[index + 1];
+      }
+      this.currentSize = this.currentSize - 1;
    }
 
    /**
