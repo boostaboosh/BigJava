@@ -131,7 +131,18 @@ public class ArrayMethods
     */
    public void moveEvenToFront()
    {
-      // TODO: implementation filled in later
+      for (int index = 1; index < this.currentSize; index++)
+      {
+         int element = this.values[index];
+         if (element % 2 == 0)
+         {
+            for (int evenIndex = index; evenIndex > 0; evenIndex--)
+            {
+               this.values[evenIndex] = this.values[evenIndex - 1];
+            }
+            this.values[0] = element;
+         }
+      }
    }
 
    /**
@@ -140,8 +151,16 @@ public class ArrayMethods
     */
    public int getSecondLargest()
    {
-      int secondLargest = 0;
-      // TODO: implementation filled in later
+      int secondLargest = this.values[0];
+      int largest = secondLargest;
+      for (int index = 1; index < this.currentSize; index++)
+      {
+         if (this.values[index] > largest)
+         {
+            secondLargest = largest;
+            largest = this.values[index];
+         }
+      }
       return secondLargest;
    }
 
