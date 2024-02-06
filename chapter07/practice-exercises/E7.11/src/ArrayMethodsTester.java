@@ -60,7 +60,7 @@ public class ArrayMethodsTester
       // g
       int secondLargest = array.getSecondLargest();
       System.out.println(secondLargest);
-      System.out.println("G Expected: 9");
+      System.out.println("G Expected: 7");
 
       int[] unsortedWithSecondLargest = {3, 1, 2, 0};
       ArrayMethods unsortedArrayWithSecondLargest =
