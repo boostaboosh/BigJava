@@ -151,14 +151,26 @@ public class ArrayMethods
     */
    public int getSecondLargest()
    {
-      int secondLargest = this.values[0];
-      int largest = secondLargest;
+      int largest = this.values[0];
+      int smallest = this.values[0];
       for (int index = 1; index < this.currentSize; index++)
       {
          if (this.values[index] > largest)
          {
-            secondLargest = largest;
             largest = this.values[index];
+         }
+         else if (this.values[index] < smallest)
+         {
+            smallest = this.values[index];
+         }
+      }
+
+      int secondLargest = smallest;
+      for (int index = 0; index < this.currentSize; index++)
+      {
+         if (this.values[index] < largest && this.values[index] > secondLargest)
+         {
+            secondLargest = this.values[index];
          }
       }
       return secondLargest;
@@ -170,8 +182,15 @@ public class ArrayMethods
     */
    public boolean isSortedIncreasingOrder()
    {
-      boolean isSortedIncreasingOrder = false;
-      // TODO: implementation filled in later
+      boolean isSortedIncreasingOrder = true;
+      int previousElement = this.values[0];
+      for (int index = 1; index < this.currentSize; index++)
+      {
+         if (this.values[index] < previousElement)
+         {
+            isSortedIncreasingOrder = false;
+         }
+      }
       return isSortedIncreasingOrder;
    }
 
