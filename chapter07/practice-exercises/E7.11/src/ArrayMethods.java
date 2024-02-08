@@ -201,7 +201,13 @@ public class ArrayMethods
    public boolean hasAdjacentDuplicates()
    {
       boolean hasAdjacentDuplciates = false;
-      // TODO: implementation filled in later
+      for (int index = this.currentSize - 1; index > 0; index--)
+      {
+         if (this.values[index] == this.values[index - 1])
+         {
+            hasAdjacentDuplciates = true;
+         }
+      }
       return hasAdjacentDuplciates;
    }
 
@@ -213,7 +219,19 @@ public class ArrayMethods
    public boolean hasDuplicates()
    {
       boolean hasDuplicates = false;
-      // TODO: implementation filled in later
+      for (int index = 0; index < this.currentSize; index++)
+      {
+         int element = this.values[index];
+         for (int position = 0; position < this.currentSize; position++)
+         {
+            if (position != index)
+            {
+               int otherElement = this.values[position];
+               if (element == otherElement)
+                  hasDuplicates = true;
+            }
+         }
+      }
       return hasDuplicates;
    }
 }
