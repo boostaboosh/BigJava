@@ -1,0 +1,191 @@
+/**
+    * Checks if a sequence is a permutation of another sequence,
+    * i.e., if two sequences have the same values in some order,
+    * with the same multiplicities.
+    * For example,
+    * 1, 4, 9, 6, 6
+    * is a permutation of 4, 6, 1, 9, 6
+    * but 1, 4, 9, 6, 6
+    * is not a permutation of 6, 4, 9, 1, 1
+    * @param otherSequence the other sequence
+    * @return true if this sequence is a permutation of the other
+    * sequence
+    */
+
+problem solving
+
+step 1- understand the problem
+what are the inputs: 2 sequences
+1) firstSequence: 1, 2, 3, 1
+2) secondSequence: 2, 3, 1, 1
+What are the desired outputs?
+1) a boolean value: true if first sequence is permutation of second
+
+step 2- solve an example of the problem by hand
+1) firstSequence: 1, 2, 3, 1
+2) secondSequence: 2, 3, 1, 1
+check first element is in other sequence.
+then remove both.
+1, 2, 3, 1
+check first element 1
+2, 3, 1, 1
+remove first 1 I find in second sequence and the 1 I had from first sequence
+so now
+2, 3, 1 and 2, 3, 1
+check first 2
+remove found 2
+3, 1 and 3, 1
+check 3
+1 and 1
+check 1
+empty and empty
+so they are permutations of each other
+
+step 3- write pseudocode for solving the problem
+pseudocode
+firstSequence = sequence object
+secondSequence = sequence object
+firstElementFirstSequence = firstSequence element at index 0
+if firstElementFirstSequence == first element second sequence
+    element match found
+    remove firstElementFirstSequence
+    remove firstElementSecondSequence
+    ... repeat for each element in the second sequence
+else
+    if firstElementFirstSequence == second element second sequence
+        element match found
+        remove both elements
+    else
+        if firstElementFirstSequence == third element second sequence
+            element match found
+            remove both elements
+        else
+            if no more elements in secondSequence and no match found
+                firstSequenceIsPermutationOfSecondSequence = false;
+... repeat for each element in the first sequence
+if the sequences are both empty at the end
+    then firstSequenceIsPermutationOfSecondSequence
+
+implement a loop
+1 - determine steps to repeat:
+    remove element from first sequence
+    remove matching element from second sequence
+
+    Now look at these steps and reduce them to a set of actions which are
+    the same for each step
+
+    read next element in the second sequence
+    if secondSequenceValue == firstSequenceValue
+        remove firstSequenceValue from first sequence
+        remove secondSequenceValue from second sequence
+
+    so our loop is
+    while ...
+        read next element in the second sequence
+        if element in second sequence == element in first sequence
+            remove element in second sequence
+            remove element in first sequence
+
+2 - specify the loop condition:
+What goal do I want to reach in my loop?
+I want to compare the value from the first sequence to every value in the
+second sequence.
+so our loop is:
+while there are elements in the second sequence
+    read next element in the second sequence
+    if element in second sequence == element in first sequence
+        remove element in second sequence
+        remove element in first sequence
+
+3 - determine loop type:
+count controlled loop because there is a counter variable index which
+is incremented by a constant amount until it reaches a target value
+of second sequence length - 1
+so our loop is:
+for index from 0 to second sequence length - 1
+    secondSequenceElement = secondSequence[index]
+    if secondSequenceElement = firstSequenceElement
+        remove secondSequenceElement
+        remove firstSequenceElement
+
+back to our pseudocode:
+firstSequence = sequence object
+secondSequence = sequence object
+firstElementFirstSequence = firstSequence element at index 0
+for index from 0 to second sequence length - 1
+    secondSequenceElement = secondSequence[index]
+    if secondSequenceElement = firstSequenceElement
+        remove secondSequenceElement
+        remove firstSequenceElement
+... repeat for each element in the first sequence
+if the sequences are both empty at the end
+    then firstSequenceIsPermutationOfSecondSequence
+
+other loop implementation:
+1- steps to repeat:
+read next element from first sequence
+for index from 0 to second sequence length - 1
+    secondSequenceElement = secondSequence[index]
+    if secondSequenceElement = firstSequenceElement
+        remove secondSequenceElement
+        remove firstSequenceElement
+
+2- looping condition:
+What goal do you want to reach in your loop?
+I want to read every element in first sequence until it runs out
+while there are elements in first sequence
+    read next element from first sequence
+    for index from 0 to second sequence length - 1
+        secondSequenceElement = secondSequence[index]
+        if secondSequenceElement = firstSequenceElement
+            remove secondSequenceElement
+            remove firstSequenceElement
+
+3- loop type:
+count controlled because index variable incremented by a constant
+amount until it reaches a target value of first sequence length - 1
+for index from 0 to first sequence length - 1
+    read next element from first sequence
+        for index from 0 to second sequence length - 1
+            secondSequenceElement = secondSequence[index]
+            if secondSequenceElement = firstSequenceElement
+                remove secondSequenceElement
+                remove firstSequenceElement
+
+back to pseudocode:
+firstSequence = sequence object
+secondSequence = sequence object
+index = 0
+while index < first sequence length
+    read next element from first sequence
+    matchNotFound = true
+    position = 0
+    while matchNotFound && position < secondSequence length
+        secondSequenceElement = secondSequence[index]
+        if secondSequenceElement = firstSequenceElement
+            matchNotFound = false
+            remove secondSequenceElement
+            remove firstSequenceElement
+        position = position + 1
+    if matchNotFound
+        index = index + 1
+if the sequences are both empty at the end
+    then firstSequenceIsPermutationOfSecondSequence
+
+step 4 - turn pseudocode into Java statements
+note: I'm also going to need a remove method which removes elements
+a certain index in the sequence
+
+remove(int index)
+common array algorithm
+starting from last index all the way down to index to remove + 1
+    assign element at index - 1 the value of element at index
+decrement size of sequence by 1 by making a copy of the array of
+length = length - 1 or by making a new array of length = length - 1
+and then filling the new array with the values in the old array up
+to index = length - 2
+Dough! I messed up the basic remove operation! My algorithm replaces every element
+up to index with the value of the last element!
+common array algorithm for removing an element:
+starting from index of element to remove + 1 to index of last element:
+    assign element at index - 1 the value of element at index
