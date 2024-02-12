@@ -1,0 +1,9 @@
+•• E7.15 Add a method
+public Sequence sum(Sequence other)
+to the Sequence class of Exercise •• E7.12 that yields the sum of this sequence and
+another. If the sequences don’t have the same length, assume that the missing elements are zero. For example, the sum of
+1 4 9 16 9 7 4 9 11
+and
+11 11 7 9 16 4 1
+is the sequence
+12 15 16 25 25 11 5 9 11
