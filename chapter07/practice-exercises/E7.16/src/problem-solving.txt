@@ -1,0 +1,19 @@
+•• E7.16
+Write a program that generates a sequence of 20 random values between 0 and 99 in
+an array, prints the sequence, sorts it, and prints the sorted sequence.
+Use the sort method from the standard Java library.
+
+make an array of length 20
+make a random number generator
+for element from 1 to 20
+    get the next random number between 0 and 99 included from the generator
+    add the number to the array
+
+for element in sequence
+    print element
+
+sort the array using the sort method from the Arrays class
+
+for element in sorted sequence
+    print element
+
