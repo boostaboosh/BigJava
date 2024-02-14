@@ -16,12 +16,6 @@ public class MethodDemonstration
      */
     public static void main(String[] args)
     {
-        int floorMod = Math.floorMod(-13, 10);
-        int mod = -13 % 10;
-        int[] values;
-        for (int i = 0; i < values.length; i++)
-        {
-            values[i] = i * i;
-        }
+        System.out.print(101 % 2.5);
     }
 }

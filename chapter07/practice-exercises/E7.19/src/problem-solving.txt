@@ -1,0 +1,43 @@
+•• E7.19
+Write a program that reads a sequence of input values
+and displays a bar chart of the
+values, using asterisks, like this:
+
+**********************
+****************************************
+****************************
+**************************
+**************
+
+You may assume that all values are positive.
+First figure out the maximum value.
+That value’s bar should be drawn with 40 asterisks.
+Shorter bars should use proportionally fewer asterisks.
+
+problem-solving:
+max bar length = 40
+asterisks per unit? WRONG: It's units per asterisk!
+biggest value = some number
+values = array list of numbers
+1 - understand the problem
+inputs:
+1) MAX_LENGTH = 40
+2) biggestValue = int between 0 and +largestInt
+3) inputValues array list
+outputs:
+1) asterisksPerUnit WRONG: it's asterisks per unit
+2 - solve an example of the problem by hand
+0, 1, 5, 15
+biggestValue = 15
+MAX_LENGTH = 40
+units per asterisk?
+40/15 = 2.67
+what if:
+0, 1, 5, 15, 50
+biggestValue = 50
+MAX_LENGTH = 40
+units per asterisk?
+50/40 = 1.25
+okay, I see...
+the bigger value between MAX_LENGTH and biggestValue
+is the dividend of the division operation.
