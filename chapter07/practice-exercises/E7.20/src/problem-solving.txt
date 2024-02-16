@@ -1,0 +1,107 @@
+••• E7.20
+Repeat Exercise •• E7.19, but make the bars vertical, with the tallest bar twenty
+asterisks high.
+ *
+ *
+ *
+ *
+ *
+ *
+ **
+ ***
+ ***
+****
+****
+****
+****
+*****
+*****
+*****
+*****
+*****
+*****
+*****
+
+problem-solving
+step 1 - understand the problem.
+what are the inputs?
+an array of values
+a max bar length
+a different way of computing the value of a unit in the bar chart
+        if the largest value in the array is larger or smaller than max bar length
+what are the desired outputs?
+a sequence of vertical columns representing the values in the array with the tallest value being 20 units high
+step 2 - solve examples of the problem by hand
+imagine max length = 20
+[1, 5, 10]
+  *
+  *
+  *
+  *
+  *
+ **
+ **
+ **
+ **
+***
+step 3 - write a pseudocode algorithm for solving general instances of the problem I just solved an instance of by hand
+we start with top row
+top row = row number 20 (max height)
+array = copy of actual array [1, 20, 40]
+print array = relative to max bar copy of array, so [1, 10, 20]
+currentRow = top row
+lastRow = 0
+if column 1 == currentRow
+print space for column 1 because
+print space for column 2
+print asterisk for column 3
+if column 2 (i.e. column counter + 1)
+... basically if column number == print array number then print a symbol
+implement loop
+steps to repeat
+if column1 == current row
+    print *
+else
+    print space
+
+turning these steps into uniform steps:
+while...
+    if barValue == currentRowValue
+        print barChartUnitSymbol
+    else
+        print space
+
+looping condition
+    Repeat for each bar in the chart.
+    What goal do I want to reach?
+    I want to print symbols or spaces for each bar in the chart.
+
+for each bar in the chart
+    if barValue == currentRowValue
+        print barChartUnitSymbol
+    else
+        print space
+
+loop type
+count controlled because barNumber in incremented by one for each iteration of the loop
+for barChartValue in barChartValues from index 0 to last
+    if barValue == currentRowValue
+        print barChartUnitSymbol
+    else
+        print space
+
+back to the pseudocode:
+
+top row = max_bar_height
+valuesToChart = copy of actual array [1, 20, 40]
+barChartValues = relative to max bar copy of array, so [1, 10, 20]
+currentRow = top row
+lastRow = 0
+for row from max_bar_height to 1
+    for barChartValue in barChartValues from index 0 to last
+        if barValue == currentRowValue
+            print barChartUnitSymbol
+            decrement barChartValue in barChartValues by 1
+        else
+            print space
+    print new line
