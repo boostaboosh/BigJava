@@ -1,0 +1,3 @@
+••• E7.21
+Improve the program of Exercise •• E7.19 to work correctly when the data set contains negative values.
+
