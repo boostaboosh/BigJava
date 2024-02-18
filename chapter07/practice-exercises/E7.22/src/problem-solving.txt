@@ -1,0 +1,17 @@
+•• E7.22
+Improve the program of Exercise •• E7.19 by adding captions for each bar. Prompt
+the user for the captions and data values. The output should look like this:
+
+      Egypt **********************
+     France ****************************************
+      Japan ****************************
+    Uruguay **************************
+Switzerland **************
+
+I already have a horizontal bar chart drawing method.
+So, all I need to do is ask users to input a caption for each value they input.
+And then when I print out the bar chart I need to add the caption associated
+with each value first and make sure that the captions take up the same amount
+of characters so that the bars all start at the same point. I can probably use
+a format string for this, where I can specify the width of the Strings.
+
