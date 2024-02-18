@@ -37,15 +37,20 @@ public class BarChartDrawer
       Scanner scanner = new Scanner(System.in);
       System.out.print("How many values do you want to input? ");
       int numberOfInputs = scanner.nextInt();
+      scanner.nextLine();
       for (int input = 0; input < numberOfInputs; input++)
       {
          System.out.println("Enter next value in bar chart: ");
+
          while (!scanner.hasNextInt())
          {
             System.out.println("You must enter an integer value!");
+            scanner.nextLine();
             System.out.println("Enter next value in bar chart: ");
          }
+
          int nextValue = scanner.nextInt();
+         scanner.nextLine();
          this.inputValues.add(nextValue);
       }
    }
