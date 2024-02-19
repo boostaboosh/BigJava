@@ -1,0 +1,162 @@
+•• P7.4
+It is a well-researched fact that men in a restroom generally prefer to maximize
+their distance from already occupied stalls, by occupying the middle of the longest
+sequence of unoccupied places.
+For example, consider the situation where ten stalls are empty.
+_ _ _ _ _ _ _ _ _ _
+The first visitor will occupy a middle position:
+_ _ _ _ _ X _ _ _ _
+The next visitor will be in the middle of the empty area at the left.
+_ _ X _ _ X _ _ _ _
+Write a program that reads the number of stalls and then prints out diagrams in the
+format given above when the stalls become filled, one at a time. Hint: Use an array of
+boolean values to indicate whether a stall is occupied.
+
+problem-solving
+
+1 - understand the problem
+inputs
+1) the number of stalls
+outputs
+1) print out of the diagrams as the stalls become filled one at a time
+
+2 - work out an example by hand
+input
+1) 5
+outputs
+1) _____
+2) __X__
+3) X_X_X
+4) XXX_X
+5) XXXXX
+
+3 - write a pseudocode algorithm for solving general instances of the problem
+using the method you used to solve a specific instance of the problem by hand
+
+ask user for numberOfStalls
+create a row or stalls numberOfStalls long
+print row of stalls diagram
+for stallNumber from 1 to numberOfStalls
+    fill a stall
+    print row of stalls diagram
+
+computation problem-solving
+1 - understand the problem
+What are the inputs?
+an array of boolean values representing empty and full stalls
+What is the desired output?
+the index of the stall to fill
+2 - solve an example by hand
+__X____
+0123456
+return 4 or 5
+__X__
+01234
+return 0 or 4
+3 - write pseudocode for solving general instances of the problem I solved specific instances of by hand
+pseudocode:
+find the longest sequence of false values, i.e., unoccupied spaces
+if the sequence length > 2
+    return the index in the array of the element in the middle of the sequence of unoccupied values
+if the sequence is <= 2
+    return the index in the array of the element which is furthest from other elements
+
+so really the problem in here is finding the longest sequence of false values in an array
+How do I solve this? I problem-solve of course!
+step 1: I need to understand the problem by figuring out what the inputs and outputs are:
+ - inputs
+ an array of boolean values
+ - outputs
+ the length of the longest run of false values
+ the starting index in the array  of the longest run of false values
+
+step 2: I need to solve an example of the problem by hand:
+input:
+0123456
+0010001
+output:
+3
+
+step 3: I need to write pseudocode for solving generic instances of the problem I just solved a specific example of:
+pseudocode:
+longest sequence = 0
+sequence = 0
+longest sequence starting index = 0
+if value at position 0 has value 0
+    sequence = 1
+    sequence starting index = 0
+    if value at position 1 has value 0
+        sequence = sequence + 1
+        if value at position + 1 has value 0
+            sequence = sequence + 1
+        else
+            longest sequence = sequence
+            longest sequence starting index = sequence starting index
+    else
+        longest sequence = sequence
+        longest sequence starting index = sequence starting index
+else
+    longest sequence = sequence
+
+implementing a loop:
+steps to repeat:
+if value at position is false
+    if sequence length = 0
+        sequence starting index = position
+    sequence length = sequence length + 1
+else if value at position is true
+    longest sequence = sequence length
+    longest sequence starting index = sequence starting index
+    sequence length = 0
+    if array length - (position + 1) is < longest sequence
+        done = true
+position = position + 1
+
+looping condition:
+repeat the loop while there are positions left in the array and done = false
+
+loop type:
+event controlled loop
+
+position = 0
+done = false
+while position < array length && !done
+    if value at position is false
+        if sequence length = 0
+            sequence starting index = position
+        sequence length = sequence length + 1
+    else if value at position is true
+        longest sequence = sequence length
+        longest sequence starting index = sequence starting index
+        sequence length = 0
+        if array length - (position + 1) is < longest sequence
+            done = true
+    position = position + 1
+
+step 4: setup variables for entering the loop for the first time:
+
+longest sequence = 0
+sequence = 0
+longest sequence starting index = 0
+position = 0
+done = false
+true value found = false
+while position < array length && !done
+    if value at position is false
+        if sequence length = 0
+            sequence starting index = position
+        sequence length = sequence length + 1
+        if position is last position and sequence length > longest sequence length
+            longest sequence length = sequence length
+            longest sequence starting index = sequence starting index
+    else if value at position is true
+        true value found = true
+        if sequence length > longest sequence length
+            longest sequence length = sequence length
+            longest sequence starting index = sequence starting index
+        sequence length = 0
+        if array length - (position + 1) is < longest sequence
+            done = true
+    if ! true value found
+        longest sequence length = sequence length
+    position = position + 1
