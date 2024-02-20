@@ -1,0 +1,82 @@
+•• P7.8
+A theater seating chart is implemented as a two-dimensional array of ticket prices,
+like this:
+
+10 10 10 10 10 10 10 10 10 10
+10 10 10 10 10 10 10 10 10 10
+10 10 10 10 10 10 10 10 10 10
+10 10 20 20 20 20 20 20 10 10
+10 10 20 20 20 20 20 20 10 10
+10 10 20 20 20 20 20 20 10 10
+20 20 30 30 40 40 30 30 20 20
+20 30 30 40 50 50 40 30 30 20
+30 40 50 50 50 50 50 50 40 30
+
+Write a program that prompts users to pick either a seat or a price.
+Mark sold seats by changing the price to 0.
+When a user specifies a seat, make sure it is available.
+When a user specifies a price, find any seat with that price.
+
+problem-solving:
+
+step 1: understand the problem:
+
+What are the inputs?
+The user inputs a seat, i.e., a row and a column,
+or the user inputs a price
+
+What are the desired outputs?
+If the user inputs a seat, the program should check if that seat is available.
+If the user inputs a price, the program should find any seat with that price.
+
+step 2: solve an example of the problem by hand:
+10 10 10 10
+10 20 20 10
+20 30 30 20
+30 40 40 30
+
+input: seat with price 10
+output: seat with price 10 at row 1 column 1.
+
+input: seat at row 4 and column 3
+output: seat at row 4 and column 3 is available.
+
+step 3: write pseudocode for solving general instances of the problem I just solved specific
+examples of
+
+create a theatre object which has the seat price and the seat availability
+ask the user to pick a seat or a price (s/p)
+if the user wants to pick a seat
+    ask the user which seat they want to pick
+    get availability of the seat the user picked
+    print out the availability of the seat the user picked
+else if the user wants to pick a price
+    ask the user what price they want to pay for a seat
+    get a seat of that price
+    print out a seat, i.e., row and column, of that price
+
+one thing I've realised is that the theatre object doesn't need to contain
+two 2D array of seat prices and availability. Instead, I can create a seat
+object with price and availability, and even rows and column. And then, the
+theatre seating chart only needs to be an array of seat objects, or a 2D array
+of seat objects which all have a price and availability.
+
+public static void main(String[] args)
+   {
+      /*
+      create a theatre
+      print the theatre layout
+      prompt the user
+      ... let me try this again using a sample object.
+       */
+
+       Theatre theatre = new Theatre();
+       theatre.printLayout();
+
+       Scanner scanner = new Scanner(System.in);
+       System.out.print("Do you want to pick a seat or a price? (s/p) ")
+       answer = scanner.next();
+       if answer == s
+       ... I'm going to keep doing this in the actual TheatreSeatPicker class.
+   }
+
