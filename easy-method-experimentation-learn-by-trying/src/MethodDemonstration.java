@@ -16,6 +16,7 @@ public class MethodDemonstration
      */
     public static void main(String[] args)
     {
-        System.out.print(101 % 2.5);
+        String word = "hello";
+        word.
     }
 }
