@@ -6,15 +6,15 @@ public class Seat
 {
    private final double price;
    private boolean availability;
-   private final int rowNumber;
-   private final int columnNumber;
+   private final int userRowNumber;
+   private final int userColumnNumber;
 
-   public Seat(double price, boolean availability, int rowNumber, int columnNumber)
+   public Seat(double price, boolean availability, int userRowNumber, int userColumnNumber)
    {
       this.price = price;
       this.availability = availability;
-      this.rowNumber = rowNumber;
-      this.columnNumber = columnNumber;
+      this.userRowNumber = userRowNumber;
+      this.userColumnNumber = userColumnNumber;
    }
 
    /**
@@ -39,18 +39,18 @@ public class Seat
     * Gets this seat's row number.
     * @return this seat's row number
     */
-   public int getRowNumber()
+   public int getUserRowNumber()
    {
-      return this.rowNumber;
+      return this.userRowNumber;
    }
 
    /**
     * Gets this seat's column number.
     * @return this seat's column number
     */
-   public int getColumnNumber()
+   public int getUserColumnNumber()
    {
-      return this.columnNumber;
+      return this.userColumnNumber;
    }
 
    /**
@@ -76,6 +76,6 @@ public class Seat
     */
    public void printLocation()
    {
-      System.out.printf("row %d and column %d", this.rowNumber, this.columnNumber);
+      System.out.printf("row %d and column %d", this.userRowNumber, this.userColumnNumber);
    }
 }

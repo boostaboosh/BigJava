@@ -103,7 +103,7 @@ public class TheatreSeatPicker
          Seat seat = this.theatre.searchForSeatByPrice(searchedSeatPrice);
          seat.printLocation();
          System.out.println();
-         this.askUserToBookSeat(seat.getRowNumber(), seat.getColumnNumber());
+         this.askUserToBookSeat(seat.getUserRowNumber() - 1, seat.getUserColumnNumber() - 1);
       }
       else
       {
@@ -120,7 +120,7 @@ public class TheatreSeatPicker
    {
       Seat bookingSeat = this.theatre.getSeatByLocation(rowNumber, columnNumber);
       System.out.printf("Do you want to book the seat at row %d and column %d? (y/n) ",
-            rowNumber + 1, columnNumber + 1);
+            bookingSeat.getUserRowNumber(), bookingSeat.getUserColumnNumber());
       Scanner scanner = new Scanner(System.in);
 
       String answer = scanner.next();

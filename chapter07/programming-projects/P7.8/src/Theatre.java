@@ -144,7 +144,7 @@ public class Theatre
             }
             else
             {
-               System.out.print("XXX");
+               System.out.print("RES.");
             }
             System.out.print(" | ");
          }
@@ -186,7 +186,7 @@ public class Theatre
          for (int columnNumber = 0; columnNumber < this.seatingChart[rowNumber].length && !seatFound; columnNumber++)
          {
             Seat seat = this.seatingChart[rowNumber][columnNumber];
-            if (Math.abs(seat.getPrice() - price) < EPSILON)
+            if (Math.abs(seat.getPrice() - price) < EPSILON && seat.getAvailability())
             {
                seatFound = true;
             }
@@ -210,7 +210,7 @@ public class Theatre
          for (int columnNumber = 0; columnNumber < this.seatingChart[rowNumber].length && !seatFound; columnNumber++)
          {
             Seat seat = this.seatingChart[rowNumber][columnNumber];
-            if (Math.abs(seat.getPrice() - price) < EPSILON)
+            if (Math.abs(seat.getPrice() - price) < EPSILON && seat.getAvailability())
             {
                seatFound = true;
                searchedSeat = seat;
