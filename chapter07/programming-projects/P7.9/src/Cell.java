@@ -3,13 +3,14 @@
  */
 public class Cell
 {
-   private TicTacToeGame.CellValue cellValue;
+   public enum CellValue { CIRCLE, CROSS, EMPTY };
+   private CellValue cellValue;
 
    /**
     * Creates a cell object with an initial cell value.
     * @param cellValue the value of the tic-tac-toe cell.
     */
-   public Cell(TicTacToeGame.CellValue cellValue)
+   public Cell(CellValue cellValue)
    {
       this.cellValue = cellValue;
    }
@@ -17,7 +18,7 @@ public class Cell
    /**
     * Returns this cell's value.
     */
-   public TicTacToeGame.CellValue getValue()
+   public CellValue getValue()
    {
       return this.cellValue;
    }
@@ -25,7 +26,7 @@ public class Cell
    /**
     * Assigns this cell a new value.
     */
-   public void setValue(TicTacToeGame.CellValue newCellValue)
+   public void setValue(CellValue newCellValue)
    {
       this.cellValue = newCellValue;
    }
