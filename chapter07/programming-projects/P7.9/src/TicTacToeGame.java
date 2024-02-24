@@ -1,23 +1,36 @@
+import java.util.Scanner;
+
 /**
  * TicTacToeGame objects model a game of tic-tac-toe.
  */
 public class TicTacToeGame
 {
-   public enum CellValue { CIRCLE, CROSS, EMPTY };
-   private final Cell[][] grid;
+   private final TicTacToeGrid grid;
+   private Cell.CellValue lastMoveSymbol;
 
+   /**
+    * Constructs a game of tic-tac-toe.
+    */
    public TicTacToeGame()
    {
-      this.grid = new Cell[3][3];
-      this.fillGridWithCells();
+      this.grid = new TicTacToeGrid();
+      this.lastMoveSymbol = Cell.CellValue.EMPTY;
    }
 
    /**
     * Plays the next move in this game of tic-tac-toe.
     */
-   public void nextMove()
+   public void playNextMove()
    {
-      // TODO: implementation
+      grid.printGrid();
+
+      Cell.CellValue nextMoveValue = Cell.CellValue.CIRCLE;
+      if (lastMoveSymbol == Cell.CellValue.CIRCLE)
+      {
+         nextMoveValue = Cell.CellValue.CROSS;
+      }
+
+      this.askPlayerForMove(nextMoveValue);
    }
 
    /**
@@ -26,21 +39,44 @@ public class TicTacToeGame
     */
    public boolean isFinished()
    {
-      // TODO: implementation
-      return true;
+      return this.grid.hasThreeIdenticalSymbolsInSequence();
    }
 
    /**
-    * Fills this tic-tac-toe game's grid with cells.
+    * Asks player for move.
+    * @param symbol the symbol of the player moving
     */
-   public void fillGridWithCells()
+   public void askPlayerForMove(Cell.CellValue symbol)
    {
-      for (int rowNumber = 0; rowNumber < grid.length; rowNumber++)
+      // print tic-tac-toe grid
+      this.grid.printGrid();
+
+      // ask for row and column they want to occupy
+      System.out.print("Which row do you want to occupy? ");
+      Scanner scanner = new Scanner(System.in);
+      int rowNumber = scanner.nextInt();
+      scanner.nextLine();
+
+      System.out.println("Which column do you want to occupy? ");
+      int columnNumber = scanner.nextInt();
+      scanner.nextLine();
+
+      // occupy said row and column if available
+      if (this.grid.cellIsEmpty(rowNumber, columnNumber))
       {
-         for (int columnNumber = 0; columnNumber < grid[rowNumber].length; columnNumber++)
-         {
-            grid[rowNumber][columnNumber] = new Cell(CellValue.EMPTY);
-         }
+         this.grid.setCellValue(rowNumber, columnNumber, symbol);
+
+         // if successful move, change lastMoveSymbol
+         this.lastMoveSymbol = symbol;
       }
+   }
+
+   /**
+    * Get the symbol of the winner of this game.
+    * @return the symbol of the winner of this game
+    */
+   public Cell.CellValue getWinnerSymbol()
+   {
+      return this.lastMoveSymbol;
    }
 }
