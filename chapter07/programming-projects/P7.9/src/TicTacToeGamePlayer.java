@@ -15,6 +15,14 @@ public class TicTacToeGamePlayer
       {
          game.playNextMove();
       }
-      System.out.print("The winner's symbol is " + game.getWinnerSymbol());
+
+      if (game.hasWinner())
+      {
+         System.out.print("The winner's symbol is " + game.getWinnerSymbol());
+      }
+      else
+      {
+         System.out.println("Draw. No one wins.");
+      }
    }
 }

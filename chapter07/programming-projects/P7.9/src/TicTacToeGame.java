@@ -7,6 +7,7 @@ public class TicTacToeGame
 {
    private final TicTacToeGrid grid;
    private Cell.CellValue lastMoveSymbol;
+   private final Scanner scanner;
 
    /**
     * Constructs a game of tic-tac-toe.
@@ -15,6 +16,7 @@ public class TicTacToeGame
    {
       this.grid = new TicTacToeGrid();
       this.lastMoveSymbol = Cell.CellValue.EMPTY;
+      this.scanner = new Scanner(System.in);
    }
 
    /**
@@ -39,7 +41,15 @@ public class TicTacToeGame
     */
    public boolean isFinished()
    {
-      return this.grid.hasThreeIdenticalSymbolsInSequence();
+      boolean gameIsFinished = this.grid.isFull() || this.grid.hasThreeIdenticalSymbolsInSequence();
+
+      // print grid if game is finished
+      if (gameIsFinished)
+      {
+         this.grid.printGrid();
+      }
+
+      return gameIsFinished;
    }
 
    /**
@@ -48,18 +58,17 @@ public class TicTacToeGame
     */
    public void askPlayerForMove(Cell.CellValue symbol)
    {
-      // print tic-tac-toe grid
-      this.grid.printGrid();
+      // say whose go it is
+      System.out.println("Turn: " + symbol);
 
       // ask for row and column they want to occupy
-      System.out.print("Which row do you want to occupy? ");
-      Scanner scanner = new Scanner(System.in);
-      int rowNumber = scanner.nextInt();
-      scanner.nextLine();
+      System.out.print("\nWhich row do you want to occupy? ");
+      int rowNumber = this.scanner.nextInt();
+      this.scanner.nextLine();
 
-      System.out.println("Which column do you want to occupy? ");
-      int columnNumber = scanner.nextInt();
-      scanner.nextLine();
+      System.out.print("\nWhich column do you want to occupy? ");
+      int columnNumber = this.scanner.nextInt();
+      this.scanner.nextLine();
 
       // occupy said row and column if available
       if (this.grid.cellIsEmpty(rowNumber, columnNumber))
@@ -68,6 +77,10 @@ public class TicTacToeGame
 
          // if successful move, change lastMoveSymbol
          this.lastMoveSymbol = symbol;
+      }
+      else
+      {
+         System.out.println("Cell is already occupied! Go again.");
       }
    }
 
@@ -78,5 +91,14 @@ public class TicTacToeGame
    public Cell.CellValue getWinnerSymbol()
    {
       return this.lastMoveSymbol;
+   }
+
+   /**
+    * Check if this game has a winner.
+    * @return true if this game has a winner
+    */
+   public boolean hasWinner()
+   {
+      return this.grid.hasThreeIdenticalSymbolsInSequence();
    }
 }
