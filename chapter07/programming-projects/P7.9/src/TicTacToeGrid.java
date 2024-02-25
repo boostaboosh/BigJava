@@ -36,7 +36,7 @@ public class TicTacToeGrid
       String dividerLine = "----+---+---+---";
 
       // print row of column numbers
-      System.out.println("row# " + " 0 " + " ".repeat(2) + "1 " + " ".repeat(2) + "2 ");
+      System.out.println("\nr/c#|" + " 0 " + "| " + "1 " + "| " + "2 ");
       System.out.println(dividerLine);
 
       for (int rowNumberCounter = 0; rowNumberCounter < this.grid.length; rowNumberCounter++)
@@ -113,6 +113,81 @@ public class TicTacToeGrid
     */
    public boolean hasThreeIdenticalSymbolsInSequence()
    {
+      return hasThreeInARow() || hasThreeInAColumn() || hasThreeInADiagonal();
+   }
+
+   /**
+    * Checks if there are any rows with three identical values.
+    * @return true if there is a row with three identical non-empty values
+    */
+   public boolean hasThreeInARow()
+   {
+      boolean foundThreeInARow = false;
+
+      for (int rowCounter = 0; rowCounter < this.grid.length && !foundThreeInARow; rowCounter++)
+      {
+         boolean threeInARowCondition = true;
+         for (int columnCounter = 1; columnCounter < this.grid[0].length && threeInARowCondition; columnCounter++)
+         {
+            if (this.grid[rowCounter][columnCounter].getValue() != this.grid[rowCounter][columnCounter - 1].getValue()
+                  || this.grid[rowCounter][columnCounter].getValue() == Cell.CellValue.EMPTY)
+            {
+               threeInARowCondition = false;
+            }
+         }
+         if (threeInARowCondition)
+         {
+            foundThreeInARow = true;
+         }
+      }
+
+      return foundThreeInARow;
+   }
+
+   /**
+    * Checks if a column in this grid contains 3 identical values.
+    * @return true if a column contains three non-empty values in a row
+    */
+   public boolean hasThreeInAColumn()
+   {
+      boolean foundThreeInAColumn = false;
+
       // TODO: fill implementation
+
+      return foundThreeInAColumn;
+   }
+
+   /**
+    * Checks if one of the diagonals has three identical non-empty values.
+    * @return true if a diagonal contains three identical non-empty values
+    */
+   public boolean hasThreeInADiagonal()
+   {
+      boolean foundThreeInADiagonal = false;
+
+      // TODO: fill implementation
+
+      return foundThreeInADiagonal;
+   }
+
+   /**
+    * Checks if this grid is full.
+    * @return true if there are no empty cells in this grid
+    */
+   public boolean isFull()
+   {
+      boolean hasEmptyCells = false;
+      for (Cell[] row : this.grid)
+      {
+         for (Cell cell : row)
+         {
+            if (cell.getValue() == Cell.CellValue.EMPTY)
+            {
+               hasEmptyCells = true;
+               break;
+            }
+         }
+      }
+      return !hasEmptyCells;
    }
 }
