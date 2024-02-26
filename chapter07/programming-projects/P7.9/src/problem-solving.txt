@@ -25,3 +25,98 @@ and a game will have a winner
 a game will have a ticTacToeGrid (can be a 3x3 2D array of cells)
 a ticTacToeGrid will have cells
 cells will have empty, circle, or cross symbols.
+
+finding 3-in-a-column problem-solving
+
+step 1 - I need to try and understand the problem
+What are the inputs? a 3x3 2D-array
+What are the desired outputs? true if the values in one of the columns
+        are all the same and not empty
+
+step 2 - solve an example of the problem by hand
+x o x
+x x o
+x o x
+there are 3 identical values in a column.
+the first column has the second value equal to the second and the third
+equal to the second. the others are all non-valid options from the second
+row onwards
+
+step 3 - write pseudocode for solving the problem
+firstRow = first element in 2D array
+firstCell = get value of first cell in row
+secondRow = second element in 2D array
+secondCell = get value of first cell in row
+thirdRow = third element in 2D array
+thirdCell = get value of first cell in row
+if firstCell == secondCell == thirdCell
+    is three in a column
+
+while...
+    row = element at rowCounter in array
+    first cell = element at first index in row
+    if first cell == previous cell
+        keep going
+    increment rowCounter
+
+I want to reach the end of the 2D array
+
+count controlled
+while rowCounter < 2D array length and keep going
+    row = element at index rowCounter in 2D array
+    first cell = element at first index in row
+    if first cell == previous cell
+        previous cell = first cell
+        if rowCounter = 2D array length - 1
+            three in a column = true
+    else
+        done = true
+    increment rowCounter
+
+I need to do this for each column
+first column index = 0
+second column index = 1
+third column index = 2
+
+columnIndexCounter = 0
+if columnIndexCounter < 2D array row length
+    do stuff with elements of that column (previous loop)
+    increment column counter
+
+count controlled loop
+three in a column = false
+while columnIndexCounter < 2D array row length and ! three in a column
+    rowIndexCounter = 1 // start at 2nd row because we compare to previous row
+    while rowIndexCounter < 2D array length and keep going
+        row = element at rowIndexCounter in 2D array
+        column cell = element at columnIndexCounter in row
+        previous row = element at rowIndexCounter - 1 in 2D array
+        column previous row cell = element at columnIndexCounter in previous row
+        if column cell value == column previous row cell value
+            if rowCounter = 2D array length - 1
+                three in a column = true
+        else
+            keep going = false
+        increment rowCounter
+    increment column counter
+
+I forgot to check if cells in the column are empty!
+quick fix:
+
+three in a column = false
+while columnIndexCounter < 2D array row length and ! three in a column
+    rowIndexCounter = 1 // start at 2nd row because we compare to previous row
+    while rowIndexCounter < 2D array length and keep going
+        row = element at rowIndexCounter in 2D array
+        column cell = element at columnIndexCounter in row
+        previous row = element at rowIndexCounter - 1 in 2D array
+        column previous row cell = element at columnIndexCounter in previous row
+        if column cell value == column previous row cell value
+                && column cell value != empty
+            if rowCounter = 2D array length - 1
+                three in a column = true
+        else
+            keep going = false
+        increment rowCounter
+    increment column counter
+

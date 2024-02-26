@@ -152,7 +152,33 @@ public class TicTacToeGrid
    {
       boolean foundThreeInAColumn = false;
 
-      // TODO: fill implementation
+      int columnIndexCounter = 0;
+      while (columnIndexCounter < this.grid[0].length && !foundThreeInAColumn)
+      {
+         int rowIndexCounter = 1; // start at 2nd row because we compare to previous row
+         boolean keepGoing = true;
+         while (rowIndexCounter < this.grid.length && keepGoing)
+         {
+            Cell[] row = this.grid[rowIndexCounter];
+            Cell columnCell = row[columnIndexCounter];
+            Cell[] previousRow = this.grid[rowIndexCounter - 1];
+            Cell columnCellPreviousRow = previousRow[columnIndexCounter];
+            if (columnCell.getValue() == columnCellPreviousRow.getValue()
+                  && columnCell.getValue() != Cell.CellValue.EMPTY)
+            {
+               if (rowIndexCounter == this.grid.length - 1)
+               {
+                  foundThreeInAColumn = true;
+               }
+            }
+            else
+            {
+               keepGoing = false;
+            }
+            rowIndexCounter = rowIndexCounter + 1;
+         }
+         columnIndexCounter = columnIndexCounter + 1;
+      }
 
       return foundThreeInAColumn;
    }
