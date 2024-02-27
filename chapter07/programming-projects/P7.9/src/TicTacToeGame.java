@@ -59,7 +59,7 @@ public class TicTacToeGame
    public void askPlayerForMove(Cell.CellValue symbol)
    {
       // say whose go it is
-      System.out.println("Turn: " + symbol);
+      System.out.println("Next turn: " + symbol);
 
       // ask for row and column they want to occupy
       System.out.print("\nWhich row do you want to occupy? ");
