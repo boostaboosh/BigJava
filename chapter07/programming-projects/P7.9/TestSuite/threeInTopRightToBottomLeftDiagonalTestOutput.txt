@@ -1,0 +1,84 @@
+
+r/c#| 0 | 1 | 2 
+----+---+---+---
+ 0  |   |   |  
+----+---+---+---
+ 1  |   |   |  
+----+---+---+---
+ 2  |   |   |  
+----+---+---+---
+Turn: CIRCLE
+
+Which row do you want to occupy? 
+Which column do you want to occupy? 
+r/c#| 0 | 1 | 2 
+----+---+---+---
+ 0  |   |   |  
+----+---+---+---
+ 1  |   | O |  
+----+---+---+---
+ 2  |   |   |  
+----+---+---+---
+Turn: CROSS
+
+Which row do you want to occupy? 
+Which column do you want to occupy? 
+r/c#| 0 | 1 | 2 
+----+---+---+---
+ 0  | X |   |  
+----+---+---+---
+ 1  |   | O |  
+----+---+---+---
+ 2  |   |   |  
+----+---+---+---
+Turn: CIRCLE
+
+Which row do you want to occupy? 
+Which column do you want to occupy? 
+r/c#| 0 | 1 | 2 
+----+---+---+---
+ 0  | X |   |  
+----+---+---+---
+ 1  |   | O |  
+----+---+---+---
+ 2  | O |   |  
+----+---+---+---
+Turn: CROSS
+
+Which row do you want to occupy? 
+Which column do you want to occupy? 
+r/c#| 0 | 1 | 2 
+----+---+---+---
+ 0  | X |   |  
+----+---+---+---
+ 1  | X | O |  
+----+---+---+---
+ 2  | O |   |  
+----+---+---+---
+Turn: CIRCLE
+
+Which row do you want to occupy? 
+Which column do you want to occupy? 
+r/c#| 0 | 1 | 2 
+----+---+---+---
+ 0  | X |   | O
+----+---+---+---
+ 1  | X | O |  
+----+---+---+---
+ 2  | O |   |  
+----+---+---+---
+Turn: CROSS
+
+Which row do you want to occupy? 
+Which column do you want to occupy? 
+r/c#| 0 | 1 | 2 
+----+---+---+---
+ 0  | X |   | O
+----+---+---+---
+ 1  | X | O |  
+----+---+---+---
+ 2  | O | X |  
+----+---+---+---
+Turn: CIRCLE
+
+Which row do you want to occupy? 
