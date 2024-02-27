@@ -120,3 +120,33 @@ while columnIndexCounter < 2D array row length and ! three in a column
         increment rowCounter
     increment column counter
 
+
+has three in a diagonal problem-solving
+initial thoughts: there are two diagonals:
+the top left to bottom right diagonal where row and column index
+numbers are the same,
+and the top right to bottom left diagonal where a rule which applies to all
+cells in the diagonal is not so clear to me.
+Actually, the more I think about it, the more I think it's one diagonal
+where cell row and column indexes are the same, and the other
+where the column index is the opposite index to the top left to bottom
+right diagonal. So 00 and 02, 11 and 11, and then 22 and 20.
+So, I just subtract the top left to bottom right diagonal cell column
+index from the number of column indexes to find the row equivalent
+cell from the top right to bottom left diagonal cell.
+
+for rowIndex from 1 to numberOfRows && (couldBeThreeInLeftToRightDiagonal || couldBeThreeInRightToLeftDiagonal)
+    for columnIndex from 1 to numberOfColumns && ((couldBeThreeInLeftToRightDiagonal || couldBeThreeInRightToLeftDiagonal)
+        if rowIndex == columnIndex
+            leftToRightDiagonalCell = grid[rowIndex][columnIndex]
+            previousLeftToRightCellRowIndex = rowIndex - 1
+            previousLeftToRightCellColumnIndex = columnIndex - 1
+            previousLeftToRightDiagonalCellValue = grid[previousLeftToRightCellRowIndex][previousLeftToRightCellColumnIndex]
+            rightToLeftDiagonalCell = grid[rowIndex][numberOfColumn - columnIndex]
+            previousRightToLeftDiagonalCellValue = [previous][numberOfColumn - previousLeftToRightCellColumnIndex]
+            if leftToRightDiagonalCellValue != previousLeftToRightDiagonalCellValue
+                couldBeThreeInLeftToRightDiagonal = false
+            if rightToLeftDiagonalCellValue != previousRightToLeftDiagonalCellValue
+                couldBeThreeInRightToLeftDiagonal = false
+            if rowIndex == numberOfRows && (couldBeThreeInLeftToRightDiagonal || couldBeThreeInRightToLeftDiagonal)
+                foundThreeInADiagonal = true

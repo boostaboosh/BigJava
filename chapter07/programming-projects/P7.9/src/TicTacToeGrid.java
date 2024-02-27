@@ -191,7 +191,7 @@ public class TicTacToeGrid
    {
       boolean foundThreeInADiagonal = false;
 
-      // TODO: fill implementation
+      // foundThreeInADiagonal = hasThreeInTopLeftToBottomRightDiagonal() || hasThreeInTopRightToBottomLeftDiagonal();
 
       return foundThreeInADiagonal;
    }
