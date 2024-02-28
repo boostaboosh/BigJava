@@ -132,7 +132,7 @@ where cell row and column indexes are the same, and the other
 where the column index is the opposite index to the top left to bottom
 right diagonal. So 00 and 02, 11 and 11, and then 22 and 20.
 So, I just subtract the top left to bottom right diagonal cell column
-index from the number of column indexes to find the row equivalent
+index from the number of column indexes - 1 to find the row equivalent
 cell from the top right to bottom left diagonal cell.
 
 for rowIndex from 1 to numberOfRows && (couldBeThreeInLeftToRightDiagonal || couldBeThreeInRightToLeftDiagonal)
@@ -141,12 +141,66 @@ for rowIndex from 1 to numberOfRows && (couldBeThreeInLeftToRightDiagonal || cou
             leftToRightDiagonalCell = grid[rowIndex][columnIndex]
             previousLeftToRightCellRowIndex = rowIndex - 1
             previousLeftToRightCellColumnIndex = columnIndex - 1
-            previousLeftToRightDiagonalCellValue = grid[previousLeftToRightCellRowIndex][previousLeftToRightCellColumnIndex]
+            previousLeftToRightDiagonalCell = grid[previousLeftToRightCellRowIndex][previousLeftToRightCellColumnIndex]
             rightToLeftDiagonalCell = grid[rowIndex][numberOfColumn - columnIndex]
-            previousRightToLeftDiagonalCellValue = [previous][numberOfColumn - previousLeftToRightCellColumnIndex]
+            previousRightToLeftDiagonalCellValue = [previous][numberOfColumn - previousLeftToRightCellColumnIndex - 1]
             if leftToRightDiagonalCellValue != previousLeftToRightDiagonalCellValue
                 couldBeThreeInLeftToRightDiagonal = false
             if rightToLeftDiagonalCellValue != previousRightToLeftDiagonalCellValue
                 couldBeThreeInRightToLeftDiagonal = false
-            if rowIndex == numberOfRows && (couldBeThreeInLeftToRightDiagonal || couldBeThreeInRightToLeftDiagonal)
+            if rowIndex == numberOfRows - 1 && (couldBeThreeInLeftToRightDiagonal || couldBeThreeInRightToLeftDiagonal)
                 foundThreeInADiagonal = true
+
+can be re-written actually:
+
+for rowIndex from 1 to numberOfRows && (couldBeThreeInLeftToRightDiagonal || couldBeThreeInRightToLeftDiagonal)
+    for columnIndex from 1 to numberOfColumns && ((couldBeThreeInLeftToRightDiagonal || couldBeThreeInRightToLeftDiagonal)
+        if rowIndex == columnIndex
+            leftToRightDiagonalCell = grid[rowIndex][columnIndex]
+            previousLeftToRightCellRowIndex = rowIndex - 1
+            previousLeftToRightCellColumnIndex = columnIndex - 1
+            previousLeftToRightDiagonalCell = grid[previousLeftToRightCellRowIndex][previousLeftToRightCellColumnIndex]
+            rightToLeftDiagonalCell = grid[rowIndex][numberOfColumn - columnIndex - 1]
+            previousRightToLeftDiagonalCellValue = [previous][numberOfColumn - previousLeftToRightCellColumnIndex - 1]
+            if leftToRightDiagonalCellValue != previousLeftToRightDiagonalCellValue
+                couldBeThreeInLeftToRightDiagonal = false
+            if rightToLeftDiagonalCellValue != previousRightToLeftDiagonalCellValue
+                couldBeThreeInRightToLeftDiagonal = false
+
+if couldBeThreeInLeftToRightDiagonal || couldBeThreeInRightToLeftDiagonal
+    foundThreeInADiagonal = true
+
+
+I was having issues with debugging because I forgot to recompile my code after running tests,
+and I had made the mistake of things that the column index of right to left diagonal cells
+was obtained by subtracting the column index of the left to right diagonal cell from the number
+of columns, but actually I had to subtract an additional 1 from that to obtain the right to left
+diagonal cell column index.
+
+I asked chatGPT for help, and it helped me find my issue, and it also gave me a better solution:
+
+Initialize couldBeThreeInLeftToRightDiagonal to true
+Initialize couldBeThreeInRightToLeftDiagonal to true
+Set numberOfRows to the length of the grid
+Set numberOfColumns to the length of the first row of the grid
+
+// Check the diagonals starting from the first cell
+Set firstLeftToRightDiagonalValue to grid[0][0].getValue()
+Set firstRightToLeftDiagonalValue to grid[0][numberOfColumns - 1].getValue()
+
+for rowIndex from 1 to numberOfRows - 1
+    // Check Left-To-Right Diagonal
+    if grid[rowIndex][rowIndex].getValue() != firstLeftToRightDiagonalValue or grid[rowIndex][rowIndex].getValue() == EMPTY
+        couldBeThreeInLeftToRightDiagonal = false
+
+    // Calculate column index for Right-To-Left Diagonal
+    Set columnIndex for right to left diagonal to numberOfColumns - rowIndex - 1
+    if grid[rowIndex][columnIndex].getValue() != firstRightToLeftDiagonalValue or grid[rowIndex][columnIndex].getValue() == EMPTY
+        couldBeThreeInRightToLeftDiagonal = false
+
+if couldBeThreeInLeftToRightDiagonal or couldBeThreeInRightToLeftDiagonal
+    Set foundThreeInADiagonal to true
+else
+    Set foundThreeInADiagonal to false
+
+Return foundThreeInADiagonal
