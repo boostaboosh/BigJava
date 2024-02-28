@@ -191,7 +191,49 @@ public class TicTacToeGrid
    {
       boolean foundThreeInADiagonal = false;
 
-      // foundThreeInADiagonal = hasThreeInTopLeftToBottomRightDiagonal() || hasThreeInTopRightToBottomLeftDiagonal();
+      boolean couldBeThreeInLeftToRightDiagonal = true;
+      boolean couldBeThreeInRightToLeftDiagonal = true;
+      int numberOfRows = this.grid.length;
+      int numberOfColumns = this.grid[0].length;
+      for (int rowIndex = 1;
+           rowIndex < numberOfRows
+                 && (couldBeThreeInLeftToRightDiagonal || couldBeThreeInRightToLeftDiagonal);
+           rowIndex++)
+      {
+         for (int columnIndex = 1;
+              columnIndex < numberOfColumns
+                    && (couldBeThreeInLeftToRightDiagonal || couldBeThreeInRightToLeftDiagonal);
+              columnIndex++)
+         {
+            if (rowIndex == columnIndex)
+            {
+               Cell leftToRightDiagonalCell = this.grid[rowIndex][columnIndex];
+               int previousLeftToRightDiagonalCellRowIndex = rowIndex - 1;
+               int previousLeftToRightDiagonalCellColumnIndex = columnIndex - 1;
+               Cell previousLeftToRightDiagonalCell =
+                     this.grid[previousLeftToRightDiagonalCellRowIndex][previousLeftToRightDiagonalCellColumnIndex];
+
+               Cell rightToLeftDiagonalCell = this.grid[rowIndex][numberOfColumns - columnIndex - 1];
+               Cell previousRightToLeftDiagonalCell =
+                     this.grid[rowIndex - 1][numberOfColumns - previousLeftToRightDiagonalCellColumnIndex - 1];
+
+               if (leftToRightDiagonalCell.getValue() != previousLeftToRightDiagonalCell.getValue()
+                     || leftToRightDiagonalCell.getValue() == Cell.CellValue.EMPTY)
+               {
+                  couldBeThreeInLeftToRightDiagonal = false;
+               }
+               if (rightToLeftDiagonalCell.getValue() != previousRightToLeftDiagonalCell.getValue()
+                     || rightToLeftDiagonalCell.getValue() == Cell.CellValue.EMPTY)
+               {
+                  couldBeThreeInRightToLeftDiagonal = false;
+               }
+            }
+         }
+      }
+      if (couldBeThreeInLeftToRightDiagonal || couldBeThreeInRightToLeftDiagonal)
+      {
+         foundThreeInADiagonal = true;
+      }
 
       return foundThreeInADiagonal;
    }
