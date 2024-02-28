@@ -7,7 +7,7 @@ r/c#| 0 | 1 | 2
 ----+---+---+---
  2  |   |   |  
 ----+---+---+---
-Turn: CIRCLE
+Next turn: CIRCLE
 
 Which row do you want to occupy? 
 Which column do you want to occupy? 
@@ -19,7 +19,7 @@ r/c#| 0 | 1 | 2
 ----+---+---+---
  2  |   |   |  
 ----+---+---+---
-Turn: CROSS
+Next turn: CROSS
 
 Which row do you want to occupy? 
 Which column do you want to occupy? 
@@ -31,7 +31,7 @@ r/c#| 0 | 1 | 2
 ----+---+---+---
  2  |   |   |  
 ----+---+---+---
-Turn: CIRCLE
+Next turn: CIRCLE
 
 Which row do you want to occupy? 
 Which column do you want to occupy? 
@@ -43,7 +43,7 @@ r/c#| 0 | 1 | 2
 ----+---+---+---
  2  | O |   |  
 ----+---+---+---
-Turn: CROSS
+Next turn: CROSS
 
 Which row do you want to occupy? 
 Which column do you want to occupy? 
@@ -55,7 +55,7 @@ r/c#| 0 | 1 | 2
 ----+---+---+---
  2  | O |   |  
 ----+---+---+---
-Turn: CIRCLE
+Next turn: CIRCLE
 
 Which row do you want to occupy? 
 Which column do you want to occupy? 
@@ -67,18 +67,4 @@ r/c#| 0 | 1 | 2
 ----+---+---+---
  2  | O |   |  
 ----+---+---+---
-Turn: CROSS
-
-Which row do you want to occupy? 
-Which column do you want to occupy? 
-r/c#| 0 | 1 | 2 
-----+---+---+---
- 0  | X |   | O
-----+---+---+---
- 1  | X | O |  
-----+---+---+---
- 2  | O | X |  
-----+---+---+---
-Turn: CIRCLE
-
-Which row do you want to occupy? 
+The winner's symbol is CIRCLE
