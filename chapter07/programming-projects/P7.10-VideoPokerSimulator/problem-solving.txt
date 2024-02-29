@@ -1,0 +1,54 @@
+••• P7.10
+In this assignment, you will implement a simulation of a popular casino game usually called video poker.
+The card deck contains 52 cards, 13 of each suit.
+At the beginning of the game, the deck is shuffled. You need to devise a fair method for shuffling.
+(It does not have to be efficient.)
+The player pays a token for each game.
+Then the top five cards of the deck are presented to the player.
+The player can reject none, some, or all of the cards.
+The rejected cards are replaced from the top of the deck.
+Now the hand is scored.
+Your program should pronounce it to be one of the following:
+• No pair—The lowest hand, containing five separate cards that do not match up to create any of the hands below.
+• One pair—Two cards of the same value, for example two queens. Payout: 1
+• Two pairs—Two pairs, for example two queens and two 5’s. Payout: 2
+• Three of a kind—Three cards of the same value, for example three queens. Payout: 3
+• Straight—Five cards with consecutive values, not necessarily of the same suit, such as 4, 5, 6, 7, and 8.
+  The ace can either precede a 2 or follow a king. Payout: 4
+• Flush—Five cards, not necessarily in order, of the same suit. Payout: 5
+• Full House—Three of a kind and a pair, for example three queens and two 5’s. Payout: 6
+• Four of a Kind—Four cards of the same value, such as four queens. Payout: 25
+• Straight Flush—A straight and a flush: Five cards with consecutive values of the same suit. Payout: 50
+• Royal Flush—The best possible hand in poker. A 10, jack, queen, king, and ace, all-of-the same suit. Payout: 250
+
+problem-solving:
+a deck has 52 cards, 13 of each suit, in order. so a card has a suit and a value.
+a deck can be shuffled.
+
+for a game to be played:
+a player pays a token to play a game
+the deck is shuffled
+the top 5 cards of the deck are presented to the user
+the player can reject none, some, or all of the cards
+The rejected cards are replaced from the top of the deck
+now the hand is scored
+
+which aspects of a video poker simulator do I need to model?
+ - ask the player to pay a token to play a game of video poker
+ - shuffle a deck of 52 cards containing 13 cars of 4 different suits
+ - present the 5 cards at the top of the deck to the player
+ - the player can reject none, some, or all of the cards
+ - the rejected cards are replaced from the top of the deck
+ - the hand is now scored as either:
+    * no pair: 5 cards that do not match any of the scoring hands below, payout: 0
+    * one pair: two cards of the same value, payout: 1
+    * two pairs: two pairs of two cards of the same value, payout: 2
+    * three of a kind: three cards of the same value, payout: 3
+    * straight: five cards with consecutive values (the ace can either precede a 2 or follow a king), payout: 4
+    * flush: five cards, not necessarily in order, of the same suit, payout: 5
+    * full house: three of a king and a pair, payout: 6
+    * four of a kind: four cards of the same value, payout: 25
+    * straight flush: straight and a flush, payout: 50
+    * royal flush: the best hand in poker, a flush and a straight with card values 10-jack-queen-king-ace, payout: 250
+
+Now, I can specify the public interface of the VideoPokerSimulator class by applying method calls to a sample object
