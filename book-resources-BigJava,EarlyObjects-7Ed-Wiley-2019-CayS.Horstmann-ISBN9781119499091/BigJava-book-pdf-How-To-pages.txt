@@ -7,6 +7,12 @@ pdf p.188, book p.118
 how to 5.1 - implementing an if statement
 pdf p.233, book p.143
 
+special topic 5.4 - enumeration types
+pdf p.245, book p.155
+
+special topic 5.5 - logging
+pdf p.251, book p.161
+
 how to 6.1 - writing a loop
 pdf p.311, book p.203
 
