@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 /**
  * This class models a game of video poker.
  */
@@ -5,6 +7,7 @@ public class VideoPokerGame
 {
    // instance variables
    Deck deck;
+   boolean tokenHasBeenPaid;
 
    // constructors
    /**
@@ -12,19 +15,23 @@ public class VideoPokerGame
     */
    public VideoPokerGame()
    {
-      // TODO: fill implementation
       this.deck = new Deck();
+      this.tokenHasBeenPaid = false;
    }
 
    // methods
-
    /**
     * Asks a player for a token necessary to play.
     */
    public boolean askForToken()
    {
-      // TODO: fill implementation
-      return true;
+      System.out.print("Pay a token to play a game of video poker. (y/n)");
+      Scanner scanner = new Scanner(System.in);
+      if (scanner.hasNext())
+      {
+         this.tokenHasBeenPaid = scanner.next().equals("y");
+      }
+      return this.tokenHasBeenPaid;
    }
 
    /**
@@ -32,7 +39,7 @@ public class VideoPokerGame
     */
    public void shuffleDeck()
    {
-      // TODO: fill implementation
+      this.deck.shuffle();
    }
 
    /**

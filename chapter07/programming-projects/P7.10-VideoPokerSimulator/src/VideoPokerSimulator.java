@@ -9,7 +9,7 @@ public class VideoPokerSimulator
     * Starts the program.
     * @param args the program starting arguments
     */
-   public static void Main(String[] args)
+   public static void main(String[] args)
    {
       VideoPokerGame game = new VideoPokerGame();
       while (game.askForToken())
