@@ -52,3 +52,47 @@ which aspects of a video poker simulator do I need to model?
     * royal flush: the best hand in poker, a flush and a straight with card values 10-jack-queen-king-ace, payout: 250
 
 Now, I can specify the public interface of the VideoPokerSimulator class by applying method calls to a sample object
+
+Deck class shuffle method problem-solving
+step 1) understand the problem
+What are the inputs? an array of 52 cards
+What are the desired outputs? a shuffled deck,
+i.e., the input array elements in a different and somewhat random order
+step 2) solve an example by hand
+1H 2H 3H 1S 2S 3S
+3H 2S 1H 2H 1S 3S
+step 3) write pseudocode for solving the problem
+access first element in array of cards
+access random element in array of cards
+switch first element with random element
+access second card in cards
+access random card in cards
+switch second card with random card
+access third card in cards
+access random card in cards
+switch third card with random card
+... repeat this
+what are the steps to repeat? (implementing a loop)
+cardCounter = 1
+access card at counter in cards
+access random card in cards
+switch card with random card
+increment counter
+what goal do you want to reach in your loop?
+I want to reach the end of the cards array,
+so I want to swap a card with each position in the cards array
+while counter <= cards.length
+    cardCounter = 1
+    access card at counter in cards
+    access random card in cards
+    switch card with random card
+    increment counter
+what kind of loop is this?
+count controlled because the variable that controls the execution of the
+loop body is modified by a constant amount once per loop iteration until
+it reaches a target value.
+for index from 0 to cards.length - 1
+    access card at index
+    access card at random index
+    switch card with random card (use a temporary value holder)
+
