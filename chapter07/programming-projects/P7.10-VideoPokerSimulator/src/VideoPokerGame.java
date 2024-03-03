@@ -25,7 +25,7 @@ public class VideoPokerGame
     */
    public boolean askForToken()
    {
-      System.out.print("Pay a token to play a game of video poker. (y/n)");
+      System.out.print("Pay a token to play a game of video poker. (y/n) ");
       Scanner scanner = new Scanner(System.in);
       if (scanner.hasNext())
       {

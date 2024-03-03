@@ -1,3 +1,5 @@
+import java.util.Random;
+
 /**
  * This class models a deck of 52 cards, 13 of each suit.
  */
@@ -7,7 +9,6 @@ public class Deck
    Card[] cards;
 
    // constructor
-
    /**
     * Constructs a new deck of cards.
     */
@@ -30,19 +31,36 @@ public class Deck
          cards[index] = new Card(newCardValue, newCardSuit);
       }
 
-      for (Card card : this.cards)
-      {
-         System.out.println(card.getValue() + card.getSuit().toString());
-      }
+      this.printDeckOrder();
    }
 
    // methods
-
    /**
     * Shuffles this deck of cards.
     */
    public void shuffle()
    {
-      // TODO: fill implementation
+      for (int index = 0; index < this.cards.length; index++)
+      {
+         Random randomNumberGenerator = new Random();
+         int randomIndex = randomNumberGenerator.nextInt(this.cards.length);
+
+         Card temporaryCardVariable = this.cards[index];
+         this.cards[index] = this.cards[randomIndex];
+         this.cards[randomIndex] = temporaryCardVariable;
+      }
+
+      this.printDeckOrder();
+   }
+
+   /**
+    * Prints the value and suit of cards in this deck, in order.
+    */
+   public void printDeckOrder()
+   {
+      for (Card card : this.cards)
+      {
+         System.out.println(card.getValue() + card.getSuit().toString());
+      }
    }
 }
