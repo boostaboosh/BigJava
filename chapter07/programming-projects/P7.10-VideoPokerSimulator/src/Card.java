@@ -8,8 +8,8 @@ public class Card
    public enum Suit { HEARTS, DIAMONDS, SPADES, CLUBS }
 
    // instance variables
-   int value;
-   Suit suit;
+   private final int value;
+   private final Suit suit;
 
    // constructors
    /**
@@ -29,6 +29,34 @@ public class Card
    public int getValue()
    {
       return this.value;
+   }
+
+   /**
+    * Returns the string value of this card.
+    * A value of 1 becomes ace, and a value of 11, 12, or 13
+    * becomes jack, queen, or king, respectively.
+    * @return the string value of this card
+    */
+   public String getStringValue()
+   {
+      String stringValue = String.valueOf(this.value);
+      if (this.value == 1)
+      {
+         stringValue = "Ace";
+      }
+      else if (this.value == 11)
+      {
+         stringValue = "Jack";
+      }
+      else if (this.value == 12)
+      {
+         stringValue = "Queen";
+      }
+      else if (this.value == 13)
+      {
+         stringValue = "King";
+      }
+      return stringValue;
    }
 
    /**
