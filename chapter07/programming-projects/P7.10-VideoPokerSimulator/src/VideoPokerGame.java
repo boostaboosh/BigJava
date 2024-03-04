@@ -47,7 +47,13 @@ public class VideoPokerGame
     */
    public void presentTopFiveCards()
    {
-      // TODO: fill implementation
+      for (int index = 0; index < 5; index++)
+      {
+         Card card = this.deck.getCard(index);
+         String cardString = card.getStringValue() + " of " + card.getSuit().toString().toLowerCase();
+         int cardNumber = index + 1;
+         System.out.println("card " + cardNumber + ": " + cardString);
+      }
    }
 
    /**
@@ -55,7 +61,18 @@ public class VideoPokerGame
     */
    public void askForCardsToReject()
    {
-      // TODO: fill implementation
+      System.out.print("How many cards do you wish to reject? ");
+      Scanner scanner = new Scanner(System.in);
+      int numberOfCardsToReject = scanner.nextInt();
+      scanner.nextLine();
+      for (int counter = 0; counter < numberOfCardsToReject; counter++)
+      {
+         System.out.print("Enter the card number of card " + (counter + 1) + " you wish to reject? ");
+         int cardNumberToReject = scanner.nextInt();
+         int indexOfCardToReject = cardNumberToReject - 1;
+         this.deck.moveToBack(indexOfCardToReject);
+         this.presentTopFiveCards();
+      }
    }
 
    /**

@@ -1,5 +1,3 @@
-import java.util.Scanner;
-
 /**
  * This class contains a program which simulates a game of video poker.
  */

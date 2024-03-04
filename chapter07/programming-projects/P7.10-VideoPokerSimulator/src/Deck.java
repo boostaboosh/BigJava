@@ -6,7 +6,7 @@ import java.util.Random;
 public class Deck
 {
    // instance variables
-   Card[] cards;
+   private final Card[] cards;
 
    // constructor
    /**
@@ -30,8 +30,6 @@ public class Deck
 
          cards[index] = new Card(newCardValue, newCardSuit);
       }
-
-      this.printDeckOrder();
    }
 
    // methods
@@ -49,8 +47,6 @@ public class Deck
          this.cards[index] = this.cards[randomIndex];
          this.cards[randomIndex] = temporaryCardVariable;
       }
-
-      this.printDeckOrder();
    }
 
    /**
@@ -62,5 +58,29 @@ public class Deck
       {
          System.out.println(card.getValue() + card.getSuit().toString());
       }
+   }
+
+   /**
+    * Gets the card at the specified index in the deck.
+    * @param index the index of the card to get in the deck
+    * @return a reference to the card at the specified index in the deck
+    */
+   public Card getCard(int index)
+   {
+      return this.cards[index];
+   }
+
+   /**
+    * Moves the card at the specified index in the deck to the back of the deck.
+    * @param indexOfCardToMove the index of the card to move to the back of the deck
+    */
+   public void moveToBack(int indexOfCardToMove)
+   {
+      Card temporary = this.cards[indexOfCardToMove];
+      for (int index = indexOfCardToMove + 1; index < this.cards.length; index++)
+      {
+         this.cards[index - 1] = this.cards[index];
+      }
+      this.cards[this.cards.length - 1] = temporary;
    }
 }
