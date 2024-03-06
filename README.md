@@ -5,20 +5,20 @@ A repository for programs I write related to "Big Java: Early Objects" by Cay Ho
 After each chapter I completed review and practice exercises. 
 Then, I made projects.
 Following are links to projects I made after each chapter.
-## [chapter 4](./chapter04/programming-projects)
+## [chapter 4](chapter04/programming-projects)
  - P4.1-CarCostCalculator
-## [chapter 5](.chapter05/programming-projects)
+## [chapter 5](chapter05/programming-projects)
  - P5.5-UnitConversion
  - P5.9-LeapYearComputer
  - P5.10-DecimalToRomanNumberConverter
-## [chapter 6](.chapter05/programming-projects)
+## [chapter 6](chapter06/programming-projects)
  - P6.1-CreditCardNumberChecker
  - P6.2-NthFibonacciNumberPrinter
  - P6.3-PrimeFactorisation
  - P6.5-GameOfNim
  - P6.9-DiceBets
  - P6.11-CombinationLockMinimumUnlockTwists
-## [chapter 7](.chapter05/programming-projects)
+## [chapter 7](chapter07/programming-projects)
 - P7.4-RestroomStallsFillingSimulator
 - P7.8-TheatreSeatPicker
 - P7.9-TicTacToe
