@@ -15,6 +15,7 @@ public class VideoPokerSimulator
          game.shuffleDeck();
          game.presentTopFiveCards();
          game.askForCardsToReject();
+         game.presentTopFiveCards();
          game.scoreHand();
       }
    }

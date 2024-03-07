@@ -52,7 +52,7 @@ public class VideoPokerGame
          Card card = this.deck.getCard(index);
          String cardString = card.getStringValue() + " of " + card.getSuit().toString().toLowerCase();
          int cardNumber = index + 1;
-         System.out.println("card " + cardNumber + ": " + cardString);
+         System.out.println("card number " + cardNumber + ": " + cardString);
       }
    }
 
@@ -62,16 +62,47 @@ public class VideoPokerGame
    public void askForCardsToReject()
    {
       System.out.print("How many cards do you wish to reject? ");
+
       Scanner scanner = new Scanner(System.in);
       int numberOfCardsToReject = scanner.nextInt();
       scanner.nextLine();
+
+      int[] indexesOfCardsToReject = new int[numberOfCardsToReject];
       for (int counter = 0; counter < numberOfCardsToReject; counter++)
       {
          System.out.print("Enter the card number of card " + (counter + 1) + " you wish to reject? ");
          int cardNumberToReject = scanner.nextInt();
          int indexOfCardToReject = cardNumberToReject - 1;
-         this.deck.moveToBack(indexOfCardToReject);
-         this.presentTopFiveCards();
+         indexesOfCardsToReject[counter] = indexOfCardToReject;
+      }
+
+      // sort indexes of cards to move to the back of the deck in ascending order
+      int index = 0;
+      while (index < indexesOfCardsToReject.length)
+      {
+         int swapCounter = 0;
+         for (int position = index + 1; position < indexesOfCardsToReject.length; position++)
+         {
+            if (indexesOfCardsToReject[index] > indexesOfCardsToReject[position])
+            {
+               // swap them
+               int temp = indexesOfCardsToReject[position];
+               indexesOfCardsToReject[position] = indexesOfCardsToReject[index];
+               indexesOfCardsToReject[index] = temp;
+               swapCounter = swapCounter + 1;
+            }
+         }
+         // only increment the card counter if I haven't moved this card forwards
+         if (swapCounter == 0)
+         {
+            index = index + 1;
+         }
+      }
+
+      // move cards to the back of deck starting from card closer to the back
+      for (int indexCounter = indexesOfCardsToReject.length - 1; indexCounter >= 0; indexCounter--)
+      {
+         this.deck.moveToBack(indexesOfCardsToReject[indexCounter]);
       }
    }
 
