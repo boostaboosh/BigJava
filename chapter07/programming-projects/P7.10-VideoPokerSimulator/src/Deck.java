@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.Random;
 
 /**
@@ -82,5 +83,16 @@ public class Deck
          this.cards[index - 1] = this.cards[index];
       }
       this.cards[this.cards.length - 1] = temporary;
+   }
+
+   /**
+    * Gets the first n cards from this deck.
+    * @param n the number of cards to return from this
+    * deck starting from the beginning
+    * @return the first n cards from this deck as an array
+    */
+   public Card[] getFirstNCards(int n)
+   {
+      return Arrays.copyOf(this.cards, n);
    }
 }
