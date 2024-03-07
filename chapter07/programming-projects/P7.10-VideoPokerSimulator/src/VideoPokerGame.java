@@ -91,6 +91,42 @@ public class VideoPokerGame
     */
    public void scoreHand()
    {
-      // TODO: fill implementation
+      int payout = 0;
+      Card[] hand = this.deck.getFirstNCards(5);
+
+      if (this.hasPair(hand))
+      {
+         System.out.println("Pair or more, payout: >= 1");
+      }
+      else
+      {
+         System.out.println("No pair, payout: 0");
+      }
+   }
+
+   /**
+    * Checks if a poker hand contains a pair of same value cards
+    * @param hand the poker hand to check for a pair of same value cards
+    * @return true if this hand contains a pair of same value cards
+    */
+   public boolean hasPair(Card[] hand)
+   {
+      boolean hasPair = false;
+      for (int index = 0; index < hand.length; index++)
+      {
+         Card card = hand[index];
+         for (int position = 0; position < hand.length; position++)
+         {
+            if (position != index)
+            {
+               Card otherCard = hand[position];
+               if (card.getValue() == otherCard.getValue())
+               {
+                  hasPair = true;
+               }
+            }
+         }
+      }
+      return hasPair;
    }
 }
