@@ -96,3 +96,61 @@ for index from 0 to cards.length - 1
     access card at random index
     switch card with random card (use a temporary value holder)
 
+score hand method problem-solving
+step 1 - understand the problem
+what are the inputs?
+the first 5 cards in an array
+what are the desired outputs?
+a description of the hand a player has and the associated payout
+step 2 - solve an example of the problem by hand
+cards:
+ace of hearts,
+ace of spades,
+3 of diamonds,
+3 of spades,
+3 of hearts
+2 of a kind (pair) and 3 of a kind is a full house.
+associated payout is 6
+step 3 - write pseudocode for solving the problem
+hand = copy of first 5 cards in this game's deck
+by default hand is no pair.
+hand = no pair
+payout = 0
+// check for pair
+repeatedCard = null;
+for card in hand
+    cardValueCounter = 1
+    for otherCard in deck
+        if card reference != otherCard reference && card value == otherCard value
+            cardValueCounter = cardValueCounter + 1
+            repeatedCard = card reference
+if cardValueCounter == 2
+    hand = pair
+    // check for second pair
+    for card in hand
+        if card value != repeatedCard value
+            cardValueCounter
+else if cardValueCounter == 3
+    hand = three of a kind
+else if cardValueCounter == 4
+    hand = four of a kind
+
+I'M THINKING I SHOULD JUST DO THIS BY PAYOUT. THAT WAY AT THE END I CAN
+SAY GT WHICHEVER PAYOUT IS HIGHEST. WHAT I MEAN IS, I CAN CHECK ALL THE
+CONDITIONS AND THEN ONLY ASSIGN THE PAYOUT IF IT IS HIGHER THAN THE CURRENT
+PAYOUT.
+
+working with arrays problem-solving of scoreHand method pdf p.379
+step 1 - Decompose my task into steps
+find out if there are any pairs in the hand array
+find out if there are two pairs in the hand array
+...
+there's a lot of stuff here.
+Lemme just start with no pair and then pair.
+How do I check to see if there is a pair in my array?
+Now I will apply the working with arrays how-to problem-solving method from pdf p.378
+
+for each card in hand
+    for every other card in hand
+        if card value == other card value
+            pair = true
