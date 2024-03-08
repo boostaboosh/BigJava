@@ -154,3 +154,6 @@ for each card in hand
     for every other card in hand
         if card value == other card value
             pair = true
+
+okay, well I implemented the hasPair method of the score hand method.
+Now I need to see if the player has two pairs.
