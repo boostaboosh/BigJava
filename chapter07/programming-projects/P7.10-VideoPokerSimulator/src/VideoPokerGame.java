@@ -125,27 +125,71 @@ public class VideoPokerGame
       int payout = 0;
       Card[] hand = this.deck.getFirstNCards(5);
 
-      if (this.hasPair(hand))
+      int mostCommonCardValueCount = this.getMostCommonCardValueCount(hand);
+      if (mostCommonCardValueCount == 2)
       {
-         System.out.println("Pair or more, payout: >= 1");
+         // 1 pair
+         payout = 1;
+         if (this.hasTwoPairs(hand))
+         {
+            // 2 pairs
+            payout = 2;
+         }
+      }
+      else if (mostCommonCardValueCount == 3)
+      {
+         // 3 of a kind
+         payout = 3;
+         if (this.hasFullHouse)
+         {
+            // full house: 3 of a kind & pair
+            payout = 6;
+         }
+      }
+      else if (mostCommonCardValueCount == 4)
+      {
+         // 4 of a kind
+         payout = 25;
+      }
+      else if (this.hasConsecutiveValues(hand))
+      {
+         // straight: 5 consecutive values (ace can precede 2 or follow king)
+         payout = 4;
+         if (this.hasFlush(hand))
+         {
+            // straight flush: 5 consecutive value of the same suit
+            payout = 50;
+            if (this.hasRoyalFlush(hand))
+            {
+               // royal flush: 10-jack-queen-king-ace of the same suit
+               payout = 250;
+            }
+         }
+      }
+      else if (this.hasFlush(hand))
+      {
+         // flush: 5 cards of the same suit
+         payout = 5;
       }
       else
       {
-         System.out.println("No pair, payout: 0");
+         System.out.println("No pair.");
       }
+      System.out.println("Payout: " + payout);
    }
 
    /**
-    * Checks if a poker hand contains a pair of same value cards
-    * @param hand the poker hand to check for a pair of same value cards
-    * @return true if this hand contains a pair of same value cards
+    * Counts the number of times the most common card value in this hand appears
+    * @param hand the poker hand to get the count of the most common card value from
+    * @return the number of cards with the most common card value in this hand of poker
     */
-   public boolean hasPair(Card[] hand)
+   public int getMostCommonCardValueCount(Card[] hand)
    {
-      boolean hasPair = false;
+      int mostCommonCardValueCounter = 0;
       for (int index = 0; index < hand.length; index++)
       {
          Card card = hand[index];
+         int sameValueCardCounter = 0;
          for (int position = 0; position < hand.length; position++)
          {
             if (position != index)
@@ -153,11 +197,15 @@ public class VideoPokerGame
                Card otherCard = hand[position];
                if (card.getValue() == otherCard.getValue())
                {
-                  hasPair = true;
+                  sameValueCardCounter = sameValueCardCounter + 1;
                }
             }
          }
+         if (sameValueCardCounter > mostCommonCardValueCounter)
+         {
+            mostCommonCardValueCounter = sameValueCardCounter;
+         }
       }
-      return hasPair;
+      return mostCommonCardValueCounter;
    }
 }
