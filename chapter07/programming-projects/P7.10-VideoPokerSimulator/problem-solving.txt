@@ -157,3 +157,17 @@ for each card in hand
 
 okay, well I implemented the hasPair method of the score hand method.
 Now I need to see if the player has two pairs.
+
+pairCounter = 0
+for each card in the hand
+    cardValue = card value
+    for each other card in the hand
+        if cardIndex != otherCardIndex
+            otherCardValue = other card value
+            if cardValue == otherCardValue
+                // this is a pair.
+                pairCounter = pairCounter + 1;
+                remove card from hand
+                remove other card from hand
+                handWithoutFirstPair = hand array without card and other card
+

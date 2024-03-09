@@ -1,0 +1,2 @@
+hasTwoPairs Expected true: true
+hasTwoPairs Expected false: false
