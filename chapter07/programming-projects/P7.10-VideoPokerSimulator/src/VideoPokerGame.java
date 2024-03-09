@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.Scanner;
 
 /**
@@ -122,6 +123,7 @@ public class VideoPokerGame
     */
    public void scoreHand()
    {
+      String handName = "no pair";
       int payout = 0;
       Card[] hand = this.deck.getFirstNCards(5);
 
@@ -130,38 +132,46 @@ public class VideoPokerGame
       {
          // 1 pair
          payout = 1;
+         handName = "pair";
          if (this.hasTwoPairs(hand))
          {
             // 2 pairs
+            handName = "2 pairs";
             payout = 2;
          }
       }
       else if (mostCommonCardValueCount == 3)
       {
          // 3 of a kind
+         handName = "3 of a kind";
          payout = 3;
-         if (this.hasFullHouse)
-         {
-            // full house: 3 of a kind & pair
-            payout = 6;
-         }
+         if (this.hasFullHouse(hand)) // if it has 3 of a kind and a pair it's a full house
+            {
+               // full house: 3 of a kind & pair
+               handName = "full house";
+               payout = 6;
+            }
       }
       else if (mostCommonCardValueCount == 4)
       {
          // 4 of a kind
+         handName = "4 of a kind";
          payout = 25;
       }
       else if (this.hasConsecutiveValues(hand))
       {
          // straight: 5 consecutive values (ace can precede 2 or follow king)
+         handName = "straight";
          payout = 4;
          if (this.hasFlush(hand))
          {
             // straight flush: 5 consecutive value of the same suit
+            handName = "flush";
             payout = 50;
             if (this.hasRoyalFlush(hand))
             {
                // royal flush: 10-jack-queen-king-ace of the same suit
+               handName = "royal flush";
                payout = 250;
             }
          }
@@ -169,17 +179,58 @@ public class VideoPokerGame
       else if (this.hasFlush(hand))
       {
          // flush: 5 cards of the same suit
+         handName = "flush";
          payout = 5;
       }
-      else
-      {
-         System.out.println("No pair.");
-      }
-      System.out.println("Payout: " + payout);
+      System.out.println("Hand: " + handName + "\nPayout: " + payout);
    }
 
    /**
-    * Counts the number of times the most common card value in this hand appears
+    * Checks if this hand is a royal-flush: 10-jack-queen-king-ace of the same suit.
+    * @param hand the hand to check
+    * @return true if hand is a royal-flush
+    */
+   private boolean hasRoyalFlush(Card[] hand)
+   {
+      // TODO
+      return true;
+   }
+
+   /**
+    * Checks if this hand is made up of hands of the same suit.
+    * @param hand the hand to check
+    * @return true if the cards in this hand are of the same suit
+    */
+   private boolean hasFlush(Card[] hand)
+   {
+      // TODO
+      return true;
+   }
+
+   /**
+    * Checks if this hand is made up of cards with consecutive values.
+    * @param hand the hand to check
+    * @return true if this hand is made up of cards with consecutive values
+    */
+   private boolean hasConsecutiveValues(Card[] hand)
+   {
+      // TODO
+      return true;
+   }
+
+   /**
+    * Checks if this hand is a full house.
+    * @param hand the hand to check
+    * @return true if full house
+    */
+   private boolean hasFullHouse(Card[] hand)
+   {
+      // TODO
+      return true;
+   }
+
+   /**
+    * Counts the number of times the most common card value in this hand appears.
     * @param hand the poker hand to get the count of the most common card value from
     * @return the number of cards with the most common card value in this hand of poker
     */
@@ -207,5 +258,65 @@ public class VideoPokerGame
          }
       }
       return mostCommonCardValueCounter;
+   }
+
+   /**
+    * Checks if the hand contains 2 pairs of same value cards.
+    * @param hand the array of cards to check for 2 pairs
+    * @return true if this hand contains 2 pairs of same value cards
+    */
+   public boolean hasTwoPairs(Card[] hand)
+   {
+      boolean hasTwoPairs = false;
+      int pairCounter = 0;
+      Card[] pairHand = Arrays.copyOf(hand, hand.length);
+      int pairHandCurrentSize = hand.length;
+      int cardIndex = 0;
+      while (cardIndex < pairHandCurrentSize)
+      {
+         boolean pairFound = false;
+         Card card = pairHand[cardIndex];
+         int otherCardIndex = 0;
+         while (otherCardIndex < pairHandCurrentSize & !pairFound)
+         {
+            if (cardIndex != otherCardIndex)
+            {
+               Card otherCard = pairHand[otherCardIndex];
+               if (card.getValue() == otherCard.getValue())
+               {
+                  // this is a pair
+                  pairFound = true;
+                  pairCounter = pairCounter + 1;
+                  this.removeCardAtIndex(cardIndex, pairHand);
+                  pairHandCurrentSize = pairHandCurrentSize - 1;
+                  this.removeCardAtIndex(otherCardIndex, pairHand);
+                  pairHandCurrentSize = pairHandCurrentSize - 1;
+               }
+            }
+            otherCardIndex = otherCardIndex + 1;
+         }
+         if (!pairFound)
+         {
+            cardIndex = cardIndex + 1;
+         }
+      }
+      if (pairCounter == 2)
+      {
+         hasTwoPairs = true;
+      }
+      return hasTwoPairs;
+   }
+
+   /**
+    * Removes the card at the specified index from the array.
+    * @param indexToRemove the index of the card to remove
+    * @param hand the array to remove a card from
+    */
+   public void removeCardAtIndex(int indexToRemove, Card[] hand)
+   {
+      for (int index = indexToRemove; index < hand.length - 1; index++)
+      {
+         hand[index] = hand[index + 1];
+      }
    }
 }
