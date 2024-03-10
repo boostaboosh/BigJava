@@ -1,0 +1,2 @@
+hasFullHouse Expected true: true
+hasFullHouse Expected false: false
