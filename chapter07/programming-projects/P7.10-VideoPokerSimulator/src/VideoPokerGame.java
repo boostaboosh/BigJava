@@ -190,7 +190,7 @@ public class VideoPokerGame
     * @param hand the hand to check
     * @return true if hand is a royal-flush
     */
-   private boolean hasRoyalFlush(Card[] hand)
+   public boolean hasRoyalFlush(Card[] hand)
    {
       // TODO
       return true;
@@ -201,7 +201,7 @@ public class VideoPokerGame
     * @param hand the hand to check
     * @return true if the cards in this hand are of the same suit
     */
-   private boolean hasFlush(Card[] hand)
+   public boolean hasFlush(Card[] hand)
    {
       // TODO
       return true;
@@ -212,21 +212,66 @@ public class VideoPokerGame
     * @param hand the hand to check
     * @return true if this hand is made up of cards with consecutive values
     */
-   private boolean hasConsecutiveValues(Card[] hand)
+   public boolean hasConsecutiveValues(Card[] hand)
    {
       // TODO
       return true;
    }
 
    /**
-    * Checks if this hand is a full house.
+    * Checks if this hand is a full house,
+    * i.e., if this hand has 3 cards with the same value and 2 cards with the same value.
     * @param hand the hand to check
     * @return true if full house
     */
-   private boolean hasFullHouse(Card[] hand)
+   public boolean hasFullHouse(Card[] hand)
    {
-      // TODO
-      return true;
+      boolean hasFullHouse = false;
+      boolean hasPair = false;
+      boolean hasThreeOfAKind = false;
+      // check if this hand has 3 cards with the same value and 2 cards with the same but different value
+      for (int firstIndex = 0; firstIndex < hand.length; firstIndex++)
+      {
+         boolean isTwin =false;
+         boolean isTriplet = false;
+         int firstCardValue = hand[firstIndex].getValue();
+         for (int secondIndex = 0; secondIndex < hand.length; secondIndex++)
+         {
+            if (firstIndex != secondIndex)
+            {
+               int secondCardValue = hand[secondIndex].getValue();
+               if (firstCardValue == secondCardValue)
+               {
+                  isTwin = true;
+               }
+               for (int thirdIndex = 0; thirdIndex < hand.length; thirdIndex++)
+               {
+                  if (thirdIndex != secondIndex && thirdIndex != firstIndex)
+                  {
+                     int thirdCardValue = hand[thirdIndex].getValue();
+                     if (firstCardValue == secondCardValue && secondCardValue == thirdCardValue)
+                     {
+                        isTriplet = true;
+                        isTwin = false;
+                     }
+                  }
+               }
+            }
+         }
+         if (isTwin)
+         {
+            hasPair = true;
+         }
+         else if (isTriplet)
+         {
+            hasThreeOfAKind = true;
+         }
+      }
+      if (hasPair && hasThreeOfAKind)
+      {
+         hasFullHouse = true;
+      }
+      return hasFullHouse;
    }
 
    /**
