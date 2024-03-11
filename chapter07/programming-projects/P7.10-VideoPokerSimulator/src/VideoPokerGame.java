@@ -209,13 +209,26 @@ public class VideoPokerGame
 
    /**
     * Checks if this hand is made up of cards with consecutive values.
+    * (the ace can either precede a 2 or follow a king)
     * @param hand the hand to check
     * @return true if this hand is made up of cards with consecutive values
     */
    public boolean hasConsecutiveValues(Card[] hand)
    {
-      // TODO
-      return true;
+      boolean hasConsecutiveValues = true;
+      for (int index = 1; index < hand.length; index++)
+      {
+         int cardValue = hand[index].getValue();
+         int previousCardValue = hand[index - 1].getValue();
+         if (cardValue != previousCardValue + 1)
+         {
+            if (!(cardValue == 1 && previousCardValue == 13))
+            {
+               hasConsecutiveValues = false;
+            }
+         }
+      }
+      return hasConsecutiveValues;
    }
 
    /**
