@@ -1,0 +1,3 @@
+hasStraightHand Expected true: true
+hasStraightHand Expected false: false
+hasStraightHand with king followed by ace, Expected true: true

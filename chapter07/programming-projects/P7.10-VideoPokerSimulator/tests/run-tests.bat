@@ -6,3 +6,5 @@ javac -d "../out/production/P7.10-VideoPokerSimulator/" src/*.java
 java -cp "../out/production/P7.10-VideoPokerSimulator/" TwoPairsScoreTest > tests/twoPairsScoreTestOutput.txt
 
 java -cp "../out/production/P7.10-VideoPokerSimulator/" FullHouseScoreTest > tests/fullHouseScoreTestOutput.txt
+
+java -cp "../out/production/P7.10-VideoPokerSimulator/" StraightScoreTest > tests/straightScoreTestOutput.txt
