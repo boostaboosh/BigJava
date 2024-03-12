@@ -1,0 +1,2 @@
+hasFlush Expected true: true
+hasFlush Expected false: false
