@@ -192,8 +192,25 @@ public class VideoPokerGame
     */
    public boolean hasRoyalFlush(Card[] hand)
    {
-      // TODO
-      return true;
+      boolean hasRoyalFlush = false;
+      if (!this.hasFlush(hand))
+      {
+         hasRoyalFlush = false;
+      }
+      else
+      {
+         int[] royalFlushValues = { 10, 11, 12, 13, 1 };
+         int[] handValues = new int[hand.length];
+         for (int index = 0; index < hand.length; index ++)
+         {
+            handValues[index] = hand[index].getValue();
+         }
+         // TODO: fill implementation
+         // sort handValue
+         // once sorted compare one by one card values with royal flush values
+         // if order the same then it's a royal flush order
+      }
+      return hasRoyalFlush;
    }
 
    /**
@@ -203,8 +220,16 @@ public class VideoPokerGame
     */
    public boolean hasFlush(Card[] hand)
    {
-      // TODO
-      return true;
+      boolean hasFlush = true;
+      Card.Suit firstCardSuit = hand[0].getSuit();
+      for (int index = 0; index < hand.length; index ++)
+      {
+         if (!hand[index].getSuit().equals(firstCardSuit))
+         {
+            hasFlush = false;
+         }
+      }
+      return hasFlush;
    }
 
    /**

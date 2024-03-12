@@ -8,3 +8,5 @@ java -cp "../out/production/P7.10-VideoPokerSimulator/" TwoPairsScoreTest > test
 java -cp "../out/production/P7.10-VideoPokerSimulator/" FullHouseScoreTest > tests/fullHouseScoreTestOutput.txt
 
 java -cp "../out/production/P7.10-VideoPokerSimulator/" StraightScoreTest > tests/straightScoreTestOutput.txt
+
+java -cp "../out/production/P7.10-VideoPokerSimulator/" FlushScoreTest > tests/flushScoreTestOutput.txt
