@@ -10,3 +10,7 @@ java -cp "../out/production/P7.10-VideoPokerSimulator/" FullHouseScoreTest > tes
 java -cp "../out/production/P7.10-VideoPokerSimulator/" StraightScoreTest > tests/straightScoreTestOutput.txt
 
 java -cp "../out/production/P7.10-VideoPokerSimulator/" FlushScoreTest > tests/flushScoreTestOutput.txt
+
+java -cp "../out/production/P7.10-VideoPokerSimulator/" RoyalFlushScoreTest > tests/royalFlushScoreTestOutput.txt
+
+java -cp "../out/production/P7.10-VideoPokerSimulator/" CardCountScoreTest > tests/CardCountScoreTestOutput.txt

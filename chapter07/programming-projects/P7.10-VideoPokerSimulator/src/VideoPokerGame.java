@@ -192,23 +192,33 @@ public class VideoPokerGame
     */
    public boolean hasRoyalFlush(Card[] hand)
    {
-      boolean hasRoyalFlush = false;
-      if (!this.hasFlush(hand))
+      boolean hasRoyalFlush = true;
+      if (this.hasFlush(hand))
       {
-         hasRoyalFlush = false;
-      }
-      else
-      {
-         int[] royalFlushValues = { 10, 11, 12, 13, 1 };
+         int[] royalFlushValues = { 1, 10, 11, 12, 13 };
          int[] handValues = new int[hand.length];
          for (int index = 0; index < hand.length; index ++)
          {
             handValues[index] = hand[index].getValue();
          }
-         // TODO: fill implementation
          // sort handValue
+         Arrays.sort(handValues);
          // once sorted compare one by one card values with royal flush values
-         // if order the same then it's a royal flush order
+         int index = 0;
+         boolean done = false;
+         while (index < handValues.length && !done)
+         {
+            if (handValues[index] != royalFlushValues[index])
+            {
+               hasRoyalFlush = false;
+               done = true;
+            }
+            index = index + 1;
+         }
+      }
+      else
+      {
+         hasRoyalFlush = false;
       }
       return hasRoyalFlush;
    }
@@ -335,9 +345,10 @@ public class VideoPokerGame
                }
             }
          }
-         if (sameValueCardCounter > mostCommonCardValueCounter)
+         int thisValueCardCount = sameValueCardCounter + 1;
+         if (thisValueCardCount > mostCommonCardValueCounter)
          {
-            mostCommonCardValueCounter = sameValueCardCounter;
+            mostCommonCardValueCounter = thisValueCardCount;
          }
       }
       return mostCommonCardValueCounter;

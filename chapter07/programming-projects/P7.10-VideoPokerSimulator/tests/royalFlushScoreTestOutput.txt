@@ -1,0 +1,3 @@
+hasRoyalFlush Expected true: true
+hasRoyalFlush Expected false because flush but not royal cards: false
+hasRoyalFlush Expected false because royal cards but not flush: false
