@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
 import java.util.logging.Logger;
@@ -17,7 +18,16 @@ public class MethodDemonstration
     public static void main(String[] args)
     {
         String word = "hello";
-        Scanner scanner = new Scanner(System.in);
-        System.out.print(scanner.delimiter());
+        int ROW_LABEL_WIDTH = 3;
+        int counter = 1;
+        System.out.printf("%d", counter);
+        System.out.println();
+        System.out.printf("%3d", counter);
+        System.out.println();
+        System.out.printf("%" + (ROW_LABEL_WIDTH + 1) + "d", counter);
+        System.out.println();
+
+        int[] intArray = new int[10];
+        System.out.print(Arrays.toString(intArray));
     }
 }

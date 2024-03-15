@@ -75,4 +75,12 @@ generation 4:
 
 write pseudocode for solving general instances of the problem
 I solved a specific instance of by hand:
+pseudocode:
 
+ask user to specify board size
+ask user to specify empty and occupied cells in the board's starting configuration (generation 0)
+print the board starting configuration
+ask user to specify how many generations they want to print
+for generation from 0 to generationsToPrint
+    compute the next generation of cells on the board
+    print the new board
