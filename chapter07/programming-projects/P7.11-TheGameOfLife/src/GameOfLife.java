@@ -17,7 +17,6 @@ public class GameOfLife
    //constructors
    public GameOfLife()
    {
-      // TODO: fill implementation
       this.askUserForStartingConfiguration();
       this.askUserForGenerationsToPrint();
    }
@@ -31,30 +30,78 @@ public class GameOfLife
    public void askUserForStartingConfiguration()
    {
       // ask user for starting board configuration
-      System.out.println("How many rows do you want the board to have? ");
+      System.out.print("How many rows do you want the board to have? ");
       Scanner scanner = new Scanner(System.in);
-      int boardRowNumber = scanner.nextInt();
+      int numberOfRows = scanner.nextInt();
 
-      System.out.println("How many columns do you want the board to have? ");
-      int boardColumnNumber = scanner.nextInt();
+      System.out.print("How many columns do you want the board to have? ");
+      int numberOfColumns = scanner.nextInt();
+      scanner.nextLine(); // gets rid of the new line character left
+      // in the scanner's input stream from the user entry of the
+      // number of columns
+
+      this.board = new Cell[numberOfRows][numberOfColumns];
 
       System.out.println("Specify empty and occupied cells in the board's "
             + "\nstarting configuration one row at a time."
-            + "\nuse spaces for empty cells and the letter o for occupied cells.");
+            + "\nUse spaces for empty cells "
+            + "\nand the letter 'o' for occupied cells.");
+
+      // prints the labels which number the columns of the board
       int ROW_LABEL_WIDTH = 3;
-      for (int counter = 1; counter <= boardColumnNumber; counter++)
+      for (int counter = 1; counter <= numberOfColumns; counter++)
       {
          if (counter == 1)
          {
             System.out.printf(" ".repeat(ROW_LABEL_WIDTH));
          }
          System.out.print(counter);
+         if (counter == numberOfColumns)
+         {
+            System.out.println();
+         }
       }
 
-      // TODO: fill implementation
-      // for each row
-      // print row label
-      // get user input for said row
+      // gets user input for each row of the board
+      int rowIndexCounter = 0;
+      while (rowIndexCounter < numberOfRows)
+      {
+         System.out.printf("%" + ROW_LABEL_WIDTH + "d", rowIndexCounter + 1);
+         String inputRow = "";
+         inputRow = scanner.nextLine();
+
+         if (inputRow.length() == this.board[0].length)
+         {
+            int columnIndexCounter = 0;
+            boolean validInputCharacter = true;
+            while (columnIndexCounter < this.board[0].length && validInputCharacter)
+            {
+               char character = inputRow.charAt(columnIndexCounter);
+               Cell cell = null;
+               if (character == ' ')
+               {
+                  cell = new Cell(Cell.State.DEAD);
+               }
+               else if (character == 'o')
+               {
+                  cell = new Cell(Cell.State.ALIVE);
+               }
+               else
+               {
+                  validInputCharacter = false;
+               }
+               if (validInputCharacter)
+               {
+                  this.board[rowIndexCounter][columnIndexCounter] = cell;
+                  columnIndexCounter = columnIndexCounter + 1;
+               }
+            }
+            if (validInputCharacter)
+            {
+               rowIndexCounter = rowIndexCounter + 1;
+            }
+         }
+      }
    }
 
    /**

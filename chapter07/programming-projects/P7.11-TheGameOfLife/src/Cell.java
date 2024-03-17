@@ -3,13 +3,14 @@
  */
 public class Cell
 {
-   // instance variables
    public enum State { ALIVE, DEAD }
+   // instance variables
+   State state;
 
    // constructors
    public Cell(State state)
    {
-      // TODO: fill implementation
+      this.state = state;
    }
 
    // methods
@@ -18,7 +19,7 @@ public class Cell
     */
    public void setStatus(State state)
    {
-      // TODO: fill implementation
+      this.state = state;
    }
 
    /**
@@ -26,7 +27,6 @@ public class Cell
     */
    public State getStatus()
    {
-      // TODO: fill implementation
-      return State.ALIVE;
+      return this.state;
    }
 }
