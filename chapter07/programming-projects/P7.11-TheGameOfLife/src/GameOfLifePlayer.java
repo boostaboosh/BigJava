@@ -1,5 +1,3 @@
-import java.util.Scanner;
-
 /**
  * The class contains a program which lets users
  * play the game of life.
