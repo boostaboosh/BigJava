@@ -110,10 +110,14 @@ public class GameOfLife
     */
    public void askUserForGenerationsToPrint()
    {
-      System.out.println("How many generations do you want to print? ");
+      System.out.print("How many generations do you want to print? ");
       Scanner scanner = new Scanner(System.in);
-      int generationsToPrint = scanner.nextInt();
-      // TODO: fill implementation
+      while (!scanner.hasNextInt())
+      {
+         scanner.nextLine();
+         System.out.print("You must enter an integer: ");
+      }
+      this.generationsToPrint = scanner.nextInt();
    }
 
    /**
@@ -123,6 +127,88 @@ public class GameOfLife
     */
    public void playGame()
    {
+      for (int generationCounter = 0; generationCounter <= this.generationsToPrint; generationCounter++)
+      {
+         System.out.println("Generation " + generationCounter + ":");
+         this.printBoard();
+         this.board = this.getNextGeneration();
+      }
+   }
+
+   /**
+    * Prints this game's board.
+    */
+   public void printBoard()
+   {
+      final String ALIVE_CELL_SYMBOL = "o";
+      final String DEAD_CELL_SYMBOL = " ";
+      for (Cell[] rowOfCells : this.board)
+      {
+         for (Cell cell : rowOfCells)
+         {
+            if (cell.getStatus().equals(Cell.State.ALIVE))
+            {
+               System.out.print(ALIVE_CELL_SYMBOL);
+            } else
+            {
+               System.out.print(DEAD_CELL_SYMBOL);
+            }
+         }
+         System.out.println();
+      }
+   }
+
+   /**
+    * Computes the next generation of this game's board of cells and returns it.
+    * @return the 2D array of cells representing the next generation's board of cells
+    */
+   public Cell[][] getNextGeneration()
+   {
+      Cell[][] newBoard = new Cell[this.board.length][this.board[0].length];
+
+      for (int rowIndex = 0; rowIndex < this.board.length; rowIndex++)
+      {
+         for (int columnIndex = 0; columnIndex < this.board[0].length; columnIndex++)
+         {
+            Cell newCell = null;
+            Cell oldCell = this.board[rowIndex][columnIndex];
+            int numberOfNeighbours = this.getNumberOfNeighbours(rowIndex, columnIndex);
+            if (numberOfNeighbours <= 1)
+            {
+               newCell = new Cell(Cell.State.DEAD);
+            }
+            else if (numberOfNeighbours == 2)
+            {
+               newCell = new Cell(oldCell.getStatus());
+            }
+            else if (numberOfNeighbours == 3)
+            {
+               newCell = new Cell(Cell.State.ALIVE);
+            }
+            else // if (numberOfNeighbours >= 4)
+            {
+               newCell = new Cell(Cell.State.DEAD);
+            }
+            newBoard[rowIndex][columnIndex] = newCell;
+         }
+      }
+
+      return newBoard;
+   }
+
+   /**
+    * Gets the number of alive neighbours to this cell in this game's board.
+    * A cell's neighbours are its 8 surrounding cells in a 2D board.
+    * @param oldCellRowIndex the row index of the cell to find the number of live neighbours of
+    * @param oldCellColumnIndex the column index of the cell to find the number of live neighbours of
+    * @return the number of alive neighbours of the specified cell
+    */
+   public int getNumberOfNeighbours(int oldCellRowIndex, int oldCellColumnIndex)
+   {
+      int numberOfAliveNeighbours = 0;
+
       // TODO: fill implementation
+
+      return numberOfAliveNeighbours;
    }
 }
