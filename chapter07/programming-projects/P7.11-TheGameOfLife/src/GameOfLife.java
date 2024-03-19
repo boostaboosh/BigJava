@@ -164,30 +164,32 @@ public class GameOfLife
     */
    public Cell[][] getNextGeneration()
    {
+      if (this.hasAliveEdgeCells())
+      {
+         // TODO: fill implementation
+         // increment the size of this game's board by 1 cell in each direction so it has empty edges
+      }
+
       Cell[][] newBoard = new Cell[this.board.length][this.board[0].length];
 
-      for (int rowIndex = 0; rowIndex < this.board.length; rowIndex++)
+      for (int rowIndex = 0; rowIndex < newBoard.length; rowIndex++)
       {
-         for (int columnIndex = 0; columnIndex < this.board[0].length; columnIndex++)
+         for (int columnIndex = 0; columnIndex < newBoard[0].length; columnIndex++)
          {
             Cell newCell = null;
             Cell oldCell = this.board[rowIndex][columnIndex];
-            int numberOfNeighbours = this.getNumberOfNeighbours(rowIndex, columnIndex);
-            if (numberOfNeighbours <= 1)
+            int numberOfNeighbours = this.getNumberOfAliveNeighbours(rowIndex, columnIndex);
+            if (numberOfNeighbours <= 1 || numberOfNeighbours >= 4)
             {
                newCell = new Cell(Cell.State.DEAD);
-            }
-            else if (numberOfNeighbours == 2)
-            {
-               newCell = new Cell(oldCell.getStatus());
             }
             else if (numberOfNeighbours == 3)
             {
                newCell = new Cell(Cell.State.ALIVE);
             }
-            else // if (numberOfNeighbours >= 4)
+            else // if (numberOfNeighbours == 2)
             {
-               newCell = new Cell(Cell.State.DEAD);
+               newCell = new Cell(oldCell.getStatus());
             }
             newBoard[rowIndex][columnIndex] = newCell;
          }
@@ -199,16 +201,24 @@ public class GameOfLife
    /**
     * Gets the number of alive neighbours to this cell in this game's board.
     * A cell's neighbours are its 8 surrounding cells in a 2D board.
-    * @param oldCellRowIndex the row index of the cell to find the number of live neighbours of
-    * @param oldCellColumnIndex the column index of the cell to find the number of live neighbours of
+    * @param cellRowIndex the row index of the cell to find the number of live neighbours of
+    * @param cellColumnIndex the column index of the cell to find the number of live neighbours of
     * @return the number of alive neighbours of the specified cell
     */
-   public int getNumberOfNeighbours(int oldCellRowIndex, int oldCellColumnIndex)
+   public int getNumberOfAliveNeighbours(int cellRowIndex, int cellColumnIndex)
    {
-      int numberOfAliveNeighbours = 0;
+      // TODO: fill implementation (careful not to check corner cells twice)
+      return 0;
+   }
 
+   /**
+    * Checks if the edge rows and columns of this game's board contain cells
+    * which are alive.
+    * @return true if this game has edge cells which are alive
+    */
+   public boolean hasAliveEdgeCells()
+   {
       // TODO: fill implementation
-
-      return numberOfAliveNeighbours;
+      return true;
    }
 }
