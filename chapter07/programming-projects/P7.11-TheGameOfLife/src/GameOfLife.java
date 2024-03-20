@@ -112,12 +112,18 @@ public class GameOfLife
    {
       System.out.print("How many generations do you want to print? ");
       Scanner scanner = new Scanner(System.in);
+      // TODO: remove comment when running program interactively, i.e.,
+      //       when getting input from the user through the keyboard
+      //       instead of through a text file for testing purposes.
+      /*
       while (!scanner.hasNextInt())
       {
          scanner.nextLine();
          System.out.print("You must enter an integer: ");
       }
-      this.generationsToPrint = scanner.nextInt();
+       */
+      String inputLine = scanner.nextLine();
+      this.generationsToPrint = Integer.valueOf(inputLine);
    }
 
    /**
@@ -178,7 +184,7 @@ public class GameOfLife
          {
             Cell newCell = null;
             Cell oldCell = this.board[rowIndex][columnIndex];
-            int numberOfNeighbours = this.getNumberOfAliveNeighbours(rowIndex, columnIndex);
+            int numberOfNeighbours = this.getNonEdgeCellNeighboursCount(rowIndex, columnIndex);
             if (numberOfNeighbours <= 1 || numberOfNeighbours >= 4)
             {
                newCell = new Cell(Cell.State.DEAD);
@@ -205,7 +211,7 @@ public class GameOfLife
     * @param cellColumnIndex the column index of the cell to find the number of live neighbours of
     * @return the number of alive neighbours of the specified cell
     */
-   public int getNumberOfAliveNeighbours(int cellRowIndex, int cellColumnIndex)
+   public int getNonEdgeCellNeighboursCount(int cellRowIndex, int cellColumnIndex)
    {
       // TODO: fill implementation (careful not to check corner cells twice)
       return 0;
@@ -218,7 +224,32 @@ public class GameOfLife
     */
    public boolean hasAliveEdgeCells()
    {
-      // TODO: fill implementation
-      return true;
+      int rowIndexOfTopEdgeCells = 0;
+      int columnIndexOfLeftEdgeCells = 0;
+      int rowIndexOfBottomEdgeCells = this.board.length - 1;
+      int columnIndexOfRightEdgeCells = this.board[0].length - 1;
+
+      boolean hasAliveEdgeCells = false;
+      boolean done = false;
+      for (int columnIndex = 0; columnIndex < this.board[0].length && !done; columnIndex++)
+      {
+         if (this.board[rowIndexOfTopEdgeCells][columnIndex].getStatus() == Cell.State.ALIVE
+               || this.board[rowIndexOfBottomEdgeCells][columnIndex].getStatus() == Cell.State.ALIVE)
+         {
+            hasAliveEdgeCells = true;
+            done = true;
+         }
+      }
+      for (int rowIndex = 0; rowIndex < this.board.length && !done; rowIndex++)
+      {
+         if (this.board[rowIndex][columnIndexOfLeftEdgeCells].getStatus() == Cell.State.ALIVE
+               || this.board[rowIndex][columnIndexOfRightEdgeCells].getStatus() == Cell.State.ALIVE)
+         {
+            hasAliveEdgeCells = true;
+            done = true;
+         }
+      }
+
+      return hasAliveEdgeCells;
    }
 }
