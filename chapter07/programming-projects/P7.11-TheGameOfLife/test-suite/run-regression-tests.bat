@@ -22,5 +22,8 @@ java -cp "../out/production/P7.11-TheGameOfLife/" GetNextGenerationTester < getN
 java -cp "../out/production/P7.11-TheGameOfLife/" GetNextGenerationTester < getNextGenerationStaticAliveEdgeCellsGameTestInput.txt > getNextGenerationStaticAliveEdgeCellsGameTestOutput.txt
 java -cp "../out/production/P7.11-TheGameOfLife/" GetNextGenerationTester < getNextGenerationDynamicAliveEdgeCellsGameTestInput.txt > getNextGenerationDynamicAliveEdgeCellsGameTestOutput.txt
 
+# glider test
+java -cp "../out/production/P7.11-TheGameOfLife" GetNextGenerationTester < getNextGenerationGliderTestInput.txt > getNextGenerationGliderTestOutput.txt
+
 # glider gun game expected output test
 java -cp "../out/production/P7.11-TheGameOfLife" GetNextGenerationTester < getNextGenerationGliderGunTestInput.txt > getNextGenerationGliderGunTestOutput.txt
