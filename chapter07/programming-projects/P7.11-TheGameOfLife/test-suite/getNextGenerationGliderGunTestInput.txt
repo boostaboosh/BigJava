@@ -1,0 +1,42 @@
+glider gun from Big Java book board configuration at generation 150
+38
+11
+           
+  oo       
+  oo       
+           
+           
+           
+     oo    
+           
+           
+           
+           
+ oo   oo   
+  ooooo    
+  oo oo    
+  oo oo    
+   ooo     
+           
+           
+           
+           
+     ooo   
+     ooo   
+    o   o  
+   o     o 
+    o   o  
+     ooo   
+           
+           
+           
+           
+           
+           
+           
+           
+           
+     oo    
+     oo    
+           
+150

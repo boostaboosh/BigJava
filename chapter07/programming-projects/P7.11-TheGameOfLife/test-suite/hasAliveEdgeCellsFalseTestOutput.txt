@@ -1,0 +1,3 @@
+Has alive edge cells test:
+Expected: false
+How many rows do you want the board to have? 
