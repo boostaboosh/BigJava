@@ -1,0 +1,7 @@
+generation 0:\n   \n o \n   \ngeneration 1:\n   \n   \n   \n
+3
+3
+   
+ o 
+   
+1
