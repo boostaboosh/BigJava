@@ -1,0 +1,4 @@
+Get next generation test:
+Expected: 
+Result: 
+How many rows do you want the board to have? 

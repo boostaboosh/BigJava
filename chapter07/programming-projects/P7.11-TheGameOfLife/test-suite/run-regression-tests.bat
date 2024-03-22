@@ -12,5 +12,15 @@ javac --release 11 -d "../out/production/P7.11-TheGameOfLife/" ../src/*.java
 
 # After compilation run tests using input and output files
 # by running the class files for each test.
-java -cp "../out/production/P7.11-TheGameOfLife/" HasAliveEdgeCellsTester < hasAliveEdgeCellsTestInput.txt > hasAliveEdgeCellsTestOutput.txt
-java -cp "../out/production/P7.11-TheGameOfLife/" GetNextGenerationTester < getNextGenerationTestInput.txt > getNextGenerationTestOutput.txt
+
+# has alive edge cells tests
+java -cp "../out/production/P7.11-TheGameOfLife/" HasAliveEdgeCellsTester < hasAliveEdgeCellsFalseTestInput.txt > hasAliveEdgeCellsFalseTestOutput.txt
+java -cp "../out/production/P7.11-TheGameOfLife/" HasAliveEdgeCellsTester < hasAliveEdgeCellsTrueTestInput.txt > hasAliveEdgeCellsTrueTestOutput.txt
+
+# get next generations tests
+java -cp "../out/production/P7.11-TheGameOfLife/" GetNextGenerationTester < getNextGenerationNoEdgeCellsGameTestInput.txt > getNextGenerationNoEdgeCellsGameTestOutput.txt
+java -cp "../out/production/P7.11-TheGameOfLife/" GetNextGenerationTester < getNextGenerationStaticAliveEdgeCellsGameTestInput.txt > getNextGenerationStaticAliveEdgeCellsGameTestOutput.txt
+java -cp "../out/production/P7.11-TheGameOfLife/" GetNextGenerationTester < getNextGenerationDynamicAliveEdgeCellsGameTestInput.txt > getNextGenerationDynamicAliveEdgeCellsGameTestOutput.txt
+
+# glider gun game expected output test
+java -cp "../out/production/P7.11-TheGameOfLife" GetNextGenerationTester < getNextGenerationGliderGunTestInput.txt > getNextGenerationGliderGunTestOutput.txt

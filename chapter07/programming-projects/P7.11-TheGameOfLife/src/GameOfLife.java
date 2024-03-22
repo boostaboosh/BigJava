@@ -9,23 +9,24 @@ import java.util.Scanner;
  */
 public class GameOfLife
 {
-   // instance variables
    Cell[][] board;
-   // number of generations to print
    int generationsToPrint;
 
-   //constructors
+   /**
+    * Creates a game of life with user specified starting configuration.
+    */
    public GameOfLife()
    {
       this.askUserForStartingConfiguration();
-      this.askUserForGenerationsToPrint();
    }
 
    // methods
    /**
     * Asks user for this game's starting board configuration,
     * i.e., the size of the playing board and the starting
-    * values (alive/dead) of its cells.
+    * values (alive/dead) of its cells, and also asks user for
+    * the number of generations of this game of life's board
+    * they want to print.
     */
    public void askUserForStartingConfiguration()
    {
@@ -47,20 +48,8 @@ public class GameOfLife
             + "\nUse spaces for empty cells "
             + "\nand the letter 'o' for occupied cells.");
 
-      // prints the labels which number the columns of the board
-      int ROW_LABEL_WIDTH = 3;
-      for (int counter = 1; counter <= numberOfColumns; counter++)
-      {
-         if (counter == 1)
-         {
-            System.out.printf(" ".repeat(ROW_LABEL_WIDTH));
-         }
-         System.out.print(counter);
-         if (counter == numberOfColumns)
-         {
-            System.out.println();
-         }
-      }
+      final int ROW_LABEL_WIDTH = 3;
+      this.printBoardColumnLabels(ROW_LABEL_WIDTH, numberOfColumns);
 
       // gets user input for each row of the board
       int rowIndexCounter = 0;
@@ -81,12 +70,10 @@ public class GameOfLife
                if (character == ' ')
                {
                   cell = new Cell(Cell.State.DEAD);
-               }
-               else if (character == 'o')
+               } else if (character == 'o')
                {
                   cell = new Cell(Cell.State.ALIVE);
-               }
-               else
+               } else
                {
                   validInputCharacter = false;
                }
@@ -102,28 +89,35 @@ public class GameOfLife
             }
          }
       }
-   }
 
-   /**
-    * Asks user how many generations of this game of life's
-    * board they want to print.
-    */
-   public void askUserForGenerationsToPrint()
-   {
+      // Asks user how many generations of this game of life's board they want to print.
       System.out.print("How many generations do you want to print? ");
-      Scanner scanner = new Scanner(System.in);
-      // TODO: remove comment when running program interactively, i.e.,
-      //       when getting input from the user through the keyboard
-      //       instead of through a text file for testing purposes.
-      /*
       while (!scanner.hasNextInt())
       {
          scanner.nextLine();
          System.out.print("You must enter an integer: ");
       }
-       */
-      String inputLine = scanner.nextLine();
-      this.generationsToPrint = Integer.valueOf(inputLine);
+      this.generationsToPrint = scanner.nextInt();
+   }
+
+   /**
+    * Prints the labels which number the columns of the board.
+    * @param numberOfColumns the number of columns to print labels for
+    */
+   private void printBoardColumnLabels(int rowLabelWidth, int numberOfColumns)
+   {
+      for (int counter = 1; counter <= numberOfColumns; counter++)
+      {
+         if (counter == 1)
+         {
+            System.out.printf(" ".repeat(rowLabelWidth));
+         }
+         System.out.print(counter);
+         if (counter == numberOfColumns)
+         {
+            System.out.println();
+         }
+      }
    }
 
    /**
@@ -172,8 +166,7 @@ public class GameOfLife
    {
       if (this.hasAliveEdgeCells())
       {
-         // TODO: fill implementation
-         // increment the size of this game's board by 1 cell in each direction so it has empty edges
+         this.incrementBoardSize();
       }
 
       Cell[][] newBoard = new Cell[this.board.length][this.board[0].length];
@@ -183,25 +176,67 @@ public class GameOfLife
          for (int columnIndex = 0; columnIndex < newBoard[0].length; columnIndex++)
          {
             Cell newCell = null;
-            Cell oldCell = this.board[rowIndex][columnIndex];
-            int numberOfNeighbours = this.getNonEdgeCellNeighboursCount(rowIndex, columnIndex);
-            if (numberOfNeighbours <= 1 || numberOfNeighbours >= 4)
+            if (rowIndex == 0 || rowIndex == this.board.length - 1 
+                  || columnIndex == 0 || columnIndex == this.board[0].length - 1)
             {
                newCell = new Cell(Cell.State.DEAD);
             }
-            else if (numberOfNeighbours == 3)
+            else
             {
-               newCell = new Cell(Cell.State.ALIVE);
-            }
-            else // if (numberOfNeighbours == 2)
-            {
-               newCell = new Cell(oldCell.getStatus());
+               int numberOfNeighbours = this.getNonEdgeCellNeighboursCount(rowIndex, columnIndex);
+               if (numberOfNeighbours <= 1 || numberOfNeighbours >= 4)
+               {
+                  newCell = new Cell(Cell.State.DEAD);
+               }
+               else if (numberOfNeighbours == 3)
+               {
+                  newCell = new Cell(Cell.State.ALIVE);
+               }
+               else // if (numberOfNeighbours == 2)
+               {
+                  Cell oldCell = this.board[rowIndex][columnIndex];
+                  newCell = new Cell(oldCell.getStatus());
+               }
             }
             newBoard[rowIndex][columnIndex] = newCell;
          }
       }
 
       return newBoard;
+   }
+
+   /**
+    * Increments the size of this game of life's board by one
+    * in each direction. Thereby creating an empty square of cells
+    * around the previous board of cells.
+    */
+   private void incrementBoardSize()
+   {
+      Cell[][] biggerBoard = new Cell[this.board.length + 2][this.board[0].length + 2];
+      for (int rowIndex = 0; rowIndex < biggerBoard.length; rowIndex++)
+      {
+         for (int columnIndex = 0; columnIndex < biggerBoard[0].length; columnIndex++)
+         {
+            Cell newCell = new Cell(Cell.State.DEAD);
+            final int indexOfFirstRowOnNewBoard = 1;
+            final int indexOfLastRowOnNewBoard = biggerBoard.length - 2;
+            final int indexOfFirstColumnOnNewBoard = 1;
+            final int indexOfLastColumnOnNewBoard = biggerBoard[0].length - 2;
+            if (rowIndex >= indexOfFirstRowOnNewBoard
+                  && rowIndex <= indexOfLastRowOnNewBoard
+                  && columnIndex >= indexOfFirstColumnOnNewBoard
+                  && columnIndex <= indexOfLastColumnOnNewBoard)
+            {
+               int indexOfRowOnOldBoard = rowIndex - 1;
+               int indexOfColumnOnOldBoard = columnIndex - 1;
+               Cell.State oldBoardCellState =
+                     this.board[indexOfRowOnOldBoard][indexOfColumnOnOldBoard].getStatus();
+               newCell = new Cell(oldBoardCellState);
+            }
+            biggerBoard[rowIndex][columnIndex] = newCell;
+         }
+      }
+      this.board = biggerBoard;
    }
 
    /**
@@ -213,8 +248,23 @@ public class GameOfLife
     */
    public int getNonEdgeCellNeighboursCount(int cellRowIndex, int cellColumnIndex)
    {
-      // TODO: fill implementation (careful not to check corner cells twice)
-      return 0;
+      int neighboursCount = 0;
+      for (int rowIndex = cellRowIndex - 1;
+           rowIndex <= cellRowIndex + 1;
+           rowIndex++)
+      {
+         for (int columnIndex = cellColumnIndex - 1;
+              columnIndex <= cellColumnIndex + 1;
+              columnIndex++)
+         {
+            if (this.board[rowIndex][columnIndex].getStatus() == Cell.State.ALIVE 
+                  && !(rowIndex == cellRowIndex && columnIndex == cellColumnIndex))
+            {
+               neighboursCount = neighboursCount + 1;
+            }
+         }
+      }
+      return neighboursCount;
    }
 
    /**
