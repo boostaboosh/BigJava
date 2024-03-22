@@ -1,0 +1,9 @@
+a glider which after every 4 generations has transformed to the original shape from gen 0, but located one square to the right and below
+6
+7
+       
+  o    
+   o   
+ ooo   
+       
+       
