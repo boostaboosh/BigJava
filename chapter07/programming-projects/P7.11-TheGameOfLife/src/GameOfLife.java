@@ -131,7 +131,7 @@ public class GameOfLife
       {
          System.out.println("Generation " + generationCounter + ":");
          this.printBoard();
-         this.board = this.getNextGeneration();
+         this.board = this.makeNextGeneration();
       }
    }
 
@@ -162,47 +162,41 @@ public class GameOfLife
     * Computes the next generation of this game's board of cells and returns it.
     * @return the 2D array of cells representing the next generation's board of cells
     */
-   public Cell[][] getNextGeneration()
+   public Cell[][] makeNextGeneration()
    {
       if (this.hasAliveEdgeCells())
       {
+         // add an empty edge (of dead cells) because cells could become alive
+         // if adjacent to other alive cells.
          this.incrementBoardSize();
       }
 
-      Cell[][] newBoard = new Cell[this.board.length][this.board[0].length];
+      Cell[][] nextGenerationBoard = new Cell[this.board.length][this.board[0].length];
 
-      for (int rowIndex = 0; rowIndex < newBoard.length; rowIndex++)
+      for (int rowIndex = 0; rowIndex < nextGenerationBoard.length; rowIndex++)
       {
-         for (int columnIndex = 0; columnIndex < newBoard[0].length; columnIndex++)
+         for (int columnIndex = 0; columnIndex < nextGenerationBoard[0].length; columnIndex++)
          {
-            Cell newCell = null;
-            if (rowIndex == 0 || rowIndex == this.board.length - 1 
-                  || columnIndex == 0 || columnIndex == this.board[0].length - 1)
+            Cell nextGenerationCell = null;
+            int numberOfNeighbours = this.getNeighboursCount(rowIndex, columnIndex);
+            if (numberOfNeighbours <= 1 || numberOfNeighbours >= 4)
             {
-               newCell = new Cell(Cell.State.DEAD);
+               nextGenerationCell = new Cell(Cell.State.DEAD);
             }
-            else
+            else if (numberOfNeighbours == 3)
             {
-               int numberOfNeighbours = this.getNonEdgeCellNeighboursCount(rowIndex, columnIndex);
-               if (numberOfNeighbours <= 1 || numberOfNeighbours >= 4)
-               {
-                  newCell = new Cell(Cell.State.DEAD);
-               }
-               else if (numberOfNeighbours == 3)
-               {
-                  newCell = new Cell(Cell.State.ALIVE);
-               }
-               else // if (numberOfNeighbours == 2)
-               {
-                  Cell oldCell = this.board[rowIndex][columnIndex];
-                  newCell = new Cell(oldCell.getStatus());
-               }
+               nextGenerationCell = new Cell(Cell.State.ALIVE);
             }
-            newBoard[rowIndex][columnIndex] = newCell;
+            else // if (numberOfNeighbours == 2)
+            {
+               Cell oldCell = this.board[rowIndex][columnIndex];
+               nextGenerationCell = new Cell(oldCell.getStatus());
+            }
+            nextGenerationBoard[rowIndex][columnIndex] = nextGenerationCell;
          }
       }
 
-      return newBoard;
+      return nextGenerationBoard;
    }
 
    /**
@@ -241,29 +235,54 @@ public class GameOfLife
 
    /**
     * Gets the number of alive neighbours to this cell in this game's board.
-    * A cell's neighbours are its 8 surrounding cells in a 2D board.
+    * A cell's neighbours are its surrounding cells in a 2D board.
+    * Non-edge cells have 8 neighbours.
     * @param cellRowIndex the row index of the cell to find the number of live neighbours of
     * @param cellColumnIndex the column index of the cell to find the number of live neighbours of
     * @return the number of alive neighbours of the specified cell
     */
-   public int getNonEdgeCellNeighboursCount(int cellRowIndex, int cellColumnIndex)
+   public int getNeighboursCount(int cellRowIndex, int cellColumnIndex)
    {
       int neighboursCount = 0;
-      for (int rowIndex = cellRowIndex - 1;
-           rowIndex <= cellRowIndex + 1;
+
+      // if non-edge cell
+      int indexOfFirstRowOfNeighbourCells = cellRowIndex - 1;
+      int indexOfLastRowOfNeighbourCells = cellRowIndex + 1;
+      int indexOfFirstColumnOfNeighbourCells = cellColumnIndex - 1;
+      int indexOfLastColumnOfNeighbourCells = cellColumnIndex + 1;
+      if (cellRowIndex == 0)
+      {
+         indexOfFirstRowOfNeighbourCells = cellRowIndex;
+      }
+      else if (cellRowIndex == this.board.length - 1)
+      {
+         indexOfLastRowOfNeighbourCells = cellRowIndex;
+      }
+      if (cellColumnIndex == 0)
+      {
+         indexOfFirstColumnOfNeighbourCells = cellColumnIndex;
+      }
+      else if (cellColumnIndex == this.board[0].length - 1)
+      {
+         indexOfLastColumnOfNeighbourCells = cellColumnIndex;
+      }
+      
+      for (int rowIndex = indexOfFirstRowOfNeighbourCells;
+           rowIndex <= indexOfLastRowOfNeighbourCells;
            rowIndex++)
       {
-         for (int columnIndex = cellColumnIndex - 1;
-              columnIndex <= cellColumnIndex + 1;
+         for (int columnIndex = indexOfFirstColumnOfNeighbourCells;
+              columnIndex <= indexOfLastColumnOfNeighbourCells;
               columnIndex++)
          {
-            if (this.board[rowIndex][columnIndex].getStatus() == Cell.State.ALIVE 
+            if (this.board[rowIndex][columnIndex].getStatus() == Cell.State.ALIVE
                   && !(rowIndex == cellRowIndex && columnIndex == cellColumnIndex))
             {
                neighboursCount = neighboursCount + 1;
             }
          }
       }
+      
       return neighboursCount;
    }
 
