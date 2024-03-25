@@ -23,3 +23,5 @@ Following are links to projects I made after each chapter.
 - P7.8-TheatreSeatPicker
 - P7.9-TicTacToe
 - P7.10-VideoPokerSimulator
+- P7.11-TheGameOfLife
+- P7.12-PetShopInvoiceDiscount
