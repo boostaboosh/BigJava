@@ -1,0 +1,15 @@
+Enter invoice items: (-1 to stop)
+Enter item price:
+Enter item quantity:
+Is item a pet? (Y/N)
+Enter item price:
+Enter item quantity:
+Is item a pet? (Y/N)
+Enter item price:
+Invoice total: 231.97
+Invoice discount: 39.8
+Invoice total after discount: 192.17000000000002
+Expected:
+Total: 231.97
+Discount: 39.8
+Total after discount: 192.17

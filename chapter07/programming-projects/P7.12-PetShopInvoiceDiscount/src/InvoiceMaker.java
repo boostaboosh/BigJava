@@ -38,5 +38,7 @@ public class InvoiceMaker
       }
       System.out.println("Invoice total: " + invoice.getTotal());
       System.out.println("Invoice discount: " + invoice.getDiscount());
+      double totalAfterDiscount = invoice.getTotal() - invoice.getDiscount();
+      System.out.println("Invoice total after discount: " + totalAfterDiscount);
    }
 }
