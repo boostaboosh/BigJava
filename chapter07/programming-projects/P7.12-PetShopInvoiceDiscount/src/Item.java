@@ -3,7 +3,7 @@
  */
 public class Item
 {
-   private int price;
+   private double price;
    private boolean isPet;
    private int quantity;
    
@@ -15,17 +15,18 @@ public class Item
     */
    public Item(double price, boolean isPet, int quantity)
    {
-      // TODO: fill implementation
+      this.price = price;
+      this.isPet = isPet;
+      this.quantity = quantity;
    }
 
    /**
     * Gets the price of the item
     * @return the price of the item
     */
-   public int getPrice()
+   public double getPrice()
    {
-      // TODO: fill implementation
-      return 0;
+      return this.price;
    }
 
    /**
@@ -34,8 +35,7 @@ public class Item
     */
    public int getQuantity()
    {
-      // TODO: fill implementation
-      return 0;
+      return this.quantity;
    }
 
    /**
@@ -44,7 +44,6 @@ public class Item
     */
    public boolean isPet()
    {
-      // TODO: fill implementation
-      return true;
+      return this.isPet;
    }
 }
