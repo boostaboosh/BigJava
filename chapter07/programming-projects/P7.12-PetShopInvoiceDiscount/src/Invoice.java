@@ -13,7 +13,7 @@ public class Invoice
     */
    public Invoice()
    {
-      // TODO: fill implementation
+      invoice = new ArrayList<>();
    }
 
    /**
@@ -22,7 +22,7 @@ public class Invoice
     */
    public void add(Item anItem)
    {
-      // TODO: fill implementation
+      this.invoice.add(anItem);
    }
 
    /**
@@ -35,7 +35,46 @@ public class Invoice
     */
    public double getDiscount()
    {
-      // TODO: fill implementation
-      return 0;
+      double discount = 0;
+      final int DISCOUNT_PERCENTAGE = 20;
+      
+      boolean invoiceHasPet = false;
+      int otherItemsCounter = 0;
+      double otherItemsPrice = 0;
+      for (Item item : this.invoice)
+      {
+         if (item.isPet())
+         {
+            invoiceHasPet = true;
+         }
+         else
+         {
+            otherItemsCounter = otherItemsCounter + item.getQuantity();
+            otherItemsPrice = otherItemsPrice + item.getPrice() * item.getQuantity();
+         }
+      }
+      
+      if (invoiceHasPet && otherItemsCounter >= 5)
+      {
+         discount = otherItemsPrice / 100 * DISCOUNT_PERCENTAGE; 
+      }
+      
+      return discount;
+   }
+
+   /**
+    * Computes the total price of all items in this invoice.
+    * @return the total price of all items in this invoice
+    */
+   public double getTotal()
+   {
+      double total = 0;
+      
+      for (Item item : this.invoice)
+      {
+         total = total + item.getPrice() * item.getQuantity();
+      }
+      
+      return total;
    }
 }

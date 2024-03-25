@@ -15,27 +15,28 @@ public class InvoiceMaker
    public static void main(String[] args)
    {
       Invoice invoice = new Invoice();
-      System.out.println("Enter invoice items:");
+      System.out.println("Enter invoice items: (-1 to stop)");
       Scanner scanner = new Scanner(System.in);
       boolean done = false;
       while (!done)
       {
          System.out.println("Enter item price:");
-         if (scanner.nextDouble() == -1)
+         double price = scanner.nextDouble();
+         if (price == - 1)
          {
             done = true;
          }
          else
          {
-            double price = scanner.nextDouble();
             System.out.println("Enter item quantity:");
             int quantity = scanner.nextInt();
             System.out.println("Is item a pet? (Y/N)");
-            boolean isPet = scanner.nextBoolean();
+            boolean isPet = scanner.next().equalsIgnoreCase("Y");
             Item item = new Item(price, isPet, quantity);
             invoice.add(item);
          }
       }
+      System.out.println("Invoice total: " + invoice.getTotal());
       System.out.println("Invoice discount: " + invoice.getDiscount());
    }
 }
