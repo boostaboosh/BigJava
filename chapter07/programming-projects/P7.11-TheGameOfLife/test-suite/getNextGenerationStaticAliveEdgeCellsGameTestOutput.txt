@@ -6,9 +6,9 @@ generation 0:
  o 
 generation 1:
      
-   o 
-  o  
-  o  
+     
+  oo 
+     
      
 Result: 
 How many rows do you want the board to have? How many columns do you want the board to have? Specify empty and occupied cells in the board's 
