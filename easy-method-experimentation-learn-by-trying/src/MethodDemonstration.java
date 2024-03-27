@@ -17,17 +17,7 @@ public class MethodDemonstration
      */
     public static void main(String[] args)
     {
-        String word = "hello";
-        int ROW_LABEL_WIDTH = 3;
-        int counter = 1;
-        System.out.printf("%d", counter);
-        System.out.println();
-        System.out.printf("%3d", counter);
-        System.out.println();
-        System.out.printf("%" + (ROW_LABEL_WIDTH + 1) + "d", counter);
-        System.out.println();
-
-        int[] intArray = new int[10];
-        System.out.print(Arrays.toString(intArray));
+        double decimal = 4.599999;
+        System.out.printf("1 ' \\ \n \\\" %.5f", decimal);
     }
 }

@@ -1,4 +1,44 @@
 Get next generation test:
 Expected: 
+generation 0:
+  o
+ oo
+ooo
+generation 1:
+     
+  oo 
+ o  o
+ o o 
+  o  
+generation 2:
+       
+       
+   oo  
+  oooo 
+  ooo  
+   o   
+       
 Result: 
-How many rows do you want the board to have? 
+How many rows do you want the board to have? How many columns do you want the board to have? Specify empty and occupied cells in the board's 
+starting configuration one row at a time.
+Use spaces for empty cells 
+and the letter 'o' for occupied cells.
+   123
+  1  2  3How many generations do you want to print? Generation 0:
+  o
+ oo
+ooo
+Generation 1:
+     
+  oo 
+ o  o
+ o o 
+  o  
+Generation 2:
+       
+       
+   oo  
+  o  o 
+  o o  
+   o   
+       
