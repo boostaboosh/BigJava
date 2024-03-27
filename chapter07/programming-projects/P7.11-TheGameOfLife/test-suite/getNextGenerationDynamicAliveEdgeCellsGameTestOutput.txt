@@ -14,8 +14,8 @@ generation 2:
        
        
    oo  
-  oooo 
-  ooo  
+  o  o 
+  o o  
    o   
        
 Result: 
