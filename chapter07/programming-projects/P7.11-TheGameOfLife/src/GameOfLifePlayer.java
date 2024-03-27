@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 /**
  * The class contains a program which lets users
  * play the game of life.
@@ -10,7 +12,8 @@ public class GameOfLifePlayer
     */
    public static void main(String[] args)
    {
-      GameOfLife gameOfLife = new GameOfLife();
+      Scanner scanner = new Scanner(System.in);
+      GameOfLife gameOfLife = new GameOfLife(scanner);
       gameOfLife.playGame();
    }
 }

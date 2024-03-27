@@ -1,0 +1,97 @@
+Get next generation test:
+Expected: 
+a glider which after every 4 generations has transformed to the original shape from gen 0, but located one square to the right and belowResult: 
+How many rows do you want the board to have? How many columns do you want the board to have? Specify empty and occupied cells in the board's 
+starting configuration one row at a time.
+Use spaces for empty cells 
+and the letter 'o' for occupied cells.
+   1234567
+  1  2  3  4  5  6How many generations do you want to print? Generation 0:
+       
+  o    
+   o   
+ ooo   
+       
+       
+Generation 1:
+       
+       
+ o o   
+  oo   
+  o    
+       
+Generation 2:
+       
+       
+   o   
+ o o   
+  oo   
+       
+Generation 3:
+       
+       
+  o    
+   oo  
+  oo   
+       
+Generation 4:
+       
+       
+   o   
+    o  
+  ooo  
+       
+Generation 5:
+       
+       
+       
+  o o  
+   oo  
+   o   
+Generation 6:
+         
+         
+         
+         
+     o   
+   o o   
+    oo   
+         
+Generation 7:
+         
+         
+         
+         
+    o    
+     oo  
+    oo   
+         
+Generation 8:
+         
+         
+         
+         
+     o   
+      o  
+    ooo  
+         
+Generation 9:
+         
+         
+         
+         
+         
+    o o  
+     oo  
+     o   
+Generation 10:
+           
+           
+           
+           
+           
+           
+       o   
+     o o   
+      oo   
+           

@@ -15,9 +15,9 @@ public class GameOfLife
    /**
     * Creates a game of life with user specified starting configuration.
     */
-   public GameOfLife()
+   public GameOfLife(Scanner scanner)
    {
-      this.askUserForStartingConfiguration();
+      this.askUserForStartingConfiguration(scanner);
    }
 
    // methods
@@ -28,11 +28,10 @@ public class GameOfLife
     * the number of generations of this game of life's board
     * they want to print.
     */
-   public void askUserForStartingConfiguration()
+   public void askUserForStartingConfiguration(Scanner scanner)
    {
       // ask user for starting board configuration
       System.out.print("How many rows do you want the board to have? ");
-      Scanner scanner = new Scanner(System.in);
       int numberOfRows = scanner.nextInt();
 
       System.out.print("How many columns do you want the board to have? ");

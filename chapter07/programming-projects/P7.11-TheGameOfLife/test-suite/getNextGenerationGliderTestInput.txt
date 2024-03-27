@@ -7,3 +7,4 @@ a glider which after every 4 generations has transformed to the original shape f
  ooo   
        
        
+10

@@ -11,7 +11,7 @@ public class HasAliveEdgeCellsTester
       String expected = scanner.nextLine();
       System.out.println(expected);
       
-      GameOfLife gameOfLife = new GameOfLife();
+      GameOfLife gameOfLife = new GameOfLife(scanner);
       System.out.println("Result: " + gameOfLife.hasAliveEdgeCells());
    }
 }
