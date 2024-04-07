@@ -1,0 +1,98 @@
+public class Print13
+{
+   public void print(int x)
+   {
+      System.out.println(x);
+   }
+   
+   public static void main(String[] args)
+   {
+      int n = 13;
+      print(n);
+   }
+}
+
+What is the error message I get when trying to compile the
+program in the Print13 class?
+
+I get a java compile time error from line 11:
+java: non-static method print(int) cannot be referenced from a static context
+
+The reason I get this error message when compiling the Print13 class
+and program is because this program attempts to invoke a method
+which belongs to objects of the Print13 class without invoking said
+method on an object of the Print13 class. Instead, this program
+tries to invoke the print method as if it were a static method
+of the Print13 class which does not belong to any object, but instead
+belongs to the class itself, in which case the method call would be legal.
+
+The main method of a Java program is a static method, 
+because it does not belong to any object.
+This is necessarily the case because the main method is the first method
+of any program, and when a program starts no objects have been created 
+so there are no objects. So a program's main method cannot belong to any object,
+and must be a static method therefore.
+
+If I wanted the class Print13 to compile correctly I would
+have to correct the mistake of trying to access a Print13 
+object's method without invoking the method on an object.
+So, I would need to create a Print13 object and then invoke
+its print method. As follows:
+public class Print13
+{
+   public void print(int x)
+   {
+      System.out.println(x);
+   }
+   
+   public static void main(String[] args)
+   {
+      int n = 13;
+      Print13 number = new Print13();
+      number.print(n);
+   }
+}
+This is because non-static methods of a class belong to 
+object's of that class. And so they take as parameters
+the parameters specified in the method's public interface,
+as well as the implicit parameter of a method, i.e., the
+object on which the method is invoked. Without being passed
+one of the arguments a method needs, in this case the 
+implicit parameter, the method cannot execute.
+So, even the following implementation of the Print13 class
+without explicit print method parameters does not work for 
+the same reason the original implementation does not work:
+public class Print13
+{
+   public void print()
+   {
+      System.out.println("no explicit parameter");
+   }
+   
+   public static void main(String[] args)
+   {
+      int n = 13;
+      print();
+   }
+}
+
+Alternatively, I could make the given Print13 program work
+by making the print method of the Print13 class static
+because it doesn't need an object of the Print13 class
+to execute its work anyway. This way I could call the 
+print static method of the Print13 class from the main 
+method of my Java program without needing an object of
+the Print13 class to invoke it on. As follows:
+public class Print13
+{
+   public static void print(int x)
+   {
+      System.out.println(x);
+   }
+   
+   public static void main(String[] args)
+   {
+      int n = 13;
+      print(n);
+   }
+}
