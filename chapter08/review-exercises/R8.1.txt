@@ -1,0 +1,84 @@
+R8.1
+Consider a car share system in which drivers pick up other riders, 
+enabling them to make money during their commute while reducing traffic congestion. Riders wait at pickup points, 
+are dropped off at their destinations, 
+and pay for the distance traveled. 
+Drivers get a monthly payment. 
+An app lets drivers and riders enter their route and time. 
+It notifies drivers and riders and handles billing. 
+Find classes that would be useful for designing such a system.
+
+solution:
+
+A simple rule of thumb for getting started with class design is looking for nouns
+in the problem description.
+I think nouns are words that are names of things. A noun is a name for anything you can see or touch or even an idea or a feeling, like a person, a glass, gravity, or happiness. A compound noun is a name of some thing which is made up of more than one word, like mother in law or bus stop.
+nouns in the problem description:
+car share system
+driver
+rider
+money
+commute
+traffic congestion
+pickup point
+destination
+payment
+distance
+app
+route
+time
+bill handler
+
+Okay, I think these are all the nouns in the problem description.
+Now, I should probably try and identify actor classes. This is a category of class
+which accomplishes certain tasks for me. Actor classes should end in -er or -or. Like
+all classes actor class should be named with a noun and the noun they are named with
+should describe the single concept that they represent.
+I reckon I can walk through the problem description and what the different components
+need to do, and by doing so I'll probably end up identifying some actor class I'll
+need.
+identifying actor classes:
+RiderFinder
+DriverFinder
+DistanceCalculator
+PaymentMaker
+RouteInputter
+BillNotifier
+
+Alright, now let's mix that with some of the nouns to create the classes I'll need, I'll start with the actor classes:
+
+actor classes:
+public class RiderFinder
+public class DriverFinder
+public class DistanceCalculator
+public class PaymentMaker
+public class RouteInputter
+public class BillNotifier
+
+model classes:
+public class Driver
+public class Rider
+public class Money
+public class Commute // I don't think I need Commute because I have the Route class
+public class Destination
+public class PickupPoint
+public class Payment
+public class Distance
+public class Route
+public class Time
+public class Bill
+
+Alright, I think that's it. These are the classes that I think would be useful for
+designing a car share system for commuters.
+The steps I took to identify classes that would be useful for this software system
+given its description are the following steps:
+step 1: identify nouns in the problem description
+step 2: identify some actor classes for tasks that need to completed according to 
+the problem description by listing tasks that need to completed by the system
+according to its description
+step 3: list actor classes I identified based on the tasks that need to be completed
+for the system's operation. End actor class names with -er or -or.
+step 4: list model classes I identified amongst the nouns I identified in the problem
+description. Their names should be nouns and represent a single concept. I should remove duplicate classes, i.e., classes that represent the same concept, like commute
+and route, and I should not create classes for nouns in the problem description which
+are not necessary for the system being modelled, like "traffic congestion".
