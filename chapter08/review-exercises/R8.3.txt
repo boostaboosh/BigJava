@@ -1,0 +1,59 @@
+•• R8.3
+Your task is to write a program that simulates a vending machine. Users select a
+product and provide payment. If the payment is sufficient to cover the purchase
+price of the product, the product is dispensed and change is given. Otherwise, the
+payment is returned to the user. Name an appropriate class for implementing this
+program. Name two classes that would not be appropriate and explain why.
+
+nouns in problem description:
+vending machine
+users
+product
+payment
+purchase price
+change
+
+tasks that this program needs to accomplish according to problem description:
+let users select products
+let users pay for products selected
+dispense change to users
+
+appropriate classes for implementing this system:
+
+actor classes which accomplish a certain task:
+ProductsSelector
+PaymentMaker
+ChangeDispenser
+
+model classes which model a single concept:
+VendingMachine
+User
+Product
+Payment
+
+Name two classes that would not be appropriate and explain why:
+1) Paying
+explanation:
+A class called Paying would not be an appropriate name for a class because Paying is
+a name for a class which is a verb and not a noun. This is a tale tale sign that 
+something is wrong with the name of this class. This is bad practice because the
+name of a class should be a noun, i.e., a name of a concept, which describes the 
+concept that a class represents.
+Paying is also a bad name for a class because as a rule of thumb I should
+be able to know from the name of a class what an object of that class is supposed to 
+do. But in this case I don't know what a paying object does from its name. What does
+a Paying object represent? A payment from someone to someone else, or maybe an amount
+to be paid, or possibly something a vending machine does? I don't know from the name
+of this class what it represents and that is a bad because it makes it unintuitive to
+use this class.
+Additionally, a class which (I think) represents the task of taking payment from customers
+is an actor class so it should have a name which ends in -er or -or on top of being 
+named with a noun like all classes in object-oriented programming. 
+ 
+2) VendingMachineProgram
+explanation:
+This is a bad name for a class because a vending machine program object represents
+more than one concept. What would an object of the vending machine program class do?
+Presumably everything that the problem description describes. That doesn't simplify 
+anything through the use of objects. A better class would be VendingMachine and then
+my program can manipulate Product and Payment objects.
