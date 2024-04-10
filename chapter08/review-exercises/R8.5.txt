@@ -1,0 +1,49 @@
+••• R8.5 
+Your task is to write a program that computes paychecks. 
+Employees are paid an hourly rate for each hour worked; 
+however, if they worked more than 40 hours per week, 
+they are paid at 150 percent of the regular rate for those overtime hours. 
+Name an actor class that would be appropriate for implementing this program. 
+Then name a class that isn’t an actor class that would be an appropriate alternative.
+How does the choice between these alternatives affect the program structure?
+
+nouns:
+paycheck
+empolyee
+hourly rate
+hour worked
+week
+regular rate
+overtime hours
+
+model classes:
+Paycheck
+Employee
+
+actor classes:
+PaycheckCalculator
+
+actor class that would be appropriate for implementing this program:
+PaycheckCalculator
+
+name a class that isn't an actor class that is an appropriate alternative:
+EmployeePaycheckDetails
+
+How does the choice between these alternatives affect the program structure?
+If I choose to use an actor class like PaycheckCalculator to implement my program
+which computes employee paychecks, then it will get information from model classes,
+for example a class called 'employee' to retrieve necessary data, like hours worked
+and hourly rate, in order to compute the amount an employee is owed, including for 
+overtime hours, inside of its own encapsulated methods where it would execute the 
+logic (instructions) for calculating the total pay an employee is owed. This approach 
+with a PaycheckCalculator actor class is responsible for "actions" or "behaviours" 
+needed to compute the employees' paychecks.
+On the other hand if I use a model class, also known as a data class, to store the
+information about an employee's paycheck and to compute the amount an employee is
+owed this will lead to a violation of the Single Responsibility Principle (SRP)
+because there will not be a clear distinction between what classes represent data and
+what classes represent logic, which could lead to code for the same purpose being in
+different classes, and code being more confusing. Alternatively I could use a class 
+like EmployeePaycheckDetails to store the information about an employees paycheck, 
+and use a different actor class to compute the value of an employees paycheck, for 
+example another class called PaycheckCalculator.
