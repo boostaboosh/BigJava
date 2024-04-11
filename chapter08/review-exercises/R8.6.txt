@@ -1,0 +1,46 @@
+•• R8.6 Look at the public interface of the java.lang.System class and discuss whether or not it
+is cohesive.
+
+To answer this question I need to explain what a cohesive public interface looks like.
+So, a public interface of a class is like an instruction manual for using object of a 
+specified class because it tells you how to use that object by telling you which 
+behaviours objects of that class can exhibit, i.e., what methods an object has, and
+it tells you how to use those methods by telling you what type of values they return 
+and what type of arguments you can pass an objects methods.
+When we say that a class's public interface is cohesive what we mean is that all of 
+methods inside of a class work together like a cohesive team of rowers to represent 
+the single concept that a class represents.
+
+Now, that I've explained what a cohesive public interface is, we can look at the 
+java.lang.System class and discuss whether it is cohesive, i.e., whether its methods
+work together to represent the single concept that this class should represent.
+
+The System class description says that it contains several useful fields and methods.
+This line makes me think that the System class is a utility class, like the Math class.
+The name System is a quite ambiguous because it is not clear what system it refers to. 
+I assume it means the system that a Java program is running on, i.e., the computer. 
+But reading further into the description it says that the System class provides 
+facilities for input and output, error output streams, access to externally defined 
+properties and environment variables, a means of loading files and libraries, and a 
+utility method for quickly copying a portion of an array.
+
+Based on a quick glance at all of the methods inside of the System class in does appear
+that the System class is a utility class because all of its methods are of modifier type
+static, which means they do not belong to any object, but rather belong to the class 
+System itself. Static methods are useful for numbers and other types of data which are 
+not objects but need operations performed on them repeatedly.
+The last line of the description and all of the different things that the System class
+allows users to do leads me to believe that it violates the Single Responsibility 
+Principle because it represents more than a single concept. Instead of all of the methods
+working together to represent a "System" object, some methods are for input and output,
+others are for error output streams, others are for access to externally defined 
+properties and environment variables, others are for loading files and libraries, and 
+one method is for quickly copying a portion of an array.
+All of these different areas of work, or responsibilities or concepts, that this class 
+represents could be in their own class, separate from the other methods of this System
+class which serve a different purpose. Most obviously, the one method which quickly copies
+a portion of an array should be in a class dedicated to array utilities, and probably not 
+be in a System utility class, considering that it is an array utility. 
+So, all in all, I would say that the System class is not cohesive, because it has groups
+of methods which represent different concepts, and the class name itself and the concept 
+it represents is broad and ambiguous.
