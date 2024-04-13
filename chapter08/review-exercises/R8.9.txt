@@ -1,0 +1,18 @@
+•• R8.9
+On which classes does the class Integer in the standard library depend?
+
+To see what classes the class Integer in the standard library depends
+on I need to look at the Java API documentation and look at what 
+classes the Integer class uses. If it uses another class, it depends on
+that class to function.
+
+So, I'm going to look through the constructors and methods and see what
+type of arguments they take, and if any of the arguments or return 
+values are objects of a different class type than Integer.
+
+Looking through the constructor and method dependencies of the Integer
+class I can see that it depends on the classes:
+String
+Object
+CharSequence
+
