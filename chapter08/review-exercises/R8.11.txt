@@ -1,0 +1,49 @@
+• R8.11 
+Classify the methods of the class Scanner that are used in this book as accessors and
+mutators.
+
+java.util.Scanner
+ next
+ nextDouble
+ nextInt
+ hasNextDouble
+ hasNextInt
+
+Accessor methods return a value and do not change the internal data (instance 
+variables) of an object. Mutator methods on the other hand change, i.e., mutate, the
+internal data representation (instance variables) of an object.
+
+It is best practice to separate accessor and mutator methods, i.e., accessor methods
+which return a value or computation from an object should not change its state. And
+mutator methods which change the state of an object should not return a value, i.e.,
+should be of return type void.
+
+The Scanner class does not follow this best practice unfortunately so the only way 
+to return the next value in a scanner's input is to mutate the scanner object so that
+it no longer has the same token in its input, but there is no accessor method for 
+accessing the value of the next token in the input unfortunately.
+
+The next method
+is a mutator method because it changes the internal data of the scanner object it is
+invoked on so that the scanner does not return the same value if you call the next
+method again. It is also an accessor method because it accesses the next value in a 
+scanner's input and returns its value.
+
+The nextDouble method
+is similar to the next method in that it is an accessor method which returns the next
+double value in a scanner's input, but it is also a mutator method because it changes
+the internal state of an object and will therefore return a different value if
+invoked again.
+
+The nextInt method
+is also an accessor and a mutator method like the next() and nextDouble() methods. 
+This is because the nextInt method changes the values of a scanner's instance 
+variables making it a mutator method, but also returns a value from a scanner object
+making it an accessor method.
+
+The hasNextDouble() and hasNextInt() methods
+of the Scanner class are both accessor methods because they return a value from the
+scanner object on which they are invoked, but they do not change the internal state,
+i.e., the instance variables, of the scanner object on which they are invoked. So, if
+you invoke them again and again the scanner object will return the same value again
+and again.
