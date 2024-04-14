@@ -1,0 +1,21 @@
+• R8.14 Which of the following classes are immutable?
+a. Rectangle
+b. String
+c. Random
+
+An immutable class is a class with no mutator methods.
+What this means is that objects of an immutable class always have the same internal
+data representation, i.e., instance variables, as when they were first created and
+cannot be mutated, but only accessed.
+
+immutable:
+String
+
+mutable:
+Rectangle
+Random
+
+String objects have no mutator methods. Rectangle objects can have their size and
+coordinates changed. Random objects which generate random numbers can have their
+state changed by the next methods because they change the next value that the Random
+object will return when calling the same method, so these are mutator methods.
