@@ -1,0 +1,29 @@
+••• R8.16 Consider a method
+public class DataSet
+{
+    /**
+     Reads all numbers from a scanner and adds them to this data set.
+     @param in a Scanner
+    */
+    public void read(Scanner in) { . . . }
+    . . .
+}
+Describe the side effects of the read method. Which of them are not recommended,
+according to Section 8.2.4? Which redesign eliminates the unwanted side effect?
+What is the effect of the redesign on coupling?
+
+One side effect of the read method is that it changes the Scanner object called 'in'
+which it takes as an argument. Because it will have to call the scanner's next() 
+methods to read the next inputs in the scanner's input. And the next() methods are
+mutator methods because once invoked the internal state of a Scanner object is 
+different compared to before the next method was called.
+
+A second side effect of the read() method is the change it makes to the DataSet 
+object which invokes it. Because the read() method adds the numbers from the Scanner
+object passed to it as an argument to the DataSet object's data set.
+
+Of the two side effects the read() method has, the first one which changes the state
+of the read() method's parameter variable 'in' is not recommended, because it 
+modifies a parameter variable of a method which is generally bad practice seeing as
+it can lead to unexpected behaviour which programmers that use a method do not expect
+when they use the object that was modified via its reference in the read() method.
