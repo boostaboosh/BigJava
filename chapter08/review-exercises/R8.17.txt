@@ -1,0 +1,32 @@
+•• R8.17 
+What side effect, if any, do the following three methods have?
+
+public class Coin
+{
+ . . .
+ public void print()
+ {
+ System.out.println(name + " " + value);
+ }
+
+ public void print(PrintStream stream)
+ {
+ stream.println(name + " " + value);
+ }
+
+ public String toString()
+ {
+ return name + " " + value;
+ }
+}
+
+The print() method has a side effect on the out instance variable of the System class which is
+an object of the PrintStream class.
+
+The print(PrintStream stream) method has a side effect on the stream object of the PrintStream
+class passed to it as an argument. Because it changes the state of the parameter variable stream
+passed to it as an argument.
+
+The toString() method does not have any side effects because it does not change the state of the
+implicit parameter on which it is invoked (a Coin object), and it does not change the state of 
+any other objects inside of its body.
