@@ -1,0 +1,90 @@
+••• R8.18 
+Ideally, a method should have no side effects. 
+Can you write a program in which no method has a side effect? 
+Would such a program be useful?
+
+Let me think about that.
+So, ideally a method should have no, or at least minimal, side effects.
+A side effect is an externally visible change to an object. Basically a change to 
+its instance variables.
+
+Could I write a program in which no method has a side effect?
+Well, let me think about that. 
+I suppose I could write a program inside just a main method which performs some simple 
+computations on variables. That way the operations I perform are just mathematical functions
+which take primitive types as arguments, for example:
+x = 3
+y = 4
+z = x + y
+But this program wouldn't say anything to its user. I wouldn't see results of these operations.
+At some point, even if a program just performs some operations on variables which store 
+primitive types, like some basic mathematical calculations, a program will need to output 
+information to the user of the program to be useful to a user. And outputting information to a
+user requires some side effects on behalf of a computer program, because outputting information
+requires changing the state of the out object of the System class, and on an abstract level the
+output of information requires the changing of state of the computer screen.
+So, I'm starting to think that a computer program made up of methods without side effects would
+not be useful.
+Because a useful program needs to output information of some sort to a user given some inputs,
+and even if the inputs are hard coded, i.e., the user doesn't input them, the program will need
+to change the state of some output object in order to give information to the program user.
+
+But wait, what if a program doesn't need to give any information to a user. For example, it just
+does some task. Like, I don't know, move a lever up and down? I think the same requirement still
+stands. A program will need to change the state of some lever control object in order to move 
+the lever. 
+
+Without and side effects a program cannot change anything, i.e., a program without any side 
+effects cannot "do" anything because it cannot make the computer accomplish any tasks, i.e., 
+change any object information, without having side effects on said objects. Although it could
+perform useful operations with objects without changing them, and just create new objects, but 
+it still wouldn't be able to output those results.
+
+So, in conclusion, I think a program without side effects is not useful because it cannot change
+the state of any objects, and changing the state of objects is necessary to provide the results
+of computations to users or other external devices external to the computer program.
+
+Additionally, without invoking methods that change the state of objects a computer program is
+limited to basically being a calculator, at least in Java. Because it will only be able to use
+primitive types, and I suppose immutable objects like Strings. 
+Maybe you could make some complex immutable object which models a complicated piece of information in the real world, but if my computer program can't change these representations in
+any way then it can't really create any new output information that wasn't passed to it as
+output. Or is that true? What about:
+String name = "micky" + " " + "mouse";
+This line of code which I could imagine inside of a main method in a Java program creates a name
+given input names. That is a somewhat useful operation. But of course this doesn't get around 
+the fact that the name variable's value cannot be displayed to the user so it's still useless.
+So, I could have a program of methods with String objects or some pretty complicated immutable 
+data representation, where the methods never mutate any objects but just return values
+(including references to new objects created inside of them) using primitive or immutable 
+objects as parameters. For example, if I had a method that took two strings as arguments and 
+then returned their concatenation I wouldn't need to mutate any String objects to write said 
+program, I would just need to create one, like so:
+public String concatenateNames(String first, String second)
+{
+    return first + second;
+}
+
+x = "hello";
+y = "world";
+greeting = concatenateNames(x, y);
+
+But like I said previously, this doesn't get around the fact that a program which cannot mutate
+the state of any of its objects will not be able to pass this information to a user or other
+external entity like another computer or some device which moves levers, because doing so would
+require changing the state of the means of communication with those entities. But maybe I could
+write programs that performed some pretty complicated stuff without side effects apart from 
+input and output operations. I'm not sure. The more I think about it that's possible. For 
+example, if I was making a tic tac toe game using only immutable objects, or without side 
+effects on any objects, I guess I could just create new arrays with the moves being played by 
+the players, and then return that new array with my side effect free method. But I don't know how I would go about updating the board of the tic tac toe game. I would have to make a new 
+board grid every time a move was made. I suppose that is possible. But wouldn't be able to
+assign the original reference variable which referenced the previous board a reference to the 
+new board, because that would be an unexpected side effect of the method that did that. So I'm 
+thinking I would need to have one method were every turn I assigned a new board reference 
+variable a reference to a new board after a player move. I suppose I could use a loop to do 
+this. I'm not sure. Based on this reasoning I think that maybe I could write a program with 
+methods without side effects that accomplish the same tasks as methods with side effects, but
+I would not be able to let a user use the program or see the results of the program without side
+effects because a program must have side effects to interact with the external world, whether it
+be a screen for a user to read, a keyboard for a user to type in, or some other device.
