@@ -1,0 +1,29 @@
+•• R8.19 
+Consider the following method that is intended to swap the values of two integers:
+
+public static void falseSwap(int a, int b)
+{
+ int temp = a;
+ a = b;
+ b = temp;
+}
+
+public static void main(String[] args)
+{
+ int x = 3;
+ int y = 4;
+ falseSwap(x, y);
+ System.out.println(x + " " + y);
+}
+
+Why doesn’t the method swap the contents of x and y?
+
+In short, because Java passes arguments to method parameters by value, and not by 
+reference.
+So, when the falseSwap method is invoked from the main method with the arguments
+x and y, the values contained in the variables x and y are copied and assigned to
+falseSwap method's parameter variables also called x and y. But, the variables
+x and y inside of the falseSwap method body are not the same variables as the x
+and y in the main method. Which means that any manipulation of their contents in
+the falseSwap method has no effect on the contents of the x and y variables in the
+main method.
