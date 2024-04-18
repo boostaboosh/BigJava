@@ -1,0 +1,94 @@
+••• R8.20 
+How can you write a method that swaps two floating-point numbers?
+Hint: java.awt.Point.
+
+public class MethodDemonstration
+{
+    public static void main(String[] args)
+    {
+        Double first = 1.2;
+        Double second = 2.5;
+        swap(first, second);
+        System.out.println("first: " + first + " expected: 2.5");
+        System.out.println("second: " + second + " expected: 1.2");
+    }
+
+    public static void swap(Double firstNumber, Double secondNumber)
+    {
+        Double temp = firstNumber;
+        firstNumber = secondNumber;
+        secondNumber = temp;
+    }
+}
+
+Does this work? I'll have to test it out.
+
+No, this does not work.
+Because the swap method does not change the value of the argument variables passed to its
+parameter variables, instead it copies the values of its arguments and assigns them to
+newly created parameter variables when the swap method is called. Because Java language
+passes argument values to method parameters by copying their values and not by passing by
+passing the argument references themselves.
+So, this swap() method is simply assigning its parameter variables new values which 
+reference different objects compared to the argument variables passed to it, but this
+does not affect the arguments passed to the swap() method in any way. One cannot change
+values stored in argument variables from within a Java method.
+All I can do is mutate an object referenced by an argument and a parameter variable
+that hold the same object reference value. I can do this by calling a mutator method on 
+an object referenced by a parameter variable in my method and the argument passed to it.
+
+Based on what I've said, one thing is clear: I can never change the value of an argument
+variable from within the body of a method using a parameter variable which has been 
+assigned a copy of the value stored in an argument variable. That will never happen 
+because it cannot happen due to the pass by value nature of the Java programming
+language.
+
+So, my only way of writing a method that swaps two floating-point numbers is by using 
+ojbects which store a floating point number and passing references to these objects to a 
+method. At which point I can mutate the objects using their references stored in the 
+method parameter variables so that one object stores the value which is stored in the 
+other. 
+I tried looking at the Double class to see if I could do this using one of its methods
+to change the value stored in a Double object. But I realised that the Double class is
+an immutable class, like the String class. This means that an object of the Double class
+cannot have its value changed once it has been created, because the Double class contains
+no mutator methods with which to change an object's state.
+
+So, I am going to use the hint given by the exercise problem description and try to come
+up with a solution using the java.awt.Point class.
+The point class represents a location in (x,y) coordinate space, specified in integer 
+precision. I think I see where I can go with this. I can use the x value to store the 
+number to the left of the floating point, and the y value to store the number to the 
+right of the floating point. Of course, the numbers are going to have to be stored inside
+of Point objects, and the swap() method will swap their values by mutating the Point 
+objects passed to it so that they contain the other's value. Something like the 
+following:
+public class MethodDemonstration
+{
+    public static void main(String[] args)
+    {
+        Point firstNumber = new Point(1, 2);
+        Point secondNumber = new Point(2, 5);
+        swap(firstNumber, secondNumber);
+        System.out.println("first: " + (int) firstNumber.getX()
+                + "." + (int) firstNumber.getY()
+                + " expected: 2.5");
+        System.out.println("second: " + (int) secondNumber.getX()
+                + "." + (int) secondNumber.getY()
+                + " expected: 1.2");
+    }
+
+    public static void swap(Point firstNumber, Point secondNumber)
+    {
+        Point temporary = new Point(firstNumber);
+        firstNumber.setLocation(secondNumber);
+        secondNumber.setLocation(temporary);
+    }
+}
+
+Let me see if this works.
+
+Yes! This works.
+Awesome. So, I cannot change the values of arguments passed to a method, but I can mutate
+the value of an object whose reference is passed to a method and stored in both the 
+parameter variables of a method and the arguments passed to it.

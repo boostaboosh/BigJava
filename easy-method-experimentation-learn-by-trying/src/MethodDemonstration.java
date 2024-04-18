@@ -2,6 +2,7 @@ import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
 import java.util.logging.Logger;
+import java.awt.Point;
 
 /**
  * A class for experimenting with methods I learn about so that I can learn about it.
@@ -17,7 +18,21 @@ public class MethodDemonstration
      */
     public static void main(String[] args)
     {
-        double decimal = 4.599999;
-        System.out.printf("1 ' \\ \n \\\" %.5f", decimal);
+        Point firstNumber = new Point(1, 2);
+        Point secondNumber = new Point(2, 5);
+        swap(firstNumber, secondNumber);
+        System.out.println("first: " + (int) firstNumber.getX()
+              + "." + (int) firstNumber.getY()
+              + " expected: 2.5");
+        System.out.println("second: " + (int) secondNumber.getX()
+              + "." + (int) secondNumber.getY()
+              + " expected: 1.2");
+    }
+
+    public static void swap(Point firstNumber, Point secondNumber)
+    {
+        Point temporary = new Point(firstNumber);
+        firstNumber.setLocation(secondNumber);
+        secondNumber.setLocation(temporary);
     }
 }
