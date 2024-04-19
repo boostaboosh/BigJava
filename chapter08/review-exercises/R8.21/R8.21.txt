@@ -1,0 +1,37 @@
+•• R8.21 
+Draw a memory diagram that shows why the following method can’t swap two
+BankAccount objects:
+
+public static void falseSwap(BankAccount a, BankAccount b)
+{
+ BankAccount temp = a;
+ a = b;
+ b = temp;
+}
+
+public class SwapAccounts
+{
+  public static void main(String[] args)
+  {
+    BankAccount mumAccount = new BankAccount(1000);
+    BankAccount kidAccount = new BankAccount(20);
+    falseSwap(mumAccount, kidAccount);
+  }
+
+  public static void falseSwap(BankAccount a, BankAccount b)
+  {
+    BankAccount temp = a;
+    a = b;
+    b = temp;
+  }
+}
+
+So, why doesn't this work?
+Because this doesn't swap the argument variables local to the main method's values,
+that's impossible seeing as Java is pass by copied value. Instead, this just 
+assigns new values to the parameter variables a and b after they have been 
+initialised with the values of the arguments passed to the methods which were 
+references to the mumAccount and kidAccount objects.
+
+Now, I need to draw a memory diagram to show why this method doesn't work because it
+cannot swap two bank account objects.
