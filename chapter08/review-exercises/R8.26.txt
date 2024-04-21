@@ -1,0 +1,18 @@
+•• R8.26 
+Suppose you are asked to find all words in which no 
+letter is repeated from a list of words. What simpler 
+problem could you try first?
+
+When developing a solution to a complex problem it is 
+easier to first solve a simpler task.
+It is easiest to solve if I make a series of tasks, each
+a simple extension of the previous task, starting with 
+and easy task and ending with the original problem.
+
+If my task is to find all words in which no letter is
+repeated from a list of words, a simpler problem I could
+try first is to find out if any letter is repeated in a
+single word. An even simpler problem is to find out if a
+single letter is repeated in a single word. An even 
+simpler problem is to find out if the first letter of a 
+word is the same as its second letter.
