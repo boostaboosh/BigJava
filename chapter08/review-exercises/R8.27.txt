@@ -1,0 +1,14 @@
+•• R8.27
+You need to write a program for DNA analysis that checks whether a substring of
+one string is contained in another string. What simpler problem can you solve first?
+
+It's easier to solve a complex problem if I break it 
+down into a series of tasks, each a simple extension of
+the previous task, starting with a simple problem and
+ending with the original complex problem.
+
+If my task is to write a program that checks whether a
+substring of one string is contained in another string,
+a simple task I could attempt first is to check if a
+single character in one string is also a character in 
+another string.
