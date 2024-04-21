@@ -1,0 +1,14 @@
+•• R8.28
+Consider the task of finding numbers in a string. For example, the string “In 1987,
+a typical personal computer cost $3,000 and had 512 kilobytes of RAM.” has three
+numbers. Break this task down into a sequence of simpler tasks. 
+
+sequence of simpler tasks:
+1 - find out if a string contains a single digit
+2 - find a single digit in a string
+3 - find out if a string contains a single sequence of 
+    digits, i.e., number
+4 - find a single number in a string
+5 - find out if a string contains multiple sequences of 
+    digits, i.e., numbers
+6 - find multiple numbers in a string
