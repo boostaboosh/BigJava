@@ -1,0 +1,17 @@
+• R8.30 
+Suppose your homework assignments are located in the directory 
+/home/me/cs101 (c:\Users\Me\cs101 on Windows). 
+Your instructor tells you to place your homework into packages. 
+In which directory do you place the class hw1.problem1.TicTacToeTester?
+
+I must place the class hw1.problem1.TicTacToeTester in the directory:
+/home/me/cs101/hw1/problem1/
+because the directory path of a class must match its package name.
+
+A source file must be located in a directory that matches the package name. 
+The parts of the name between periods in a package specification statement, 
+such as:
+package hw1.problem1.TicTacToeTester
+represent successively nested directories.
+So, a class called TicTacToeTester inside the package hw1.problem1 must be 
+located in the directory /hw1/problem1
