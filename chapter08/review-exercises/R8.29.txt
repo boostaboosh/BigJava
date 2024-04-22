@@ -1,0 +1,38 @@
+• R8.29 
+Is a Java program without import statements limited to using the default and
+java.lang packages?
+
+No, a Java program without import statements is not limited to using the default and
+java.lang packages because import statements tell the compiler in which packages to
+find certain classes so that you can reference the classes by name in your program.
+However, it is also possible to reference classes by their "full name" within a Java
+class. This means referencing a Java class using its package name plus class name.
+For example, I could reference the Scanner class as java.util.Scanner. Following is
+an example:
+
+java.util.Scanner scanner = new java.util.Scanner(java.lang.System in);
+
+Naturally, this is somewhat inconvenient, so we usually import a class name with an
+import statement, such as the following:
+
+import java.util.Scanner;
+
+And then I can refer to the class Scanner without the package prefix.
+I can import all classes of a package with an import statement that ends in .*, for
+example import java.util.*; imports all classes from the java.util package into the 
+Java class the statement is in. This way I don't need to refer to classes of the util
+package like Scanner or Random with the java.util package prefix.
+
+The java.lang package classes are imported into all Java classes automatically, so 
+I never need to explicitly import classes of the java.lang package, such as Math and
+Object. These classes are always visible to me. 
+
+I also don't need to import classes in the same package as the class I am writing, 
+because the compiler can find classes in the same package as the class I am writing 
+without me having to import them. For example, if I am writing a class and I specify 
+that it is in the package com.horstmann.bigjava with the package specification 
+statement:
+package com.horstmann.bigjava
+I do not need to import other classes in the com.horstmann.bigjava package into my 
+class, because the compiler can find other classes in this package reference in my 
+class of the same package for me.
