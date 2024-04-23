@@ -1,0 +1,45 @@
+•• R8.31 
+Consider the task of fully justifying a paragraph of text to a target length, by
+putting as many words as possible on each line and evenly distributing extra spaces
+so that each line has the target length. Devise a plan for writing a program that
+reads a paragraph of text and prints it fully justified. Describe a sequence of 
+progressively more complex intermediate programs, similar to the approach in 
+Section 8.5.
+
+okay, so fully justifying a line of text means adding spaces in between the words 
+of a line of text so that it fully occupies the space available to it horizontally,
+i.e., so that it touches its left and right margins.
+
+Fully justifying a paragraph of text achieves the same objective but instead of only 
+adding spaces to a single line of text to make it meet its width requirements, you 
+also try to maximise the amount of words that can fit on each line of text in the
+paragraph. So the width of each line in the paragraph is the same.
+
+Okay, I need to devise a plan for writing a program that reads a paragraph of text
+and prints it fully justified, i.e., as a series of lines of text with the same width
+and as many words as possible on each line of text.
+
+How do I solve a simpler task first to make this complex problem easier to solve?
+
+Well, I could solve the task of fully justifying a single line of text.
+Even easier, I could solve the task of fully justifying two words of text.
+
+plan:
+
+1) justify two words of text on a single line so that the line is of target length
+   between the first character of the first word and the last character of the second
+   word.
+
+2) justify n words of text on a single line so that the line is of the target
+   character length and spaces are evenly distributed between each word, with the
+   line length starting with the first character of the first word and ending with
+   the last character of the last word.
+
+3) justify n words from 2 lines of text of different length to a target length by
+   putting as many words as possible on each line and evenly distributing spaces so 
+   that each line has the same character length which matches the target length.
+
+4) justify n words from m lines of text (a full paragraph of text) to a target length
+   by putting as many words as possible on each line of text and evenly distributing
+   space across each line of text so that each line in the justified paragraph is of
+   the same length.
