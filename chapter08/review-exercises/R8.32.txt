@@ -1,0 +1,33 @@
+•• R8.32
+The in and out variables of the System class are public static variables of the
+System class.
+Is that good design?
+If not, how could you improve on it?
+
+The use of static variables is for variables whose value belongs to class and not to 
+any object of the class. So, when the in and out variables of the System class are
+static that indicates that the standard input and the standard output streams belong
+to the System class and to any objects of type System.
+
+The fact that this questions asks me if this is good design and then asks me how can
+I improve on in it is leading me to believe that this is bad design and that they 
+should be instance variables instead, or maybe they shouldn't be there at all because
+input and output objects shouldn't be in a class called System anyway. The latter is 
+the only answer I truly understand and which makes sense to me.
+
+I would remove the input and output public static variables from the System class 
+because they are input and output object reference variables which do not serve the 
+purpose of representing the single concept that the System class represents which 
+violates the single responsibility principle of class design.
+
+I could improve upon this by making separate classes for standard input and output 
+streams. For example an IOStreamManager class, or something like that, and in that 
+class I would have the methods related to the standard input and output streams 
+that are currently in the System class, such as:
+static void	setErr​(PrintStream err) Reassigns the "standard" error output stream.
+static void	setIn​(InputStream in) Reassigns the "standard" input stream.
+static void	setOut​(PrintStream out)	Reassigns the "standard" output stream.
+And if other methods of the System class needed access to the standard input and 
+output streams for their implementation I would pass the IO streams to those methods 
+as arguments obtained from an accessor method invoked on an instance of the
+IOStreamManager class.
