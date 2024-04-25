@@ -1,0 +1,16 @@
+• R8.34
+What is the default package? 
+Have you used it before this chapter in your programming? 
+
+The default package is a special package, i.e., grouping of related classes, in Java
+which has no name.
+The default package is the package in which classes that I've written in my Java 
+program are placed if I do not specify the package in which to place my class at the
+top of the source file with the package specification statement:
+package packageName;
+for example:
+package com.horstmann.bigjava;
+
+If I don't place a package specification statement at the top of my Java class source
+file as the first instruction in the source file, the class is placed into the a 
+nameless package known as the default package.
