@@ -1,0 +1,108 @@
+•• R8.33 
+Every Java program can be rewritten to avoid import statements. 
+Explain how, and rewrite RectangleComponent.java from Section 2.9.3 to avoid import statements.
+
+Okay, first I'm going to explain how every Java program can be rewritten to avoid 
+import statements.
+So, first, let's explain what a normal Java program looks like. Usually, it's a 
+bunch of classes, most of which model objects, and all of which contain instructions
+for the computer. One of the classes contains a main method where the program begins
+execution of instructions, including creating objects of classes in the program or in
+the Java API library of classes.
+The reference to instructions in one java class file which are contained in a 
+different java class file via the use of objects and their methods or other classes
+than the class in which an instruction is in, requires the programmer (me) to tell 
+the computer where to find those instructions. This is what the import statements at
+the top of a Java class do, they tell the Java compiler where to find those other 
+instructions I want it to execute.
+It is not enough for me to tell the computer the name of the class in which an object
+or a method is in. Because there are lots and lots of classes in the Java API that 
+other programmers have written, or in a program I've written myself. So, the computer
+would not know which class I was referring too if all I told it was that the code I 
+am referencing in my class is the code in some other class called RandomClassName,
+because there could be 1000 classes called RandomClassName.
+If I use the name RandomClassName in my Java class, the computer will not know which class I am referring to because there are multiple classes with that name. This is 
+known as a name clash or a naming conflict.
+What is the solution to class naming clashes in Java? Unique package names!
+Classes in Java are organised into packages, and packages have unique names, Java 
+recommends naming packages using reverse internet domain names which are unique. This
+way the packages I write are unique. Class in the Java API are sorted into packages, 
+i.e., groups, of related classes, and classes in the same package cannot have the 
+same name. 
+This way two classes with the same name can coexist as long as they are stored in two 
+different packages, for example the packages shapes and homes could both have a class 
+with the same name, such as shapes.RandomClassName and homes.RandomClassName. So long
+as the package names are unique, the class names don't have to be, and now I can 
+reference both class in the same java class. Usually package names would be reverse
+domain names like com.homes and com.shapes, and the import statements would like the 
+import com.homes.RandomClassName and import com.shapes.RandomClassName.
+So, all Java classes are stored in packages. Usually, when we want to use a class or 
+classes stored in another package we import that class into our Java program via an 
+import statement which tells the Java compiler where to find the class we are 
+referencing in our program. That's what the import com.homes.RandomClassName 
+statement does. But, we can also tell the compiler the same thing by referencing a 
+class by its full name every time we reference it with the Java class we are writing.
+This way we don't have to write the import statement at the top of a class we are
+writing where we tell the compiler that the class we are writing uses the name 
+RandomClassName and that when it does the name refers to the class called
+RandomClassName in the package com.homes, but we will have to reference the class by 
+its full name every time we use it in our class. This is useful when using two 
+classes of the same name in a single Java program, in which case we must reference
+each class by their full name when we use them in order to differentiate the two, or
+we must import one class but reference the other by its full name.
+
+Now, let's look at an example of a Java classes written without import statements, 
+and therefore references the classes it uses by referencing their full name. I will 
+use the RectangleComponent.java class from section 2.9.3, following is what the class
+looks like with import statements:
+1 import java.awt.Graphics;
+2 import java.awt.Graphics2D;
+3 import java.awt.Rectangle;
+4 import javax.swing.JComponent;
+5
+6 /**
+7 A component that draws two rectangles.
+8 */
+9 public class RectangleComponent extends JComponent
+10 {
+11 public void paintComponent(Graphics g)
+12 {
+13 // Recover Graphics2D
+14 Graphics2D g2 = (Graphics2D) g;
+15
+16 // Construct a rectangle and draw it
+17 Rectangle box = new Rectangle(5, 10, 20, 30);
+18 g2.draw(box);
+19
+20 // Move rectangle 15 units to the right and 25 units down
+21 box.translate(15, 25);
+22
+23 // Draw moved rectangle
+24 g2.draw(box);
+25 }
+26 }
+
+and now I will write the RectangleComponent.java class from section 2.9.3 without 
+import statements:
+/**
+  A component that draws two rectangles
+*/
+public class RectangleComponent extends javax.swing.JComponent
+{
+  public void paintComponent(java.awt.Graphics g)
+  {
+    // Recover Graphics2D
+    java.awt.Graphics2D g2 = (java.awt.Graphics2D) g;
+    
+    // Construct a rectangle and draw it
+    java.awt.Rectangle box = new java.awt.Rectangle(5, 10, 20, 30);
+    g2.draw(box);
+    
+    // Move rectangle 15 units to the right and 25 units down
+    box.translate(15, 25);
+
+    // Draw moved rectangle
+    g2.draw(box);
+  }
+}
+
