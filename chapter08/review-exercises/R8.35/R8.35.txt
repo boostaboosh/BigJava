@@ -1,0 +1,30 @@
+•• Testing R8.35 
+What does JUnit do when a test method throws an exception? 
+Try it out and report your findings.
+
+Okay, cool. I finally got JUnit working in my IntelliJ IDE.
+So, when a JUnit test method throws an exception I get a dedicated output where
+the terminal tab/window usually is in my IDE and I see the following output:
+
+java.lang.AssertionError: 
+Expected :30.67
+Actual   :-30.67
+<click to see the difference>
+
+at org.junit.Assert.failNotEquals(Assert.java:835)
+at DieselTrainTest.move(DieselTrainTest.java:12)
+
+Above that I see how many of my tests passed, and it looks like:
+Tests failed: 2 of 2 tests - 30ms
+
+And on the left I even see a directory tree type structure with neat little 
+icons next to my test class's name and each test method within it. And the 
+icon is green if a test passes but yellow if a test does not pass. So it's 
+immediately visually clear if a test passes or not.
+
+Another really cool feature I found is the rerun automatically button I can
+press in the IntelliJ IDE's JUnit UI which re-runs my tests automatically any time I make changes to the files in my project it seems. Which is neat, because I will get 
+notified if tests fail while programming. So, in the future, if I make a project. I
+can have the tests re run automatically while I code. Or while making edits as I 
+debug. Next to the rurun automatically button there are also rerun test and rerun
+failed tests buttons.
