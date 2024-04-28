@@ -1,0 +1,27 @@
+•• E8.1
+Implement the Coin class described in Section 8.2.
+
+Modify the CashRegister class so that coins can be added to the cash register,
+by supplying a method:
+
+void receivePayment(int coinCount, Coin coinType)
+
+The caller needs to invoke this method multiple times, once for each type of coin
+that is present in the payment.
+
+coin class implementation
+steps
+1 - list of methods I need to supply
+a method which gets the value of a coin
+2 - specify the public interface
+2a) sample object use to get an idea of public interface
+Coin quarter = new Coin(0.25)
+double value = quarter.getValue();
+2b) the public interface in Coin.java file
+3 - document the public interface
+4 - determine instance variables (if a value can be computed on demand do so
+5 - implement constructors and methods
+6 - test the class (using JUnit unit test framework, which verifies that a unit, i.e., class,
+                    works correctly in isolation)
+
+modifying the cash register class
