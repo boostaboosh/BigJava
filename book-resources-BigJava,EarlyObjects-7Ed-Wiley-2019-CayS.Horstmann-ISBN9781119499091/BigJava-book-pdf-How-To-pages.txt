@@ -1,6 +1,9 @@
 how to 3.1 - implementing a class
 pdf p.134, book p.78
 
+3.4 Unit Testing (unit test verifies that a class works correctly in isolation)
+pdf p.137, book p.81
+
 how to 4.1 - carrying out computations
 pdf p.188, book p.118
 
@@ -16,6 +19,22 @@ pdf p.251, book p.161
 how to 6.1 - writing a loop
 pdf p.311, book p.203
 
+how to 6.2 - debugging
+pdf p.323, book p.215
+
 how to 7.1 - working with arrays
 pdf p.378, book p.242
 
+7.8 Regression Testing (test suite is a series of tests for repeated testing & regression
+			testing is repeating previously run tests to ensure known failures
+			of prior versions do not appear in newer versions of software)
+pdf p.400, book p.264
+
+8.2 Designing Good Methods
+pdf p.435, book p.273
+
+how to 8.1 - programming with packages
+pdf p.461, book p.299
+
+8.7 Unit Test Frameworks
+pdf p.462, book p.300
