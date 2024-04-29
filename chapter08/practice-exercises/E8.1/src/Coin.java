@@ -5,8 +5,8 @@
  */
 public class Coin
 {
-   double value;
-   String name;
+   private double value;
+   private String name;
 
    /**
     * Constructs a coin object.
