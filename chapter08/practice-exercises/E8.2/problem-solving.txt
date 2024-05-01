@@ -1,0 +1,64 @@
+•• E8.2
+Modify the giveChange method of the CashRegister class so that 
+it returns the number of coins of a particular type to return:
+int giveChange(Coin coinType)
+The caller needs to invoke this method for each coin type, in decreasing value. 
+
+   /**
+    * Returns the number of coins of the specified type 
+    * to give to the customer as change.
+    * Needs to be called multiple times with coins of decreasing value.
+    * @param coinType the type of coin to compute the number of 
+    *                 which to give to the customer as change
+    * @return the number of coins of the specified type to give
+    * to the customer
+    */
+   public int giveChange(Coin coinType)
+   
+hmmm.
+harder than I thought. I think I'm going to have to add an instance variable for keeping
+track of the amount of change due in order to know how many coins to return.
+I'm going to try some computation problem-solving.
+
+step 1 understand the problem: what are the inputs and outputs
+inputs: a coinType with a value, a payment, and a total bill.
+output: the number of coins of coinType to return to the customer as change
+
+step 2 solve examples of the problems by hand
+example inputs:
+coinType: quarter with value of 0.25
+payment: 2
+total: 1.99
+problem-solving by hand:
+change 1p
+coins of coinType to return: 0
+example inputs 2:
+payment 5
+total 1.35
+coinType dime 0.1
+problem-solving by hand 2:
+change = payment (5) - total (1.35) = 3.65
+numberOfCoinsChange = change (3.65) / coinType.value (0.1) = 36 (should to be int div not double :o)
+coins of coinType to return = numberOfCoinsChange (36)
+
+step 3 write a pseudocode algorithm for computing the answers
+changeDue = payment - total
+changeDueInHundredths = changeDue * 100;
+coinValueInHundredths = coinValue * 100;
+numberOfCoinsChange = changeDueInHundredths (integer division) / coinValueInHundredths
+
+step 4 write the variables and constants that I need and specify their types
+double changeDue
+double payment
+double total
+int changeDueInHundredths
+int coinValueInHundredths
+double coinValue
+int numberOfCoinsChange
+I will have to make a changeDueInHundredths variable
+and convert the change to its penny value and the coinValue to its penny value.
+that way I can do integer division between the 2 values and get the number of 
+coins change.
+
+step 5 turn the pseudocode into Java statements
+see CashRegister.java
