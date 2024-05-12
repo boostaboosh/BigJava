@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
@@ -18,15 +19,8 @@ public class MethodDemonstration
      */
     public static void main(String[] args)
     {
-        Point firstNumber = new Point(1, 2);
-        Point secondNumber = new Point(2, 5);
-        swap(firstNumber, secondNumber);
-        System.out.println("first: " + (int) firstNumber.getX()
-              + "." + (int) firstNumber.getY()
-              + " expected: 2.5");
-        System.out.println("second: " + (int) secondNumber.getX()
-              + "." + (int) secondNumber.getY()
-              + " expected: 1.2");
+        ArrayList<Integer> numbers = new ArrayList<Integer>();
+        System.out.println(numbers.get(0));
     }
 
     public static void swap(Point firstNumber, Point secondNumber)
