@@ -25,3 +25,5 @@ Following are links to projects I made after each chapter.
 - P7.10-VideoPokerSimulator
 - P7.11-TheGameOfLife
 - P7.12-PetShopInvoiceDiscount
+## [chapter 8](chapter08/programming-projects)
+- P8.1-ComboLockClass
