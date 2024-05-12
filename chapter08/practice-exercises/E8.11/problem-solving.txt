@@ -1,0 +1,13 @@
+••• E8.11 
+Write methods
+public static double perimeter(Ellipse2D.Double e);
+public static double area(Ellipse2D.Double e);
+that compute the area and the perimeter of the ellipse e. Add these methods to a class
+Geometry. The challenging part of this assignment is to find and implement an accurate
+formula for the perimeter. Why does it make sense to use a static method in this case?
+
+It makes sense to use a static method to compute and return the perimeter and area of
+ellipse objects because these two operations do not require information about a Geometry 
+object's internal state to execute, instead they solely rely on the parameters passed to
+them in order to computer the perimeter and area values of the ellipse. So, they do not
+need to instantiate an instance of the Geometry class to execute.
