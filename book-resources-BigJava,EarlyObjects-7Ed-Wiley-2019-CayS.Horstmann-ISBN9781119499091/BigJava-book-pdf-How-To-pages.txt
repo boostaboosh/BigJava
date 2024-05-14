@@ -25,9 +25,7 @@ pdf p.323, book p.215
 how to 7.1 - working with arrays
 pdf p.378, book p.242
 
-7.8 Regression Testing (test suite is a series of tests for repeated testing & regression
-			testing is repeating previously run tests to ensure known failures
-			of prior versions do not appear in newer versions of software)
+7.8 Regression Testing (Regression means to return to a previous and worse way of behaving. Regression testing is repeating previously run tests to ensure known failures of prior versions of software do not appear in newer versions. A test suite is a series of tests for repeated testing.)
 pdf p.400, book p.264
 
 8.2 Designing Good Methods
