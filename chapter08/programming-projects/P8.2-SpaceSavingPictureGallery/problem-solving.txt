@@ -1,0 +1,95 @@
+••• P8.2
+Improve the picture gallery program in Section 8.5 to fill the space more efficiently.
+Instead of lining up all pictures along the top edge, find the first available space
+where you can insert a picture (still respecting the gaps).
+
+Hint: Solve a simpler problem first, lining up the pictures without gaps.
+
+That is still not easy. You need to test whether a new picture fits. Put the bounding
+rectangles of all placed pictures in an ArrayList and implement a method
+public static boolean intersects(Rectangle r, ArrayList<Rectangle> rectangles)
+that checks whether r intersects any of the given rectangles. Use the intersects
+method in the Rectangle class.
+
+Then you need to figure out where you can try putting the new picture.
+Try something simple first, and check the corner points of all existing rectangles.
+Try points with smaller y-coordinates first.
+
+For a better fit, check all points whose x- and y-coordinates are the x- and y-coordinates
+of corner points, but not necessarily the same point.
+Once that works, add the gaps between images.
+
+problem-solving:
+Simplifying the problem and solving a simpler problem first.
+
+This way I learn something useful from solving the simpler task,
+and the big problem which seems unsurmountable and difficult to get started,
+will seem surmountable and I will have motivation to try the harder problem.
+
+I must ask myself when I start working on an assignment:
+What is the absolutely simplest part of the task that is useful for the end result?
+And start from there.
+
+So, my task is to change the program from section 8.5.
+The program from section 8.5 arranges pictures by lining them up while aligning the top edges of each picture,
+and separating each picture with small gaps,
+and starting a new row whenever room runs out on the current row.
+And then for each new row again aligning the top edge of each picture in the row.
+
+I must change this program by filling the space more efficiently. Instead of lining up pictures
+in rows by aligning their top edges, I must find the first available space in a gallery's available rectangle
+space, and insert the picture there, still respecting the small gaps between pictures.
+
+I have been given the hint of solving the following simpler problem first:
+lining up the pictures without gaps
+
+So, that answers the question for me of what is the absolutely simplest part of the task that is useful for
+the end result.
+I already have a program which prints pictures in a gallery one after the other aligning rows of pictures
+along their top edges with small gaps between pictures.
+My next task is to make a program which prints pictures in a gallery one after the other without aligning
+pictures along their top edges for each row, but instead placing pictures where they next fit in the gallery
+rectangle.
+
+The problem description even tells me how to do this, by saying that I should test whether a new pictures fits
+by putting the bounding rectangles of all placed pictures into an ArrayList and implementing a method: 
+    public static boolean intersects(Rectangle r, ArrayList<Rectangle> rectangles)
+that checks whether r intersects any of the given rectangles using the intersects method in the Rectangle class.
+
+Then, after I've done that the problem description tells me that I need to figure out where I can try putting
+the new picture. I should try something simple first and check the corner points of all existing rectangles.
+It suggests that for a better fit, I should check all points whose x- and y- coordinates are the x- and y-
+coordinates of corner points, but not necessarily the same point. 
+Once that works, I can add gaps between images.
+
+computation problem-solving
+1) understand the problem:
+what are the inputs?
+a bunch of rectangular shaped pictures
+what are the desired outputs?
+a display of all the pictures one next to the other lined up so that
+each successive picture is placed in the first available space for it
+2) solve an example of the problem by hand
+on paper
+3) write a pseudocode algorithm for solving general instances of the problem using
+the method you used for solving a specific instance of the problem when solving the
+problem by hand.
+pseudocode:
+
+for each picture from number 1 to the total number of pictures
+    draw picture
+    foundAPlaceThatFits = false
+    topLeftY = 0
+    topLeftX = 0
+    while (!foundAPlaceThatFits)
+        newPicRectangle = rectangle with the size of the loaded picture with coordinates topLeftY and topLeftX
+        if newPicRectangle intersects a rectangle in rectangles
+            topLeftX = topLeftX + widthOfIntersectedRectangle
+        else if newPicRectangleTopLeftX + newPicRectangleWidth > MAX_WIDTH
+            Rectangle nextLowestBottomEdgeRectangle = getLowestBottomEdgeRectangleWithBottomEdgeYGreaterThan(topLeftY)
+            topLeftY = nextShortestRectangleBottomEdgeY
+            topLeftX = nextShortestRectangleLeftEdgeX
+        else
+            foundPlaceThatFits = true
+            add newPicRectangle to rectangles collection
+    move picture to topLeftX and topLeftY
