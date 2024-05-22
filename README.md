@@ -27,3 +27,5 @@ Following are links to projects I made after each chapter.
 - P7.12-PetShopInvoiceDiscount
 ## [chapter 8](chapter08/programming-projects)
 - P8.1-ComboLockClass
+- P8.2-SpaceSavingPictureGallery
+- P8.6-CommaSeparatedValues(CSV)TableReader
