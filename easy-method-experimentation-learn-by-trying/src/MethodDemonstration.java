@@ -19,14 +19,17 @@ public class MethodDemonstration
      */
     public static void main(String[] args)
     {
-        ArrayList<Integer> numbers = new ArrayList<Integer>();
-        System.out.println(numbers.get(0));
+        System.out.println(function(3));
     }
 
-    public static void swap(Point firstNumber, Point secondNumber)
+    public static int function(int number)
     {
-        Point temporary = new Point(firstNumber);
-        firstNumber.setLocation(secondNumber);
-        secondNumber.setLocation(temporary);
+        int c = 0;
+        while (number >= 0)
+        {
+            number = number - 2;
+            c = c + number - 2;
+        }
+        return c;
     }
 }
