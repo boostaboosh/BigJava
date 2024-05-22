@@ -1,0 +1,127 @@
+•• P8.6
+Tabular data are often saved in the CSV (comma-separated values) format.
+Each table row is stored in a line, and column entries are separated by commas.
+However, if an entry contains a comma or quotation marks, 
+the entry is enclosed in quotation marks, 
+and any quotation marks of the entry are doubled. For example,
+
+John Jacob Astor,1763,1848
+"William Backhouse Astor, Jr.",1829,1892
+"John Jacob ""Jakey"" Astor VI",1912,1992
+
+Provide a class Table with methods
+
+public void addLine(String line)
+public String getEntry(int row, int column)
+public int rows()
+public int columns()
+
+Solve this problem by producing progressively more complex intermediate versions
+of your class and a tester, similar to the approach in Section 8.5.
+
+problem-solving: solve a simpler problem first
+what is the absolutely simplest part of the task that is useful for the end result?
+1) Make a program that reads in one entry until it reads a comma
+
+then I can accomplish the following steps:
+2) make a program that reads in one line with entries separated by commas
+3) then I can make a program that reads in one entry enclosed between quotation marks 
+and a comma inside of it
+4) make a program that reads in one line with entries enclosed between quotation marks
+and commas inside of the entries
+5) make a program that reads in one entry enclosed 
+between quotation marks with quotation marks inside of it
+6) make a program that reads in one line with entries enclosed between quotation marks
+with quotation marks inside of the entries
+7) make a program that reads in an entry enclosed in quotation marks with quotation marks
+and commas inside of it
+8) make a program that reads in a line of entries enclosed in quotation marks with
+quotation marks and commas inside of it
+9) make a program that reads in table rows stored in lines
+
+computational problem-solving:
+1) Make a program that reads in one entry until it reads a comma
+
+step 1) understand the problem
+what are the inputs?
+a String with a comma at the end
+what are the desired outputs?
+the substrings before the comma
+step 2) work out examples by hand
+input: Thomas the tank engine,
+output: Thomas the tank engine
+step 3) write a pseudocode algorithm for solving the problem
+characters = array derived from input line string
+entry = "";
+while !done
+    character = nextCharacter in characters
+    if character == ','
+        done = true
+    else
+        entry = entry + character
+
+next problem to solve: a simple extension of the previous problem:
+2) make a program that reads in one line with entries separated by commas
+characters = array derived from input line string
+entry = ""
+for character in characters
+    if character != ','
+        entry = entry + character
+    if character == ',' || character is last character
+        add entry to table
+        entry = ""
+        
+next problem to solve: a simple extension of the previous problem:
+3) then I can make a program that reads in one entry enclosed between quotation marks 
+and a comma inside of it
+
+characters = character array derived from input line string
+row = empty array list
+string entry = ""
+quotationsCounter = 0
+for char in characters
+    if char == '"'
+        quotationsCounter = quotationsCounter + 1
+    else
+        if char != ',' || quotationsCounter == 1
+            entry = entry + character
+        if char == ',' && quotationsCounter == 2 || char is last char
+            row.add(entry)
+            entry = ""
+            quotationsCounter = 0
+
+next problem which is a simple extension of the previous problem:
+4) make a program that reads in one line with entries enclosed between quotation marks
+and commas inside of the entries
+
+my previous solution works for this too!
+
+next problem which is a simple extension of the previous problem:
+5) make a program that reads in one entry enclosed 
+between quotation marks with quotation marks inside of it
+
+character = char array from the input line string
+row = new array list
+string entry = ""
+quotationsCounter = 0
+for indexCounter from index 0 to length of characters array
+    character = characters[indexCounter]
+    if character == '"'
+        quotationsCounter = quotationsCounter + 1
+    
+    isFirstQuotationMark = character == '"' && quotationsCounter == 1 
+    if !(isFirstQuotationMark)
+        evenNumberOfQuotationMarks = quotationsCounter % 2 == 0
+        if !(
+                evenNumberOfQuotations
+                && (character == '"' || character == ',')
+            )
+            entry = entry + character
+        if (character == ',' && evenNumberOfQuotationMarks
+                || indexCounter == length of characters array - 1
+            if (quotationsCounter > 0
+            row.add(entry)
+            entry = ""
+            quotationsCounter = 0
+
+table.add(row)
