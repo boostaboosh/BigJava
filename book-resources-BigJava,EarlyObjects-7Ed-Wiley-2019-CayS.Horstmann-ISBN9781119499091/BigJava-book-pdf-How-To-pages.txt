@@ -29,7 +29,7 @@ pdf p.378, book p.242
 pdf p.400, book p.264
 
 8.2 Designing Good Methods
-pdf p.435, book p.273
+pdf p.435, book p.273	
 
 how to 8.1 - programming with packages
 pdf p.461, book p.299

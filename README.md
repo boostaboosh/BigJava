@@ -29,3 +29,4 @@ Following are links to projects I made after each chapter.
 - P8.1-ComboLockClass
 - P8.2-SpaceSavingPictureGallery
 - P8.6-CommaSeparatedValues(CSV)TableReader
+- P8.7-USPostalServiceZipCodeBarCodeConverter

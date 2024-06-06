@@ -15,11 +15,12 @@ public class MethodDemonstration
 {
     /**
      * The main method where the Java program begins execution.
-     * @param args
+     * @param args the program starting arguments
      */
     public static void main(String[] args)
     {
-        System.out.println(function(3));
+        String[] emptyArray = null;
+        System.out.println(emptyArray.length);
     }
 
     public static int function(int number)
