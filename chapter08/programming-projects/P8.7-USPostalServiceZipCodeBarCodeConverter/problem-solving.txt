@@ -1,0 +1,164 @@
+••• P8.7
+For faster sorting of letters, the U.S. Postal Service encourages companies that send
+large volumes of mail to use a bar code denoting the ZIP code (see Figure 8 of a 
+postal bar code).
+
+The encoding scheme for a five-digit ZIP code is shown in Figure 9. There are
+full-height frame bars on each side. The five encoded digits are followed by a check
+digit, which is computed as follows: Add up all digits, and choose the check digit to
+make the sum a multiple of 10. For example, the sum of the digits in the ZIP code
+95014 is 19, so the check digit is 1 to make the sum equal to 20.
+
+Each digit of the ZIP code, and the check digit, is encoded according to the table below,
+where 0 denotes a half bar and 1 a full bar. 
+Note that they represent all combinations of two full and three half bars. 
+The digit can be computed easily from the bar
+code using the column weights 7, 4, 2, 1, 0. 
+For example, the bar code digit 01100 is
+ 0 × 7 + 1 × 4 + 1 × 2 + 0 × 1 + 0 × 0 = 6
+The only exception is 0, which would yield 11 according to the weight formula.
+
+Following is the table detailing the encoding of bars in the USPS zip code bar code:
+Digit is the left column with no header
+Weight is the column header for each column apart from the first
+  7 4 2 1 0
+1 0 0 0 1 1
+2 0 0 1 0 1
+3 0 0 1 1 0
+4 0 1 0 0 1
+5 0 1 0 1 0
+6 0 1 1 0 0
+7 1 0 0 0 1
+8 1 0 0 1 0
+9 1 0 1 0 0
+0 1 1 0 0 0
+
+Write a program that asks the user for a ZIP code and prints the bar code. Use : for
+half bars, | for full bars. For example, 95014 becomes
+||:|:::|:|:||::::::||:|::|:::|||
+(Alternatively, write a graphical application that draws real bars.)
+Your program should also be able to carry out the opposite conversion: Translate
+bars into their ZIP code, reporting any errors in the input format or a mismatch of
+the digits.
+
+problem solving
+
+prep-talk:
+Okay, let's solve this problem by making a program that solves it.
+This chapter is about designing good classes so let's focus on that.
+
+I'm going to start with some good old computational problem-solving.
+step 1:
+what are the inputs?
+a US zip (postal) code made up of 5 digits.
+what are the desired outputs?
+a US postal service bar code representing the zip code made up of tall and short bars (| and :)
+
+step 2:
+solving specific instances of the problem by hand
+done on paper
+
+step 3:
+writing a pseudocode algorithm for solving the problem
+write tall bar
+turn first digit into bar code digit
+turn second digit into bar code digit
+turn third digit into bar code digit
+turn fourth digit into bar code digit
+turn fifth digit into bar code digit
+compute sixth bar code check digit
+turn check digit into bar code digit
+write all the bar code digits in order preceded and succeeded by single bar symbols
+
+I also need to be able to do the opposite and turn bar codes into zip codes.
+The algorithm will be similar to the one for making bar codes from zip codes,
+but instead of turning digits into bar codes I will turn bar code digits into numbers.
+
+okay. before I go into more detail here I should think about the class design for this program.
+A simple rule of thumb for getting started with class design is to look for nouns in the problem
+description:
+letters
+USPostalService
+companies
+mail
+bar code
+scheme
+zip code
+bars
+digits
+table
+combinations
+column weights
+conversion
+errors
+
+From this list of nouns I will be able to find nouns to use when naming classes in my program.
+Whether they be model classes that model a single concept or actor classes that carry out a certain
+task for me.
+To identify actor classes I will need I can start by listing the various tasks I will need my program
+to accomplish according to the problem description:
+ - ask the user for the zip code
+ - convert the zip code to a USPS zip code bar code
+ - print out a bar code
+ - ask user for a bar code
+ - convert the USPS zip code bar code to a zip code
+ - print out the zip code
+ - report errors in the input format or a mismatch of the digits (wrong check digit)
+
+Okay, now that I have listed the tasks I need my program to accomplish and the nouns in the problem
+description, I can list the classes I will need to write this program:
+actor classes:
+    ZipAndBarCodeConverterRunner
+    ZipCodeAsker
+    ZipCodeToBarCodeConverter
+    BarCodePrinter
+    BarCodeAsker
+    BarCodeToZipCodeConverter
+    ZipCodePrinter
+model classes:
+    ZipCode
+    BarCode
+    
+Okay, that seems like a good number of classes.
+I'm going to have make tester classes too.
+
+Before I actually implement this program, 
+I'll break this problem down into a succession of small steps
+ending with the original problem and starting with the absolutely simplest part
+of this problem which is useful for the end result.
+steps:
+1) read in one number
+2) read in 5 numbers
+3) read in 5 numbers and turn 1 number into a bar code digit
+4) read in a 5-digit zip code and turn said zip code (5 numbers) into bar code digits
+5) read in a 5-digit zip code and turn it into a bar code with a check digit
+6) read in a zip code and turn it into a full USPS zip code bar code
+7) read in one bar code digit
+8) read in a whole USPS zip code bar code
+9) read in a USPS bar code and turn 1 bar code digit into a base 10 digit
+10) turn a whole bar code into digits
+11) turn a whole bar code into digits and check if the last digit is a valid check digit
+
+Okay, steps made.
+Now I'll make the classes and test classes.
+Okay. done.
+let me get started with step 1:
+1) read in 1 number
+okay, now let's do step 2:
+2) read in 5 numbers
+okay, now let's turn 1 number into a bar code digit:
+3) (read in 5 numbers and) turn 1 number into a bar code digit
+okay, now I will skip step 4 because my tests for each digit should suffice:
+4) read in a 5-digit zip code and turn said zip code (5 numbers) into bar code digits
+and move on to step 5:
+5) read in a 5-digit zip code and turn it into a bar code with a check digit
+okay, I now realise that point 5 is the same as 6:
+6) read in a zip code and turn it into a full USPS zip code bar code
+okay, that was basically the same as 5, but now I fixes the converter runner to work for a user inputting a zip code, 
+and converting it to a USPS zip code bar code.
+Now it's time for 7:
+7) read in one bar code digit
+Okay, done that.
+8) read in a whole USPS zip code bar code
+okay, done that.
+9) read in a USPS bar code and turn 1 bar code digit into a base 10 digit
