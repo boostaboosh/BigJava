@@ -1,0 +1,22 @@
+••• Science P8.11 
+Design a class Cannonball to model a cannonball that is fired into the air. 
+A ball has
+• An x- and a y-position.
+• An x- and a y-velocity.
+Supply the following methods:
+• A constructor with an x-position (the y-position is initially 0).
+• A method move(double deltaSec) that moves the ball to the next position. 
+First compute the distance traveled in deltaSec seconds, using the current velocities,
+then update the x- and y-positions; then update the y-velocity by taking into
+account the gravitational acceleration of –9.81 m/seconds squared; the x-velocity is
+unchanged.
+• A method Point getLocation() that gets the current location of the cannonball,
+rounded to integer coordinates.
+• A method ArrayList<Point> shoot(double alpha, double v, double deltaSec) whose
+arguments are the angle α (alpha) and initial velocity v. (Compute the x-velocity as v
+cos α (alpha) and the y-velocity as v sin α (alpha); then keep calling move with the given time
+interval until the y-position is 0; return an array list of locations after each call
+to move.)
+
+Use this class in a program that prompts the user for the starting angle and the initial
+velocity. Then call shoot and print the locations.
