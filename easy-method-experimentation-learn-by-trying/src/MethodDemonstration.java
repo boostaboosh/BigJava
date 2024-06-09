@@ -19,8 +19,7 @@ public class MethodDemonstration
      */
     public static void main(String[] args)
     {
-        String[] emptyArray = null;
-        System.out.println(emptyArray.length);
+        System.out.println(Math.sqrt(125));
     }
 
     public static int function(int number)
