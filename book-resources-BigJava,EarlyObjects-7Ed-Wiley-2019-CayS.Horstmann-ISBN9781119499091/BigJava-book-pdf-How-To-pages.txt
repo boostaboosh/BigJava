@@ -36,3 +36,7 @@ pdf p.461, book p.299
 
 8.7 Unit Test Frameworks
 pdf p.462, book p.300
+
+how to 9.1 - Developing an Inheritance Hierarchy
+pdf p.501, book p.325
+
