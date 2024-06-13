@@ -1,0 +1,54 @@
+•• E9.1
+Suppose the class Employee is declared as follows:
+
+public class Employee
+{
+private String name;
+private double baseSalary;
+
+public void setName(String newName) { . . . }
+public void setBaseSalary(double newSalary) { . . . }
+public String getName() { . . . }
+public double getSalary() { . . . }
+
+}
+
+Declare a class Manager that inherits from the class Employee
+and adds an instance variable bonus for storing a salary bonus.
+Implement the constructors and methods, and supply a test program.
+
+problem-solving:
+
+1st step:
+Determine the common responsibilities.
+You will have identified a class at the base of the hierarchy.
+That class needs to have sufficient responsibilities
+to carry out the tasks at hand.
+To find out what those tasks are,
+write pseudocode for processing the objects.
+From the pseudocode,
+we obtain the following list of common responsibilities that every
+super class object must carry out.
+
+the pseudocode:
+for each employee
+    print their name and salary
+
+2nd step:
+Decide which methods are overridden in subclasses.
+For each subclass and each of the common responsibilities,
+decide whether the behavior can be inherited
+or whether it needs to be overridden.
+Be sure to declare any methods that are inherited or overridden
+in the root of the hierarchy.
+
+methods overridden in subclasses:
+public double getSalary()
+
+3rd step:
+Declare the public interface of each subclass.
+Typically, subclasses have responsibilities other than those of the superclass.
+List those, as well as the methods that need to be overridden.
+You also need to specify how the objects of the subclasses should be constructed.
+In this example, we need a way of setting the interest rate for the savings account.
+In addition, we need to specify constructors and overridden methods.
