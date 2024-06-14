@@ -1,0 +1,5 @@
+•• Business E9.18
+Change the CheckingAccount class in How To 9.1 so that a $1 fee is levied for deposits
+or withdrawals in excess of three free monthly transactions. Place the code for
+computing the fee into a separate method that you call from the deposit and withdraw
+methods.
