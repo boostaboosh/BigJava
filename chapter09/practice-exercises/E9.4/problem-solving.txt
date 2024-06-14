@@ -1,0 +1,12 @@
+•• E9.4
+Reimplement the CheckingAccount class from How To 9.1
+so that the first overdraft in any given month incurs a $20 penalty,
+and any further overdrafts in the same month result in a $30 penalty.
+
+if balance after withdrawal is negative
+    // then this is an overdraft
+    if this is first overdraft
+        overdraft fee = 20
+    otherwise
+        overdraft fee = 30
+
