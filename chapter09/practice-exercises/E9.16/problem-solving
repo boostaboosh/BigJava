@@ -1,0 +1,4 @@
+•• E9.16
+A labeled point has x- and y-coordinates and a string label. Provide a class Labeled-
+Point with a constructor LabeledPoint(int x, int y, String label) and a toString
+method that displays x, y, and the label.
