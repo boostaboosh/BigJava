@@ -1,0 +1,8 @@
+•• E9.17
+Reimplement the LabeledPoint class of Exercise •• E9.16 by storing the location in a
+java.awt.Point object. Your toString method should invoke the toString method of
+the Point class.
+
+•• E9.16 A labeled point has x- and y-coordinates and a string label. Provide a class
+Labeled-Point with a constructor LabeledPoint(int x, int y, String label) and a toString
+method that displays x, y, and the label.
