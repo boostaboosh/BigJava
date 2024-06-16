@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 /**
  * A pawn is a chess piece which can move forward
  * if no pieces are in its way,
@@ -13,4 +15,10 @@ public class Pawn
     fill implementation
     be a subclass of ChessPiece
     */
+
+   public ArrayList<String> canMoveTo()
+   {
+      // todo: fill implementation
+      return null;
+   }
 }

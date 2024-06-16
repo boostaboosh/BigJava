@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 /**
  * A queen is a chess piece which can move and take in any direction
  * by any number of squares as long as other pieces aren't on its
@@ -14,4 +16,10 @@ public class Queen
     fill implementation
     be a subclass of ChessPiece
     */
+
+   public ArrayList<String> canMoveTo()
+   {
+      // todo: fill implementation
+      return null;
+   }
 }

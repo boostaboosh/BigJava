@@ -1,0 +1,96 @@
+computational problem-solving
+step 1) understand the problem
+what are the inputs? a pieces position on the board: file & rank
+what are the desired outputs? a list of positions the piece can move to
+
+step 2) solve the problem by hand
+I can't tell a computer how to solve a problem if I can't solve it myself.
+DO IT!
+input: bishop is on C2
+available moves:
+1 B1
+2 B3
+3 A4
+4 D1
+5 D3
+6 E4
+7 F5
+8 G6
+9 H7
+
+step 3) write a pseudocode algorithm for solving general instances
+ of the problem.
+pseudocode algorithm:
+
+currentRank = get current rank
+currentFile = get current file
+validMoves = new list
+if the current file is > a
+    // then I need to check western diagonals
+    if the current rank is > 1
+        // then I need to check south-west diagonal
+        southWestSquareRank = currentRank - 1
+        southWestSquareFile = currentFile - 1
+        add square at southWestSquareRank, southWestSquareFile to validMoves
+        if southWestSquareRank > 1 && southWestSquareFile > a
+            // then there is an additional southWestSquare
+            southWestSquareRank = southWestSquareRank - 1
+            southWestSquareFile = southWestSquareFile - 1
+            add square at southWestSquareRank, southWestSquareFile to validMoves
+            if southWestSquareRank > 1 && southWestSquareFile > a
+                // the there is an additional southWestSquare
+                ... implement a loop
+                steps I want to repeat:
+                while ...
+                    if southWestSquareRank > 1 && southWestSquareFile > a
+                        // then there is an additional southWestSquare
+                        southWestSquareRank = southWestSquareRank - 1
+                        southWestSquareFile = southWestSquareFile - 1
+                        add square at southWestSquareRank, southWestSquareFile to validMoves
+
+                loop condition? What goal do I want to reach with my loop?
+                I want to keep executing the loop body until the southWestSquareRank == 0 || southWestSquareFile == 'a' - 1
+                while southWestSquareRank != 1 || southWestSquareFile != 'a'
+                    if southWestSquareRank > 1 && southWestSquareFile > a
+                        // then there is an additional southWestSquare
+                        southWestSquareRank = southWestSquareRank - 1
+                        southWestSquareFile = southWestSquareFile - 1
+                        add square at southWestSquareRank, southWestSquareFile to validMoves
+
+                determine the loop type
+                a count controlled loop is controlled by a counter variable which is modified by a constant amount until it reaches a target value
+                this is a count controlled loop because the rank and file is modified by 1 until it reaches 1 and a respectively
+
+                for (int southWestSquareRank = currentRank - 1, char southWestSquareFile = currentChar - 1; southWestSquareRank != 0 && southWestSquareFile != 'a' - 1; southWestSquareRank--, southWestSquareFile--)
+                    add square at southWestSquareRank, southWestSquareFile to validMoves
+    else
+        // there is no southwestern diagonal because no valid squares
+        // exist south of the piece's current square
+else
+    // I do not need to check western diagonals for valid move
+    // squares because there are none relative to the current square
+
+re-writing the pseudocode with my loop for adding southwestern diagonal square to the list of valid moves.
+(Having done that, I think I can modify that loop for all the other loops.)
+pseudocode:
+
+currentRank = get current rank
+currentFile = get current file
+validMoves = new list
+for (int southWestSquareRank = currentRank - 1, char southWestSquareFile = currentFile - 1; southWestSquareRank != 0 && southWestSquareFile != 'a' - 1; southWestSquareRank--, southWestSquareFile--)
+    add square at southWestSquareRank, southWestSquareFile to validMoves
+for (int northWestSquareRank = currentRank + 1, char northWestSquareFile = currentFile - 1; northWestSquareRank != 9 && northWestSquareFile != 'a' - 1; northWestSquareRank++, northWestSquareFile--)
+    add square at southWestSquareRank, southEastSquareFile to validMoves
+for (int northEastSquareRank = currentRank + 1, char northEastSquareFile = currentFile + 1; northEastSquareRank != 9 && northEastSquareFile != 'h' + 1; northEastSquareRank++, northEastSquareFile++)
+    add square at northEastSquareRank, northEastSquareFile to validMoves
+for (int southEastSquareRank = currentRank - 1, char southEastSquareFile = currentFile + 1; southEastSquareRank != 0 && southEastSquareFile != 'h' + 1; southEastSquareRank--, southEastSquareFile++)
+    add square at southEastSquareRank, southEastSquareFile to validMoves
+
+step 4) declare the variables and constants that I need and specify their types
+int currentRank
+char currentFile
+ArrayList<Square> validMoves
+the counters are of type int and char as specified in the pseudocode
+
+step 5) turn the pseudocode statements into java statements
+see Bishop.java
