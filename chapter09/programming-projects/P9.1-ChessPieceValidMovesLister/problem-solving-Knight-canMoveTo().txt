@@ -1,0 +1,44 @@
+computational problem-solving for Knight canMoveTo method
+
+step 1) understand the problem
+what are the inputs? a knight's position on a chess board
+what are the desired outputs? the list of the positions a knight can move to from its position
+
+step 2) solve examples of the problem by hand until I understand how to solve the problem myself
+
+step 3) write a pseudocode algorithm for solving general instances of the problem
+        using the steps I took when solving specific instances of the problem by hand
+
+pseudocode:
+
+boolean isTwoOrMoreRanksAboveBottomRank = currentRank - bottomRank >= 2
+boolean notOnBottomRank = currentRank != bottomRank
+boolean isTwoOrMoreFilesRightOfLeftEdge = currentFile - leftEdge >= 2
+boolean notOnLeftEdge = currentFile != leftEdge
+boolean isTwoOrMoreRanksBelowTopRank = currentRank - topRank <= -2
+boolean notOnTopRank = currentRank != topRank
+boolean isTwoOrMoreFilesLeftOfRightEdge = currentFile - rightEdge <= -2
+boolean notOnRightEdge = currentFile != rightEdge
+
+if (isTwoOrMoreRanksAboveBottomRank)
+    if (notOnLeftEdge)
+        add (currentFile - 1, currentRank - 2) to moves
+    if (notOnRightEdge)
+        add (currentFile + 1, currentRank - 2) to moves
+if (notOnBottomRank)
+    if (isTwoOrMoreFilesRightOfLeftEdge)
+        add (currentFile - 2, currentRank - 1) to moves
+    if (isTwoOrMoreFilesLeftOfRightEdge)
+        add (currentFile + 2, currentRank - 1) to moves
+if (notOnTopRank)
+    if (isTwoOrMoreFilesRightOfLeftEdge)
+        add (currentFile - 2, currentRank + 1) to moves
+    if (isTwoOrMoreFilesLeftOfRightEdge)
+        add (currentFile + 2, currentRank + 1) to moves
+if (isTwoOrMoreRanksBelowTopRank)
+    if (notOnLeftEdge)
+        add (currentFile - 1, currentRank + 2) to moves
+    if (notOnRightEdge)
+        add (currentFile + 1, currentRank + 2) to moves
+
+step 4) turn pseudocode statements into Java code

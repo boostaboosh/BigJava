@@ -1,0 +1,3 @@
+computational problem-solving for pawn canMoveTo()
+
+step 1) understand the problem
