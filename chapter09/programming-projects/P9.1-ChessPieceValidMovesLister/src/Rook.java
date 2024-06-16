@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 /**
  * A rook is a chess piece which can move and take forwards and backwards
  * along files or left and right along ranks of the chess board by any
@@ -10,4 +12,10 @@ public class Rook
     fill implementation
     be a subclass of ChessPiece
     */
+
+   public ArrayList<String> canMoveTo()
+   {
+      // todo: fill implementation
+      return null;
+   }
 }

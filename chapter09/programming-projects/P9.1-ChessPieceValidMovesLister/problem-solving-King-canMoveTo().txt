@@ -1,0 +1,37 @@
+computational problem-solving for king canMoveTo()
+
+step 1: understand the problem
+what are the inputs? a king's position on a chess board (file and rank)
+what are the desired outputs? a list of squares the king can move to
+        according to its movement pattern
+
+step 2: solve the problem by hand
+input: king on b2
+outputs: b1, a1, a2, a3, b3, c3, c2, c1
+
+step 3: write a pseudocode algorithm for solving general instances of the problem I just
+        solved a specific instance of
+
+pseudocode algorithm:
+
+boolean aboveBottomRank = currentRank > MIN_RANK
+boolean belowTopRank = currentRank < MAX_RANK
+boolean rightOfLeftEdge = currentFile > MIN_FILE
+boolean leftOfRightEdge = currentFile < MAX_FILE
+
+if aboveBottomRank
+    add (currentRank - 1, currentFile) to moves
+if aboveBottomRank && rightOfLeftFile
+    add (currentRank - 1, currentFile - 1) to moves
+if rightOfLeftFile
+    add (currentRank, currentFile - 1) to moves
+if belowTopRank && rightOfLeftFile
+    add (currentRank + 1, currentFile - 1) to moves
+if belowTopRank
+    add (currentRank + 1, currentFile) to moves
+if belowTopRank && leftOfRightFile
+    add (currentRank + 1, currentFile + 1) to moves
+if leftOfRightFile
+    add (currentRank, currentFile + 1) to moves
+if aboveBottomRank && leftOfRightFile
+    add (currentRank - 1, currentFile + 1) to moves
