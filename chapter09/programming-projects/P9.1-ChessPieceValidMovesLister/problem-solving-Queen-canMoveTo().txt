@@ -1,0 +1,50 @@
+computational problem-solving Queen canMoveTo() method
+
+step 1) understand the problem
+what are the inputs? a queen on a square on a chess board
+what are the desired outputs? the squares that the queen can move to
+
+step 2) solve examples of the problem by hand
+input: queen of g3
+output: the squares of the g file, 3rd rank, b8 to h2 dark diagonal, and e1 to h4 dark diagonal
+
+step 3) write a pseudocode algorithm for solving general instances of the problem I solved a
+        specific instance of by hand
+
+pseudocode:
+
+This is basically a combination of the algorithms for computing the squares a rook can move to,
+and the algorithm for computing the squares a bishop can move to.
+I can make 4 loops for going over the coordinates of squares in the file, rank, and each of the
+diagonals that the square the queen is on belongs to.
+
+for each rank from bottom to top
+    if rank != currentRank
+        add (currentFile, rank) to moves
+for each file from left to right
+    if file != currentFile
+        add (file, currentRank to moves)
+
+distanceFromTopRank = topRank - currentRank
+distanceFromLeftFile = currentFile - leftFile
+distanceFromTopAndLeftEdges = minimum of distanceFromTopRank & distanceFromLeftFile
+topLeftToBottomRightDiagonalStartSquare = (currentFile - distanceFromTopAndLeftEdges, currentRank + distanceFromTopAndLeftEdges)
+
+file = leftToRightDiagonalStartSquare file
+rank = leftToRightDiagonalStartSquare rank
+while file <= rightFile && rank >= bottomRank
+    add (file, rank) to moves
+    increment file
+    decrement rank
+
+distanceFromBottomRank = currentRank - bottomRank
+distanceFromBottomAndLeftEdges = minimum of distanceFromBottomRank & distanceFromLeftFile
+bottomLeftToTopRightDiagonalStartSquare = (currentFile - distanceFromBottomAndLeftEdges, currentRank - distanceFromBottomAndLeftEdges
+
+file = bottomLeftToTopRightDiagonalStartSquare file
+rank = bottomLeftToTopRightDiagonalStartSquare rank
+while file <= rightFile && rank <= topRank
+    add (file, rank) to moves
+    increment file
+    increment rank
+

@@ -1,0 +1,64 @@
+computational problem-solving for rook canMoveTo() method
+
+step 1) understand the problem
+what are the inputs? a rook's position on the board
+what are the desired outputs? a list of the positions the rook can move to in chess notation
+
+step 2) solve examples of the problem by hand
+input: rook on d4
+output: d3, d2, d1, c4, b4, a4, e4, f4, g4, h4, d5, d6, d7, d8
+
+step 3) write pseudocode for solving general instances of the problem I solved specific
+        instances of by hand
+
+pseudocode:
+
+if (currentRank != MIN_RANK - 1)
+    add (currentFile, currentRank - 1) to moves
+if (currentRank - 1 != MIN_RANK - 1)
+    add (currentFile, currentRank - 2) to moves
+if (currentRank - 2 != MIN_RANK - 1)
+    add (currentFile, currentRank -3) to moves
+
+making a loop:
+
+if solving by hand:
+currentRank
+rankBelow = currentRank - 1
+if (rankBelow != bottomRank - 1)
+    add (currentFile, rankBelow) to moves
+rankBelow = rankBelow - 1
+if (rankBelow != bottomRank - 1)
+    add (currentFile, rankBelow) to moves
+...
+
+while...
+    rankBelow = rankBelow - 1
+    if (rankBelow != bottomRank - 1)
+        add (currentFile, rankBelow) to moves
+
+goal: rankBelow == MIN_RANK
+
+count controlled loop (rankBelow counter variable)
+for rank from currentRank - 1 to bottomRank
+    add(currentFile, rank) to moves
+
+continuing pseudocode:
+
+for rank from currentRank - 1 to bottomRank
+    add(currentFile, rank) to moves
+
+I could make 3 other loops for iterating over ranks above the rook,
+left of the rook, and right of the rook.
+But I realise I could have just 2 loops. One which iterates over all
+ranks, and one which iterates over all files. And I can add each square
+in the same file as the rook which aren't of the same rank to the valid
+moves, and for the other loop which iterates over all the files I can
+add each square in the same rank as the rook with different files.
+
+for rank from topRank to bottomRank
+    if rank != currentRank
+        add (currentFile, rank) to moves
+for file from leftFile to rightFile
+    if file != currentFile
+        add (currentFile, rank) to moves
