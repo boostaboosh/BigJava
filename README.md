@@ -31,3 +31,5 @@ Following are links to projects I made after each chapter.
 - P8.6-CommaSeparatedValues(CSV)TableReader
 - P8.7-USPostalServiceZipCodeBarCodeConverter
 - P8.11-CannonballFiringSimulator
+## [chapter 9](chapter09/programming-projects)
+- P9.1-ChessPieceValidMovesLister
