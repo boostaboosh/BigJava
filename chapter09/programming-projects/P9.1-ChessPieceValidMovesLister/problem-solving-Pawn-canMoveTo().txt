@@ -1,3 +1,32 @@
 computational problem-solving for pawn canMoveTo()
 
 step 1) understand the problem
+what are the inputs? A pawn's position on the chess board
+what are the desired outputs? the squares the pawn can move to
+
+step 2) solve examples of the problem by hand
+input: pawn on b2
+output: b3 or b4
+input2: pawn on a3
+output: a4
+input3: pawn on a8
+output: no moves
+
+step 3) write a pseudocode algorithm for solving general instances of the problem
+        I just solved specific instances of by hand
+
+pseudocode algorithm:
+
+if currentRank != topRankForThisColour
+    add (currentFile, currentRank + 1) to moves
+if currentRank == startingRankForThisColour
+    add (currentFile, currentRank + 2) to moves
+
+/** i'm not implementing taking other pieces in this program
+if piece on (currentFile - 1, currentRank + 1)
+    add (currentFile - 1, currentRank + 1) to moves
+if piece on (currentFile + 1, currentRank + 1)
+    add (currentFile + 1, currentRank + 1) to moves
+if pawn on (currentFile + 1, currentRank) || (currentFile - 1, currentRank)
+    add (currentFile + 1, currentRank + 1) & (currentFile - 1, currentRank + 1) to moves
+**/
