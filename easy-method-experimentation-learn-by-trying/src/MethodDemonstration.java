@@ -1,9 +1,4 @@
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Random;
-import java.util.Scanner;
-import java.util.logging.Logger;
-import java.awt.Point;
+import java.time.LocalTime;
 
 /**
  * A class for experimenting with methods I learn about so that I can learn about it.
@@ -19,7 +14,10 @@ public class MethodDemonstration
      */
     public static void main(String[] args)
     {
-        System.out.println(Math.sqrt(125));
+        LocalTime now = LocalTime.now();
+        System.out.println(now);
+        System.out.println(Math.floorMod(-2, 24));
+        System.out.println(24 % -2);
     }
 
     public static int function(int number)

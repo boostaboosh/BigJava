@@ -33,3 +33,4 @@ Following are links to projects I made after each chapter.
 - P8.11-CannonballFiringSimulator
 ## [chapter 9](chapter09/programming-projects)
 - P9.1-ChessPieceValidMovesLister
+- P9.2-TimeZonesClock
