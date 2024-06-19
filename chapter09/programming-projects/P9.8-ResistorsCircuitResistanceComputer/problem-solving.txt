@@ -1,0 +1,58 @@
+••• Science P9.8
+In this problem, you will model a circuit consisting of an arbitrary configuration
+of resistors.
+Provide a superclass Circuit with an instance method getResistance.
+Provide a subclass Resistor representing a single resistor.
+Provide subclasses Serial and Parallel, each of which contains an ArrayList<Circuit>.
+A Serial circuit models a series of circuits,
+each of which can be a single resistor or another circuit.
+Similarly, a Parallel circuit models a set of circuits in parallel.
+For example, the circuit in the image is a Parallel circuit containing
+a single resistor and one Serial circuit.
+Use Ohm’s law to compute the combined resistance.
+
+problem-solving:
+
+First I need to understand how electricity works. See understanding-electricity.txt
+After doing this research into how electricity works I now understand Ohm's law:
+The Law
+Ohm’s Law states that the current flowing through a conductor between two points
+is directly proportional to the voltage across the two points
+and inversely proportional to the resistance between them.
+
+The Formula
+V=IR
+Where:
+V is the voltage (potential difference) across the conductor, measured in volts (V).
+I is the current flowing through the conductor, measured in amperes (A).
+R is the resistance of the conductor, measured in ohms (Ω).
+Understanding the Components
+
+Visualizing Ohm’s Law
+To help visualize Ohm’s Law, consider the water pipe analogy:
+Voltage (V):
+The pressure difference between the two ends of the pipe.
+Current (I):
+The flow rate of water through the pipe.
+Resistance (R):
+The properties of the pipe (such as diameter and roughness) that restrict water flow.
+
+Increasing the pressure (voltage) increases the water flow (current) if
+the pipe (resistance) remains the same.
+Conversely, increasing the resistance (making the pipe narrower or rougher)
+reduces the water flow (current) for a given pressure (voltage).
+
+Summary
+Ohm’s Law: Describes the relationship between voltage, current, and resistance
+in a circuit.
+
+Formula:
+V=IR
+Voltage (V) is the potential difference driving the current, measured in volts.
+Current (I) is the flow of electric charge, measured in amperes.
+Resistance (R) is the opposition to current flow, measured in ohms.
+
+Applications:
+Use the formula to calculate any one of the three variables if you know the other two.
+Understanding Ohm’s Law helps in analyzing electrical circuits
+and predicting how they will behave under different conditions.
