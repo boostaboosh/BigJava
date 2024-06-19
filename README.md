@@ -34,3 +34,4 @@ Following are links to projects I made after each chapter.
 ## [chapter 9](chapter09/programming-projects)
 - P9.1-ChessPieceValidMovesLister
 - P9.2-TimeZonesClock
+- P9.8-ResistorsCircuitResistanceComputer

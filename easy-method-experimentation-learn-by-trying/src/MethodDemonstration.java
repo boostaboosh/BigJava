@@ -18,6 +18,7 @@ public class MethodDemonstration
         System.out.println(now);
         System.out.println(Math.floorMod(-2, 24));
         System.out.println(24 % -2);
+        Subclass subclass = new Subclass("nein");
     }
 
     public static int function(int number)
