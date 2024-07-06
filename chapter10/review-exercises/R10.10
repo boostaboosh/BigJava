@@ -1,0 +1,74 @@
+Suppose you need to process an array of employees to find the average salary. 
+Discuss what you need to do to use the Data.average method in Section 10.1.3 
+(which processes Measurable objects). 
+What do you need to do to use the second implementation (in Section 10.4)? 
+Which is easier?
+
+In section 10.1.3 the Data class average method is used for computing the average 
+of objects of different classes.
+
+To achieve this the average method has 1 parameter variable: an array of Measurable
+objects, i.e., objects that implement the Measurable interface which provides the
+getMeasure method.
+
+If I was to use this implementation of the Data class average method to find the 
+average salaries from an array of employees I would need to ensure that every single
+employee object belongs to a class that implements the Measurable interface, or I would
+need to manually edit the Employee class so that it implements the Measurable interface
+by adding a getMeasure method to the Employee class. 
+
+The getMeasure method needs to return the measure of an employee object which 
+I want to include in the average, in this case an employee's salary.
+
+In the second implementation of the Data.average method in section 10.4 a callback method
+is used to compute the average of the provided objects. That is, the average method has 2
+parameter variables:
+
+1st parameter variable) the array of objects to compute the average of, like before
+
+2nd parameter variable) a method for getting the value to compute the average of
+			from each object in the array of objects.
+			This way the object classes don't need to be edited, instead
+			the code for getting the measure of an object can be put into
+			a class so that it can be called at a later time by the Data.average
+			method. 
+			Because the method for getting the measure of the objects is put into 
+			a separate class and waits to be called at a later time it is called
+			a 'callback' method.
+			Callback methods are advantageous because they can be used with objects
+			whose implementation I cannot change, for example Java library classes.
+			Additionally, I can make more than one callback method for objects of the
+			same class. For example, I can have a callback method which gets an 
+			employees height and one which gets an employees salary.
+
+To use the second implementation of the Data.average method to find the average salary from an 
+array of employees I need to create a an object of the class that contains the callback method
+for getting an employees salary. And then I need to pass that object as an argument
+to the Data.average method when I invoke it.
+To create the callback method I would need to create a class called something like 
+EmployeeSalaryMeasurer which implements the Measurer interface. And therefore the
+EmployeeSalaryMeasurer class will implement the single method measure() from the 
+Measurer interface.
+
+An important difference in the second implementation from section 10.4 which uses interface for
+callbacks is that the getMeasure method of the Measurable interface has a parameter variable
+object of type Object which is cast to the object being measured, in this case an Employee object,
+from within the callback method implementation. 
+Whereas in the method used in section 10.1.3 the
+getMeasure method has no parameter variable because the method is implemented inside of the classed
+we want to use the Data.average method with.
+
+Which method is easier?
+
+While describing the two methods it was easier to describe the first method from section 10.1.3 
+which uses the Measurable interface to provide a getMeasure method for objects of the Employee class
+to compute the average salary from an array of employees.
+
+However, the second method from section 10.4 which uses a Measurable interface to provide a class 
+containing a callback method for getting an employees salary is clear in my mind now and easier to 
+implement because it doesn't require editing the Employee class/es, and instead just requires 
+providing a callback method for Employee objects. It's also more flexible because it lets me 
+implement more than one callback method in different classes that implement the Measurer interface,
+and therefore the second method which uses interface for providing callback methods also lets me 
+provide different callback methods for computing averages of different employee values/measures.
+
