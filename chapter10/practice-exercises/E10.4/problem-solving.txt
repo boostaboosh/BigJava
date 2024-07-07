@@ -1,0 +1,9 @@
+••• E10.4
+In the Sequence interface of Worked Example 10.1, add static methods that yield
+Sequence instances:
+
+static Sequence multiplesOf(int n)
+static Sequence powersOf(int n)
+
+For example, Sequence.powersOf(2) should return the same sequence as the
+Square-Sequence class in the worked example.
