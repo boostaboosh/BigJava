@@ -1,0 +1,9 @@
+••• Graphics E10.15
+Write a method randomShape that randomly generates objects implementing the Shape
+interface in the Java library API:
+    some mixture of rectangles, ellipses, and lines, with random positions.
+
+Call it ten times and draw all of them.
+
+computational problem-solving random shape method:
+
