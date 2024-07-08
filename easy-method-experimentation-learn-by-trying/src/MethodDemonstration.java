@@ -1,3 +1,4 @@
+import java.awt.*;
 import java.time.LocalTime;
 
 /**
@@ -14,6 +15,8 @@ public class MethodDemonstration
      */
     public static void main(String[] args)
     {
+        Rectangle rect = null;
+        System.out.println(rect instanceof Rectangle);
         LocalTime now = LocalTime.now();
         System.out.println(now);
         System.out.println(Math.floorMod(-2, 24));
