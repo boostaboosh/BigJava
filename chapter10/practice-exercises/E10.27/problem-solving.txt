@@ -1,0 +1,9 @@
+••• Graphics E10.27
+Change the RectangleComponent for the animation program in Section 10.9 so that the
+rectangle bounces off the edges of the component rather than moving outside.
+
+right edge = box.getX + box.getWidth
+left edge = box.getX
+bottom edge = box.getY + box.getHeight
+top edge = box.getY
+
