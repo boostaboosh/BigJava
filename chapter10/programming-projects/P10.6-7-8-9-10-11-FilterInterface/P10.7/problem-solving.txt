@@ -1,0 +1,2 @@
+•• P10.7
+Solve Exercise •• P10.6, using a lambda expression for the filter.
