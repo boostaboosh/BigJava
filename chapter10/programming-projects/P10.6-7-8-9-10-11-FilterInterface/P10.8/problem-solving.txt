@@ -1,0 +1,4 @@
+•• P10.8
+In Exercise •• P10.6, add a method to the Filter interface that counts how many
+objects are accepted by the filter:
+static int count(Object[] values, Filter condition)
