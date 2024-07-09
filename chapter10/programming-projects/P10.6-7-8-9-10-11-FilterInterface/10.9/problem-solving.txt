@@ -1,0 +1,4 @@
+•• P10.9
+In Exercise •• P10.6, add a method to the Filter interface that retains all objects
+accepted by the filter and removes the others:
+static void retainAll(Object[] values, Filter condition)
