@@ -1,0 +1,5 @@
+••• Graphics E10.22
+Implement the AddInterestListener in the InvestmentViewer2 program as a regular class
+(that is, not an inner class).
+Hint: Store references to the bank account and the label
+in the listener. Add a constructor to the listener class that sets the references.
