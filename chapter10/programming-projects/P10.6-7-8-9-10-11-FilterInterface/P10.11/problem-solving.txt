@@ -1,0 +1,3 @@
+•• P10.11
+In Exercise •• P10.6, add a method default Filter invert() to the Filter interface that
+yields a filter accepting exactly the objects that this filter rejects.
