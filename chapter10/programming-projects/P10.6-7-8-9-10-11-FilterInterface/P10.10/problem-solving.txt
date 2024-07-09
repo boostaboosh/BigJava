@@ -1,0 +1,3 @@
+•• P10.10
+In Exercise •• P10.6, add a method default boolean reject(Object x) to the Filter
+interface that returns true for all objects that this filter doesn’t accept.
