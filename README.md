@@ -35,3 +35,7 @@ Following are links to projects I made after each chapter.
 - P9.1-ChessPieceValidMovesLister
 - P9.2-TimeZonesClock
 - P9.8-ResistorsCircuitResistanceComputer
+## [chapter 10](chapter10/programming-projects)
+- P10.6-7-8-9-10-11-FilterInterface
+- P10.16-BoardGameInterfaceTicTacToeAndNim
+- P10.19-GUITicTacToe
