@@ -1,0 +1,15 @@
+••• Graphics P10.19
+Implement a program that allows two players to play tic-tac-toe.
+
+Draw the game grid and an indication of whose turn it is (X or O).
+
+Upon the next click,
+check that the mouse click falls into an empty location,
+
+fill the location with the mark of the current player,
+
+and give the other player a turn.
+
+If the game is won, indicate the winner.
+
+Also supply a button for starting over.
