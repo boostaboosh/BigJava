@@ -1,0 +1,13 @@
+R11.1
+When you supply the same name for the input and output files to the Total program of Section 11.1 you end up overwriting the input file with a 2 line file made up of a first line that says: Total:     0.00 followed by an empty line.
+
+This happens because the PrintWriter object is constructed with the file name of the file to write to as an argument, and if the file to write too already exists, it IS EMPTIED before the new data are written to it.
+So, the numbers.txt file is emptied of all its number contents if it is passed to the Total program as both the input file to read from and the output file to write too. And so the total is computed on zero numbers, and the total is zero. Hence the output: Total:     0.00
+
+Following is the code which calls the PrintWriter constructor on the outputFileName, which is the same as inputFileName, and therefore empties the input text file.
+	
+// Construct the Scanner and PrintWriter objects for reading and writing
+
+      File inputFile = new File(inputFileName);
+      Scanner in = new Scanner(inputFile);
+      PrintWriter out = new PrintWriter(outputFileName);
