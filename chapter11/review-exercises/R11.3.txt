@@ -1,0 +1,9 @@
+•• R11.3
+What happens if you try to open a file for reading that doesn’t exist? What happens if
+you try to open a file for writing that doesn’t exist? 
+
+If you try to open a file for reading with a Scanner and the file does not exist the Java Virtual Machine warns me of the error by outputting a FileNotFoundException to the console which is thrown by the Scanner object constructor when I try to construct a Scanner on a non existent file. Because I do not catch the exception using an exception handler the exception has no handler and is thrown (printed) to the console and the program terminates.
+
+An exception is generated following a severe run time error. Unlike a compile time error the program is syntactically correct so the compiler compiles the code into Java byte code to be executed by the JVM, however the instructions don't do what the programmer wanted them to do, so there is a logic error, i.e. run time error, where the program takes an action that the programmer did not intend. In this case the run time error is an exception which is checked, i.e., something can go wrong for external reasons beyond the programmer's control so it can happen no matter how careful you are. The compiler makes sure checked exceptions are handled by being caught or declared to be thrown. 
+
+If you try to open a file for writing that doesn't exist the file is created by the PrintWriter object instead of being emptied.
