@@ -1,0 +1,12 @@
+• R11.8 
+If a program Woozle is started with the command
+java Woozle -Dname=piglet -I\eeyore -v heff.txt a.txt lump.txt
+what are the values of args[0], args[1], and so on?
+
+String at index 0 in String[] args is "-Dname=piglet"
+args[0] == "-Dname=piglet"
+args[1] == "-I\eeyore"
+args[2] == "-v"
+args[3] == "heff.txt"
+args[4] == "a.txt"
+args[5] == "lump.txt"
