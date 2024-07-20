@@ -1,0 +1,16 @@
+Why don’t you need to declare that your method might throw an IndexOutOfBounds-
+Exception?
+
+Because an IndexOutOfBounds exception is an unchecked exception which means the compiler
+does not complain if a method that might throw an IndexOutOfBoundsException doesn't 
+handle such an exception either by throwing it or catching it and handling it some other way.
+
+Unchecked exceptions are my (the programmer's) fault. The compiler does
+not check whether you handle an unchecked exception, such as an IndexOutOfBounds-
+Exception. After all, you should check your index values rather than install a handler
+for that exception.
+
+Checked exceptions on the other hand might occur no matter how careful I the programmer
+am, and so the compiler asks me to specify what to do should they occur, because they 
+might in fact occur.
+
