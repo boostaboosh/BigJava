@@ -1,0 +1,7 @@
+• R11.16 
+What is the purpose of the try-with-resources statement? Give an example of how it
+can be used.
+
+The try with resources statement has the purpose of closing the resources specified with the try statement that implement the AutoClosable interface whether the try block finishes executing normally or if its execution is interrupted by one of its statements generating an exception which is thrown.
+This way objects than need to be closed, for example a PrintWriter object, are closed even if an exception is generated, and this avoids unexpected changes to resources that need to be closed, like files that are being read from or written to.
+
