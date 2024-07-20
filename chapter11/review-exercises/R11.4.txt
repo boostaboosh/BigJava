@@ -1,0 +1,6 @@
+•• R11.4 
+What happens if you try to open a file for writing, but the file or device is write-protected (sometimes called read-only)? Try it out with a short test program.
+
+I tried reading a line from a write protected txt file. The file and scanner object were created successfully but creation of the PrintWriter object on the write protected txt file generated an exception:
+
+Exception in thread "main" java.io.FileNotFoundException: protected.txt (Operation not permitted)
