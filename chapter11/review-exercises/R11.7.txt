@@ -1,0 +1,25 @@
+•• R11.7 
+Your input file contains a sequence of numbers, but sometimes a value is not available and is marked as N/A. How can you read the numbers and skip over the markers? 
+
+To read the numbers and skip over the markers I would read the values one at a time using the delimiter used to separate values to separate one value from the next.
+So if the values are separated by new lines I would use the Scanner object nextLine method, if white space I would use the next method and then the trim method, if commas I would use the Scanner.useDelimiter method and set the delimiter to a comma like so myScanner.useDelimiter(',');
+Now, once I have set my Scanner object's delimiter I would read values in one at a time. I would check if the values can be interpreted as numbers or are equal to the String "N/A", and if not I would throw a new custom exception of type BadDataException.
+I would check if values can be interpreted as numbers using the Scanner class's methods hasNextDouble and hasNextInt, and I would check if the values are the String "N/A" using the String class's equals() method inherited from the Object class. Like so:
+
+File input = new File("input.txt")
+Scanner myScanner = new Scanner(input);
+myScanner.useDelimiter(",");
+while (myScanner.hasNext())
+	if (myScanner.hasNextDouble())
+		double number = consume double
+		process double
+	else if (myScanner.hasNextInt())
+		int number = consume int
+		process int
+	else
+		String token = myScanner.next() // consume string
+		if token.equals("N/A")
+			process not applicable/available value
+		else
+			throw new BadDataException("Data value expected. Values must be numbers or N/A.")
+
