@@ -1,0 +1,4 @@
+• R11.5 What happens when you write to a PrintWriter without closing it? Produce a test
+program that demonstrates how you can lose data.
+
+The output file is empty if I forget to close the PrintWriter!
