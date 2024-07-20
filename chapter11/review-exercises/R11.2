@@ -1,0 +1,62 @@
+• R11.2 
+Suppose you wanted to add the total to an existing file instead of writing a new file.
+Exercise • R11.1 indicates that you cannot simply do this by specifying the same file
+for input and output. How can you achieve this task? Provide the pseudocode for
+the solution.
+
+understand the problem:
+input: a file with numbers
+output: add the total of the numbers to an existing file without overwriting the existing file's contents
+
+solve the problem by hand
+existing.txt
+I exist
+
+existing.txt
+I exist 
+1
+2
+3
+total: 6
+
+write pseudocode for solving the problem
+
+prompt user for input and existing output file names
+create file from input file name
+create scanner which produces values from the input file
+
+// now I need to get the existing file and add the total to the existing file and its contents
+create file from output file name
+create scanner which produces values from the output file
+
+// copy content from existing output file to temporary file
+create a print writer which writes to a new file called temporary.txt
+while there are more lines in the output file:
+	read line from the output file
+	write line to the temporary output file
+
+// compute total of numbers in input file and write numbers to temporary file
+total = 0
+while there are numbers in the input file scanner:
+	read the input file numbers one number at a time
+	write number and new line to temporary output file
+	total = total + number
+
+// write total to temporary file
+write total to the temporary output file
+
+// copy content from temporary file back to existing output file
+create a print writer which writes to the existing output file // empties the output file
+while there are more lines in the temporary output file:
+	read line from temporary output file
+	write line from temporary output file to the existing output file using the print writer
+
+// close all scanners from and writers to files to ensure all output is written to the disk file
+// close input file scanner
+close input file scanner
+// close existing output file scanner and print writer
+close existing output file scanner
+close existing output file print writer
+// close temporary output file scanner and print writer
+close temporary output file scanner
+close temporary output file print writer
