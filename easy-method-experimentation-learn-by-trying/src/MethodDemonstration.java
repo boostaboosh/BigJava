@@ -1,5 +1,5 @@
-import java.awt.*;
-import java.time.LocalTime;
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
 
 /**
  * A class for experimenting with methods I learn about so that I can learn about it.
@@ -13,25 +13,9 @@ public class MethodDemonstration
      * The main method where the Java program begins execution.
      * @param args the program starting arguments
      */
-    public static void main(String[] args)
+    public static void main(String[] args) throws FileNotFoundException
     {
-        Rectangle rect = null;
-        System.out.println(rect instanceof Rectangle);
-        LocalTime now = LocalTime.now();
-        System.out.println(now);
-        System.out.println(Math.floorMod(-2, 24));
-        System.out.println(24 % -2);
-        Subclass subclass = new Subclass("nein");
-    }
-
-    public static int function(int number)
-    {
-        int c = 0;
-        while (number >= 0)
-        {
-            number = number - 2;
-            c = c + number - 2;
-        }
-        return c;
+        String filename = null;
+        PrintWriter out = new PrintWriter(filename);
     }
 }
