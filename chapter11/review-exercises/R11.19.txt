@@ -1,0 +1,24 @@
+•• R11.19 
+Suppose the program in Section 11.5 reads a file containing the following values:
+1
+2
+3
+4
+What is the outcome? How could the program be improved to give a more accurate
+error report?
+
+The outcome would be that a BadDataException is generated with the message "End of file expected"
+because the first number in the file should be the number of data values to read from the file, 
+so there should be just one value to read, but instead there are 3, so after reading the value 2
+the program checks if there is a next token in the scanner, which there is, and throws the
+BadDataException with the message "End of file expected".
+The integer values are actually read correctly by the nextDouble method of the scanner class which 
+reads an integer and interprets it as a double, so 2 become 2.0 for example.
+
+To give a more accurate error report the message could be changed to say the number of values
+expected based on the first line of input, something like:
+
+throw new BadDataException("Expected number of values as indicated on 1st line was " + numberOfValues
+		+ ", however after reading " + numberOfValues + " values there were still values "
+		+ "remaining in the input file."
+
