@@ -1,0 +1,10 @@
+•• R11.20 
+Can the readFile method in Section 11.5 throw a NullPointerException? If so, how?
+
+Yes, it can throw a NullPointerException if the parameter of the File class constructor
+is a String with a null value instead of a pathname.'
+
+The NullPointerException class extends runtime exception and is therefore an unchecked
+exception, so the readFile method doesn't need to handle this exception by throwing it 
+or catching it.
+
