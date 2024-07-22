@@ -39,3 +39,5 @@ Following are links to projects I made after each chapter.
 - P10.6-7-8-9-10-11-FilterInterface
 - P10.16-BoardGameInterfaceTicTacToeAndNim
 - P10.19-GUITicTacToe
+## [chapter 11](chapter11/programming-projects)
+- P11.2-BoyAndGirlBabyNamesPrinter

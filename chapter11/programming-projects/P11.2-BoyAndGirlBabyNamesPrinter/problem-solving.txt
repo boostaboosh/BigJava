@@ -1,0 +1,37 @@
+••• P11.2
+Write a program that reads a file in the same format as worked_example_1/babynames.txt
+and prints all names that are both boy and girl names (such as Alexis or Morgan).
+
+step 1) understand the problem
+what are the given inputs?
+a text file with 1000 lines each in the format:
+4  Joshua  328955  1.6022  Sarah  224000  1.1413
+where:
+the first number is the popularity rank of the names on the rank
+the first word is the boy name with the associated popularity rank (4)
+the second number is the frequency of that boy's name for a given decade (328955)
+the third number is the percentage of baby boy's given that name for the given decade (1.6022%)
+the second word is the girl name with the associated popularity rank (4)
+the fourth number is the frequency of that girl's name for a given decade (224000)
+the fifth number is the percentage of baby girl's given that name for the given decade (1.1413%)
+what's the desired output?
+a print out of all the names in babynames.txt text file that are both boy and girl names.
+
+step 2) solve examples of the problem by hand
+inputs:
+1  Elijah  462085  2.2506  Mary  302962  1.5436
+2  Christopher  361250  1.7595  Ashley  301702  1.5372
+3  Ashley  351477  1.7119  Elijah  237133  1.2082
+outputs:
+Elijah
+Ashley
+
+step 3) write pseudocode for solving general instances of the problem I solved specific examples of by hand
+pseudocode:
+open a reader on babynames.txt file
+for each line in babynames
+    add boy name to list of boy's names
+    add girl name to list of girl's names
+for each name in boy's names
+    if name is in girl's names
+        print name
