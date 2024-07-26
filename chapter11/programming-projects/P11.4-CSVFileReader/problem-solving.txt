@@ -1,0 +1,119 @@
+••• P11.4
+The CSV (or comma-separated values) format is commonly used for tabular data.
+
+Each table row is a line, with columns separated by commas.
+
+Items may be enclosed in quotation marks, and they must be if they contain commas or quotation marks.
+
+Quotation marks inside quoted fields are doubled.
+
+Here is a line with four fields:
+
+1729, San Francisco, "Hello, World", "He asked: ""Quo vadis?"""
+
+Implement a class CSVReader that reads a CSV file, and provide methods
+
+int numberOfRows()
+int numberOfFields(int row)
+String field(int row, int column)
+
+problem-solving.txt
+step 1) understand the problem
+given inputs:
+a CSV file containing rows such as the following:
+"""Iron"", Mike Tyson", June, 30, 1966, Brooklyn, n\a;
+1729, San Francisco, "Hello, World", "He asked: ""Quo vadis?"""
+desired outputs:
+A class CSVReader that reads a CSV file and provides methods:
+int numberOfRows()
+int numberOfFields(int row)
+String field(int row, int column)
+
+step 2) solve examples of the problem by hand
+input:
+"""Iron"", Mike Tyson", June, 30, 1966, Brooklyn, n\a
+1729, San Francisco, "Hello, World", "He asked: ""Quo vadis?"""
+outputs;
+numberOfRows() == 2
+numberOfFields(2) == 4
+field(0, 5).equals("Brooklyn") == true
+
+step 3) write pseudocode for solving general instances of the problem I solved specific instances of by hand
+Implement class then do specific computational problem-solving for different processing/computation steps.
+
+pseudocode (for reading in CSV values from a line):
+
+values = empty list of strings
+isFirstCharacterInValue = true
+String value = ""
+doubleQuotesClosed = false
+previousCharacterWasFirstOfDoubledQuotes = false
+commasAndDoubledQuotationMarksAllowed = false
+for each character in line
+
+    if isFirstCharacterInValue
+        if character.isWhiteSpace
+            // skip by doing nothing
+        else if character == '"'
+            commasAndDoubledQuotationMarksAllowed = true
+            isFirstCharacterInValue = false
+        else if character == ','
+            add empty string to values
+        else
+            commasAndDoubledQuotationMarksAllowed = false
+            value = value + character
+            isFirstCharacterInValue = false
+
+    else // if !isFirstCharacterInValue
+        if character == ','
+            if commasAndDoubleQuotationMarksAllowed
+                if doubleQuotesClosed
+                    add value to values
+                    value = ""
+                    isFirstCharacterInValue = true
+                else // if !doubleQuotesClosed
+                    value = value + character
+            else // if !commasAndDoubleQuotationMarksAllowed
+                add value to values
+                value = ""
+                isFirstCharacterInValue = true
+        else if character == '"'
+            if commasAndDoubleQuotationMarksAllowed
+                if previousCharacterWasFirstOfDoubledQuotes
+                    value = value + character
+                    doubleQuotesClosed = false
+                    previousCharacterWasFirstOfDoubledQuotes = false
+                else // if !previousCharacterWasFirstOfDoubledQuotes
+                    previousCharacterWasFirstOfDoubledQuotes = true
+                    doubleQuotesClosed = true
+            else // if !commasAndDoubleQuotationMarksAllowed
+                throw new bad data error because double quote in field not enclosed in double quotes + print this line
+        else if character != '"' && character != ','
+            if commasAndDoubledQuotationMarksAllowed
+                if !doubleQuotesClosed
+                    value = value + character
+                else
+                    throw new bad data error because non double quote (") character outside of value that is supposed to be enclosed in double quotes + print row
+            else // if !commasAndDoubledQuotationMarksAllowed
+                value = value + character
+
+    if character is last character in line
+        if character is ','
+            add empty string to values
+        else if commasAndDoubleQuotationMarksAllowed
+            if doubleQuotesClosed
+                add value to values
+            else
+                throw new bad data error because unclosed double quotes in last entry of row + print row
+        else // if !commasAndDoubleQuotationMarksAllowed
+            add value to values
+
+add values to rows
+
+...
+I forgot to reset previousCharacterWasFirstOfDoubleQuotes
+and commasAndDoubleQuotationMarksAllowed boolean values when
+adding a double quote enclosed value to the values of a row,
+and this caused bugs because the next double quote enclosed value
+would not have these boolean values set correctly and throw the
+wrong exceptions even when it should not.

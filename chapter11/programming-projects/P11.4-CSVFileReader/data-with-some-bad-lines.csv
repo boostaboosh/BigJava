@@ -1,0 +1,10 @@
+1729, San Francisco, "Hello, World", "He asked: ""Quo vadis?"""
+"""Iron"", Mike Tyson", June, 30, 1966, Brooklyn, n\a
+hello
+"test space after double quotes"    ,  "test again  "  ,
+valid , ""
+random,        , space at the end ,
+
+
+"peanut, line error column 1
+keep going, ""4 Non Blondes"",
