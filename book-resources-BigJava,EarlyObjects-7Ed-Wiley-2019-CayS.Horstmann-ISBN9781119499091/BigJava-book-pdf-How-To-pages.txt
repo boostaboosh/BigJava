@@ -40,3 +40,12 @@ pdf p.462, book p.300
 how to 9.1 - Developing an Inheritance Hierarchy
 pdf p.501, book p.325
 
+10.4 - Using Interfaces for Callbacks
+pdf p.543, book p.355
+
+10.7 Event Handling
+pdf p.551, book p.363
+
+how to 11.1 - Processing Text Files
+pdf p.599, book p.399
+
