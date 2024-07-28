@@ -1,0 +1,12 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns='http://www.w3.org/1999/xhtml'>
+  <head>
+    <title>Cay Horstmann's Home Page</title>
+    <meta http-equiv='content-type' content='text/html; charset=UTF-8'/>
+    <link href='styles.css' rel='stylesheet' type='text/css'/>
+  </head>
+  <body>
+    <h1>Welcome to Cay Horstmann’s Home Page!</h1>
+    <p><a href='mailto:cay@horstmann.com'>cay@horstmann.com</a> | <a href='http://horstmann.com/caypubkey.txt'>PGP Key</a></p>
+    <p><img class='sideimage' alt='Photo of Cay Horstmann' src='images/cay-rowing.gif' loading='lazy'/></p>
+    <p>I grew up in Northern Germany and attended the <a href='http://www.uni-kiel.de/'>Christian-Albrechts-Universität</a> in <a href='http://www.kiel.de/'>Kiel</a>, a harbor town at the Baltic sea. I received a M.S. in computer science from <a href='http://www.syr.edu/'>Syracuse University</a>, and a Ph.D. in mathematics from the <a href='http://www.umich.edu/'>University of Michigan</a> in Ann Arbor. I taught computer science at <a href='http://sjsu.edu/'>San Jose State University</a> for almost thirty years and held visiting appointments at universities in Germany, Switzerland, Vietnam, and Macau. I was a “serial entrepreneur” before that was a thing, including a stint as VP and CTO of a dot com startup that went from three people in a tiny office to a public company. In my copious spare time I write books and develop online courses for beginning and professional programmers.</p>
