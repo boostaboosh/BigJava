@@ -1,0 +1,78 @@
+•• P11.7
+
+Using the mechanism described in Special Topic 11.1,
+
+write a program that reads all data from a web page
+
+and prints all hyperlinks of the form
+
+<a href="link">link text</a>
+
+Extra credit if your program can follow the links that it finds
+and find links in those web pages as well.
+
+(This is the method that search engines such as Google use
+to find websites.)
+
+problem-solving: (processing text files how to 11.1)
+
+step 1) understand the processing task
+while there are characters to be read from web page html file
+    add character to sequence of last characters
+    if sequence of last characters is hyperlink (<a href="www.ch.com">link text</a>)
+        print page source + link number + link
+        run this search web page for links and print them method on link
+    if sequence of last characters cannot be hyperlink
+        empty sequence of last characters
+
+step 2) determine which files you need to read and write
+read from:
+I need to read from a html file stored on the internet
+write to:
+I don't need to write to any files
+
+step 3) choose a mechanism for obtaining the file names
+there are 3 options:
+1- hard coding file names
+2- asking the user for file names
+Scanner input = new Scanner(System.in);
+System.out.print("Enter filename: ");
+String inputFile = input.nextLine();
+3- command line arguments for the file names
+
+I think command line arguments for the file names is the best option here.
+
+step 4) choose between line, word, and character based input
+As a rule of thumb, read lines if the input data is grouped by lines.
+that is the case with tabular data, such as in our example, or when you
+need to report line numbers.
+When gathering data that can be distributed over several lines,
+then it makes more sense to read words.
+Keep in mind that you lose all white space when you read words.
+Reading characters is mostly useful for tasks that require access to
+individual characters. Examples include analysing character frequencies,
+changing tabs to spaces, or encryption.
+
+I think I need to analyse individual characters because hyperlink elements
+in HTML files can be adjacent to other tags like
+<p>Paragraph...</p><a href="www.ch.com">link text</a>
+and they can be on separate lines so reading lines before breaking a line
+down isn't helpful because the HTML data is not grouped by lines.
+
+step 5) with line-oriented input, extract the required data
+It is simple to read data from a line of input with the nextLine() method.
+Then you need to get the data out of that line. You can extract substrings.
+Typically, you will use methods such as Character.isWhitespace and
+Character.isDigit to find the boundaries of substrings.
+If you need any of the substrings as numbers you can convert them using
+Integer.parseInt or Double.parseDouble.
+
+step 6) use classes and methods to factor out (break down into smaller parts) common tasks
+Processing files usually has repetitive tasks, such as skipping over white space
+or extracting numbers from strings. It really pays of to isolate these tedious
+operations from the remainder of the code.
+In our example, we have a task that occurs twice: splitting an input line into the country
+name and the value that follows. We implement a simple CountryValue class for this purpose,
+using the method of extracting input data from a line by reading lines and then separating
+strings from numbers using the method described in section 11.2.4
+
