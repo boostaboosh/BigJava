@@ -1,0 +1,23 @@
+••• P11.9
+Design a class Bank that contains a number of bank accounts. Each account has an
+account number and a current balance. Add an accountNumber field to the BankAccount
+class. Store the bank accounts in an array list. Write a readFile method of the Bank
+class for reading a file with the format
+
+accountNumber1 balance1
+accountNumber2 balance2
+. . .
+
+Implement read methods for the Bank and BankAccount classes. Write a sample program
+to read in a file with bank accounts, then print the account with the highest balance.
+If the file is not properly formatted, give the user a chance to select another file.
+
+processing text files problem-solving how-to 11.1
+
+step 1 understand the processing task
+while there are lines in the bank accounts data file
+    read a line from the bank data file
+    account number = first number
+    account balance = double number following account number
+    create a bank account object with number and balance
+    add bank account to bank's list of accounts
