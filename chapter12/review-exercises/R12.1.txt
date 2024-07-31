@@ -1,0 +1,82 @@
+•• R12.1 
+List the steps in the process of object-oriented design that this chapter recommends
+for student use.
+
+The steps of object oriented program design 
+that this chapter recommends for student use are:
+
+step 1) gather and document program requirements in plain english
+Before I begin designing a computer program I must write down in plain English
+what my program should do.
+It is helpful to include typical scenarios in addition to a general description.
+
+step 2) discover classes
+by writing down candidate (potential) classes for the program I am designing by
+brainstorming potential classes from nouns (names) in: 
+- the requirements specification, i.e., the description of what
+the computer program should do
+- and in the problem domain, for example customer in a shopping related program
+
+step 3) discover class responsibilities (methods/opbject behaviours)
+once I have a set of candidate classes by writing a list of the major tasks 
+my program needs to fulfill. I can find these by looking for verbs in the
+requirements specification.
+Each task is a behaviour, or method, that I will need my program objects to complete, 
+possibly with the help of other objects.
+Once I have a list of tasks I need my program to complete I need to figure out which 
+class is responsible for that behaviour.
+An excellent way to carry out this task is the iterative and informal CRC card method.
+Which involves choosing a single task at a time from my list of program tasks and
+starting with one that is not trivial and intuitive for me to solve.
+I then match the task with a class from my list of candidate classes, 
+or make a new candidate class, for the task I have selected.
+I get a card and write the name of the class (first C in accronym) at the top, 
+and then split the card into 2 columns: 
+a left side) for tasks, known as class responsibilities (R in accornym) or object behaviours
+a right side) for classes which collaborate (C in accronym is for collaborators) 
+	      with the class written at the top of the card to help it accomplish 
+	      each of its tasks
+Then I ask myself what does an object of this class need to carry out this task?
+It probably needs help from other objects which needs to complete helper tasks. 
+Then I make CRC cards for the classes to which those other objects belong and write their
+responsibilities on their cards.
+This is an iterative process which involves lots of crossing out, ripping cards, splitting
+or merging responsibilites, or starting over. That's normal, and it's okay.
+I am done with discovering class responsibilites when I have gone through each of the major
+tasks my program needs to complete and satisfied that they can be solved with the classes
+and responsiblities I have discovered.
+I might not use all of the candidate classes I came up with initially, that's okay,
+they were only candidates.
+It's worth running through each class to make sure that I have a design for how each task
+will be completed.
+It's also worth noting that the CRC card method is high level and I don't need to write 
+every single method on the cards that I will use in my implementation, a task might
+end up needing additional helper methods during implementation. That's okay, this is a
+rough design process and designs often change a little when faced with implementation, 
+that's normal.
+
+step 4) describe relationships between classes in my design
+by making a UML class diagram that shows the relationships between all the classes that
+I have discovered.
+I start with inheritance relationships if a class is a specialised version of another.
+I draw inheritance arrows for those classes.
+I keep in mind that most simple programs don't use inheritance extensively.
+The collaborators column on the CRC cards tells me which classes are used by that class.
+Some dependencies give rise to aggregations where one class contains references to 
+objects of another class.
+I must ask myself: "how does the object locate its collaborator? does it navigate to it
+directly because it stores a reference? Or is the collaborator a method parameter 
+variable or return value?"
+If a class stores a reference to another class I draw an aggregation arrow.
+Otherwise I simply draw a dependency arrow.
+
+step 5) method documentation
+The final step of the design phase is to write the documentation of the discovered classes
+and methods.
+I must simply write a java source file for each class and write the method comments for
+those methods that I have discovered to record the behaviour of classes, 
+and leave the method bodies blank, and not provide constructors or instance variables.
+Javadoc comments are recommended for use as documentation comments because it is easy
+to run the javadoc program to automatically generate a neatly formatted version of my
+documentation in HTML format.
+
