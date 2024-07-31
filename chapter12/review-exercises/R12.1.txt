@@ -17,9 +17,9 @@ brainstorming potential classes from nouns (names) in:
 the computer program should do
 - and in the problem domain, for example customer in a shopping related program
 
-step 3) discover class responsibilities (methods/opbject behaviours)
+step 3) discover class responsibilities (methods/object behaviours)
 once I have a set of candidate classes by writing a list of the major tasks 
-my program needs to fulfill. I can find these by looking for verbs in the
+my program needs to fulfil. I can find these by looking for verbs in the
 requirements specification.
 Each task is a behaviour, or method, that I will need my program objects to complete, 
 possibly with the help of other objects.
@@ -30,10 +30,10 @@ Which involves choosing a single task at a time from my list of program tasks an
 starting with one that is not trivial and intuitive for me to solve.
 I then match the task with a class from my list of candidate classes, 
 or make a new candidate class, for the task I have selected.
-I get a card and write the name of the class (first C in accronym) at the top, 
+I get a card and write the name of the class (first C in acronym) at the top, 
 and then split the card into 2 columns: 
-a left side) for tasks, known as class responsibilities (R in accornym) or object behaviours
-a right side) for classes which collaborate (C in accronym is for collaborators) 
+a left side) for tasks, known as class responsibilities (R in acronym) or object behaviours
+a right side) for classes which collaborate (C in acronym is for collaborators) 
 	      with the class written at the top of the card to help it accomplish 
 	      each of its tasks
 Then I ask myself what does an object of this class need to carry out this task?
@@ -41,10 +41,10 @@ It probably needs help from other objects which needs to complete helper tasks.
 Then I make CRC cards for the classes to which those other objects belong and write their
 responsibilities on their cards.
 This is an iterative process which involves lots of crossing out, ripping cards, splitting
-or merging responsibilites, or starting over. That's normal, and it's okay.
-I am done with discovering class responsibilites when I have gone through each of the major
+or merging responsibilities, or starting over. That's normal, and it's okay.
+I am done with discovering class responsibilities when I have gone through each of the major
 tasks my program needs to complete and satisfied that they can be solved with the classes
-and responsiblities I have discovered.
+and responsibilities I have discovered.
 I might not use all of the candidate classes I came up with initially, that's okay,
 they were only candidates.
 It's worth running through each class to make sure that I have a design for how each task
