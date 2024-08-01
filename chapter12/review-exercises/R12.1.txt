@@ -37,7 +37,7 @@ a right side) for classes which collaborate (C in acronym is for collaborators)
 	      with the class written at the top of the card to help it accomplish 
 	      each of its tasks
 Then I ask myself what does an object of this class need to carry out this task?
-It probably needs help from other objects which needs to complete helper tasks. 
+It probably needs help from other objects which need to complete helper tasks. 
 Then I make CRC cards for the classes to which those other objects belong and write their
 responsibilities on their cards.
 This is an iterative process which involves lots of crossing out, ripping cards, splitting
@@ -55,7 +55,7 @@ end up needing additional helper methods during implementation. That's okay, thi
 rough design process and designs often change a little when faced with implementation, 
 that's normal.
 
-step 4) describe relationships between classes in my design
+step 4) discover and describe relationships between classes in my design
 by making a UML class diagram that shows the relationships between all the classes that
 I have discovered.
 I start with inheritance relationships if a class is a specialised version of another.
