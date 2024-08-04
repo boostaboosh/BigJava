@@ -1,0 +1,11 @@
+                   I N V O I C E
+
+Bert's big store
+Main Street
+Capital City, Sunny State 23430
+
+Description                      Price  Qty   Total
+"green eggs                       2.00    5   10.00
+pringles                          2.50    2    5.00
+
+AMOUNT DUE: $   15.00
