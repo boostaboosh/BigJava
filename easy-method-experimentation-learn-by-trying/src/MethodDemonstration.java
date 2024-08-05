@@ -1,5 +1,8 @@
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
+import java.math.RoundingMode;
+import java.text.NumberFormat;
+import java.util.Locale;
 
 /**
  * A class for experimenting with methods I learn about so that I can learn about it.
@@ -15,7 +18,18 @@ public class MethodDemonstration
      */
     public static void main(String[] args) throws FileNotFoundException
     {
-        String filename = null;
-        PrintWriter out = new PrintWriter(filename);
+        double num = 12534.2355435;
+        NumberFormat numberFormat = NumberFormat.getInstance();
+        numberFormat.setMaximumFractionDigits(6);
+        numberFormat.setMaximumIntegerDigits(2);
+        numberFormat.setRoundingMode(RoundingMode.HALF_UP);
+        System.out.println(numberFormat.format(num));
+        System.out.println(numberFormat.format(num));
+        NumberFormat moneyFormat = NumberFormat.getCurrencyInstance(Locale.US);
+        System.out.println(moneyFormat.format(num));
+        NumberFormat integerFormat = NumberFormat.getIntegerInstance();
+        System.out.println(integerFormat.format(num));
+        NumberFormat percentageFormat = NumberFormat.getPercentInstance();
+        System.out.println(percentageFormat.format(num));
     }
 }
