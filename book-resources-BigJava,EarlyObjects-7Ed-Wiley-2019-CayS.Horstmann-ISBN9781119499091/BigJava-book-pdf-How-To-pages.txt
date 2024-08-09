@@ -49,3 +49,12 @@ pdf p.551, book p.363
 how to 11.1 - Processing Text Files
 pdf p.599, book p.399
 
+how to 12.1 - Using CRC Cards and UML Diagrams in Program Design
+pdf p.638, book p.426
+
+12.3 Application: Printing an Invoice (Object Oriented Program Design Methodology walk through)
+pdf p.640, book p.428
+
+worked example 12.1 - Simulating an Automatic Teller Machine (Object Oriented Program Design Methodology walk through & UML class state diagram explanation)
+pdf p.661, not in physical book
+
