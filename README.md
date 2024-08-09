@@ -45,3 +45,5 @@ Following are links to projects I made after each chapter.
 - P11.4-CSVFileReader
 - P11.7-MultiLevelWebPageHyperlinkPrinter
 - P11.9-BankAccountsFileReader
+## [chapter 12 Object-Oriented Design](chapter12/programming-projects)
+- P12.1-VendingMachine
