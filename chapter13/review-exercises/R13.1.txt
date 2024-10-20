@@ -1,0 +1,13 @@
+• R13.1 Define the terms
+a. Recursion
+b. Iteration
+c. Infinite recursion
+d. Recursive helper method
+
+Recursion is when a method repeatedly simplifies its inputs and then calls itself, until the inputs are so simple that the method knows what value to return, and then the method combines the results of the smaller problems to obtain the result of the original computation.
+
+Iteration is when instructions are repeated until a condition is false. It's similar to a recursion in the sense that the same instructions are repeated, however it is different from recursion because iteration does not necessarily involve repeatedly executing the same computation (e.g. you could execute different instructions for each iteration), iteration do es not necessarily simplify values it uses in each iteration, and iteration does not necessarily combine values obtained in previous iterations.
+
+Infinite recursion is when a method calls itself over and over again with no end in sight. It won't stop calling itself and so the computer ends up in an infinite loop of calling a method over and over. Infinite recursion is a common programming error when using recursive problem solving techniques. It occurs either because the inputs to the recursive methods don't get simpler or because a terminating case is missing so the recursive method doesn't always return values which can be combined to obtain solutions to the computation it solves. The computer has some amount of memory to bookkeep each call to a recursive method, but when this runs out because a recursive method has called itself too many times the computer reports a 'stack overflow' runtime error.
+
+A recursive helper method is a method which is recursive, i.e. calls itself, which is called from within method which is not recursive in order to solve a problem which is easier to solve with recursion. Usually, the recursive helper method has additional parameters which the inclosing non recursive method does not have.
