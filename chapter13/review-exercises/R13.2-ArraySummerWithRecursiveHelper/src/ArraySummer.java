@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class ArraySummer
 {
    public static void main (String[] args)
@@ -26,6 +28,7 @@ public class ArraySummer
    
    private static int getSubarraySum(int[] array, int startIndex, int endIndex)
    {
+      System.out.println("Entering getSubarraySum for " + Arrays.toString(array) + array);
       int sum = 0;
       if (startIndex == endIndex) // length is 1
       {
@@ -33,6 +36,7 @@ public class ArraySummer
       } else {
          sum = array[startIndex] + getSubarraySum(array, startIndex + 1, endIndex);
       }
+      System.out.println("Exiting getSubarraySum for " + Arrays.toString(array) + array + " return " + sum);
       return sum;
    }
 }
