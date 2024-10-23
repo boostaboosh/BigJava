@@ -1,0 +1,26 @@
+How can you write a recursive method public static void sum(int[] a) 
+without needing a helper function? 
+Why is this less efficient?
+
+I can make a smaller array each time in the sum method and add the last removed 
+element to the sum of the smaller subarray each time. 
+This is less efficient in terms of space used because this implementation 
+of the sum method creates a new shorter array with the same elements 
+every time it recursively calls itself instead of using the same array 
+each time and passing a different starting index,
+it can't do this because it only takes an array as an argument. 
+Both implementations (the one with and the one without a helper function) make 
+the same number of recursive calls, so have the same complexity in this sense. 
+If the array has n elements, both methods will call themselves n times. 
+This is because, in both cases, the recursive call works through the elements
+of the array one by one, reducing the problem size at each step.
+The key difference lies in memory efficiency. 
+When you recursively call getSum by copying a subarray each time, 
+a new array is created at each recursive step. 
+This incurs additional memory allocation for every recursive call.
+Specifically, the new array copy requires space proportional to the size of the 
+original array, so the memory overhead is larger because you're allocating 
+a new array at every step of recursion.
+In contrast, the implementation with a helper function avoids this issue 
+by working with indices on the same array. No additional memory is required 
+except for the recursion stack itself.
