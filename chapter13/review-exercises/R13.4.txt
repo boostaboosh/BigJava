@@ -1,0 +1,56 @@
+•• R13.4 Outline, but do not implement, a recursive solution for finding the smallest value in an array.
+
+## how to think Recursively
+
+step 1 - consider various ways to simplify inputs
+
+remove the first element
+[ 1, 2, 3, 4, 5 ]
+[ 2, 3, 4, 5 ]
+[ 3, 4, 5 ]
+
+remove the last element
+1, 2, 3, 4
+1, 2, 3
+
+remove first and last
+1, 2, 3, 4
+2, 3
+
+cut in half
+1, 2, 3, 4
+1, 2
+3, 4
+
+step 2 - combine solutions with simpler inputs into a solution of the original problem
+
+looking at the simplified inputs I realise that removing one element at a time seems promising
+because suppose i can figure out what is the smallest element in the remaining collection
+i can compare the removed element to the smallest element in the remaining collection to figure
+out what is the smallest element in the original collection.
+
+step 3 - find solutions to the simplest inputs
+
+a recursive solution keeps simplifying its inputs. eventually it arrives at very simple inputs.
+to make sure the recursion comes to a stop i need to make sure i deal with the simplest inputs separately
+by coming up with special solutions for each of them, which is usually very easy.
+
+if we remove elements from an array what at a time each time we call the method for finding
+the smallest value in the array the simplest inputs that my recursive method will receive 
+is an array with one element. In that case the smallest element in the single element.
+
+step 4 - imlpement a solution by combining the simple cases and the reduction step
+
+Not necessary for this exercise but it would be something like:
+
+public int getSmallestValue(int[] array)
+{
+    if (array.length == 0) return 0
+    if (array.length == 1) return array[0]
+    else {
+        first = array [0]
+        smallestInSubarray = getSmallestValue(Arrays.copyOf(array, 1, array.length - 1))
+        if first < smallestInSubarray return first
+        else return smallestInSubarray
+    }
+}
