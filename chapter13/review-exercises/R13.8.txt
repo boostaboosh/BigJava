@@ -1,0 +1,20 @@
+• R13.8 Write a recursive definition of x**n, where n ≥ 0, 
+similar to the recursive definition of the Fibonacci numbers. 
+Hint: How do you compute x**n from x**n – 1? 
+How does the recursion terminate?
+
+inputs
+x
+n
+desired output
+x ** n
+
+1. simplify inputs
+decrement n
+
+2. combine solutions to simpler inputs with removed part
+x * x**n-1 == x**n
+
+3. find solutions to the simplest inputs
+if n == 0 return 1
+or i could do if n == 1 return x
