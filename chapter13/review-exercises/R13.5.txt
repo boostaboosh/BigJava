@@ -1,0 +1,95 @@
+••• R13.5 Outline, but do not implement, a recursive solution for finding the kth smallest
+element in an array. Hint: Look at the elements that are less than the initial element.
+Suppose there are m of them. How should you proceed if k ≤ m? If k > m?
+
+understand the problem:
+
+input 
+array: 5, 3, 1, 4, 2
+kth smallest element: 3rd smallest element
+output
+3rd smallest element: 2nd element value 3
+
+input 
+array: 1, 2, 2, 3, 3
+k = 3
+output
+y = 3
+
+how to think Recursively
+
+step 1 - brainstorm different ways of simplifying the inputs
+
+inputs 
+array: 5, 3, 1, 4, 2
+kth smallest element: 3rd
+
+i can make the array smaller
+5, 3, 1, 4
+
+i can look for the 1st smallest element
+
+that's all i can think of for now
+
+how do these simplifications make it easier to solve the problem,
+i.e. to find the kth smallest element?
+
+based on the hint:
+if there are less than k elements in the array there is no k smallest element
+I can see how many elements in the array are smaller than the first element
+if there are more than or equal to k elements that are smaller than the first element i can remove the 
+first element and repeat the computation. 
+If there are less than k - 1 elements that are smaller than the first element I don't remove the first element
+but i move the index of the element i compare to the other elements in the array.
+if there are k - 1 elemnts that are smaller than the element at the current index in the array, then 
+the current element is the kth smallest element.
+if i get past the last index then there is no k smallest element
+
+step 2 - combine solutions with simpler inputs into a solution for the original problem
+
+5, 3, 3, 2, 1, 1
+2nd smallest
+k = 2
+
+5 smaller elements
+
+3, 3, 2, 1, 1
+
+3 smaller elements
+
+3, 2, 1, 1
+
+3 smaller elements
+
+2, 1, 1
+
+2 smaller elements
+
+1, 1
+
+0 smaller elements
+
+k is never 1!
+
+i feel i need to remove duplicates to make this work.
+i need to try again...
+
+wait a second, if i look at the hint again:
+Look at the elements that are less than the initial element.
+Suppose there are m of them. How should you proceed if k ≤ m? If k > m?
+
+if array is empty
+    return null
+smallness rank to find = k
+same or larger = array of elements greater or equal to the initial element
+smaller = array of elements smaller than first element
+number of smaller elements = length of smaller
+if number of smaller elements == rank to find - 1
+    return first element
+else if number of smaller elements < rank to find - 1
+    // rank to find is in same or larger
+    smallness rank to find = smallness rank to find - number of smaller elements
+    find kth smallest(same or larger, smallness rank to find)
+else if number of smaller elements >= rank to find
+    // rank to find is in smaller
+    find the kth smallest(smaller, smallness rank to find)
