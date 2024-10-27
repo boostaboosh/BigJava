@@ -1,0 +1,32 @@
+•• R13.11 Find out how often the recursive version of fib calls itself. 
+Keep a static variable fibCount and increment it once in every call to fib. 
+What is the relationship between fib(n) and fibCount?
+
+I'm pretty sure it's exponential, which means than for each 
+additional value of n the number of times fib is called is 
+incremented by more than that additional value.
+
+basically fib(n) == fib(n-1) + fib(n-2)
+and then fib(n-1) == fib((n-1) - 1) + fib ((n-1) - 2)
+and for each fib call fib(num) == fib(n-1) + fib(n-2)
+and so on until at some point you have
+fib(5) == fib(4) + fib(3)
+and then fib(4) == fib(3) + fib(2)
+and then fib(3) == fib(2) + fib(1)
+and then fib(2) == 1
+and then fib(1) == 1
+so then fib(3) == 1 + 1 == 2
+so then fib(4) == 2 + 1 == 3
+so than fib(5) == 3 + 2 == 5
+
+1st fib number fib(1) is 1 computation
+2nd is 1 computation
+3rd is fib(3) is 3 computations
+4th is 3 computations for fib(3) + 1 for fib(2) + itself == 5
+5th is 5 for fib(4) + 3 for fib(3) + itself == 8
+6th is 8 computations for fib(5) + 5 for fib(4) + 1 for self == 14
+and so on, so the number of computations add themselves up from 
+the 3rd fib number onwards. 
+So the relationship between n and fibCount is exponential, i.e.
+the larger n, the larger fibCount and the larger the difference
+between n and fibCount.
