@@ -1,0 +1,96 @@
+• R13.8 Write a recursive definition of x**n, where n ≥ 0, 
+similar to the recursive definition of the Fibonacci numbers. 
+Hint: How do you compute x**n from x**n – 1? 
+How does the recursion terminate?
+
+•• R13.9 Improve upon Exercise • R13.8 by computing x**n 
+as (x**n/2)**2 if n is even. 
+Why is this approach significantly faster? 
+Hint: Compute x**1023 and x**1024 both ways.
+
+inputs
+x e.g. 2
+n e.g. 5
+desired outputs
+x ** n e.g. 2**5 == 32
+
+recursive solution problem solving
+
+1. simplify inputs
+decrement n by 1 if odd or / 2 if even
+
+2. combine solutions to the problem with simpler inputs 
+with the part of the original input that was removed
+to obtain a solution to the problem with the original inputs,
+don't worry about how the solution to the problem with the simpler
+inputs is obtained.
+
+if i have the solution to x**n/2 I can obtain the solution
+to x**n by multiplying it by itself, so x**n/2 * x**n/2.
+and if i have the solution to x**n-1 I can obtain the solution
+to x**n by multiplying the solution of x**n-1 by x.
+
+3. find solutions to the simplest inputs
+if n == 0 the solution is 1
+
+x ** 1023 with x = 2 the old way of R13.8 computes 
+x * x ** 1022
+which computes x * x ** 1021
+which computes x * x ** 1020
+which computes x * x ** 1019
+and so on 1018 times
+until it computes x * x ** 1
+which computes x * x ** 0 which returns x * 1 which is x
+and then the computations called up to here are computed, so
+x * x ** 1 is computed and then
+and then x * x ** 2
+and so on until 
+x**1019 * x and then 
+x**1020 * x and then
+x**1021 * x and then
+x**1022 * x is finally computed which is the answer to 
+the problem with the original inputs.
+
+x**1023 the new way from R13.9 computes as 
+x * x**1022 which then computes
+x**511 * x**511 which then computes the following twice
+x * x**510 which then computes
+x**255 * x**255 which then computes the following twice
+x * x**254 which then computes
+x**127 * x**127 which then computes the following twice
+x * x**126 which then computes
+x**63 * x**63 which then compute the following twice
+x * x**62
+and so on a few more times until
+x**2 which then computes 
+x**1 * x**1 which then computes the following twice
+x * x**0 which returns x * 1 which is x
+and then the computations up to now are computed
+so x**1 * x**1 becomes x * x which is x**2
+and then x**2 times x is computer which is x**3
+and so on until x**511 * x**511 which is x**1022
+and then x * x**1022 which is x**1023
+
+this second approach is significantly faster than the first because
+the computation recurrs, i.e. repeats, many less times.
+With the first recursive method the method repeated basically n times
+whereas with the second method the computation is repeated less times,
+with some duplication for the times that we compute the same value
+twice, although that duplication can be removed if we just do the 
+computation once and store the result in a variable, and then multiply
+the result by itself. With the latter consideration the computation
+with the second method recurrs a smaller number of times, 
+specifically the number of times it occurs is 2 times
+the number of times we can divide n by 2 because for each 
+time we divide an even exponent n by 2 we then do the computation 
+for the resulting odd exponent n and for the even exponent obtained
+from n - 1. If the starting n is odd we compute the computation 1
+additional time for x**n = x * x**n-1. And we also do the computation
+a final time for x**0 when we reach x**1 == x * x**0.
+I think the number of times a number can be divided by 2 
+can be called logarithm of base 2 to produce n 
+and written log2(n).
+So the number of computations with the second approach is equal to
+1 + log2(exponent) + 1 if exponent is odd
+which is less than the number of computations to obtain x**n with 
+the first approach which is equal to the exponent n.
