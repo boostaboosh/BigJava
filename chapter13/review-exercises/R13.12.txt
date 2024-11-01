@@ -1,0 +1,240 @@
+••• R13.12 Let moves(n) be the number of moves required 
+to solve the Towers of Hanoi problem (see Worked Example 13.2). 
+Find a formula that expresses moves(n) in terms of
+moves(n – 1). Then show that moves(n) = (2**n) – 1. 
+
+The puzzle begins with the disks stacked on one rod in order 
+of decreasing size, the smallest at the top, 
+thus approximating a conical shape. 
+The objective of the puzzle is to move the entire stack 
+to one of the other rods, obeying the following rules:
+1. Only one disk may be moved at a time.
+2. Each move consists of taking the upper disk from one 
+of the stacks and placing it on top of another stack 
+or on an empty rod.
+3. No disk may be placed on top of a disk that is smaller than it.
+
+e.g.moves(5) == 31 == 2**5 - 1
+
+lemme come up with a recursive solution cause i don't understand
+what the recursive solution in the worked example is doing.
+
+understanding the problem
+inputs
+1. a stack of n disks of decreasing size on 1 peg
+2. a peg to which to move the disks
+3. a third helper peg
+desired outputs
+1. the disks to be on the peg to move the disks to
+(clarification: I want to know the sequence of moves necessary
+to move the disks from their starting peg to the desired peg)
+
+solving examples of the problem by hand
+I played the towers of hanoi game on a website online
+
+coming up with a rerusive solution
+
+step 1 - first, I think of ways of simplifying the inputs to the 
+problem so that the problem is easier to solve and can be applied to 
+the simpler input.
+
+If i have less disks the problem is easier to solve and can be applied
+to the less disks.
+
+I can remove one disk. For example, if I have 5 disks 5, 4, 3, 2, 1
+I can solve the problem for 4 disks 4, 3, 2, 1.
+
+added after: I can remove the smallest disk, so if I have 5 disks, 5, 4, 3, 2, 1
+I can solve the problemm for the larger 4 disks 5, 4, 3, 2.
+
+I can solve the problem for half of the disks, so if I have 
+4, 3, 2, 1
+I can solve the problem for 2 disks.
+
+I can remove a peg. This way there is only 1 legal move for the top 
+disk.
+
+step 2 - second, I think of ways of combining solutions to the problem
+with simpler with the part of the input I removed in order to obtain
+a solution to the problem with the original inputs
+
+If i have less disks, say 3,2,1 instead of 4,3,2,1 and I have 
+moved the 3 smaller disks to the desired peg, how do I then move
+the 4th larger disk?
+I don't know. I feel like the solution for the 3 smaller disks 
+doesn't really help me here.
+
+I feel like the same problem as solving the problem for all but the
+bottom disk applies to solving the problem for the top half of the
+disks, because I still don't know how that partial solution helps
+me solve the entire problem.
+
+What happens if I remove a peg? Now, I can only move a disk to the
+one empty peg. So that's simpler. Although then I'm stuck because i
+can only move that disk back and forth. So, removing a peg doesn't
+really simplify the problem, it changes it fundamentally. When I 
+removed a peg I didn't simplify the inputs to the problem so that
+the same problem could be applied to simpler inputs, instead I changed
+the number of pegs which was a constant of the game and not an input.
+
+So, uh, I guess I need to think of more ways of simplifying the inputs
+to the tower of hanoi problem so that the same problem applies.
+
+I guess if I have a solution for the larger disks then it's easy to 
+find a solution for the same input disks plus a smaller disk.
+So if I have the inputs disks: 5, 4, 3, 2, 1 
+and I reomve the smallest 1 disk and find a solution for the
+5, 4, 3, 2 disks, then it's easy to combine that solution with 
+the input I removed (the smallest disk) in order to find a solution
+to the original problem, because all I need to do is move the 
+smallest 1 disk on top of the 5, 4, 3, 2 tower. 
+(I later realised this is wrong. If I add a disk on top of the
+smaller tower I can't just get the solution for the bigger tower
+by moving the smaller disk on top of the moves for moving
+the smaller tower to the desired peg.)
+
+step 3 - I find solutions to the simplest inputs
+and deal with each of them separately to make sure that the recursion
+comes to a stop. 
+
+If I keep removing the smallest disk I end up with a single disk,
+the largest one. to move that to the target peg is easy, I just move
+it directly.
+
+hmmmmm, I don't think I have a recursive solution to the original 
+problem. I mean, how does this work. I'm just moving a single disk
+in my final solution, but I don't see how this helps the more 
+complicated inputs. I mean, say I have 2 disks and I move the largest
+disk to the desired peg. Then I move the smaller disk. But to do that
+I need to move the smaller disk that's on top of it to the third
+auxillary peg first, and then move the big disk to the desired peg.
+I guess those are the steps that repeat. But I don't do that in my
+solution. Or do I?
+The problem I think is that there are some gaps in my removed_input 
++ simpler_input_solution combination solutions.
+Because I'm getting the solution to a tower with less
+disks, and saying this is the solution to the simpler input 
+with less disks,
+but I'm not combining this solution with the removed input to 
+get a valid solution for an input of more disks. 
+The trouble is that if I add disks underneath the 1 disk I removed,
+I can't just move the disks below to the desired peg 
+like I did with one disk.
+I have to move the smaller disk to the other helper peg, and then
+move the larger disk to the desired peg.
+So, it isn't easy to combine the solution for a tower of bigger 
+disks into a solution for a tower of bigger disks + a smaller disk.
+
+I need to redo step 2:
+
+I need to think of ways of combining the solution to simper inputs 
+with the input I removed into a solution to the problem 
+with the original input.
+
+I guess if I go the other way I am just combining solutions.
+one thing to clarify is that my desired output is the sequence 
+of moves to move the disks from the starting peg to the desired peg.
+
+So, how to simplify my inputs? 
+Instead of removing the top disk and combining the moves for 
+the movemment of the disks below with the movement of the disks
+with an additional top disk I need to find a more simple combination
+step, because that cobmination is too complicated. So that 
+input simplification didn't simplify the combination of removed 
+input and solution for the simpler input.
+I can go the other way, if I find the solution for the stack of disks
+above a disk, then I can move those disks to the helper peg,
+and then move the larger disk to the desired peg, and then move
+the smaller stack to the desired peg, and just like that I have 
+a solution to the problemm with more complicated inputs. woohoo
+
+step 3: I need to find a solution to the problem with the 
+simplest inputs.
+
+If I keep removing bottom disks I end up with 1 disk which I can 
+move directly to the desired peg.
+
+step 4: I need to implement my recursive solution by combining
+the simple cases and the reduction (input simplification) step
+
+moveDisks(numberOfDisks, startPeg, desiredPeg)
+    if numberOfDisks < 1
+        throw IllegalArgumentException
+    else if numberOfDisks == 1
+        moveTopDisk(startPeg, desiredPeg) // can print this line for sequence of moves
+    else // if numberOfDisks > 1
+        helperPeg = get peg that is not starter or desired peg
+        moveDisks(numberOfDisks - 1, startPeg, helperPeg)
+        moveTopDisk(startPeg, desiredPeg) // can print this line for sequence of moves
+        moveDisks(numberOfDisks - 1, helperPeg, desiredPeg)
+
+Alright, we have a recursive solution to the towers of Hanoi problem!
+It only took me like 4 days :D
+
+Okay, now I can answer the question because I understand this solution.
+••• R13.12 Let moves(n) be the number of moves required 
+to solve the Towers of Hanoi problem (see Worked Example 13.2). 
+Find a formula that expresses moves(n) in terms of
+moves(n – 1). Then show that moves(n) = (2**n) – 1. 
+
+okay, first things first:
+Find a formula that expresses moves(n) in terms of moves(n – 1).
+
+If I have one disk the moves are 1 cause I just move the disk.
+If I have 2 disks I momve the top disk to the helper peg,
+then I move the bottom disk to the desired peg,
+and then I move the top disk to the desired peg. 
+So that's 3 moves for 2 disks.
+If I have 3 disks I do the 3 moves to move the 2 disks to the 
+helper peg, then I move the bottom disk to the desired peg,
+and then I do the 3 moves to move the 2 disks to the desired peg
+on top of the bottom disk. So 7 total moves for 3 disks.
+so based on that I would say the number of moves necessary to move
+n disks to a desired peg in the towers of hanoi problem is twice the
+number of moves to move n - 1 disks to a desire peg + 1 move to move
+the extra bottom disk. 
+So, moves(numberOfDisks) == 2 * moves(numberOfDisks - 1) + 1
+
+Okay, so that's my formula that expresses moves(n) in terms of
+moves(n - 1). I think it's correct. 
+
+Then, in second place, the question asks me to show that 
+moves(n) = (2**n) – 1. 
+
+well, let's see if that works for what I did so far.
+1 disk needs 1 move to solve the problem:
+2**1 - 1 = 2 - 1 = 1. so far so Good
+2**2 - 1 = 4 - 1 = 3 correct
+2**3 - 1 = 7 correct
+
+Alright, this formula seemsm to work.
+let me try 2**4 - 1 = 15 moves.
+that adds up with my previous formula where
+moves(4 disks) == 2 * 7 + 1 = 15.
+That gives me faith my previous formula is correct.
+
+Okay, so I how do I show that moves(numDisks) = 2**n - 1?
+I guess I could try equating it with my previous formula,
+which I know is correct, because if they yield the same result
+then this formula is correct too.
+
+2**n - 1 = 2 * (n-1) + 1 ah wait, no, that's wrong.
+my previous formula does not use n but the moves necessary 
+to solve the problem with n - 1.
+So, I need to replace (numberOfDisks - 1) with the (2**n) - 1
+in my previous formula, and then equate it to the moves for n + 1
+with the new formula. So:
+2**(n+1) - 1 == 2 * (2**n - 1) + 1
+a ha!
+2**(n+1) == 2**(n+1) - 2 + 1 + 1
+2**(n=1) == 2**(n+1)
+1 == 1
+
+That's correct, which means that the formula for finding the 
+number of moves to solve the towers of hanoi problem for a
+number of disks (n)
+2**n - 1
+is equal to the formula I found earlier
+2 * moves(n - 1) + 1
+and because I prooved the latter to be true,
+the prior is also true because equal to it.
