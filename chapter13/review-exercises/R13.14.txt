@@ -1,0 +1,169 @@
+••• R13.14 
+Exercise ••• P13.6 shows an iterative way of generating 
+all permutations of the sequence (0, 1, . . . , n – 1). 
+Explain why the algorithm produces the correct result.
+
+P13.6 is a single class called NumberPermutationIterator
+
+public class NumberPermutationIterator
+{
+ private int[] a;
+ public NumberPermutationIterator(int n)
+ {
+ a = new int[n];
+ done = false;
+ for (int i = 0; i < n; i++) { a[i] = i; }
+ }
+ public int[] nextPermutation()
+ {
+ if (a.length <= 1) { return a; }
+ for (int i = a.length - 1; i > 0; i--)
+ {
+ if (a[i - 1] < a[i])
+ {
+ int j = a.length - 1;
+ while (a[i - 1] > a[j]) { j--; }
+ swap(i - 1, j);
+ reverse(i, a.length - 1);
+ return a;
+ }
+ }
+ return a;
+ }
+ public boolean hasMorePermutations()
+ {
+ if (a.length <= 1) { return false; }
+ for (int i = a.length - 1; i > 0; i--)
+ {
+ if (a[i - 1] < a[i]) { return true; }
+ }
+ return false;
+ }
+ public void swap(int i, int j)
+ {
+ int temp = a[i];
+ a[i] = a[j];
+ a[j] = temp;
+ }
+ public void reverse(int i, int j)
+ {
+ while (i < j) { swap(i, j); i++; j--; }
+ }
+}
+
+it has one instance variable, an array of integers called a
+the constructor initialises the array a with all numbers 
+from 0 to n - 1.
+
+next permutation returns an integer array.
+if the length of a is less than 1 is returns a.
+otherwise it iterates over each element in the array 
+from last to second using the index counter i
+and checks if the element at i is greater than the element before it
+at i - 1.
+if not, i.e. if the element at i - 1 is smaller than the element at i,
+it assigns j the index of the last element in the array
+and decrements j until the element at index j is smaller 
+than the element at index i - 1.
+then it swaps the element at i - 1 with j
+then it reverses the order of elements from index i onwards
+then it returns a
+
+this is so complicated. i'm going to need to use an example here
+to understand this algorithm.
+
+input
+1,2,3,4
+desired outputs
+1,2,3,4; 1243, 3241, 1324, etc.
+
+let's say n is 4 when the NumberPermutationIterator constructor is called.
+so a ends up being the array 0,1,2,3
+
+then hasMorePermutations checks that the array a has more than 1 
+element, which it does, and then iterates through each element from
+last to first and return true if the any element is larger than the
+the element before it.
+So basically, there are more permuations of numbers between 0 and n - 1
+if and of the numbers in the array a are larger than the element to 
+their left.
+So the first time this runs with input 0,1,2,3 it will return true
+because 3 is greater than 2.
+It will only return false in an array of n > 1 elements if all the
+elements are greater than the element to their left, i.e. if they 
+are ordered from largest to smallest, so 3,2,1,0
+
+then next permutation will make check if the array has more than 1
+element, which it does. and then for each element from last to first
+will check if the element before it is greater than it, which is the
+case for at least 1 element if this isn't the final permuation, and then
+assigns that greater element to j (so for input 0,1,2,3 i is 3, i is > 0
+and a[2] == 2, which is less than a[3] == 3, so j == 3), 
+and then decrements j until the element at index i-1 is greater than j
+(so for our input 0,1,2,3 i is 3 and so i-1 is a[2] which is 2, 
+so j is decremented until a[j] is < 2, wich means j is assigned a value
+of 1 because a[1] == 1 which is less than 2),
+and then the elements at index i - 1 and j are swapped
+(so array a 0,1,2,3 swaps the elements at index i - 1, i.e. 3 - 1,
+so index 2, and the element at index j which is 3, so the array 
+becomes 0,1,3,2)
+and then reverses the elements from index i to the end of the array
+(so for 0,1,3,2 reverse the elements from index 3 to the end of the
+array, in this case index 3 is the final element so nothing changes
+and the array a remains 0,1,3,2) 
+and finally the array a is return as the next permutation
+
+so from 0,1,2,3 the next permuation is 0,1,3,2
+if we called nextPermutation again the next array would be
+i - 1 == 1 and i == 2
+j == 3
+a[i - 1] == 1
+swap element at index 1 with element at index 3 so a becomes 0,2,3,1
+reverse elements from index 2 to the end so a becomes 0,2,1,3
+
+so from 0,1,2,3 to 0,1,3,2 to 0,2,1,3
+
+so basically if you were to make a number using each element as a
+digit each permutation would have the next number in the sequence
+of numbers from smallest to largest using the digits of the array a
+starting with the array 0,1,2,3,...
+so for 0,1,2,3 
+it would be
+0,1,2,3
+0,1,3,2
+0,2,1,3
+0,2,3,1
+0,3,1,2
+0,3,2,1
+1,0,2,3
+1,0,3,2
+1,2,0,3
+1,2,3,0
+1,3,0,2
+1,3,2,0
+2,0,1,3
+etc.
+until 
+3,2,1,0
+
+and so the nextPermutation algorithm goes through all orderings
+of number 0 to n - 1 because it starts with the the numbers in 
+ascending order which is the smallest lexicographic value the 
+elements in the array a can have.
+And each new permutation updates the ordering of elements so that the
+new sequence is the next sequence in lexicograhpical order.
+And the sequence is updates until the elements are in descending order
+which is the largest lexicographic value the elements in the sequence 
+can have.
+
+Lexicographic order is a way of arranging sequences of elements so 
+that you compare the elements of the two sequences 1 element at a
+time starting from the first element in each sequence.
+The words in a dictionary are in lexicographic order because you
+compare the elements (letters) of each sequence to the elements of 
+the other sequences (words) one element at a time starting from the 
+first element (letter) in each sequence.
+In order to arrange sequences in lexicographic order you need to be
+able to compare elements that make up the sequences and say if one,
+for example a letter 'c', is smaller than another element, for 
+example a letter 'g'.
