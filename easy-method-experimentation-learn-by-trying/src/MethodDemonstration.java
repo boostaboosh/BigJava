@@ -31,5 +31,7 @@ public class MethodDemonstration
         System.out.println(integerFormat.format(num));
         NumberFormat percentageFormat = NumberFormat.getPercentInstance();
         System.out.println(percentageFormat.format(num));
+        
+        System.out.println(3/10);
     }
 }
