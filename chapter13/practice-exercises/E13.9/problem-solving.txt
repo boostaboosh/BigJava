@@ -1,0 +1,34 @@
+•• E13.9
+
+Use recursion to implement a method
+
+public static boolean find(String text, String str)
+
+that tests whether a given text contains a string.
+
+For example, find("Mississippi", "sip") returns true.
+
+Hint: If the text starts with the string you want to match, then you are done. If not,
+consider the text that you obtain by removing the first character.
+
+
+input
+text: "this is some text."
+sting: "some"
+desired outputs
+true if the text contains the string
+
+solve by hand
+in:
+text: "hello world in the edwardian era!"
+string: "victorian"
+out:
+false
+
+algorithm:
+(recursive)
+
+simplify the inputs:
+remove a word
+
+solution for removed word
