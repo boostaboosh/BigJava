@@ -1,0 +1,47 @@
+••• E13.16
+
+Implement a SubsetGenerator that generates all subsets of the characters of a string.
+
+For example, the subsets of the characters of the string "rum" are the eight strings
+
+"rum", "ru", "rm", "r", "um", "u", "m", ""
+
+Note that the subsets don’t have to be substrings—for example, "rm" isn’t a substring
+of "rum".
+
+step 1
+understand the problem
+input:
+string
+output:
+all subsets (not necessarily substrings)
+
+step 2
+solve the problem by hand
+input:
+"pin"
+output:
+"pin", "pi", "pn", "p", "i", "in", "n", "",
+
+step 3
+write a (recursive) pseudocode algorithm for solving generic instances of the problem using the method I used to solve
+specific versions of the problem by hand
+
+step 3a
+ways to simplify the inputs:
+remove the first or last character, so "pin" becomes "in"
+remove the both first and last chars, so "pin" becomes "i"
+
+step 3b
+ways to combine solutions to simpler inputs with removed inputs to obtain solution to original input
+"p" with solution for "in":
+If I have all subsets of "in" and I want to obtain all subsets of "pin" I can prepend p to each subset of "in"
+to obtain all the subsets of pin.
+
+step 3c
+find the solution for the simplest inputs
+The subsets of an empty string are itself.
+
+step 3d
+implement a solution algorithm by combining the solutions for the simplest inputs
+with the reduction (simplification and combination) step.
