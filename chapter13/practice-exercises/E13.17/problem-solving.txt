@@ -1,0 +1,72 @@
+••• E13.17 
+Recursively generate all ways in which an array list can be split up into a sequence of
+nonempty sublists. 
+For example, if you are given the array list [1, 7, 2, 9], return the
+following lists of lists:
+[[1], [7], [2], [9]], [[1, 7], [2], [9]], [[1], [7, 2], [9]], [[1, 7, 2], [9]],
+[[1], [7], [2, 9]], [[1, 7], [2, 9]], [[1], [7, 2, 9]], [[1, 7, 2, 9]]
+Hint: First generate all sublists of the list with the last element removed. The last
+element can either be a subsequence of length 1, or it can be added to the last
+subsequence.
+
+1. understand the problem
+inputs: a list of elements, e.g. (1,2,3)
+desired outputs: a list containing lists of all possible arrangements of the input elements
+into sub-lists, where all the elements in the input list are in the same order, but 
+arranged into sub-lists, such as ((1), (2), (3)) or ((1), (2,3)) etc.
+
+2. solve examples of the problem by hand
+example:
+inputs: (2,8,4)
+outputs:
+((2,8,4), ((2),(8),(4)), ((2,8),(4)), ((2),(8,4)))
+
+3. write a pseudocode algorithm for solving generic instances 
+of the problem I just solved by hand
+
+writing a recursive algorithm:
+a. think of ways of simplifying the input 
+
+(I have a hint)
+remove the last element, so the input 1,7,2,9 becomes 1,7,2 if I remove 9
+and the input 2,8,4 becomes 2,8 if I remove 4.
+
+b. think of ways of combining the removed part of the input in the 
+simplification step with the solution for the remaining input in order
+to obtain the solution to the problem with the initial input.
+
+If I have the solution for the removed part of the input, I have a list
+of lists each with the different possible sublists of the simplified input list.
+So, to obtain the solution for the input with the element that was previously missing
+from the input, I will need to update all the sublists to include the removed element
+as their final element.
+For example, if the input is 1,7,2,9 and I have the solutions for the input 1,7,2 which are
+((1),(7),(2)), ((1,7),(2)), ((1),(7,2)), ((1,7,2));
+and I want to combine this solution with the removed input 9 in order to obtain the solution
+for the input 1,7,2,9; I will need to make sublists where the removed element is the final
+sublist, which I can do by adding (9) to each of the previous lists, like so:
+((1),(7),(2),(9)), ((1,7),(2),(9)), ((1),(7,2),(9)), ((1,7,2),(9))
+But then I am still missing the lists where the removed element isn't a single element sublist.
+((1),(7),(2,9)), ((1,7),(2,9)), ((1),(7,2,9)), ((1,7,2,9))
+which are the 4 sublists above, which I obtained by simply going over the above sublists and adding
+the remove element 9 to the end of the last sublist.
+So, to simplify, it seems like to combine the solutions for the simplified input with the removed
+last element of the original input it is necessary to create a new list of lists where for each
+list from the simplified solution two new lists are created, one where the removed element is added 
+to the last sublist of each list in the original solution, and one where the removed element is added
+as a single element list after the final sublist in each list of the original solution.
+Boom, that's it!
+
+c. think of the solutions to the simplest inputs
+
+If I keep removing the final element from a list to obtain the solution to the simpler input
+I will end up with a list of a single element. To which the solution is a list contain a list
+of that single element. Because there can only be 1 sublist of a single element list.
+I can't remove the last element because the solution to a list of no elements is an empty list.
+So the solution for a list of 0 elements is an empty list.
+And if I end up with 2 elements, I can remove 1 and combine the solution for 1 element with the 
+removed element as described above in the combination step to obtain a solution for 2 elements.
+So the simplest inputs are an empty list and a single element list.
+
+d. implement the recursive solution to the problem by combining the
+solutions to the simple cases with the reduction of the input step.
