@@ -14,7 +14,7 @@ public class SublistArrangementsGenerator
     * of the sequence of elements from the input list into lists of sublists.
     * @param <T> the type of the elements in the array list
     */
-   public static <T> ArrayList<ArrayList<T>> getSublistArrangements(ArrayList<T> arrayList)
+   public static <T> ArrayList<ArrayList<ArrayList<T>>> getSublistArrangements(ArrayList<T> arrayList)
    {
       // todo
       return null;
