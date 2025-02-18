@@ -34,4 +34,15 @@ public class SublistArrangementsGeneratorTest
       assertEquals("Mismatch in number of generated sublists", expected.size(), actual.size());
       assertTrue("Actual result does not contain all expected elements", actual.containsAll(expected));
    }
+   
+   @Test
+   public void generateSublistArrangementsOfEmptyListTest()
+   {
+      ArrayList<Integer> emptyList = new ArrayList<>();
+      ArrayList<ArrayList<ArrayList<Integer>>> expected = new ArrayList<>();
+      
+      assertEquals(expected, SublistArrangementsGenerator.getSublistArrangements(emptyList));
+//      todo: does this compare contents or references, or something else?
+//       i looked inside and it compares the arraylists using their .equals implementation, which is pretty strict.
+   }
 }
