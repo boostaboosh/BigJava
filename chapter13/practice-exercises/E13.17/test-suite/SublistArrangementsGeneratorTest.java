@@ -8,7 +8,7 @@ public class SublistArrangementsGeneratorTest
 {
    @Test
    public void generateSublistArrangementsOf3ElementListTest() {
-      ArrayList<Integer> threeElementsList = new ArrayList<Integer>();
+      ArrayList<Integer> threeElementsList = new ArrayList<>();
       threeElementsList.add(2);
       threeElementsList.add(8);
       threeElementsList.add(4);
@@ -28,7 +28,7 @@ public class SublistArrangementsGeneratorTest
             new ArrayList<>(List.of(2)),
             new ArrayList<>(List.of(8, 4))
       )));
-      ;
+      
       ArrayList<ArrayList<ArrayList<Integer>>> actual = SublistArrangementsGenerator.getSublistArrangements(threeElementsList);
 
       assertEquals("Mismatch in number of generated sublists", expected.size(), actual.size());
@@ -42,7 +42,7 @@ public class SublistArrangementsGeneratorTest
       ArrayList<ArrayList<ArrayList<Integer>>> expected = new ArrayList<>();
       
       assertEquals(expected, SublistArrangementsGenerator.getSublistArrangements(emptyList));
-//      todo: does this compare contents or references, or something else?
-//       i looked inside and it compares the arraylists using their .equals implementation, which is pretty strict.
+//      Does this compare contents or references, or something else?
+//      I looked inside, and it compares the arraylists using their .equals implementation, which is pretty strict.
    }
 }
