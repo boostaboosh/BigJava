@@ -1,0 +1,97 @@
+E13.18
+Given an array list a of integers, recursively find all lists of elements of a whose sum is a given integer n.
+
+problem solving steps
+1. understand the problem
+inputs: array list of integers and an integer n
+e.g. a = 1,2,3,4,5 and n = 7
+outputs: all lists of elements whose sum is a given integer n
+1,2,4 ; 2,5 ; 3,4
+
+2. solve the problem by hand
+a) a = 1,2,3,4,5 and n = 7
+1,2,4 ; 2,5 ; 3,4
+b) a = [], n = 2
+[]
+c) a = 1,4 and n = 3
+listsWhoseSumIsN = []
+
+3. write a pseudocode recursive algo for solving general instances of the problem I just solved specific examples of
+
+1st -> think of ways of simplifying the inputs so that the problem is easier to solve
+If I remove a number, there are less possible combinations of numbers that can sum to n
+
+2nd -> think of ways of combining the solution for the simplified input with the removed number to obtain a solution for
+the original list of elements
+If I have the list of solutions for 1,2,3,4 and I removed 5 from the original array a = 1,2,3,4,5 and n = 7
+then my solutions for the simplified input are 1,2,4 and 3,4.
+So, how do I combine my removed input solutions with 5 to get the solution for 1,2,3,4,5?
+It's not easy. It's not like I can just add 5 to the end of any of these solutions, because they already add to 7.
+I need to see if any combination of numbers in the input 1,2,3,4,5 adds to 7 which could involve numbers that aren't
+in any of the previous solutions, although in this scenario there are none. Maybe there are never none, and I can just
+iteratively replace elements in the previous solution with 5 to get new solutions. hmmm... now that I think about it,
+all numbers are sums of previous numbers, so I can just see which numbers in previous solutions can be replaced with
+the number I removed 5, and then replace those numbers with 5, so if I look at the previous solutions and replace
+the numbers that add to 5 with 5 I will get new valid solutions. So 1,2,4 has 1,4 which add to 5 so a new solution
+is 2,5 and 3,4 adds to 7 so a new solution is not there cause 3 and 4 don't add to 5.
+But what if there are no previous solutions? Like a = 1,5,7 and n = 12?
+solutions for 1,5 are none, and then what do I do with 7 to combine with the solution for previous inputs to get the
+solution for 1,5,7? I can't replace combinations in the previous solution with 7 because there are no previous solutions
+so I need to combine 7 with the previous inputs to see if any combos add to 12. So I can just use my full input.
+Now, what if a = 1,5,7,7 was a and n = 12. I would try to replace sums of numbers in the previous solution with 7 to
+make new solutions, and if there were no previous solutions I would see if adding up combinations of numbers from the
+previous solution with 7 would obtain 12 (n).
+(later I realise this doesn't work)
+
+3rd -> think of solutions for the simplest inputs
+if array a is empty there is no solution
+is array a has 1 element and it is equal to n that is the solution, else there are no solutions
+
+4th -> implement the solution by combining the simple cases and the reduction step
+
+if (a is empty) solution is empty list
+else
+    removed number = last element in a
+    simpler input = a without last element
+    solution for simpler input = get solution for simpler input
+    if (solution for simpler input is empty) find solutions by combining removed number with other numbers
+    else
+        for each solution for the simpler input
+            for every combination within the simpler solution that adds up to removed number
+                a new solution = old solution where remove number replaces combo that adds up to it
+                add a new solution to solution
+
+The problem is I don't know how to:
+find solutions by combining the removed number with other numbers
+
+Also, there is another problem...
+Say I have 1,1,5,7,5 and I have the solutions for 1,1,5,7 and I want to find the solutions for 1,1,5,7,5 so I see which
+combinations in the previous solution add up to 5, and replace them with 5, I will not find the solution 1,1,5,5 which
+requires adding 5 to previous inputs and not replacing multiple numbers in previous solutions with 1 number I removed.
+
+So, I need to go back to the drawing board.
+
+If I have an array a = [1,2,3,2] and n = 5; how do I find all sub-lists (including the list itself)
+of elements whose sum is equal to 5?
+
+I don't know. What if the array is [1,2]?
+
+At the end of the day I need to find all index combinations, and see if the sum is n.
+I've done that before, I can do this.
+
+So what I'm really gonna do is this:
+reduction step) remove last num
+combination step) add number to all combinations of previous numbers to see if total is n
+solutions for simplest inputs)
+a. if array is length is empty then the lists that sum to n is empty
+b. if array is length 1 then add single element list n to list of lists that add up to n
+
+... this is basically a get all sublists of a list exercise. but each iteration I add a number to the list, get new
+permutations, and see which ones add up to n. So really what I want to do is get all permutations of an input list a,
+and then see which permutations add up to some number n. The getting the ones that add to n part could be done during
+the creation of the lists, we'll see, but for now I can ignore it and focus on getting all sublists of a list, and then
+afterwords run a loop over each sublist and see if it adds up to n.
+see permutations page 459 of book pdf
+
+I've generated all subsets of a set before in E13.16, so I know I can do this.
+And once I've generated all subsets of the list, I can simply filter the list of subsets for those which sum to n.
