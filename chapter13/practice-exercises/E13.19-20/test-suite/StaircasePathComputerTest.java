@@ -15,24 +15,29 @@ class StaircasePathComputerTest {
     void GIVEN_thatNEquals5_WHEN_pathsAreEnumerated_THEN_allPathsAreReturned()
     {
         int n = 5;
-        List<List<Integer>> actualPaths = StaircasePathComputer.enumeratePaths(n);
+        int k = 2;
+        List<List<Integer>> actualPaths = StaircasePathComputer.enumeratePaths(n, k);
         List<List<Integer>> expectedPaths = List.of(
                 List.of(1,2,3,4,5),
+                List.of(2,3,4,5),
                 List.of(1,3,4,5),
                 List.of(1,2,4,5),
                 List.of(1,2,3,5),
-                List.of(1,4,5)
+                List.of(1,3,5),
+                List.of(2,3,5),
+                List.of(2,4,5)
         );
-        assertTrue(haveSameContents(expectedPaths, actualPaths), "lists have different contents for n = 5");
+        assertTrue(haveSameContents(expectedPaths, actualPaths), "lists have different contents for n = 5\nexpected: " + expectedPaths + "\nactual: " + actualPaths);
     }
 
     @ParameterizedTest(name = "n = {0}")
     @ValueSource( ints = { 0 } )
     void GIVEN_invalidInputs_WHEN_pathsAreEnumerated_THEN_expectedPathsAreReturned(int n)
     {
-        List<List<Integer>> actualPaths = StaircasePathComputer.enumeratePaths(n);
+        int k = 2;
+        List<List<Integer>> actualPaths = StaircasePathComputer.enumeratePaths(n, k);
         List<List<Integer>> expectedPaths = List.of(List.of());
-        assertTrue(haveSameContents(expectedPaths, actualPaths), "expected an empty list");
+        assertTrue(haveSameContents(expectedPaths, actualPaths), "expected an empty list, actual was: " + actualPaths);
     }
 
     /**
@@ -82,7 +87,7 @@ class StaircasePathComputerTest {
                 }
                 if (inSecondList) {
                     unmatchedItemsInSecondList.remove(secondElement);
-                    index = index - 1;
+                    break;
                 }
             }
             if (!inSecondList) {
