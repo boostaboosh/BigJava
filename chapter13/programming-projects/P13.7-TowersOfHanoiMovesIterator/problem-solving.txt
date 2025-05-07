@@ -1,0 +1,26 @@
+P13.7
+
+Implement at iterator that produces the moves for the Towers of Hanoi puzzle described in Worked Example 13.2.
+Provide methods hasMoreMoves and nextMove. The nextMove method should yield a string describing the next move.
+
+For example, the following code prints all moves needed to move five desks from peg 1 to peg 3:
+
+DiskMover mover = new DiskMover(5, 1, 3);
+while (mover.hasMoreMoves())
+{
+    System.out.println(mover.nextMove())
+}
+
+Hint: A disk mover that moves a single disk from one peg to another simply has a nextMove method that returns a
+string:
+    "Move disk from peg source to target"
+
+A disk mover with more than one disk to move must work harder. It needs another DiskMover to help it move the first d-1
+disks. Then nextMove asks that disk mover for its next move until it is done. Then the nextMove method issues a command
+to move the d-th disk. Finally, it constructs another disk mover that generates the remaining moves.
+
+It helps to keep track of the state of the disk mover:
+ - BEFORE_LARGEST: A helper mover moves the smaller pile to the other peg.
+ - LARGEST: Move the largest disk from the source to the destination.
+ - AFTER_LARGEST: The helper mover moves the smaller pile from the other peg to the target.
+ - DONE: All moves are done.

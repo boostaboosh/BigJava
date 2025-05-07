@@ -19,6 +19,7 @@ public class MethodDemonstration
     public static void main(String[] args) throws FileNotFoundException
     {
         double num = 12534.2355435;
+        doThing(num);
         NumberFormat numberFormat = NumberFormat.getInstance();
         numberFormat.setMaximumFractionDigits(6);
         numberFormat.setMaximumIntegerDigits(2);
@@ -33,5 +34,11 @@ public class MethodDemonstration
         System.out.println(percentageFormat.format(num));
         
         System.out.println(3/10);
+    }
+
+    public static void doThing(double num)
+    {
+        num = 2.0;
+        System.out.println("num is " + num);
     }
 }
