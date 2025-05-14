@@ -13,6 +13,7 @@ Following are links to projects I made after each chapter.
 
 ## [chapter 13 Recursion](chapter13/programming-projects)
 - P13.7-TowersOfHanoiMovesIterator
+- P13.8-10-BacktrackingMazeEscaper
 
 ## [chapter 12 Object-Oriented Design](chapter12/programming-projects)
 - P12.1-VendingMachine
