@@ -1,0 +1,29 @@
+••• P13.8
+Escaping a Maze. You are currently located inside a maze. The walls of the maze are
+indicated by asterisks (*).
+
+* *******
+*     * *
+* ***** *
+* * *   *
+* * *** *
+*   *   *
+*** * * *
+*     * *
+******* *
+
+Use the following recursive approach to check whether you can escape from the
+maze: If you are at an exit, return true. Recursively check whether you can escape
+from one of the empty neighboring locations without visiting the current location.
+This method merely tests whether there is a path out of the maze. Extra credit if you
+can print out a path that leads to an exit.
+
+•• P13.10
+Using the PartialSolution interface and solve method from Exercise •• E13.23,
+provide a class MazePartialSolution for solving the maze escape problem of Exercise ••• P13.8.
+
+•• E13.23
+The backtracking algorithm will work for any problem whose partial solutions can
+be examined and extended. Provide a PartialSolution interface type with methods
+examine and extend, a solve method that works with this interface type, and a class
+EightQueensPartialSolution that implements the interface.
