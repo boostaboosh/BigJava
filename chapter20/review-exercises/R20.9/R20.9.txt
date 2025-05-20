@@ -1,0 +1,8 @@
+••• R20.9 Can you add icons to check boxes, radio buttons, and combo boxes? Browse the
+Java documentation to find out. Then write a small test program to verify your
+findings.
+
+Yes, you can add icons to check boxes, radio buttons, and combo boxes.
+There is the setIcon method of the abstract button super class, and
+the combo box can store items of a type, so I can set the type to ImageIcon
+to show images as the combo box options.
