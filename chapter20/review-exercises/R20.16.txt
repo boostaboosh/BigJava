@@ -1,0 +1,5 @@
+••• R20.16 What component would you use to show a set of choices, as in a combo box, but so
+that several items are visible at the same time? Run the Swing demo application or
+look at a book with Swing example programs to find the answer. 
+
+To show a set of choices, like a combo box, but so that several items are visible at the same time, I would use a JList component, based on looking at the swing set 2 Java Swing demo application. Or I would use a group of radio buttons or checkboxes with a label depending on how many items I want to let the user select.
