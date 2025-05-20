@@ -1,0 +1,13 @@
+• R20.1 Can you use a flow layout for the components in a frame? If yes, how?
+
+Yes, you can use a flow layout in a frame by setting the frame's content pane's layout manager to a flow layout, or you place your components inside of a container with a flow layout, such as a default JPanel, and then add only that container to the frame's content pane's default border layout, which by default will assign it to the center of the JFrame's content pane's border layout and fill the whole frame. A third option to use a flow layout for the components in a frame is to call the getContentPane method on the frame to return a simple intermediate Container object, and then case cast it to a JComponent, which lets you set its layout manager using the setLayout method of the JComponent class. A fourth option which doesn't require casting, and is a little cleaner therefore and recommended in the official Java Tutorials in the swing tutorial "using top-level containers" section, is to create your own component to be the content pane. To make a component the content pane, first create the component, and then call the setContentPane method on the top level container, in this case the JFrame, and pass it the component. 
+
+For example:
+
+//Create a panel and add components to it.
+JPanel contentPane = new JPanel(new BorderLayout());
+contentPane.setBorder(someBorder);
+contentPane.add(someComponent, BorderLayout.CENTER);
+contentPane.add(anotherComponent, BorderLayout.PAGE_END);
+
+topLevelContainer.setContentPane(contentPane); // here our top level container would be a JFrame
