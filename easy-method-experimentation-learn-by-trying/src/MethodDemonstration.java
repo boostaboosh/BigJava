@@ -1,3 +1,5 @@
+import javax.swing.*;
+import java.awt.*;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.math.RoundingMode;
@@ -18,6 +20,40 @@ public class MethodDemonstration
      */
     public static void main(String[] args) throws FileNotFoundException
     {
+        JFrame frame = new JFrame("test");
+        frame.setSize(500, 500);
+
+        JLabel label = new JLabel("label without direction");
+        JLabel centreLabel = new JLabel("central label");
+        frame.add(centreLabel);
+        frame.add(label, BorderLayout.CENTER);
+
+        JLabel eastLabel = new JLabel("east label");
+        frame.add(eastLabel, BorderLayout.EAST);
+
+        JLabel northLabel = new JLabel("north label");
+        frame.add(northLabel, BorderLayout.NORTH);
+
+        JLabel westLabel = new JLabel("west label");
+        frame.add(westLabel, BorderLayout.WEST);
+
+        JLabel southLabel = new JLabel("south label");
+        frame.add(southLabel, BorderLayout.SOUTH);
+
+        frame.setLayout(new FlowLayout());
+
+        frame.setVisible(true);
+        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+
+        JPanel newPanel = new JPanel(new BorderLayout());
+        JButton button = new JButton("random text");
+        JLabel labelTest = new JLabel("random text");
+        newPanel.add(button);
+        newPanel.add(labelTest, BorderLayout.EAST);
+        frame.setContentPane(newPanel);
+        frame.revalidate();
+        frame.repaint();
+
         double num = 12534.2355435;
         doThing(num);
         NumberFormat numberFormat = NumberFormat.getInstance();
