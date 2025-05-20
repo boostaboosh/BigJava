@@ -1,0 +1,8 @@
+•• R20.6 What happens when you try to add a button to another button? Try it out and
+explain.
+
+When I add a button to another button both buttons appear, with the added button inside of the button it was added to. Both button are clickable.
+This happens because the JButton component descends from the javax.swing.JComponent class, which itself descends from the java.awt.Container class, which descends from the java.awt.Component class.
+So, a JButton is also a JComponent, a Container, and a Component object, just like JPanel.
+Being a java.awt.Container objects means that it's a container object that can contain other AWT components, like other JButton objects or other JComponents.
+Components added to a container are tracked in a list, and the order of the list determines the component's front to back stacking, so a component added first, is displayed in front of a component added afterwards, which is why if I added two buttons to the same button, the one added first is the one which is visible, whereas the one added afterwards is not, because it's behind the one added first.

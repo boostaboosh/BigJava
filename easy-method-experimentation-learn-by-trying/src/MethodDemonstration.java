@@ -28,8 +28,8 @@ public class MethodDemonstration
 
         JPanel panel = new JPanel(new BorderLayout());
         panel.add(but1);
+        but1.add(but3);
         but1.add(but2);
-        but2.add(but3);
 
         frame.add(panel);
 
