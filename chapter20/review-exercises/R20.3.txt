@@ -1,0 +1,5 @@
+•• R20.3 What happens when you place a single button into the CENTER area of a container that
+uses a border layout? Try it out by writing a small sample program if you aren’t sure
+of the answer.
+
+If I place a single button into the center area of a container that uses a border layout, then the button takes up the entire container box.

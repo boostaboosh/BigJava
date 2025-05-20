@@ -20,6 +20,15 @@ public class MethodDemonstration
      */
     public static void main(String[] args) throws FileNotFoundException
     {
+        JFrame buttonFrame = new JFrame("I have a single button in a border layout");
+        JButton lonelyButton = new JButton("I am a single button");
+        JPanel buttonPanel = new JPanel(new BorderLayout());
+        buttonPanel.add(lonelyButton);
+        buttonFrame.add(lonelyButton);
+        buttonFrame.setSize(100,100);
+        buttonFrame.setVisible(true);
+        buttonFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+
         JFrame frame = new JFrame("test");
         frame.setSize(500, 500);
 
@@ -39,6 +48,7 @@ public class MethodDemonstration
 
         JLabel southLabel = new JLabel("south label");
         frame.add(southLabel, BorderLayout.SOUTH);
+        frame.add(lonelyButton, BorderLayout.SOUTH);
 
         frame.setLayout(new FlowLayout());
 
@@ -50,6 +60,8 @@ public class MethodDemonstration
         JLabel labelTest = new JLabel("random text");
         newPanel.add(button);
         newPanel.add(labelTest, BorderLayout.EAST);
+        newPanel.add(lonelyButton, BorderLayout.EAST);
+//        newPanel.add(lonelyButton, BorderLayout.SOUTH);
         frame.setContentPane(newPanel);
         frame.revalidate();
         frame.repaint();
