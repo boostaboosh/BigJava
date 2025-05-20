@@ -22,18 +22,15 @@ public class MethodDemonstration
     {
         JFrame frame = new JFrame();
 
-        JButton but1 = new JButton("1");
-        JButton but2 = new JButton("2");
-        JButton but3 = new JButton("3");
-
         JPanel panel = new JPanel(new BorderLayout());
-        panel.add(but1);
-        but1.add(but3);
-        but1.add(but2);
+        JSlider slider = new JSlider();
+        panel.add(slider, BorderLayout.CENTER);
+        JLabel label = new JLabel("slider label: ");
+        panel.add(label, BorderLayout.WEST);
 
         frame.add(panel);
 
-        frame.setSize(300, 300);
+        frame.setSize(800, 300);
         frame.setVisible(true);
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 

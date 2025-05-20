@@ -1,0 +1,7 @@
+•• R20.7 The ColorFrame in Section 20.5 uses a grid layout manager. Explain a drawback of the
+grid that is apparent from Figure 15. What could you do to overcome this drawback?
+
+A drawback of using a grid layout in the bottom portion of the color frame for the color label and sliders is that the label and sliders both take up half of the window width even though the 
+labels are much shorter than that and the sliders would be more accurate if longer.
+So if the dead space between the sliders and labels could be used up, what would be a better layout of the graphical components on the screen.
+To overcome this draw back we could change the layout manager so that the sliders take up more space and the labels take up less space. One way of doing this is using a grid layout of 3 rows and 1 column for each label and slider pair, and then for each row, i.e. pair, make a border layout with the label in the west position and the slider in the center position. This way the slider takes up most of the horizontal space in the window, and the label has enough space to display itself too. 
