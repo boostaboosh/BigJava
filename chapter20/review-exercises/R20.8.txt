@@ -1,0 +1,4 @@
+••• R20.8 What is the difference between the grid layout and the grid bag layout? 
+
+The grid layout divides a container into rows and columns, result in square cells of equal size.
+Whereas the grid bad layout lets you have a tabular arrangement of components, like the grid layout, where the rows and columns have different sizes or one components spans multiple rows or columns.
