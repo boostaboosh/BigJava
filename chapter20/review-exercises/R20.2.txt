@@ -1,0 +1,7 @@
+• R20.2 What is the advantage of a layout manager over telling the container “place this component at position (x, y)”? 
+
+With a layout manager, the components are arranged next to each other for us, without us having 
+to calculate which position each component is in.
+Furthermore, a layout manager tells the container how we want the components to be arranged 
+relative to each other, so the relative position of components on the screen is maintained even
+when the application window is resized or changes shape.
