@@ -20,51 +20,23 @@ public class MethodDemonstration
      */
     public static void main(String[] args) throws FileNotFoundException
     {
-        JFrame buttonFrame = new JFrame("I have a single button in a border layout");
-        JButton lonelyButton = new JButton("I am a single button");
-        JPanel buttonPanel = new JPanel(new BorderLayout());
-        buttonPanel.add(lonelyButton);
-        buttonFrame.add(lonelyButton);
-        buttonFrame.setSize(100,100);
-        buttonFrame.setVisible(true);
-        buttonFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        JFrame frame = new JFrame();
 
-        JFrame frame = new JFrame("test");
-        frame.setSize(500, 500);
+        JButton but1 = new JButton("1");
+        JButton but2 = new JButton("2");
+        JButton but3 = new JButton("3");
 
-        JLabel label = new JLabel("label without direction");
-        JLabel centreLabel = new JLabel("central label");
-        frame.add(centreLabel);
-        frame.add(label, BorderLayout.CENTER);
+        JPanel panel = new JPanel(new BorderLayout());
+        panel.add(but1);
+        but1.add(but2);
+        but2.add(but3);
 
-        JLabel eastLabel = new JLabel("east label");
-        frame.add(eastLabel, BorderLayout.EAST);
+        frame.add(panel);
 
-        JLabel northLabel = new JLabel("north label");
-        frame.add(northLabel, BorderLayout.NORTH);
-
-        JLabel westLabel = new JLabel("west label");
-        frame.add(westLabel, BorderLayout.WEST);
-
-        JLabel southLabel = new JLabel("south label");
-        frame.add(southLabel, BorderLayout.SOUTH);
-        frame.add(lonelyButton, BorderLayout.SOUTH);
-
-        frame.setLayout(new FlowLayout());
-
+        frame.setSize(300, 300);
         frame.setVisible(true);
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
-        JPanel newPanel = new JPanel(new BorderLayout());
-        JButton button = new JButton("random text");
-        JLabel labelTest = new JLabel("random text");
-        newPanel.add(button);
-        newPanel.add(labelTest, BorderLayout.EAST);
-        newPanel.add(lonelyButton, BorderLayout.EAST);
-//        newPanel.add(lonelyButton, BorderLayout.SOUTH);
-        frame.setContentPane(newPanel);
-        frame.revalidate();
-        frame.repaint();
 
         double num = 12534.2355435;
         doThing(num);

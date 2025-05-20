@@ -1,0 +1,5 @@
+•• R20.4 What happens if you place multiple buttons directly into the SOUTH area, without
+using a panel? Try it out by writing a small sample program if you aren’t sure of the
+answer. 
+
+If you place multiple buttons directly into the South area of a border layout container, only the last button is visible and takes up the entire surface area of the south part of the border layout.
