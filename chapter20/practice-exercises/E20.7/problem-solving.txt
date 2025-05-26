@@ -1,0 +1,4 @@
+• E20.7 Write a program that displays a number of rectangles at random positions. Supply
+menu items “Fewer” and “More” that generate fewer or more random rectangles.
+Each time the user selects “Fewer”, the count should be halved. Each time the user
+clicks on “More”, the count should be doubled.
