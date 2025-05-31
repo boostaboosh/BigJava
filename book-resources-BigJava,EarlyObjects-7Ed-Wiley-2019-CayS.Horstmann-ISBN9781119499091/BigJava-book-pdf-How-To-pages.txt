@@ -49,6 +49,8 @@ pdf p.551, book p.363
 how to 11.1 - Processing Text Files
 pdf p.599, book p.399
 
+how to design an object oriented program - see my solution to ch12 rev ex01 and the problem solving markdown file of ch12 prog project 01.
+
 how to 12.1 - Using CRC Cards and UML Diagrams in Program Design
 pdf p.638, book p.426
 
