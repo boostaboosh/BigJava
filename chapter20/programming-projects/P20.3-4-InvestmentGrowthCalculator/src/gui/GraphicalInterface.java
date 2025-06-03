@@ -69,9 +69,11 @@ public class GraphicalInterface extends JFrame
     public void drawBarChart(ArrayList<ProjectedBalance> values)
     {
         barChart.setValues(getBarChartValuesFromProjectedNominalBalances(values));
-        // todo: 2 val bar chart or other chart with inflation adjusted balances
+        // todo: 2 val bar chart or other chart with inflation adjusted balances, or double bar chart which extends bar chart?
         barChart.repaint();
     }
+
+    // todo: add calculation explanation somewhere: At the end of each year, the balance grows by the growth rate, and then the annual contribution is added.
 
     private void createLayout()
     {
@@ -83,7 +85,7 @@ public class GraphicalInterface extends JFrame
     private JSpinner initialAmountSpinner;
     private JSpinner annualContributionSpinner;
     private JSpinner annualGrowthRateSpinner;
-    private JSpinner annualInflationRateSpinner;
+    private JSpinner annualInflationRateSpinner; //todo: add to spinner panel hover label: "average annual price increase rate"
     private JSpinner numberOfYearsSpinner;
     private BarChart barChart;
 

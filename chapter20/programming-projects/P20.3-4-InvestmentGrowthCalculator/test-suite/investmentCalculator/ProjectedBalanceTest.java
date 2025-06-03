@@ -39,4 +39,12 @@ class ProjectedBalanceTest
         assertEquals(YEAR, projectedBalance.getYear());
     }
 
+    @Test
+    void cloneProjectedBalanceTest()
+    {
+        ProjectedBalance clone = (ProjectedBalance) projectedBalance.clone();
+        assertEquals(projectedBalance, clone);
+        assertNotSame(clone, projectedBalance);
+    }
+
 }

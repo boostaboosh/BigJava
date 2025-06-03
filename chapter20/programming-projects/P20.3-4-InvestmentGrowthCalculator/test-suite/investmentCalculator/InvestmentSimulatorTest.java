@@ -12,6 +12,8 @@ class InvestmentSimulatorTest
 {
     private InvestmentSimulator simulator;
 
+    private static final double EPSILON = 1E-2;
+
     @Test
     public void GIVEN_positiveInputParams_WHEN_investmentSimulated_THEN_correctProjectionReturned()
     {
@@ -33,13 +35,12 @@ class InvestmentSimulatorTest
         ArrayList<ProjectedBalance> projection = simulator.getBalanceProjection();
         double actualEndBalance = projection.get(projection.size() - 1).getNominalBalance();
 
-        double expectedEndBalance = 225.78;
-        final double DELTA = 1E-14;
-        assertEquals(expectedEndBalance, actualEndBalance, DELTA);
+        double expectedEndBalance = 220.78;
+        assertEquals(expectedEndBalance, actualEndBalance, EPSILON);
 
-        double expectedEndRealBalance = 185.22;
+        double expectedEndRealBalance = 181.12;
         double actualEndRealBalance = projection.get(projection.size() - 1).getInflationAdjustedBalance();
-        assertEquals(expectedEndRealBalance, actualEndRealBalance, DELTA);
+        assertEquals(expectedEndRealBalance, actualEndRealBalance, EPSILON);
     }
 
     @Test
@@ -64,18 +65,17 @@ class InvestmentSimulatorTest
         double actualEndBalance = projection.get(projection.size() - 1).getNominalBalance();
 
         double expectedEndBalance = 100.0;
-        final double DELTA = 1E-14;
-        assertEquals(expectedEndBalance, actualEndBalance, DELTA);
+        assertEquals(expectedEndBalance, actualEndBalance, EPSILON);
 
         double expectedEndRealBalance = 100.0;
         double actualEndRealBalance = projection.get(projection.size() - 1).getInflationAdjustedBalance();
-        assertEquals(expectedEndRealBalance, actualEndRealBalance, DELTA);
+        assertEquals(expectedEndRealBalance, actualEndRealBalance, EPSILON);
     }
 
     @Test
     public void GIVEN_negativeInitialAmount_WHEN_simulationCreated_THEN_exceptionThrown()
     {
-        final double INITIAL_INVESTMENT_AMOUNT = 100.0;
+        final double INITIAL_INVESTMENT_AMOUNT = -100.0;
         final double ANNUAL_CONTRIBUTION = 5.0;
         final double ANNUAL_GROWTH_RATE = 0.05;
         final int NUMBER_OF_YEARS = 0;
@@ -129,13 +129,12 @@ class InvestmentSimulatorTest
         ArrayList<ProjectedBalance> projection = simulator.getBalanceProjection();
         double actualEndBalance = projection.get(projection.size() - 1).getNominalBalance();
 
-        double expectedEndBalance = 37.11;
-        final double DELTA = 1E-14;
-        assertEquals(expectedEndBalance, actualEndBalance, DELTA);
+        double expectedEndBalance = 47.11;
+        assertEquals(expectedEndBalance, actualEndBalance, EPSILON);
 
-        double expectedEndRealBalance = 30.44;
+        double expectedEndRealBalance = 38.65;
         double actualEndRealBalance = projection.get(projection.size() - 1).getInflationAdjustedBalance();
-        assertEquals(expectedEndRealBalance, actualEndRealBalance, DELTA);
+        assertEquals(expectedEndRealBalance, actualEndRealBalance, EPSILON);
     }
 
     @Test
@@ -159,13 +158,12 @@ class InvestmentSimulatorTest
         ArrayList<ProjectedBalance> projection = simulator.getBalanceProjection();
         double actualEndBalance = projection.get(projection.size() - 1).getNominalBalance();
 
-        double expectedEndBalance = 100.0;
-        final double DELTA = 1E-14;
-        assertEquals(expectedEndBalance, actualEndBalance, DELTA);
+        double expectedEndBalance = 95.0;
+        assertEquals(expectedEndBalance, actualEndBalance, EPSILON);
 
-        double expectedEndRealBalance = 82.03;
+        double expectedEndRealBalance = 77.93;
         double actualEndRealBalance = projection.get(projection.size() - 1).getInflationAdjustedBalance();
-        assertEquals(expectedEndRealBalance, actualEndRealBalance, DELTA);
+        assertEquals(expectedEndRealBalance, actualEndRealBalance, EPSILON);
     }
 
     @Test
@@ -189,13 +187,12 @@ class InvestmentSimulatorTest
         ArrayList<ProjectedBalance> projection = simulator.getBalanceProjection();
         double actualEndBalance = projection.get(projection.size() - 1).getNominalBalance();
 
-        double expectedEndBalance = 225.78;
-        final double DELTA = 1E-14;
-        assertEquals(expectedEndBalance, actualEndBalance, DELTA);
+        double expectedEndBalance = 220.78;
+        assertEquals(expectedEndBalance, actualEndBalance, EPSILON);
 
-        double expectedEndRealBalance = 276.33;
+        double expectedEndRealBalance = 270.21;
         double actualEndRealBalance = projection.get(projection.size() - 1).getInflationAdjustedBalance();
-        assertEquals(expectedEndRealBalance, actualEndRealBalance, DELTA);
+        assertEquals(expectedEndRealBalance, actualEndRealBalance, EPSILON);
     }
 
 }
