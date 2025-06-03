@@ -7,4 +7,5 @@ public enum SimulationState
 {
     COMPLETE,
     NOT_COMPLETE,
+    NOT_STARTED
 }

@@ -5,7 +5,7 @@ import java.time.Year;
 /**
  * Represents the balance of an investment in a given year.
  */
-public class ProjectedBalance
+public class ProjectedBalance implements Cloneable
 {
     private final double nominalBalance;
     private final double inflationAdjustedBalance;
@@ -49,6 +49,38 @@ public class ProjectedBalance
     public Year getYear()
     {
         return year;
+    }
+
+    public Object clone()
+    {
+        try {
+            ProjectedBalance shallowCopy = (ProjectedBalance) super.clone();
+            // here I would make deep copies of mutable instance variables of the shallow copy, e.g.
+            // shallowCopy.mutableInstanceVar = (MutableType) this.mutableInstanceVar.clone()
+            return shallowCopy;
+        } catch (CloneNotSupportedException exception) {
+            // do nothing because this can't happen
+            // seeing as objects of this class are instances of Cloneable
+            return null;
+        }
+    }
+
+    public boolean equals(Object otherObject)
+    {
+        if (this == otherObject)
+        {
+            return true;
+        }
+        if (otherObject == null || otherObject.getClass() != this.getClass())
+        {
+            return false;
+        }
+
+        ProjectedBalance otherProjectedBalance = (ProjectedBalance) otherObject;
+
+        return Double.compare(this.inflationAdjustedBalance, otherProjectedBalance.inflationAdjustedBalance) == 0
+                && Double.compare(this.nominalBalance, otherProjectedBalance.nominalBalance) == 0
+                && this.year == otherProjectedBalance.year;
     }
 
 }

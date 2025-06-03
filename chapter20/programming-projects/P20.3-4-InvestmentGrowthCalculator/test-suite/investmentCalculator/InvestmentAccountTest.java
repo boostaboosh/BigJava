@@ -46,13 +46,12 @@ class InvestmentAccountTest
     @Test
     void depositPositiveFunds()
     {
-        account.depositFunds(0);
-        assertEquals(INITIAL_BALANCE, account.getBalance());
-
         final double DEPOSIT_AMOUNT = 25.283;
         account.depositFunds(DEPOSIT_AMOUNT);
-        final double expected = account.getBalance() + DEPOSIT_AMOUNT;
+        final double expected = INITIAL_BALANCE + DEPOSIT_AMOUNT;
         assertEquals(expected, account.getBalance());
+
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> account.depositFunds(0));
     }
 
     @Test
@@ -63,7 +62,6 @@ class InvestmentAccountTest
                 IllegalArgumentException.class,
                 () -> account.depositFunds(DEPOSIT_AMOUNT)
         );
-        fail("exception should have been thrown.");
     }
 
     @Test
@@ -83,6 +81,7 @@ class InvestmentAccountTest
     {
         final double NEGATIVE_WITHDRAWAL_AMOUNT = -12.3;
         Exception exception = assertThrows(IllegalArgumentException.class, () -> account.withdraw(NEGATIVE_WITHDRAWAL_AMOUNT));
+        Exception anotherException = assertThrows(IllegalArgumentException.class, () -> account.withdraw(0));
     }
 
     @Test

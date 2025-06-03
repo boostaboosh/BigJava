@@ -8,13 +8,24 @@ public class InvestmentAccount
 {
     private double balance;
 
+    private static final double EPSILON = 1E-14;
+
+    /**
+     * Create an investment account with a balance of zero.
+     */
+    public InvestmentAccount()
+    {
+        this.balance = 0;
+    }
+
     /**
      * Creates an investment account.
      * @param initialBalance the initial balance
      */
     public InvestmentAccount(double initialBalance)
     {
-        // todo
+        this();
+        this.depositFunds(initialBalance);
     }
 
     /**
@@ -23,8 +34,7 @@ public class InvestmentAccount
      */
     public double getReturn(double rateOfReturn)
     {
-        // todo
-        return 0;
+        return rateOfReturn * getBalance();
     }
 
     /**
@@ -32,8 +42,8 @@ public class InvestmentAccount
      */
     public void deductAnnualFees()
     {
-        // put at 0.025 for now
-        // todo
+        final double ANNUAL_FEES_PERCENTAGE_RATE = 0.025;
+        this.withdraw(this.getReturn(ANNUAL_FEES_PERCENTAGE_RATE));
     }
 
     /**
@@ -42,16 +52,30 @@ public class InvestmentAccount
      */
     public void depositFunds(double amount)
     {
-        // todo
+        if (amount <= EPSILON)
+        {
+            throw new IllegalArgumentException(String.format("deposit amount must be greater than zero, was %f", amount));
+        } else {
+            balance = balance + amount;
+        }
     }
 
     /**
      * Withdraws money from this investment account's balance.
      * @param amount the amount to withdraw
      */
-    public void withdraw(double amount)
-    {
-        // todo
+    public void withdraw(double amount) {
+        if (amount <= EPSILON) {
+            throw new IllegalArgumentException(String.format("withdrawal amount must be greater than zero, was %f", amount));
+        }
+        else if (balance - amount < -EPSILON)
+        {
+            throw new IllegalArgumentException(String.format("withdrawal amount, %f, must be less than or equal to balance, %f", amount, balance));
+        }
+        else
+        {
+            balance = balance - amount;
+        }
     }
 
     /**
@@ -60,8 +84,7 @@ public class InvestmentAccount
      */
     public double getBalance()
     {
-        // todo
-        return 0;
+        return balance;
     }
 
 }
