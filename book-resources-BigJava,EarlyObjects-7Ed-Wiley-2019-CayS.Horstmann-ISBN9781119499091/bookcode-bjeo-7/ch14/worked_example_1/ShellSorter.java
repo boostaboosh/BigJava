@@ -18,7 +18,7 @@ public class ShellSorter
       while (c < a.length) 
       { 
          columns.add(c);
-         c = 3 * c + 1;          
+         c = 3 * c + 1;
       }
 
       // For each column count, sort all columns
