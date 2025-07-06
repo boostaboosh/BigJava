@@ -20,6 +20,20 @@ public class MethodDemonstration
      */
     public static void main(String[] args) throws FileNotFoundException
     {
+        double val = Math.pow(2, 2000) / Math.pow(2, 1000);
+        System.out.println(val);
+        System.out.println(val * 5);
+        System.out.println();
+
+        final int BIG = 1000;
+        System.out.println("sqrt " + BIG + "+: " + Math.sqrt(BIG));
+        System.out.println("log " + BIG + ": " + Math.log(BIG));
+        System.out.println("sqrt 10: " + Math.sqrt(10));
+        System.out.println("log 10: " + Math.log(10));
+        System.out.println("10 ** 10 : " + NumberFormat.getInstance().format((Math.pow(10, 10))));
+        System.out.println("2 ** 10: " + Math.pow(2, 10));
+        System.out.println();
+
         JFrame frame = new JFrame();
 
         JPanel panel = new JPanel(new BorderLayout());
