@@ -41,8 +41,16 @@ public class QuickSorter
       int j = to + 1;
       while (i < j)
       {
-         i++; while (a[i] < pivot) { i++; }
-         j--; while (a[j] > pivot) { j--; }
+         i++;
+         while (a[i] < pivot)
+         {
+            i++;
+         }
+         j--;
+         while (a[j] > pivot)
+         {
+            j--;
+         }
          if (i < j) { ArrayUtil.swap(a, i, j); }
       }
       return j;
