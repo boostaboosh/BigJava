@@ -1,3 +1,4 @@
+import java.awt.*;
 import java.util.Arrays;
 
 /**
@@ -18,25 +19,34 @@ public class MethodDemonstration
       System.out.println(Arrays.toString(testParts) + "\n");
       
       String[] testNames = new String[] {
-            " name  with spaces   \n and then number 2  ",
-            "sec10_1_2_2_3.txt",
+              " name  with spaces   and newline \n and tab \t then number 2  ",
+              "sec10_1_2_2_3.txt",
+              "sec10",
+              "gsad",
+              "1432",
+              "gsad1",
       };
 
-      String regex = "[\\W_]";
+
+      // sec11_3.txt
+      // sec11_2.txt
+      // sec8_1.txt
+
+      String regex = "[\\d]";
       for (String testName : testNames)
       {
          System.out.println(
                testName + "\n"
-               + "regex: " + regex
-               + Arrays.toString(testName.trim().split(regex, 2)) + "\n");
+               + "regex: " + regex + "\n"
+               + Arrays.toString(testName.trim().split(regex, -1)) + "\n");
 
       }
+
    }
 
-   public static void doThing(double num)
+   public static void doThing(String part)
    {
-      num = 2.0;
-      System.out.println("num is " + num);
+      String regex = "\\d";
    }
 
 }
