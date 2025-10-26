@@ -16,6 +16,7 @@ Following are links to projects I made after each chapter.
 
 ## [chapter 14 Sorting And Searching](chapter14/programming-projects)
 - P14.2-ByTextThenDigitGroupsStringComparator
+- P14.4-QuickselectEfficientMedianComputer
 
 ## [chapter 13 Recursion](chapter13/programming-projects)
 - P13.7-TowersOfHanoiMovesIterator
