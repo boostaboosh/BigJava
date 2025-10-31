@@ -63,5 +63,8 @@ pdf p.661, not in physical book
 how to 13.1 - Thinking Recursively
 pdf p.686, book p.448
 
+how to 15.1 - Choosing a Collection
+pdf p.795, book p.527
+
 how to 20.1 - Laying out a user interface
 pdf p.1054, book p.692
