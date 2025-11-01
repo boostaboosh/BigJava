@@ -208,13 +208,14 @@ public class BarChart extends JComponent
                     arrowTipPath.lineTo(axisEndX - ARROW_TIP_HEIGHT, origin.getY() + (ARROW_TIP_WIDTH / 2.0));
                     graphics2D.draw(arrowTipPath);
 
-                    double barWidth = usableLength / (double) tickLabels.size();
-                    int distanceFromOrigin = Math.toIntExact(Math.round(barWidth / 2));
+                    int barWidth = usableLength / tickLabels.size();
+                    int distanceFromOrigin = barWidth / 2;
                     for (ChartValue val : tickLabels)
                     {
                         int tickX = (int) origin.getX() + distanceFromOrigin;
-                        distanceFromOrigin += Math.toIntExact(Math.round(barWidth));
                         graphics2D.drawLine(tickX, (int) origin.getY(), tickX, (int) origin.getY() + TICK_LENGTH);
+
+                        distanceFromOrigin += barWidth;
 
                         // draw horizontal label text beneath ticks
                         String label = val.getLabel();
