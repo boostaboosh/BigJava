@@ -31,8 +31,8 @@ public class MazeSolver
    /**
       Traverses a maze, printing out a path to the exit.
       @param maze the maze
-      @param param the row of the starting position
-      @param param the column of the starting position
+      @param row the row of the starting position
+      @param column the column of the starting position
    */
    public static void solve(Maze maze, int row, int column)
    {
