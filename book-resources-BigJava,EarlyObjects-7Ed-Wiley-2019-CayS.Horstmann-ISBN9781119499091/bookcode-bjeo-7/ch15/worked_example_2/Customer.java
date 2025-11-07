@@ -6,7 +6,7 @@ public class Customer
    private double arrivalTime;
    /** 
        Constructs a customer.
-       @param the time at which the customer entered the bank
+       @param time the time at which the customer entered the bank
    */
    public Customer(double time) { arrivalTime = time; }
 
