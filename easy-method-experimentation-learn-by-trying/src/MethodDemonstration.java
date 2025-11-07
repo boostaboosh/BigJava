@@ -1,8 +1,5 @@
 import java.awt.*;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.TreeMap;
+import java.util.*;
 
 /**
  * A class for experimenting with methods I learn about so that I can learn about it.
@@ -18,14 +15,25 @@ public class MethodDemonstration
     */
    public static void main(String[] args)
    {
-      Map<String, String> map = new TreeMap<>();
-      map.put("test", null);
-      map.put("test2", "other");
-      System.out.println(map);
-      System.out.println(map.get("test2"));
-      map.merge("test", "firstVal", (oldVal, notPresentVal) -> oldVal + notPresentVal);
-      map.merge("test", "firstVal", (oldVal, notPresentVal) -> oldVal + notPresentVal);
-      System.out.println(map);
+      Queue<String> queue = new PriorityQueue<>();
+      queue.add("aaa");
+      queue.add("bbb");
+      queue.add("ccc");
+      queue.add("ddd");
+      queue.add("aaa");
+      queue.add("bbb");
+      queue.add("ccc");
+      queue.add("ddd");
+      System.out.println("iterating (should be random order):");
+      for (String item : queue)
+      {
+         System.out.println(item);
+      }
+      System.out.println("removing (should be ordered by comparator least to greatest:");
+      while (!queue.isEmpty())
+      {
+         System.out.println(queue.remove());
+      }
    }
 
    public static void doThing(String part)
