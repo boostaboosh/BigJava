@@ -1,5 +1,6 @@
 import java.awt.*;
 import java.util.*;
+import java.util.function.Predicate;
 
 /**
  * A class for experimenting with methods I learn about so that I can learn about it.
@@ -15,25 +16,11 @@ public class MethodDemonstration
     */
    public static void main(String[] args)
    {
-      Queue<String> queue = new PriorityQueue<>();
-      queue.add("aaa");
-      queue.add("bbb");
-      queue.add("ccc");
-      queue.add("ddd");
-      queue.add("aaa");
-      queue.add("bbb");
-      queue.add("ccc");
-      queue.add("ddd");
-      System.out.println("iterating (should be random order):");
-      for (String item : queue)
-      {
-         System.out.println(item);
-      }
-      System.out.println("removing (should be ordered by comparator least to greatest:");
-      while (!queue.isEmpty())
-      {
-         System.out.println(queue.remove());
-      }
+      String name = "Juliet";
+      int hashCode = name.hashCode();
+      System.out.println(Integer.MAX_VALUE);
+      System.out.println("expected: " + (-2065036585));
+      System.out.println("actual: " + hashCode);
    }
 
    public static void doThing(String part)
