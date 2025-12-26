@@ -6,7 +6,7 @@ public class Main
 {
    public static void main(String[] args)
    {
-      for (int num : getPrimes(100))
+      for (int num : new TreeSet<>(getPrimes(100)))
       {
          System.out.println(num);
       }
@@ -20,25 +20,17 @@ public class Main
     * @return the prime numbers from 2 to n
     * (outer bounds of num range included)
     */
-   public static LinkedList<Integer> getPrimes(int num)
+   public static Set<Integer> getPrimes(int num)
    {
-      LinkedList<Integer> twoToN = new LinkedList<>();
-      for (int counter = 2; counter <= num; counter++)
+      Set<Integer> nums = new HashSet<>();
+      for (int number = 2; number <= num; number++) nums.add(number);
+
+      for (int root = 2; root * root <= num; root++)
       {
-         twoToN.add(counter);
+         if (!nums.contains(root)) continue;
+         for (int multiple = root * root; multiple <= num; multiple += root) nums.remove(multiple);
       }
 
-      int squareRootN = (int) Math.sqrt(num);
-      Set<Integer> factors = new TreeSet<>();
-      for (int counter = 2; counter <= squareRootN; counter++)
-      {
-         factors.add(counter);
-      }
-
-      factors.forEach((factor) -> {
-         twoToN.removeIf((number) -> !number.equals(factor) && number % factor == 0);
-      });
-
-      return twoToN;
+      return nums;
    }
 }
