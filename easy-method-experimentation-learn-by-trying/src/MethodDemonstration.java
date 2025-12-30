@@ -1,6 +1,4 @@
-import java.awt.*;
 import java.util.*;
-import java.util.function.Predicate;
 
 /**
  * A class for experimenting with methods I learn about so that I can learn about it.
@@ -16,11 +14,21 @@ public class MethodDemonstration
     */
    public static void main(String[] args)
    {
-      String name = "Juliet";
-      int hashCode = name.hashCode();
-      System.out.println(Integer.MAX_VALUE);
-      System.out.println("expected: " + (-2065036585));
-      System.out.println("actual: " + hashCode);
+      String phrase = "  [ ";
+      Scanner inputReader = new Scanner(phrase);
+
+      String[] splitted = phrase.split("[^A-Za-z0-9_]+");
+      for (String s : splitted) {
+         System.out.println("token: " + s);
+      }
+
+      System.out.println("_____________________");
+
+      inputReader.useDelimiter("[^A-Za-z0-9_]+");
+      while (inputReader.hasNext())
+      {
+         System.out.println(inputReader.next());
+      }
    }
 
    public static void doThing(String part)
