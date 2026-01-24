@@ -14,6 +14,9 @@ Following are links to projects I made after each chapter.
 ## [chapter 20 Graphical User Interfaces](chapter20/programming-projects)
 - P20.3-4-GUIInvestmentGrowthCalculator
 
+## [chapter 15 The Java Collections Framework](chapter15/programming-projects/)
+- P15.2-6-StudentsGradeManager
+
 ## [chapter 14 Sorting And Searching](chapter14/programming-projects)
 - P14.2-ByTextThenDigitGroupsStringComparator
 - P14.4-QuickselectEfficientMedianComputer
