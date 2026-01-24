@@ -3,15 +3,18 @@ import java.util.Set;
 
 public class Student
 {
-   private String firstName;
-   private String lastName;
-   private int ID;
+   private final String firstName;
+   private final String lastName;
+   private final int ID;
+   private static int lastAssignedID = 1000;
 
-   public Student(String fName, String lName, int id)
-   {
+   public Student(String fName, String lName) {
+      if (fName.isBlank()) throw new IllegalArgumentException("first name cannot be blank");
+      if (lName.isBlank()) throw new IllegalArgumentException("last name cannot be blank");
       firstName = fName;
       lastName = lName;
-      ID = id;
+      lastAssignedID++;
+      ID = lastAssignedID;
    }
 
    public String getFirstName()
