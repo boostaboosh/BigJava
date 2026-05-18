@@ -15,6 +15,7 @@ Following are links to projects I made after each chapter.
 - P20.3-4-GUIInvestmentGrowthCalculator
 
 ## [chapter 15 The Java Collections Framework](chapter15/programming-projects/)
+- P15.7-InfixToPostfixNotationConverter
 - P15.2-6-StudentsGradeManager
 
 ## [chapter 14 Sorting And Searching](chapter14/programming-projects)

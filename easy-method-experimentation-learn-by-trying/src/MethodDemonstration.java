@@ -14,6 +14,33 @@ public class MethodDemonstration
     */
    public static void main(String[] args)
    {
+
+      for (int i = 0; i < 10; i++)
+      {
+         System.out.println(i);
+      }
+
+
+      LinkedList<String> testList = new LinkedList<>();
+      testList.add("A");
+      testList.add("B");
+      testList.add("C");
+
+      ListIterator<String> listIterator = testList.listIterator();
+      System.out.println(listIterator.next()); // prints A, iterator position A | B C
+      listIterator.remove();
+      System.out.println(listIterator.next()); // B | C
+
+      ListIterator<String> newListIterator = testList.listIterator(); // | B C
+      System.out.println(newListIterator.next()); // B | C
+      newListIterator.remove(); // | C
+
+      listIterator.next(); // B C |
+      listIterator.remove(); // B |
+//      System.out.println(listIterator.next()); // throws error
+
+      System.exit(0);
+
       String phrase = "  [ ";
       Scanner inputReader = new Scanner(phrase);
 
