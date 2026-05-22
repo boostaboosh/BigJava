@@ -14,48 +14,9 @@ public class MethodDemonstration
     */
    public static void main(String[] args)
    {
-
-      for (int i = 0; i < 10; i++)
-      {
-         System.out.println(i);
-      }
-
-
-      LinkedList<String> testList = new LinkedList<>();
-      testList.add("A");
-      testList.add("B");
-      testList.add("C");
-
-      ListIterator<String> listIterator = testList.listIterator();
-      System.out.println(listIterator.next()); // prints A, iterator position A | B C
-      listIterator.remove();
-      System.out.println(listIterator.next()); // B | C
-
-      ListIterator<String> newListIterator = testList.listIterator(); // | B C
-      System.out.println(newListIterator.next()); // B | C
-      newListIterator.remove(); // | C
-
-      listIterator.next(); // B C |
-      listIterator.remove(); // B |
-//      System.out.println(listIterator.next()); // throws error
-
-      System.exit(0);
-
-      String phrase = "  [ ";
-      Scanner inputReader = new Scanner(phrase);
-
-      String[] splitted = phrase.split("[^A-Za-z0-9_]+");
-      for (String s : splitted) {
-         System.out.println("token: " + s);
-      }
-
-      System.out.println("_____________________");
-
-      inputReader.useDelimiter("[^A-Za-z0-9_]+");
-      while (inputReader.hasNext())
-      {
-         System.out.println(inputReader.next());
-      }
+      String word = "hello";
+      word = word.substring(0, 0);
+      System.out.println(word);
    }
 
    public static void doThing(String part)
