@@ -11,7 +11,7 @@ public class QueueBasedStringPermutationsTest
     @Test
     public void QueueBasedPermutationsGetsAllPermutations()
     {
-        List<String> actual = StackBasedStringPermutations.getPermutations("meat");
+        List<String> actual = QueueBasedStringPermutations.getPermutations("meat");
         List<String> expected = new LinkedList<>(Arrays.asList(
                 "meat", "meta", "maet", "mate", "mtae", "mtea",
                 "eatm", "eamt", "etam", "etma", "emta", "emat",
