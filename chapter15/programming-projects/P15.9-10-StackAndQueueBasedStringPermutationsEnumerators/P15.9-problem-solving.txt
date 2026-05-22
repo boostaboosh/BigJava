@@ -1,0 +1,16 @@
+•• P15.9 Use a stack to enumerate all permutations of a string. Suppose you want to find all
+permutations of the string meat.
+
+Push the string +meat on the stack.
+While the stack is not empty
+    Pop off the top of the stack.
+    If that string ends in a + (such as tame+)
+        Remove the + and add the string to the list of permutations.
+    Else
+        Remove each letter in turn from the right of the +.
+        Insert it just before the +.
+        Push the resulting string on the stack.
+
+For example, after popping e+mta, you push em+ta, et+ma, and ea+mt.
+
+•• P15.10 Repeat Exercise •• P15.9, but use a queue instead.
