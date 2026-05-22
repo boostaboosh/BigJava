@@ -62,6 +62,7 @@ pdf p.661, not in physical book
 
 how to 13.1 - Thinking Recursively
 pdf p.686, book p.448
+for my own step-by-step on thinking recursively, see chapter13/review-exercises/R13.12-TowersOfHanoi.txt (and the recursion definition in R13.1.txt).
 
 how to 15.1 - Choosing a Collection
 pdf p.795, book p.527
