@@ -14,9 +14,9 @@ public class MethodDemonstration
     */
    public static void main(String[] args)
    {
-      String word = "hello";
-      word = word.substring(0, 0);
-      System.out.println(word);
+      String word = "takeoff        FR123";
+      String[] tokens = word.split("\\s+");
+      System.out.println(tokens[1]);
    }
 
    public static void doThing(String part)
