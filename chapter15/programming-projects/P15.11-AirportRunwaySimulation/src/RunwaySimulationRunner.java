@@ -45,10 +45,10 @@ public class RunwaySimulationRunner
         if (input.equalsIgnoreCase("quit")) return new SimulationCommand(Command.QUIT);
         if (input.equalsIgnoreCase("next")) return new SimulationCommand(Command.NEXT);
         if (input.startsWith("land")) {
-            return new SimulationCommand(Command.LAND, getFlightSymbol(input));
+            return new FlightCommand(Command.LAND, getFlightSymbol(input));
         }
         if (input.startsWith("takeoff")) {
-            return new SimulationCommand(Command.TAKEOFF, getFlightSymbol(input));
+            return new FlightCommand(Command.TAKEOFF, getFlightSymbol(input));
         }
         throw new IOException("Unexpected runway simulation command inputted");
     }
@@ -56,23 +56,26 @@ public class RunwaySimulationRunner
     private static class SimulationCommand
     {
         private final Command command;
-        private final String flightSymbol;
 
         public SimulationCommand(Command command)
         {
             this.command = command;
-            flightSymbol = null;
-        }
-
-        public SimulationCommand(Command command, String symbol)
-        {
-            this.command = command;
-            this.flightSymbol = symbol;
         }
 
         public Command getSimulationCommand()
         {
             return command;
+        }
+    }
+
+    private static class FlightCommand extends SimulationCommand
+    {
+        private final String flightSymbol;
+
+        public FlightCommand(Command command, String flightSymbol)
+        {
+            super(command);
+            this.flightSymbol = flightSymbol;
         }
 
         public String getFlightSymbol()
