@@ -6,9 +6,9 @@ public class RunwaySimulationRunner
     public static void main(String[] args)
     {
         showUserCommands();
+        System.out.println("Enter airport runway simulation command: ");
         Scanner inputReader = new Scanner(System.in);
-
-        Simulation simulation = new RunwaySimulation();
+        RunwaySimulation simulation = new RunwaySimulation();
         boolean runningSimulation = true;
         while (runningSimulation)
         {
@@ -40,7 +40,6 @@ public class RunwaySimulationRunner
 
     private static SimulationCommand getCommand(Scanner inputReader) throws IOException
     {
-        System.out.println("Enter airport runway simulation command: ");
         String input = inputReader.nextLine().trim();
         if (input.equalsIgnoreCase("quit")) return new SimulationCommand(Command.QUIT);
         if (input.equalsIgnoreCase("next")) return new SimulationCommand(Command.NEXT);
@@ -96,13 +95,22 @@ public class RunwaySimulationRunner
         String[] words = input.split("\\s+");
         if (words.length != 2)
         {
-            throw new IOException("Input command isn't 2 tokens long");
+            throw new IOException("Input is wrong format. Should be \"command flightSymbol\", e.g. \"land BA123\"");
         }
         return words[1];
     }
 
-    private static void executeCommand(Simulation simulation, SimulationCommand command)
+    private static void executeCommand(RunwaySimulation simulation, SimulationCommand command)
     {
-        // todo
+        if (command.getSimulationCommand() == Command.NEXT)
+        {
+            simulation.next();
+        } else if (command.getSimulationCommand() == Command.TAKEOFF)
+        {
+            simulation.addTakeoff(((FlightCommand) command).getFlightSymbol());
+        } else if (command.getSimulationCommand() == Command.LAND)
+        {
+            simulation.addLand(((FlightCommand) command).getFlightSymbol());
+        }
     }
 }
