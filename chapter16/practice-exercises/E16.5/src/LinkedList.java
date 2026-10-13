@@ -32,7 +32,7 @@ public class LinkedList
     * @param headOfListTail the first node at the head of the tail of nodes to count the size of
     * @return the number of elements in the linked list
     */
-   private int size(Node headOfListTail)
+   private static int size(Node headOfListTail)
    {
       if (headOfListTail == null) return 0;
       if (headOfListTail.next == null) return 1;
