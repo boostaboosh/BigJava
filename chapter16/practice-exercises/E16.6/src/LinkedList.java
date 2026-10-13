@@ -120,7 +120,7 @@ public class LinkedList
       Node newNode = new Node();
       newNode.data = element;
       newNode.next = null;
-      last.next = newNode;
+      if (last != null) last.next = newNode;
       last = newNode;
       currentSize = currentSize + 1;
    }
@@ -236,7 +236,7 @@ public class LinkedList
          else 
          {  
             previous.next = position.next;
-            if (position.next == null) { last = null; }
+            if (position.next == null) { last = previous; }
             currentSize = currentSize - 1;
          }
          position = previous;
