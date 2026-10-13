@@ -5,19 +5,17 @@ public class LinkedListIterator implements ListIterator
     private Node position;
     private Node previous;
     private boolean isAfterNext;
-    private Node first;
-    private LinkedList linkedList;
+    private final LinkedList linkedList;
 
     /**
      Constructs an iterator that points to the front
      of the linked list.
      */
-    public LinkedListIterator(LinkedList linkedList, Node first)
+    public LinkedListIterator(LinkedList linkedList)
     {
         position = null;
         previous = null;
         isAfterNext = false;
-        this.first = first;
         this.linkedList = linkedList;
     }
 
@@ -33,7 +31,7 @@ public class LinkedListIterator implements ListIterator
 
         if (position == null)
         {
-            position = first;
+            position = linkedList.getFirstNode();
         }
         else
         {
@@ -51,7 +49,7 @@ public class LinkedListIterator implements ListIterator
     {
         if (position == null)
         {
-            return first != null;
+            return linkedList.getFirstNode() != null;
         }
         else
         {
@@ -69,7 +67,7 @@ public class LinkedListIterator implements ListIterator
         if (position == null)
         {
             linkedList.addFirst(element);
-            position = first;
+            position = linkedList.getFirstNode();
         }
         else
         {
@@ -91,7 +89,7 @@ public class LinkedListIterator implements ListIterator
     {
         if (!isAfterNext) { throw new IllegalStateException(); }
 
-        if (position == first)
+        if (position == linkedList.getFirstNode())
         {
             linkedList.removeFirst();
         }

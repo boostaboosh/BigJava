@@ -51,6 +51,11 @@ public class LinkedList
       newNode.next = first;
       first = newNode;
    }
+
+   public Node getFirstNode()
+   {
+      return first;
+   }
    
    /**
       Returns an iterator for iterating through this list.
@@ -58,7 +63,7 @@ public class LinkedList
    */
    public ListIterator listIterator()
    {  
-      return new LinkedListIterator(this, first);
+      return new LinkedListIterator(this);
    }
 
 }
