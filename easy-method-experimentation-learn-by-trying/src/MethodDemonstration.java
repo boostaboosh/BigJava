@@ -14,9 +14,37 @@ public class MethodDemonstration
     */
    public static void main(String[] args)
    {
-      String word = "takeoff        FR123";
-      String[] tokens = word.split("\\s+");
-      System.out.println(tokens[1]);
+      ArrayList<String> names = new ArrayList<>();
+      names.add("adam");
+      names.add("bob");
+      System.out.println(names);
+      ListIterator iterator = names.listIterator();
+      iterator.next();
+      iterator.remove();
+      iterator.add("adele");
+      iterator.add("ada");
+      System.out.println(names);
+      names.remove(1);
+      System.out.println(names);
+      String step = "";
+      try {
+         step = "nextIndex()";
+         int nextIndex = iterator.nextIndex();
+         step = "hasNext()";
+         boolean hasNext = iterator.hasNext();
+         step = "next()";
+         iterator.next();
+         step = "remove()";
+         iterator.remove();
+      } catch (Exception e)
+      {
+         System.out.println(e.getClass().getName() + " at step: " + step);
+      }
+   }
+
+   private static boolean test(Object one, Object two)
+   {
+      return one != null && two != null;
    }
 
    public static void doThing(String part)
