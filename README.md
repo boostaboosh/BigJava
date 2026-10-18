@@ -14,6 +14,10 @@ Following are links to projects I made after each chapter.
 ## [chapter 20 Graphical User Interfaces](chapter20/programming-projects)
 - P20.3-4-GUIInvestmentGrowthCalculator
 
+## [chapter 16 Basic Data Structures](chapter16/programming-projects/)
+- P16.14-OpenAddressingHashTableImplementationUsingLinearProbingSequenceForCollisionHandling
+- P16.9-LispListImplementation
+
 ## [chapter 15 The Java Collections Framework](chapter15/programming-projects/)
 - P15.9-10-StackAndQueueBasedStringPermutationsEnumerators
 - P15.7-InfixToPostfixNotationConverter
