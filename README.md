@@ -15,7 +15,7 @@ Following are links to projects I made after each chapter.
 - P20.3-4-GUIInvestmentGrowthCalculator
 
 ## [chapter 16 Basic Data Structures](chapter16/programming-projects/)
-- P16.14-OpenAddressingHashTableImplementationUsingLinearProbingSequenceForCollisionHandling
+- P16.17-OpenAddressingHashTableImplementationUsingLinearProbingSequenceForCollisionHandlingAndInactiveMarkersForRemovals
 - P16.9-LispListImplementation
 
 ## [chapter 15 The Java Collections Framework](chapter15/programming-projects/)
