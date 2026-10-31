@@ -2,3 +2,8 @@
 out/
 .idea/
 *.iml
+
+# IntelliJ new project adds its own .gitignore to every project
+# the rules above cover the rules for what the intellij new project ignores, so ignore .gitignore files except for the .gitignore in this root dir (this one)
+.gitignore
+!/.gitignore
